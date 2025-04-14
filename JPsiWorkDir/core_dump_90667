@@ -1,0 +1,14 @@
+#0  0x00007f8c2f6a1c3a in wait4 () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007f8c2f610f67 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007f8c30147225 in TUnixSystem::Exec (shellcmd=<optimized out>, this=0x21655d0) at /home/ferrandi/alice/sw/SOURCES/ROOT/v6-32-06-alice1/v6-32-06-alice1/core/unix/src/TUnixSystem.cxx:2157
+#3  TUnixSystem::StackTrace (this=0x21655d0) at /home/ferrandi/alice/sw/SOURCES/ROOT/v6-32-06-alice1/v6-32-06-alice1/core/unix/src/TUnixSystem.cxx:2448
+#4  0x00007f8c3230c739 in FairLogger::LogFatalMessage () at /home/ferrandi/alice/sw/SOURCES/FairRoot/v18.4.9-alice3/v18.4.9-alice3/fairtools/FairLogger.cxx:195
+#5  0x00007f8c312c7b1e in std::function<void ()>::operator()() const (this=0x7f8c312da960 <fair::Logger::fFatalCallback>) at /home/ferrandi/alice/sw/ubuntu2004_x86-64/GCC-Toolchain/v13.2.0-alice1-local1/include/c++/13.2.0/bits/std_function.h:587
+#6  fair::Logger::~Logger (this=0x7ffc5d444ff0, __in_chrg=<optimized out>) at /home/ferrandi/alice/sw/SOURCES/FairLogger/v1.11.1/v1.11.1/logger/Logger.cxx:276
+#7  0x00007f8c34679478 in doUnknownException (s=..., processName=processName
+entry=0x7ffc5d4461f0 "o2-analysis-je-jet-jpsi-fragmentation") at /home/ferrandi/alice/sw/ubuntu2004_x86-64/GCC-Toolchain/v13.2.0-alice1-local1/include/c++/13.2.0/bits/allocator.h:184
+#8  0x00007f8c34392d82 in callMain (argc=argc
+entry=5, argv=argv
+entry=0x7ffc5d445818, mainNoCatch=mainNoCatch
+entry=0x41cd40 <mainNoCatch(int, char**)>) at /home/ferrandi/alice/sw/SOURCES/O2/dev/0/Framework/Core/src/runDataProcessing.cxx:217
+#9  0x0000000000417509 in main (argc=5, argv=0x7ffc5d445818) at /home/ferrandi/alice/sw/ubuntu2004_x86-64/O2/dev-local2/include/Framework/runDataProcessing.h:218
