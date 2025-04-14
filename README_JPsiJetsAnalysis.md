@@ -1,6 +1,6 @@
 # Tutorial on running J/Psi jets analysis
 
-(tutorial created on April 11, 2025)
+(created on April 11, 2025. Aliases aimed to my pc)
 
 1. **Install O2Physics (see O2 Documentation)**  
 2.  **Enter O2Physics environment:**
@@ -16,19 +16,19 @@
   - To run, a json file must be provided containing:
   	- the AOD file as input or a txt file containing a list of AODs paths (in this case the string must start with "@")
   	- Parameters for the jet finder, such as:
-    		- Vertex z cut
-    		- event selection
-    		- p_T, eta, phi
-    		- Jet algorithm
+        		- Vertex z cut
+        		- event selection
+        		- p_T, eta, phi
+        		- Jet algorithm
   	- Parameters for JPsi Task, such as:
-    		- p_T bounds (ex.: 5, 7, 15 and 35 GeV)
+        		- p_T bounds (ex.: 5, 7, 15 and 35 GeV)
   	- If a json file doesn't exist yet, run without it and it will be automatically generated
   - A script was created to run this, which can be executed as following:
   	- cd into ~/alice/O2Physics/PWGJE/Tasks/JPsiWorkDir:
-    		- `cd $JPsiDir`
+        		- `cd $JPsiDir`
   	- Run the script providing the json file:
-    		- `./RunJPsiFragmentation.sh dpl-config.json`
-    		- (Or `o2-analysis-je-jet-jpsi-fragmentation -b --configuration json:<JSON> | o2-analysis-je-jet-finder-dielectron-data-charged -b --configuration json://<JSON>`)
+        		- `./RunJPsiFragmentation.sh dpl-config.json`
+        		- (Or `o2-analysis-je-jet-jpsi-fragmentation -b --configuration json:<JSON> | o2-analysis-je-jet-finder-dielectron-data-charged -b --configuration json://<JSON>`)
   - A `AnalysisResults.root` should've been created with jet spectra and z-vs-mass histograms for each pT range
 6. **Run the fitter:**
   - `cd ~/alice/O2Physics/PWGDQ/Macros/`
@@ -41,6 +41,6 @@
   - `tutorial.py` runs `DQFitter` for every x-projection of the histo:
   	- `python tutorial.py WithoutPsi2sconfigFit_MuensterWorkshop.json --run_fit_projections`
   	- A root file should've been created in output/ containing:
-    	  - A copy of the input histogram and inclusive mass distribution
-    	  - Results of the fits for every x projection
-    	  - For each fit range, a histogram compiling these results
+        	  - A copy of the input histogram and inclusive mass distribution
+        	  - Results of the fits for every x projection
+        	  - For each fit range, a histogram compiling these results
