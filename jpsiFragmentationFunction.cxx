@@ -41,7 +41,7 @@ struct JPsiFragmentationFunctionTask{
   inline static std::vector<o2::framework::HistPtr> hDielZVsMassHists;
 
 
-
+  //TEST
   // static std::vector<std::shared_ptr<TH2F>> hDielZVsMassHists;
   // static std::vector<std::string> h_diel_z_vs_mass_names; 
   // static std::vector<decltype(registry.add(""))> hDielZVsMassHists;
