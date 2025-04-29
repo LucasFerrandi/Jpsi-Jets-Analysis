@@ -60,11 +60,11 @@ struct JPsiFragmentationFunctionTask{
     registry.add("h_diel_y", ";Dielectron y", {HistType::kTH1F, {{200, -2., 2.}}});
     registry.add("h_diel_phi", ";Dielectron #phi", {HistType::kTH1F, {{200, -1., 7.}}});
     registry.add("h_diel_sign", ";Dielectron sign", {HistType::kTH1F, {{200, -3, 3}}});
-    registry.add("Jet_pt", ";Jet p_T", {HistType::kTH1F, {{1000, 0., 150.}}});
-    registry.add("Jet_eta", ";Jet #eta", {HistType::kTH1F, {{200, -1., 1.}}});
-    registry.add("Jet_y", ";Jet y", {HistType::kTH1F, {{200, -1., 1.}}});
-    registry.add("Jet_phi", ";Jet #phi", {HistType::kTH1F, {{200, -1., 7.}}});
-    registry.add("Jet_area", ";Jet area", {HistType::kTH1F, {{200, 0., 1.}}});
+    registry.add("h_Jet_pt", ";Jet p_T", {HistType::kTH1F, {{1000, 0., 150.}}});
+    registry.add("h_Jet_eta", ";Jet #eta", {HistType::kTH1F, {{200, -1., 1.}}});
+    registry.add("h_Jet_y", ";Jet y", {HistType::kTH1F, {{200, -1., 1.}}});
+    registry.add("h_Jet_phi", ";Jet #phi", {HistType::kTH1F, {{200, -1., 7.}}});
+    registry.add("h_Jet_area", ";Jet area", {HistType::kTH1F, {{200, 0., 1.}}});
     registry.add("h_dielSize_per_jet", ";Diels per jets", {HistType::kTH1F, {{10, 0, 10}}});
     registry.add("h_jets_per_coll", ";Jets per collision", {HistType::kTH1F, {{10, 0, 10}}});
     registry.add("h_diel_jet_projection", ";Dielectron jet projection", {HistType::kTH1F, {{100, 0., 1.}}});
@@ -96,6 +96,10 @@ struct JPsiFragmentationFunctionTask{
 
       // hP[prefixInd] = registry.add<TH1>(Form("%s/hP", histPrefixes[prefixInd].data()), "#it{p};#it{p} (GeV/#it{c})", HistType::kTH1F, {{500, 0., 6.}});
     }
+    registry.add("h_Jet_energy", ";#E_{jet}", {HistType::kTH1F, {{600, 0., 300.}}});
+    registry.add("h_diel_jet_distance", ";#DeltaR_{Diel,jet};dN/d(#DeltaR)", {HistType::kTH1F, {{1000, 0., 2.}}});
+    registry.add("h_diel_jet_distance_vs_projection", ";#DeltaR_{Diel,jet};z^{Diel,jet}_{||}", {HistType::kTH2F, {{700, 0., 2.}, {700, 0., 1.}}});
+    // registry.add("h_xi", ";#E_{jet}; #Xi(E_{jet}, 0.425) in 8 GeV bins", {HistType::kTH1F, {{10, 0, 10}}});
       
     // std::string z_mass_histname1 ="h_diel_z_vs_mass_" + std::format("{:.2f}", ptBounds->at(0)) + "_to_" + std::format("{:.2f}", ptBounds->at(0 + 1)) + "GeV";
     // registry.add("h_diel_z_vs_mass_5_to_7GeV", ";z; Mass", {HistType::kTH2F, {{10error: no match for 'operator=' (operand types are '__gnu_cxx::__alloc_traits<std::allocator<std::shared_ptr<TH2F> >, std::shared_ptr<TH2F> >::value_type' {aka 'std::shared_ptr<TH2F>'} and 'std::shared_ptr<TH2>')
@@ -126,11 +130,12 @@ struct JPsiFragmentationFunctionTask{
 
     int jetInColl = 0;
     for (auto& jet : jets) {
-      registry.fill(HIST("Jet_pt"), jet.pt());
-      registry.fill(HIST("Jet_eta"), jet.eta());
-      registry.fill(HIST("Jet_y"), jet.y());
-      registry.fill(HIST("Jet_phi"), jet.phi());
-      registry.fill(HIST("Jet_area"), jet.area());
+      registry.fill(HIST("h_Jet_pt"), jet.pt());
+      registry.fill(HIST("h_Jet_eta"), jet.eta());
+      registry.fill(HIST("h_Jet_y"), jet.y());
+      registry.fill(HIST("h_Jet_phi"), jet.phi());
+      registry.fill(HIST("h_Jet_area"), jet.area());
+      registry.fill(HIST("h_Jet_energy"), jet.energy());
       if (jet.pt() > 10){
         registry.fill(HIST("h_area_jet_vs_pT"), jet.pt(), jet.area());
       }
@@ -152,6 +157,9 @@ struct JPsiFragmentationFunctionTask{
           pt_ratio = 1.4;
         }
         registry.fill(HIST("h_diel_pt_projection"), pt_ratio);
+        double axisDistance = jetutilities::deltaR(jet, jpsiCandidate);
+        registry.fill(HIST("h_diel_jet_distance_vs_projection"), axisDistance, z_parallel);
+        registry.fill(HIST("h_diel_jet_distance"), axisDistance);
       }
       registry.fill(HIST("h_dielSize_per_jet"), jet.candidatesIds().size());
       registry.fill(HIST("h_tracks_per_jets"), jet.tracksIds().size());
