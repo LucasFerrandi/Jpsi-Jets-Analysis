@@ -65,12 +65,12 @@ struct JPsiFragmentationFunctionTask{
     registry.add("h_tracks_per_coll", "Tracks per Collision;Tracks per coll; Entries", {HistType::kTH1F, {{100, 0, 100}}});
     registry.add("h_diels_per_coll", "Candidates per Collision;Diels per coll; Entries", {HistType::kTH1F, {{10, 0, 10}}});
     registry.add("h_area_jet_vs_pT", "Jet Area vs p_{T};p_{T}^{jet} (GeV);A^{jet}", {HistType::kTH2F, {{500, 0., 100.}, {50, 0., 1.}}});
-    registry.add("h_diel_z_vs_mass_pTSemiInclusive", Form("Mass Distributions in z Bins, %.0f < p_{T}^{jet} < %.0f GeV;Mass (GeV);z", ptBounds.value[0], ptBounds.value.back()), {HistType::kTH2F, {{10000, 0., 35.}, {20, 0, 1}}});
-    registry.add("h_diel_z_vs_mass_ESemiInclusive", Form("Mass Distributions in z Bins, %.0f < E_{jet} < %.0f GeV;Mass (GeV);z", EBounds.value[0], EBounds.value.back()), {HistType::kTH2F, {{10000, 0., 35.}, {20, 0, 1}}});
+    std::string h_diel_z_vs_mass_pTInclusive_name = Form("h_diel_z_vs_mass_pTSemiInclusive_%.0f_to_%.0fMeV", 1000*ptBounds.value[0], 1000*ptBounds.value.back());
+    auto hDielZVsMasspTInclusiveHist = registry.add(h_diel_z_vs_mass_pTInclusive_name.c_str(), Form("Mass Distributions in z Bins, %.0f < p_{T}^{jet} < %.0f GeV;Mass (GeV);z", ptBounds.value[0], ptBounds.value.back()), {HistType::kTH2F, {{10000, 0., 35.}, {20, 0, 1}}});
     for (size_t i = 0; i < ptBounds.value.size() - 1; i++) { //A 2D histogram for each pT range
       // registry.add(Form("h_diel_z_vs_mass_%s_to_%sGeV", ptBounds->at(i).data(), ptBounds->at(i+1).data()), ";z; Mass", {HistType::kTH2F, {{10, 0, 1}, {10000, 0., 35.}}});
 
-      std::string h_diel_z_vs_mass_name = Form("h_diel_z_vs_mass_%.0f_to_%.0fMeV", 1000*ptBounds.value[i], 1000*ptBounds.value[i+1]);
+      std::string h_diel_z_vs_mass_name = Form("h_diel_z_vs_mass_pT_%.0f_to_%.0fMeV", 1000*ptBounds.value[i], 1000*ptBounds.value[i+1]);
       // std::string h_diel_z_vs_mass_name = std::format("h_diel_z_vs_mass_{:.2f}_to_{:.2f}GeV", ptBounds.value[i], ptBounds.value[i + 1]);
       // registry.add(h_diel_z_vs_mass_name.c_str(), ";z; Mass", {HistType::kTH2F, {{10, 0, 1}, {10000, 0., 35.}}});
       // h_diel_z_vs_mass_names.push_back(h_diel_z_vs_mass_name);
@@ -89,12 +89,23 @@ struct JPsiFragmentationFunctionTask{
     registry.add("h_Jet_energy", "Jet Energy;E_{jet};dN/dE_{jet}", {HistType::kTH1F, {{600, 0., 300.}}});
     registry.add("h_diel_jet_distance", "Candidate Angular Distance to Jet Axis;#DeltaR_{cand}^{jet};dN/d(#DeltaR)", {HistType::kTH1F, {{1000, 0., 2.}}});
     registry.add("h_diel_jet_distance_vs_projection", "Candidate p_{T} Ratio vs Angular Distance to Jet Axis;#DeltaR_{cand}^{jet};z", {HistType::kTH2F, {{700, 0., 2.}, {700, 0., 1.}}});
-    // registry.add("h_xi", ";#E_{jet}; #Xi(E_{jet}, 0.425) in 12 GeV bins", {HistType::kTH1F, {{10, 0, 10}}});
+    registry.add("h_diel_otherJet_distance", "Candidate Angular Distance to Same-Event Jets Axis;#DeltaR_{cand}^{jet};dN/d(#DeltaR)", {HistType::kTH1F, {{1000, 0., 5.}}});
+    registry.add("h_diel_otherJet_distance_vs_projection", "Candidate p_{T} Ratio vs Angular Distance to Same-Event Jets Axis;#DeltaR_{cand}^{jet};z", {HistType::kTH2F, {{700, 0., 5.}, {700, 0., 1.}}});
+    registry.add("h_jet_otherJet_distance", "Candidate-Jet Angular Distance to Same-Event Jets Axis;#DeltaR_{cand}^{jet};dN/d(#DeltaR)", {HistType::kTH1F, {{1000, 0., 5.}}});
+    registry.add("h_jet_otherJet_distance_vs_projection", "Candidate p_{T} Ratio vs Candidate-Jet Angular Distance to Same-Event Jets Axis;#DeltaR_{cand}^{jet};z", {HistType::kTH2F, {{700, 0., 5.}, {700, 0., 1.}}});
+    registry.add("h_diel_otherJet_Azimutdistance", "Candidate Azimuthal Distance to Same-Event Jets Axis;#Delta#phi_{cand}^{jet};dN/d(#Delta#phi)", {HistType::kTH1F, {{1000, -1., 4.}}});
+    registry.add("h_diel_otherJet_Azimutdistance_vs_projection", "Candidate p_{T} Ratio vs Azimuthal Distance to Same-Event Jets Axis;#Delta#phi_{cand}^{jet};z", {HistType::kTH2F, {{700, -1., 4.}, {700, 0., 1.}}});
+    registry.add("h_jet_otherJet_Azimutdistance", "Candidate-Jet Azimuthal Distance to Same-Event Jets Axis;#Delta#phi_{cand}^{jet};dN/d(#Delta#phi)", {HistType::kTH1F, {{1000, -1., 4.}}});
+    registry.add("h_jet_otherJet_Azimutdistance_vs_projection", "Candidate p_{T} Ratio vs Candidate-Jet Azimuthal Distance to Same-Event Jets Axis;#Delta#phi_{cand}^{jet};z", {HistType::kTH2F, {{700, -1., 4.}, {700, 0., 1.}}});
+    std::string h_diel_z_vs_mass_EInclusive_name = Form("h_diel_z_vs_mass_EnergySemiInclusive_%.0f_to_%.0fMeV", 1000*EBounds.value[0], 1000*EBounds.value.back());
+    auto hDielZVsMassEInclusiveHist = registry.add(h_diel_z_vs_mass_EInclusive_name.c_str(), Form("Mass Distributions in z Bins, %.0f < E_{jet} < %.0f GeV;Mass (GeV);z", EBounds.value[0], EBounds.value.back()), {HistType::kTH2F, {{10000, 0., 35.}, {20, 0, 1}}});
     for (size_t i = 0; i < EBounds.value.size() - 1; i++) { //A 2D histogram for each E bin, aiming analysis of Xi(E,z)
-      std::string h_diel_z_vs_mass_E_name = Form("h_diel_z_vs_mass_E_%.0f_to_%.0fMeV", 1000*EBounds.value[i], 1000*EBounds.value[i+1]);
+      std::string h_diel_z_vs_mass_E_name = Form("h_diel_z_vs_mass_Energy_%.0f_to_%.0fMeV", 1000*EBounds.value[i], 1000*EBounds.value[i+1]);
       auto hDielZVsMassEHist = registry.add(h_diel_z_vs_mass_E_name.c_str(), Form("Mass Distributions in z bins, %.0f < E_{jet} < %.0f GeV;Mass (GeV);z", EBounds.value[i], EBounds.value[i+1]), {HistType::kTH2F, {{2000, 0., 35.}, {20, 0, 1}}});
       hDielZVsMassHistsE.push_back(hDielZVsMassEHist);
     }
+    hDielZVsMassHists.push_back(hDielZVsMasspTInclusiveHist);
+    hDielZVsMassHistsE.push_back(hDielZVsMassEInclusiveHist);
     // std::string z_mass_histname1 ="h_diel_z_vs_mass_" + std::format("{:.2f}", ptBounds->at(0)) + "_to_" + std::format("{:.2f}", ptBounds->at(0 + 1)) + "GeV";
     // registry.add("h_diel_z_vs_mass_5_to_7GeV", ";z; Mass", {HistType::kTH2F, {{10error: no match for 'operator=' (operand types are '__gnu_cxx::__alloc_traits<std::allocator<std::shared_ptr<TH2F> >, std::shared_ptr<TH2F> >::value_type' {aka 'std::shared_ptr<TH2F>'} and 'std::shared_ptr<TH2>')
     // registry.add("h_diel_z_vs_mass_7_to_15GeV", ";z; Mass", {HistType::kTH2F, {{10, 0, 1}, {10000, 0., 35.}}});
@@ -118,6 +129,7 @@ struct JPsiFragmentationFunctionTask{
     registry.fill(HIST("h_tracks_per_coll"), trackInColl);
     int jetInColl = 0;
     for (auto& jet : jets) {
+      bool jetHasJPsi = false;
       registry.fill(HIST("h_Jet_pt"), jet.pt());
       registry.fill(HIST("h_Jet_eta"), jet.eta());
       registry.fill(HIST("h_Jet_y"), jet.y());
@@ -129,6 +141,7 @@ struct JPsiFragmentationFunctionTask{
       }
       TVector3 jetVector(jet.px(), jet.py(), jet.pz());
       for (auto& jpsiCandidate : jet.candidates_as<aod::CandidatesDielectronData>()) {
+        jetHasJPsi = true;
         registry.fill(HIST("h_diel_mass"), jpsiCandidate.mass());
         registry.fill(HIST("h_diel_pt"), jpsiCandidate.pt());
         registry.fill(HIST("h_diel_eta"), jpsiCandidate.eta());
@@ -142,11 +155,29 @@ struct JPsiFragmentationFunctionTask{
         registry.fill(HIST("h_diel_jet_projection"), z_parallel);
         registry.fill(HIST("h_diel_jet_rejection"), z_perpendicular);
         registry.fill(HIST("h_diel_pt_projection"), pt_ratio);
-        double axisDistance = jetutilities::deltaR(jet, jpsiCandidate);
-        registry.fill(HIST("h_diel_jet_distance_vs_projection"), axisDistance, z_parallel);
-        registry.fill(HIST("h_diel_jet_distance"), axisDistance);
+        double candDistToAxis = jetutilities::deltaR(jpsiCandidate, jet);
+        registry.fill(HIST("h_diel_jet_distance"), candDistToAxis);
+        registry.fill(HIST("h_diel_jet_distance_vs_projection"), candDistToAxis, z_parallel);
+        int jetCounter = 0;
+        for (auto& otherJet : jets) { //Distances JPsi-jet
+          double candJetDistToJets = jetutilities::deltaR(jet, otherJet);
+          if (candJetDistToJets < 0.001){
+            continue;
+          }
+          registry.fill(HIST("h_jet_otherJet_distance"), candJetDistToJets);
+          registry.fill(HIST("h_jet_otherJet_distance_vs_projection"), candJetDistToJets, z_parallel);
+          double candDistToJets = jetutilities::deltaR(jpsiCandidate, otherJet); //otherJet
+          registry.fill(HIST("h_diel_otherJet_distance"), candDistToJets);
+          registry.fill(HIST("h_diel_otherJet_distance_vs_projection"), candDistToJets, z_parallel);
+          double candAzimutDistToJets = RecoDecay::constrainAngle(std::abs(jpsiCandidate.phi() - otherJet.phi()), 0, 2);
+          registry.fill(HIST("h_diel_otherJet_Azimutdistance"), candAzimutDistToJets);
+          registry.fill(HIST("h_diel_otherJet_Azimutdistance_vs_projection"), candAzimutDistToJets, z_parallel);
+          double candJetAzimutDistToJets = RecoDecay::constrainAngle(std::abs(jet.phi() - otherJet.phi()), 0, 2);
+          registry.fill(HIST("h_jet_otherJet_Azimutdistance"), candJetAzimutDistToJets);
+          registry.fill(HIST("h_jet_otherJet_Azimutdistance_vs_projection"), candJetAzimutDistToJets, z_parallel);
+        }
       }
-      registry.fill(HIST("h_dielSize_per_jet"), jet.candidatesIds().size());
+      registry.fill(HIST("h_dielSize_per_jet"), jet.candidatesIds().size()); //Always = 1 if doCandidateJetFinding = true
       registry.fill(HIST("h_tracks_per_jets"), jet.tracksIds().size());
       jet_globalid++;
       jetInColl++;
@@ -161,7 +192,8 @@ struct JPsiFragmentationFunctionTask{
             // hDielZVsMassHists[i]->Fill(pt_ratio, jpsiCandidate.mass());
             // std::get<std::shared_ptr<TH2F>>(hDielZVsMassHists[i])->Fill(pt_ratio, jpsiCandidate.mass());
             std::get<std::shared_ptr<TH2>>(hDielZVsMassHists[i])->Fill(jpsiCandidate.mass(), pt_ratio);
-            registry.fill(HIST("h_diel_z_vs_mass_pTSemiInclusive"), jpsiCandidate.mass(), pt_ratio);
+            std::get<std::shared_ptr<TH2>>(hDielZVsMassHists.back())->Fill(jpsiCandidate.mass(), pt_ratio);
+            // registry.fill(HIST(h_diel_z_vs_mass_pTInclusive_name.c_str()), jpsiCandidate.mass(), pt_ratio);
             // registry.get<TH2F>(hDielZVsMassHists[i])->Fill(pt_ratio, jpsiCandidate.mass());
           }
         }
@@ -172,7 +204,8 @@ struct JPsiFragmentationFunctionTask{
             TVector3 jpsiVector(jpsiCandidate.px(), jpsiCandidate.py(), jpsiCandidate.pz());
             double pt_ratio = jpsiCandidate.pt() / jet.pt();
             std::get<std::shared_ptr<TH2>>(hDielZVsMassHistsE[i])->Fill(jpsiCandidate.mass(), pt_ratio);
-            registry.fill(HIST("h_diel_z_vs_mass_ESemiInclusive"), jpsiCandidate.mass(), pt_ratio);
+            std::get<std::shared_ptr<TH2>>(hDielZVsMassHistsE.back())->Fill(jpsiCandidate.mass(), pt_ratio);
+            // registry.fill(HIST(h_diel_z_vs_mass_EInclusive_name.c_str()), jpsiCandidate.mass(), pt_ratio);
           }
         }
       }
