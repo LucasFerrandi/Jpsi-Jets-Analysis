@@ -21,6 +21,7 @@ from ROOT import (
 
 
 class DQFitter:
+    #dqFitter=DQFitter(inputCfg["input"]["input_file_name"], input_name, inputCfg["output"]["output_file_name"], MinDataRange, MaxDataRange, inputCfg["input"]["desired_bins"], True, binZ)
     def __init__(self, fInName, fInputName, fOutPath, fMinDataRange, fMaxDataRange, desired_Nbins=700, run_projections=False, binY=None):
         if not exists(fInName):
             print("The input file does not exist, exit...")
@@ -33,15 +34,54 @@ class DQFitter:
         self.fInput = self.fFileIn.Get(fInputName)
         print("self.fInput.ClassName() = ", self.fInput.ClassName())
         print("self.fInput = ", self.fInput)
-        if binY is None or binY == 1: # if None, not analysis in bins. If 1st bin, the file has to be created
-            self.fFileOut = TFile("{}{}.root".format(fOutPath, fInputName.rsplit("/", 1)[-1]), "RECREATE")
+        if binY is None or binY == 1: # if None, not analysis in bins. If 1st bin, the file has to be created and mass hist written
+            # self.fFileOut = TFile("{}{}.root".format(fOutPath, fInputName.rsplit("/", 1)[-1]), "RECREATE")
+            self.fFileOut = TFile("{}FitterResults_{}".format(fOutPath, fInName.rsplit("/", 1)[-1]), "UPDATE")
             self.fFileOut.cd()
-            self.fInput.Write()
-            h_inclusive_mass = self.fFileIn.Get("j-psi-fragmentation-function-task/h_diel_mass")
-            h_inclusive_mass.Write()
+            # EDir = FileOut.GetDirectory(EDirName) or FileOut.mkdir(EDirName)
+            if "pT" in fInputName:
+                DirName = "Analysis_in_pT_Ranges"
+                self.Dir = self.fFileOut.GetDirectory(DirName) or self.fFileOut.mkdir(DirName)
+                # if "SemiInclusive" in input_name:
+                #     print("Found SemiInclusive in histogram name")
+                #     continue #temporary. Later include the same analysis for semiinclusive
+                self.Dir.cd()
+                # self.thisRangeDir = self.Dir.GetDirectory(input_name.split("/")[-1]) or self.Dir.mkdir(input_name.split("/")[-1])
+                self.thisRangeDir = self.Dir.mkdir(fInputName.split("/")[-1])
+                self.thisRangeDir.cd() #maybe exit the directory later
+                self.fInput.Write()
+                h_inclusive_mass = self.fFileIn.Get("j-psi-fragmentation-function-task/h_diel_mass")
+                h_inclusive_mass.Write()
+            if "Energy" in fInputName:
+                DirName = "Analysis_in_Energy_Ranges"
+                self.Dir = self.fFileOut.GetDirectory(DirName) or self.fFileOut.mkdir(DirName)
+                self.Dir.cd()
+                # self.thisRangeDir = self.Dir.GetDirectory(input_name.split("/")[-1]) or self.Dir.mkdir(input_name.split("/")[-1])
+                self.thisRangeDir = self.Dir.mkdir(fInputName.split("/")[-1])
+                self.thisRangeDir.cd()
+                self.fInput.Write()
+                h_inclusive_mass = self.fFileIn.Get("j-psi-fragmentation-function-task/h_diel_mass")
+                h_inclusive_mass.Write()
         else:
-            self.fFileOut = TFile("{}{}.root".format(fOutPath, fInputName.rsplit("/", 1)[-1]), "UPDATE") 
-        self.fFileOut.ls()
+            # self.fFileOut = TFile("{}{}.root".format(fOutPath, fInputName.rsplit("/", 1)[-1]), "UPDATE")
+            self.fFileOut = TFile("{}FitterResults_{}".format(fOutPath, fInName.rsplit("/", 1)[-1]), "UPDATE") 
+            self.fFileOut.cd()
+            if "pT" in fInputName:
+                DirName = "Analysis_in_pT_Ranges"
+                self.Dir = self.fFileOut.GetDirectory(DirName)
+                # if "SemiInclusive" in input_name:
+                #     print("Found SemiInclusive in histogram name")
+                #     continue #temporary. Later include the same analysis for semiinclusive
+                self.Dir.cd()
+                self.thisRangeDir = self.Dir.GetDirectory(fInputName.split("/")[-1])
+                self.thisRangeDir.cd() #maybe exit the directory later
+            if "Energy" in fInputName:
+                DirName = "Analysis_in_Energy_Ranges"
+                self.Dir = self.fFileOut.GetDirectory(DirName)
+                self.Dir.cd()
+                self.thisRangeDir = self.Dir.GetDirectory(fInputName.split("/")[-1])
+                self.thisRangeDir.cd()
+        # self.fFileOut.ls()
         self.run_projections = run_projections
         if run_projections:
             print("Projecting 2D histogram to 1D histograms")
@@ -128,7 +168,6 @@ class DQFitter:
 
 
     def FitInvMassSpectrum(self, fitRangeMin, fitRangeMax, run_projections=False, subDirName=None, DictRange=None):
-        print("TEST1")
         """
         Method to perform binned / unbinned fit to a ROOT histogram / tree
         """
@@ -182,15 +221,14 @@ class DQFitter:
         for parName in self.fParNames:
             histResults.GetXaxis().SetBinLabel(index, parName)
             histResults.SetBinContent(index, self.fRooWorkspace.var(parName).getVal())
-            print(f"self.fRooWorkspace.var({parName}).getVal(), subdirname {subDirName} = ", self.fRooWorkspace.var(parName).getVal())
-            DictRange[parName] = (self.fRooWorkspace.var(parName).getVal())
+            # print(f"self.fRooWorkspace.var({parName}).getVal(), subdirname {subDirName} = ", self.fRooWorkspace.var(parName).getVal())
+            DictRange[parName] = (self.fRooWorkspace.var(parName).getVal()) # Saves fit parameters for each range
             DictRange[parName+"_err"] = (self.fRooWorkspace.var(parName).getError())
             histResults.SetBinContent(index, self.fRooWorkspace.var(parName).getError())
             index += 1
 
         for i in range(0, len(self.fPdfDict["pdf"])):
-            print("TEST2")
-            print('self.fPdfDict["pdfName"][i] = ', self.fPdfDict["pdfName"][i])
+            # print('self.fPdfDict["pdfName"][i] = ', self.fPdfDict["pdfName"][i])
             if not self.fPdfDict["pdfName"][i] == "SUM":
                 pdf.plotOn(fRooPlot, ROOT.RooFit.Components("{}Pdf".format(self.fPdfDict["pdfName"][i])), ROOT.RooFit.LineColor(self.fPdfDict["pdfColor"][i]), ROOT.RooFit.LineStyle(self.fPdfDict["pdfStyle"][i]), ROOT.RooFit.LineWidth(2), ROOT.RooFit.Range(fitRangeMin, fitRangeMax))
 
@@ -200,7 +238,6 @@ class DQFitter:
         paveText.SetTextSize(0.015)
         paveText.SetFillColor(ROOT.kWhite)
         for parName in self.fParNames:
-            print("TEST3")
             paveText.AddText("{} = {:.4f} #pm {:.4f}".format(parName, self.fRooWorkspace.var(parName).getVal(), self.fRooWorkspace.var(parName).getError()))
             if self.fPdfDict["parForPropagandaPlot"].count(parName) > 0:
                 text = self.fPdfDict["parNameForPropagandaPlot"][self.fPdfDict["parForPropagandaPlot"].index(parName)]
@@ -214,7 +251,6 @@ class DQFitter:
 
         nPars = rooFitRes.floatParsFinal().getSize()
         if "TTree" in self.fInput.ClassName():
-            print("TEST4")
             # Convert RooDataSet into RooDataHist to extract the Chi2 value
             rooDh = RooDataHist("rooDh", "binned version of rooDs", RooArgSet(self.fRooMass), rooDs)
             chi2 = ROOT.RooChi2Var("chi2", "chi2", pdf, rooDh)
@@ -226,7 +262,6 @@ class DQFitter:
             paveText.AddText("#bf{#chi^{2}/dof = %3.2f}" % (reduced_chi2))
             extraText.append("#chi^{2}/dof = %3.2f" % reduced_chi2)
         else:
-            print("TEST5")
             # To Do : Find a way to get the number of bins differently. The following is a temparary solution.
             # WARNING : The largest fit range has to come first in the config file otherwise it does not work
             chi2 = ROOT.RooChi2Var("chi2", "chi2", pdf, rooDs, False, 1)
@@ -241,7 +276,6 @@ class DQFitter:
             paveText.AddText("#bf{#chi^{2}/dof = %3.2f}" % reduced_chi2)
             fRooPlot.addObject(paveText)
             extraText.append("#chi^{2}/dof = %3.2f" % reduced_chi2)
-            print("TEST6")
         
         # Fit plot
         canvasFit = TCanvas(
@@ -253,30 +287,32 @@ class DQFitter:
         fRooPlot.Draw()
 
         # Residual plot
-        print("TEST7")
         canvasResidual = DoResidualPlot(fRooPlot, self.fRooMass, binPlotsName)
 
         # Pull plot
-        print("TEST8")
         canvasPull = DoPullPlot(fRooPlot, self.fRooMass, binPlotsName)
 
         # Correlation matrix plot
-        print("TEST9")
         canvasCorrMat = DoCorrMatPlot(rooFitRes, binPlotsName)
 
         # Propaganda plot
-        print("TEST10")
         if self.fPdfDict["doPropagandaPlot"]:
             DoPropagandaPlot(rooDs, pdf, fRooPlotCopy, self.fPdfDict, self.fInputName, binPlotsName, self.fOutPath, extraText)
 
         # Save results
+        # self.fFileOut.cd()
+        # if run_projections:
+        #     if not self.fFileOut.GetDirectory(self.subDirName):
+        #         self.fFileOut.mkdir(self.subDirName) # create 1 subdir for each z bin
+        #     self.fFileOut.cd(self.subDirName)
         self.fFileOut.cd()
+        if "pT" in self.fInputName:
+            self.Dir.cd()
+            self.thisRangeDir.cd()
         if run_projections:
-            if not self.fFileOut.GetDirectory(self.subDirName):
-                self.fFileOut.mkdir(self.subDirName) # create 1 subdir for each z bin
-            self.fFileOut.cd(self.subDirName)
-        print("self.fFileOut = ", self.fFileOut)
-        self.fFileOut.ls()
+            if not self.thisRangeDir.GetDirectory(self.subDirName):
+                self.thisRangeDir.mkdir(self.subDirName) # create 1 subdir for each z bin
+            self.thisRangeDir.cd(self.subDirName)
         canvasFit.Write()
         canvasResidual.Write()
         canvasPull.Write()
@@ -291,15 +327,43 @@ class DQFitter:
         # Resultsbin = {}
         BinResultsDict = {} # Dictionary that will contain the dictionaries for each pT range
         for iRange in range(0, len(self.fFitRangeMin)):
-            print("iRangemin = ",self.fFitRangeMin[iRange])
             DictRange = {} # Dictionary for each pT range
             self.FitInvMassSpectrum(
                 self.fFitRangeMin[iRange], self.fFitRangeMax[iRange], self.run_projections, self.subDirName, DictRange
             )
-            RangeName = f"DictRange_{self.fFitRangeMin[iRange]}_to_{self.fFitRangeMax[iRange]}GeV"
+            RangeName = f"DictRange_{self.fFitRangeMin[iRange]} to {self.fFitRangeMax[iRange]} GeV"
             BinResultsDict[RangeName] = DictRange
             print("DictRange = ", DictRange)
         for i in BinResultsDict:
             print(f"BinResultsDict[{i}] = \n", BinResultsDict[i])
         self.fFileOut.Close()
         return BinResultsDict
+    
+    # def PlotInitialParameters(self, component_name, output_name="initial_plot.png"):
+    #     """
+    #     Plot a PDF component with initial parameters (no fit)
+    #     Available PDFs: ['JpsiPdf', 'BkgPdf', 'sum']
+    #     """
+    #     # Get the PDF component from workspace
+    #     pdf = self.fRooWorkspace.pdf(component_name)
+        
+    #     if not pdf:
+    #         print(f"ERROR: PDF {component_name} not found in workspace!")
+    #         # Correct way to list PDFs:
+    #         pdf_list = [pdf.GetName() for pdf in self.fRooWorkspace.allPdfs()]
+    #         print("Available PDFs:", pdf_list)
+    #         return
+
+    #     # Create plotting frame
+    #     frame = self.fRooMass.frame(ROOT.RooFit.Title(f"Initial {component_name}"))
+        
+    #     # Plot using ROOT's argument syntax
+    #     pdf.plotOn(frame, 
+    #             ROOT.RooFit.LineColor(ROOT.kRed),
+    #             ROOT.RooFit.LineWidth(2),
+    #             ROOT.RooFit.Normalization(1.0, ROOT.RooAbsReal.Relative))
+
+    #     # Draw and save
+    #     c = ROOT.TCanvas("c", "Initial Parameters", 800, 600)
+    #     frame.Draw()
+    #     c.SaveAs(output_name)

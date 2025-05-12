@@ -8,9 +8,11 @@ import os
 from os import path
 
 from DQFitter import DQFitter
-from ROOT import TF1, TH1F, TFile, TTree, gRandom, TCanvas, TLegend, kRed
+from ROOT import TF1, TH1F, TFile, TTree, gRandom, TCanvas, TLegend, kRed, kBlue, TF1, TGraph
 
 import re
+
+import numpy as np
 
 def GenerateTutorialSample():
     """
@@ -65,6 +67,34 @@ def GenerateTutorialSample():
 
     fOut.Close()
 
+def crystal_ball(x, params):
+    A, B, C, D, E, F = params
+    t = (x - A) / B
+    if C < 0:
+        t = -t
+    
+    absAlpha = abs(C)
+    absAlpha2 = abs(E)
+    
+    if -absAlpha <= t < absAlpha2:
+        return np.exp(-0.5 * t * t)
+    
+    if t < -absAlpha:
+        a = (D/absAlpha)**D * np.exp(-0.5 * absAlpha**2)
+        b = D/absAlpha - absAlpha
+        return a / (b - t)**D
+    
+    if t >= absAlpha2:
+        c = (F/absAlpha2)**F * np.exp(-0.5 * absAlpha2**2)
+        d = F/absAlpha2 - absAlpha2
+        return c / (d + t)**F
+    
+    return 0.0
+
+# ROOT function wrapper
+class CB2Pdf:
+    def __call__(self, x, par):
+        return crystal_ball(x[0], [par[0], par[1], par[2], par[3], par[4], par[5]])
 
 def main():
     parser = argparse.ArgumentParser(description="Arguments to pass")
@@ -94,99 +124,195 @@ def main():
         )
         dqFitter.SetFitConfig(inputCfg["input"]["pdf_dictionary"])
         dqFitter.MultiTrial()
+
     if args.run_fit_projections:
         print("Running fit for multiple x projections")
         if not path.isdir(inputCfg["output"]["output_file_name"]):
             os.system("mkdir -p %s" % (inputCfg["output"]["output_file_name"]))
         InputFileName = inputCfg["input"]["input_file_name"]
-        FileIn = TFile(InputFileName, "UPDATE")
-        InputHist = FileIn.Get(inputCfg["input"]["input_name"])
-        Nbinsz=InputHist.GetNbinsY()
-        Test = False
-        if Test:
-            Nbinsz = 3
-        print("Nbinsz: ", Nbinsz)
-        BinResultsDicts = []
-        for binZ in range(1, Nbinsz + 1):
-            print("Running fit for bin index %d" % binZ)
-            MinDataRange = inputCfg["input"]["pdf_dictionary"]["fitRangeMin"][0] #the range of the data is the greater range of the fit (the greater has to be the first?)
-            MaxDataRange = inputCfg["input"]["pdf_dictionary"]["fitRangeMax"][0]
-            print("MinDataRange: ", MinDataRange)
-            print("MaxDataRange: ", MaxDataRange)
-            dqFitter = DQFitter(
-                inputCfg["input"]["input_file_name"], inputCfg["input"]["input_name"], inputCfg["output"]["output_file_name"], MinDataRange, MaxDataRange, inputCfg["input"]["desired_bins"], True, binZ
-            )
-            dqFitter.SetFitConfig(inputCfg["input"]["pdf_dictionary"])
-            BinResultsDicts.append(dqFitter.MultiTrial())
-        print(f"BinResultsDicts:{BinResultsDicts} \n\n\n\n")
-        FileIn.Close()
-        FileOut = TFile("{}{}.root".format(inputCfg["output"]["output_file_name"], inputCfg["input"]["input_name"].rsplit("/", 1)[-1]), "UPDATE")
-        FileOut.cd()
-        InitialBin = 2 #=0 to get the whole x range
-        for RangeName in BinResultsDicts[0]: #Iterate through dictionary keys ("fit" ranges). Assuming all z bins use same ranges for mass fit!
-            print("RangeName: ", RangeName)
-            # pTJetMin = inputCfg["input"]["input_name"][-15] # string
-            # pTJetMax = inputCfg["input"]["input_name"][-7]
-            pTBounds = re.findall(r'\d+', inputCfg["input"]["input_name"])
-            pTRangeTitle = pTBounds[0][:-3] + " to " + pTBounds[1][:-3] + " GeV/c"
-            hist_z = TH1F(f"h_z_Range{RangeName}", f"J/#Psi z fit range {RangeName[10:]} & pT {pTRangeTitle}", 10-InitialBin, (InitialBin*0.1), 1)
-            zBinHist = 1
-            for zBinDict in range(InitialBin, Nbinsz):
-                print("zBinDict: ", zBinDict)
-                print("zBin: ", zBinHist)
-                NJPsi = BinResultsDicts[zBinDict][RangeName]["sig_Jpsi"]
-                NJPsiErr = BinResultsDicts[zBinDict][RangeName]["sig_Jpsi_err"] 
-                print("NJpsi: ", NJPsi)
-                hist_z.SetBinContent(zBinHist, NJPsi)
-                hist_z.SetBinError(zBinHist, NJPsiErr)
-                zBinHist += 1
-            hist_z.SetTitleSize(0.01, "t")
-            hist_z.SetMarkerStyle(24) 
-            hist_z.SetMarkerSize(1.0)  
-            hist_z.SetMarkerColor(kRed-3)
-            hist_z.SetLineColor(kRed-3)
-            hist_z.SetLineWidth(2)
-            hist_z.SetStats(0)
-            hist_z.GetYaxis().SetTitle("#frac{1}{N^{J/#Psi}_{jets}} #frac{dN}{dz^{ch.}}")
-            hist_z.GetXaxis().SetTitle("z^{ch.}_{J/#Psi}")
-            # hist_z.Scale(1. / NJPsi) #Normalize to 1
-            hist_z.Write()
-            cz = TCanvas(f"c{RangeName}", f"Canvas{RangeName}", 1400, 1080)
-            hist_z.Draw()
-            NJPsiTot = hist_z.Integral()
-            legend = TLegend(0.7, 0.7, 0.9, 0.9)
-            legend.AddEntry(hist_z, "pp #sqrt{s} = 13.6 TeV, inclusive J/#Psi", "")
-            legend.AddEntry(hist_z, "p_{T, J/#Psi} > 1 GeV/c", "")
-            legend.AddEntry(hist_z, pTBounds[0][:-3] + " < p_{T, Jet} < " + pTBounds[1][:-3] + " GeV/c, R = 0.4", "")
-            legend.AddEntry(hist_z, "data, |y| < 0.9", "pe")
-            legend.AddEntry(hist_z, "N_{{J/#Psi}} = {:.2f}".format(NJPsiTot), "")
-            # legend.SetEntrySeparation(0.1)
-            legend.SetFillStyle(0)
-            legend.SetBorderSize(0)
-            legend.Draw()
-            cz.Update()
-            cz.Write()
-            czNormalized = TCanvas(f"c{RangeName}norm", f"Canvas{RangeName} Normalized", 1400, 1080)
-            hist_z_norm = hist_z.Clone()
-            binWidth = hist_z.GetBinWidth(1) #assuming all z bins have the same width!
-            print("binWidth: ", binWidth)
-            hist_z_norm.Scale(1. / (NJPsiTot*binWidth)) #Normalize to 1
-            hist_z_norm.Draw("P")
-            legend.Draw()
-            czNormalized.Update()
-            czNormalized.Write()
+        FileIn = TFile(InputFileName, "READ")
+        JPsiDirName = "j-psi-fragmentation-function-task"
+        JPsiDir = FileIn.GetDirectory(JPsiDirName)
+        for hist in JPsiDir.GetListOfKeys():
+            print("Hist = ", hist.GetName())
+            if "h_diel_z" in hist.GetName():
+                print("Found h_diel_z histogram: ", hist.GetName())
+                input_name = JPsiDirName + "/" + hist.GetName()
+                InputHist = FileIn.Get(input_name)
+                Nbinsz=InputHist.GetNbinsY()
+                Test = True
+                if Test:
+                    Nbinsz = 5
+                print("Nbinsz: ", Nbinsz)
+                BinResultsDicts = [] # List of z_size dictionaries, each one with 3 dicts (1 for each fit range)
+                if "Energy" in input_name:
+                    print("Found Energy in histogram name")
+                    if "SemiInclusive" in input_name:
+                        print("Found SemiInclusive in histogram name")
+                        continue #temporary. Later include the same analysis for semiinclusive
+                    # EDir.cd()
+                    continue #temporary. Later include the same analysis for energy for analysis of Xi(z, E)
+
+                # FileIn.Close() #Maybe this should not be commented. previously this was after "for binZ..."
+                for binZ in range(1, Nbinsz + 1):
+                    print("Running fit for bin index %d" % binZ)
+                    MinDataRange = inputCfg["input"]["pdf_dictionary"]["fitRangeMin"][0] #the range of the data is the greater range of the fit (the larger has to be the first?)
+                    MaxDataRange = inputCfg["input"]["pdf_dictionary"]["fitRangeMax"][0]
+                    print("MinDataRange: ", MinDataRange)
+                    print("MaxDataRange: ", MaxDataRange)
+                    dqFitter = DQFitter(
+                        inputCfg["input"]["input_file_name"], input_name, inputCfg["output"]["output_file_name"], MinDataRange, MaxDataRange, inputCfg["input"]["desired_bins"], True, binZ
+                    )
+                    dqFitter.SetFitConfig(inputCfg["input"]["pdf_dictionary"])
+                    BinResultsDicts.append(dqFitter.MultiTrial())
+                print(f"BinResultsDicts:{BinResultsDicts} \n\n\n\n")
+                FileOut = TFile("{}FitterResults_{}".format(inputCfg["output"]["output_file_name"], inputCfg["input"]["input_file_name"].rsplit("/", 1)[-1]), "UPDATE") #Has to be opened again due to the fact that it was closed in dqFitter.MultiTrial()
+                FileOut.cd()
+                if "pT" in input_name:
+                    DirName = "Analysis_in_pT_Ranges"
+                    Dir = FileOut.GetDirectory(DirName) or FileOut.mkdir(DirName)
+                    print("Found pT in histogram name")
+                    # if "SemiInclusive" in input_name:
+                    #     print("Found SemiInclusive in histogram name")
+                    #     continue #temporary. Later include the same analysis for semiinclusive
+                    Dir.cd()
+                    thisRangeDir = Dir.GetDirectory(input_name.split("/")[-1]) or Dir.mkdir(input_name.split("/")[-1])
+                    thisRangeDir.cd() #maybe exit the directory later
+                if "Energy" in input_name:
+                    DirName = "Analysis_in_Energy_Ranges"
+                    Dir = FileOut.GetDirectory(DirName) or FileOut.mkdir(DirName)
+                    print("Found Energy in histogram name")
+                    # if "SemiInclusive" in input_name:
+                    #     print("Found SemiInclusive in histogram name")
+                    #     continue #temporary. Later include the same analysis for semiinclusive
+                    Dir.cd()
+                    thisRangeDir = Dir.GetDirectory(input_name.split("/")[-1]) or EnergyDir.mkdir(input_name.split("/")[-1])
+                    thisRangeDir.cd()
+                InitialBin = 2 #"=0" to get the whole x range
+                for RangeName in BinResultsDicts[0]: #Iterate through "fit" ranges (0 is arbitrary). Assuming all z bins use same ranges for mass fit!
+                    print("RangeName: ", RangeName)
+                    # pTJetMin = input_name[-15] # string
+                    # pTJetMax = input_name[-7]
+                    print("input_name: ", input_name)
+                    pTBounds = re.findall(r'\d+', input_name) # list of sequences of digits
+                    print("pTBounds: ", pTBounds)
+                    pTRangeTitle = pTBounds[0][:-3] + " to " + pTBounds[1][:-3] + " GeV"
+                    hist_z_title = "J/#Psi z, p_{T} " + pTRangeTitle + " (fit range " + RangeName[10:] + ")"
+                    hist_z = TH1F(f"h_z_{RangeName}", hist_z_title, Nbinsz-InitialBin, (InitialBin/Nbinsz), 1)
+                    zBinHist = 1
+                    for zBinDict in range(InitialBin, Nbinsz):
+                        print("zBinDict: ", zBinDict)
+                        print("zBin: ", zBinHist)
+                        NJPsi = BinResultsDicts[zBinDict][RangeName]["sig_Jpsi"]
+                        NJPsiErr = BinResultsDicts[zBinDict][RangeName]["sig_Jpsi_err"] 
+                        print("NJpsi: ", NJPsi)
+                        hist_z.SetBinContent(zBinHist, NJPsi)
+                        hist_z.SetBinError(zBinHist, NJPsiErr)
+                        zBinHist += 1
+                    hist_z.SetTitleSize(0.01, "t")
+                    hist_z.SetMarkerStyle(24) 
+                    hist_z.SetMarkerSize(1.0)  
+                    hist_z.SetMarkerColor(kRed-3)
+                    hist_z.SetLineColor(kRed-3)
+                    hist_z.SetLineWidth(2)
+                    hist_z.SetStats(0)
+                    hist_z.GetYaxis().SetTitle("#frac{1}{N^{J/#Psi}_{jets}} #frac{dN}{dz^{ch.}}")
+                    hist_z.GetXaxis().SetTitle("z^{ch.}_{J/#Psi}")
+                    # hist_z.Scale(1. / NJPsi) #Normalize to 1
+                    hist_z.Write()
+                    cz = TCanvas(f"c{RangeName}", f"Canvas{RangeName}", 1400, 1080)
+                    hist_z.Draw()
+                    NJPsiTot = hist_z.Integral()
+                    legend = TLegend(0.7, 0.7, 0.9, 0.9)
+                    legend.AddEntry(hist_z, "pp #sqrt{s} = 13.6 TeV, inclusive J/#Psi", "")
+                    legend.AddEntry(hist_z, "p_{T, J/#Psi} > 1 GeV/c", "")
+                    legend.AddEntry(hist_z, pTBounds[0][:-3] + " < p_{T, Jet} < " + pTBounds[1][:-3] + " GeV/c, R = 0.4", "")
+                    legend.AddEntry(hist_z, "data, |y| < 0.9", "pe")
+                    legend.AddEntry(hist_z, "N_{{J/#Psi}} = {:.2f}".format(NJPsiTot), "")
+                    # legend.SetEntrySeparation(0.1)
+                    legend.SetFillStyle(0)
+                    legend.SetBorderSize(0)
+                    legend.Draw()
+                    cz.Update()
+                    cz.Write()
+                    czNormalized = TCanvas(f"c{RangeName}norm", f"Canvas{RangeName} Normalized", 1400, 1080)
+                    hist_z_norm = hist_z.Clone()
+                    binWidth = hist_z.GetBinWidth(1) #assuming all z bins have the same width!
+                    print("binWidth: ", binWidth)
+                    hist_z_norm.Scale(1. / (NJPsiTot*binWidth)) #Normalize to 1
+                    hist_z_norm.Draw("P")
+                    legend.Draw()
+                    czNormalized.Update()
+                    czNormalized.Write()
 
 
-            # czNormalizedSliced = TCanvas(f"c{RangeName}normSliced", f"Canvas{RangeName} Normalized", 1920, 1080)
-            # hist_z_normlSliced  = TH1F(hist_z, f"JPsi z With Mass Fit From Range {RangeName[10:]} Normalized", 3, hist_z.GetNbinsX())
-            # NJPsiTotSliced = hist_z_normlSliced.Integral()
-            # hist_z_normlSliced.Scale(1. / (NJPsiTotSliced*binWidth)) #Normalize to 1
-            # hist_z_normlSliced.Draw()
-            # legend.Draw()
-            # czNormalizedSliced.Update()
-            # czNormalizedSliced.Write()            
-        FileOut.Close()
-        print("Fit for multiple x projections: Done!")
-        print("Output created: {}{}.root".format(inputCfg["output"]["output_file_name"], inputCfg["input"]["input_name"].rsplit("/", 1)[-1]))
+                    # czNormalizedSliced = TCanvas(f"c{RangeName}normSliced", f"Canvas{RangeName} Normalized", 1920, 1080)
+                    # hist_z_normlSliced  = TH1F(hist_z, f"JPsi z With Mass Fit From Range {RangeName[10:]} Normalized", 3, hist_z.GetNbinsX())
+                    # NJPsiTotSliced = hist_z_normlSliced.Integral()
+                    # hist_z_normlSliced.Scale(1. / (NJPsiTotSliced*binWidth)) #Normalize to 1
+                    # hist_z_normlSliced.Draw()
+                    # legend.Draw()
+                    # czNormalizedSliced.Update()
+                    # czNormalizedSliced.Write()    
+
+                # Create histograms for each parameter
+                # parHists = []
+                # par = 0
+                # for parName in inputCfg["input"]["pdf_dictionary"]["parName"]:
+                #     # parHists[par] = TH1F(f"hist_{parName}", f"hist_{parName}", 100, -5, 5)
+                #     ROOT.TCanvas.SetTitle(f"hist_{parName};{parName};Entries")
+                #     ROOT.TGraph.SetTitle(f"hist_{parName};{parName};Entries")
+                #     par = par + 1
+                
+                '''
+                # Creates a canvas for each parameter. One curve for each range 
+                parCanvases = []
+                # for parName in inputCfg["input"]["pdf_dictionary"]["parName"][0]:
+                if True:
+                    parName = "mean_Jpsi"
+                    print("parName: ", parName)
+                    #CRIO PAR CANVAS
+                    c = TCanvas(f"canvas_{parName}", f"{parName}", 1000, 800)
+                    c.cd()
+                    graphs = []
+                    for RangeName in BinResultsDicts[0]: # "DictRange_1.8 to 4.2 GeV", etc.
+                        y_graph = []
+                        for zBinDict in range(InitialBin, Nbinsz):
+                            y_graph.append(BinResultsDicts[zBinDict][RangeName][parName]) #Value of the parameter for each z bin
+                        parGraph = TGraph(Nbinsz-InitialBin, array("f", range(InitialBin, Nbinsz)), array("f", y_graph))
+                        # CRIO CURVA DE PAR X BIN PARA CADA RANGE E BOTO NO CANVAS
+                        graphs.append(parGraph)
+                    graphs[0].Draw("APL")
+                    for graph in graphs[1:]:
+                        graph.Draw("PL SAME")
+                    c.Update()
+                    parCanvases.append(c)
+                for canva in parCanvases:
+                    canva.Write()
+                '''
+
+                '''
+                # Plot function with parameters from json (without fitting)
+                c = TCanvas("c", "Double Crystal Ball", 1000, 800)
+                f = TF1("cb2", CB2Pdf(), 0, 5, 6)
+                parValIni = inputCfg["input"]["pdf_dictionary"]["parVal"][0]
+                f.SetParameters(*parValIni)
+                f.SetParNames("A", "B", "C", "D", "E", "F")
+                f.SetLineColor(kBlue+3)
+                f.SetLineWidth(2)
+                f.SetTitle("Double Crystal Ball Function;x;Probability Density")  
+                f.SetMaximum(1.2)     
+                f.Draw()
+                c.Write()  # Save canvas to ROOT file
+                f.Write()  # Save function to ROOT file
+                c.SaveAs("CB2_3.png")
+                '''
+
+                FileOut.Close() #Maybe this shouldnt be commented
+                print("Fit for multiple x projections: Done!")
+                print("Output created: {}FitterResults_{}/{}/{}".format(inputCfg["output"]["output_file_name"], inputCfg["input"]["input_file_name"].rsplit("/", 1)[-1], DirName, input_name.split("/")[-1]))
+            # dqFitter.PlotInitialParameters("JpsiPdf", "initial_signal.png")
+            print("teste 2")
+        print("Teste 3")
 
 main()
