@@ -8,8 +8,7 @@ import os
 from os import path
 
 from DQFitter import DQFitter
-from ROOT import TF1, TH1F, TFile, TTree, gRandom, TCanvas, TLegend, kRed, kBlue, TF1, TGraph
-
+from ROOT import TF1, TH1F, TFile, TTree, gRandom, TCanvas, TLegend, kRed, kBlue, kGreen, kGray, TF1, TGraph, TLine, TMath
 import re
 
 import numpy as np
@@ -134,13 +133,12 @@ def main():
         JPsiDirName = "j-psi-fragmentation-function-task"
         JPsiDir = FileIn.GetDirectory(JPsiDirName)
         for hist in JPsiDir.GetListOfKeys():
-            print("Hist = ", hist.GetName())
             if "h_diel_z" in hist.GetName():
                 print("Found h_diel_z histogram: ", hist.GetName())
                 input_name = JPsiDirName + "/" + hist.GetName()
                 InputHist = FileIn.Get(input_name)
                 Nbinsz=InputHist.GetNbinsY()
-                Test = True
+                Test = False
                 if Test:
                     Nbinsz = 5
                 print("Nbinsz: ", Nbinsz)
@@ -165,7 +163,7 @@ def main():
                     )
                     dqFitter.SetFitConfig(inputCfg["input"]["pdf_dictionary"])
                     BinResultsDicts.append(dqFitter.MultiTrial())
-                print(f"BinResultsDicts:{BinResultsDicts} \n\n\n\n")
+                # print(f"BinResultsDicts:{BinResultsDicts} \n\n\n\n")
                 FileOut = TFile("{}FitterResults_{}".format(inputCfg["output"]["output_file_name"], inputCfg["input"]["input_file_name"].rsplit("/", 1)[-1]), "UPDATE") #Has to be opened again due to the fact that it was closed in dqFitter.MultiTrial()
                 FileOut.cd()
                 if "pT" in input_name:
@@ -201,8 +199,8 @@ def main():
                     hist_z = TH1F(f"h_z_{RangeName}", hist_z_title, Nbinsz-InitialBin, (InitialBin/Nbinsz), 1)
                     zBinHist = 1
                     for zBinDict in range(InitialBin, Nbinsz):
-                        print("zBinDict: ", zBinDict)
-                        print("zBin: ", zBinHist)
+                        # print("zBinDict: ", zBinDict)
+                        # print("zBin: ", zBinHist)
                         NJPsi = BinResultsDicts[zBinDict][RangeName]["sig_Jpsi"]
                         NJPsiErr = BinResultsDicts[zBinDict][RangeName]["sig_Jpsi_err"] 
                         print("NJpsi: ", NJPsi)
@@ -264,32 +262,84 @@ def main():
                 #     ROOT.TGraph.SetTitle(f"hist_{parName};{parName};Entries")
                 #     par = par + 1
                 
-                '''
                 # Creates a canvas for each parameter. One curve for each range 
                 parCanvases = []
-                # for parName in inputCfg["input"]["pdf_dictionary"]["parName"][0]:
-                if True:
-                    parName = "mean_Jpsi"
+                parDir = thisRangeDir.GetDirectory("Fit Parameters") or thisRangeDir.mkdir("Fit Parameters")
+                parDir.cd()
+                for i, parName in enumerate(inputCfg["input"]["pdf_dictionary"]["parName"][0]):
+                # if True: #only for testing
+                    # parName = "mean_Jpsi" #only for testing
                     print("parName: ", parName)
-                    #CRIO PAR CANVAS
                     c = TCanvas(f"canvas_{parName}", f"{parName}", 1000, 800)
                     c.cd()
+                    # c.SetTitle(f"Fit Parameters for {parName};Bin;{parName}")
                     graphs = []
-                    for RangeName in BinResultsDicts[0]: # "DictRange_1.8 to 4.2 GeV", etc.
-                        y_graph = []
+                    Colors =[kRed-3, kBlue-2, kGreen-1] #kBlue+3
+                    legend = TLegend()
+                    legend.SetHeader("Fit Mass Ranges")
+                    legend.SetFillStyle(0)
+                    legend.SetBorderSize(0)
+                    legend.SetTextSize(0.02)
+                    graphsY = [] #Y values for all (3) ranges. Important for calculation of mean
+                    for j, RangeName in enumerate(BinResultsDicts[0]): # "DictRange_1.8 to 4.2 GeV", etc.
+                        graphY = [] #Y values for this range
                         for zBinDict in range(InitialBin, Nbinsz):
-                            y_graph.append(BinResultsDicts[zBinDict][RangeName][parName]) #Value of the parameter for each z bin
-                        parGraph = TGraph(Nbinsz-InitialBin, array("f", range(InitialBin, Nbinsz)), array("f", y_graph))
-                        # CRIO CURVA DE PAR X BIN PARA CADA RANGE E BOTO NO CANVAS
+                            graphY.append(BinResultsDicts[zBinDict][RangeName][parName]) #Value of the parameter for each z bin
+                        parGraph = TGraph(Nbinsz-InitialBin, array("f", np.arange(InitialBin*binWidth, Nbinsz*binWidth, binWidth)), array("f", graphY))
+                        # parGraph.SetTitle(f"{RangeName[10:]}")
+                        parGraph.SetMarkerStyle(21)  # Different marker styles (20, 21, 22...)
+                        parGraph.SetMarkerColor(Colors[j])
+                        parGraph.SetMarkerSize(1.0)
+                        parGraph.SetLineColor(Colors[j])
+                        # parGraph.SetLineWidth(2)
+                        legend.AddEntry(parGraph, f"{RangeName[10:]}", "p")
                         graphs.append(parGraph)
+                        graphsY.append(graphY)
+                    graphs[0].SetTitle(f"{parName} values from fit;z Bin (lower bound);{parName}")
                     graphs[0].Draw("APL")
+                    graphsY = np.array(graphsY)
+                    meanGraphY = [] #Graph for the mean of the parameter for different ranges
+                    for k, zBinDict in enumerate(range(InitialBin, Nbinsz)):
+                        graphsY_column = graphsY[:, k]
+                        mean = np.mean(graphsY_column)
+                        meanGraphY.append(mean)
+                        # std_dev = TMath.StdDev(len(graphsY_column), graphsY_column) #PENSAR EM COMO FAZER!
+                        # mean_error = std_dev / TMath.Sqrt(len(graphsY_column)) #PENSAR EM COMO FAZER!
+                    meanGraph = TGraph(Nbinsz-InitialBin, array("f", np.arange(InitialBin*binWidth, Nbinsz*binWidth, binWidth)), array("f", meanGraphY))
+                    meanGraph.SetMarkerStyle(34)
+                    legend.AddEntry(meanGraph, "Mean", "p")
+                    meanGraph.Draw("PL SAME")
+                    y_Min = inputCfg["input"]["pdf_dictionary"]["parLimMin"][0][i]
+                    lineMin = TLine(graphs[0].GetXaxis().GetXmin(), y_Min,
+                    graphs[0].GetXaxis().GetXmax(), y_Min)
+                    lineMin.SetLineColor(kGray+3)
+                    lineMin.SetLineStyle(2)
+                    lineMin.SetLineWidth(2)
+                    lineMin.Draw("same")
+                    y_Max = inputCfg["input"]["pdf_dictionary"]["parLimMax"][0][i]
+                    lineMax = TLine(graphs[0].GetXaxis().GetXmin(), y_Max,
+                    graphs[0].GetXaxis().GetXmax(), y_Max)
+                    lineMax.SetLineColor(kGray+3)
+                    lineMax.SetLineStyle(2)
+                    lineMax.SetLineWidth(2)
+                    lineMax.Draw("same")
+                    y_Ini = inputCfg["input"]["pdf_dictionary"]["parVal"][0][i]
+                    lineIni = TLine(graphs[0].GetXaxis().GetXmin(), y_Ini,
+                    graphs[0].GetXaxis().GetXmax(), y_Ini)
+                    lineIni.SetLineColor(kGray+3)
+                    lineIni.SetLineStyle(2)
+                    lineIni.SetLineWidth(2)
+                    lineIni.Draw("same")    
+                    legend.AddEntry(lineMin, f"Min/Max/Initial Values", "l")
+                    legend.Draw()
                     for graph in graphs[1:]:
+                    # for graph in graphs:
                         graph.Draw("PL SAME")
-                    c.Update()
+                    # c.Update()
                     parCanvases.append(c)
-                for canva in parCanvases:
-                    canva.Write()
-                '''
+                    c.Write()
+                # for canva in parCanvases:
+                #     canva.Write()
 
                 '''
                 # Plot function with parameters from json (without fitting)
@@ -312,7 +362,5 @@ def main():
                 print("Fit for multiple x projections: Done!")
                 print("Output created: {}FitterResults_{}/{}/{}".format(inputCfg["output"]["output_file_name"], inputCfg["input"]["input_file_name"].rsplit("/", 1)[-1], DirName, input_name.split("/")[-1]))
             # dqFitter.PlotInitialParameters("JpsiPdf", "initial_signal.png")
-            print("teste 2")
-        print("Teste 3")
 
 main()

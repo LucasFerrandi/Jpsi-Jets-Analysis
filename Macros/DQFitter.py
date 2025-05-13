@@ -168,6 +168,7 @@ class DQFitter:
 
 
     def FitInvMassSpectrum(self, fitRangeMin, fitRangeMax, run_projections=False, subDirName=None, DictRange=None):
+        gROOT.SetBatch(True) #prevent ROOT from producing graphical windows while running
         """
         Method to perform binned / unbinned fit to a ROOT histogram / tree
         """
