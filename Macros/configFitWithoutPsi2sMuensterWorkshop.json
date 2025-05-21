@@ -1,6 +1,6 @@
 {
   "input": {
-    "input_file_name": "/home/ferrandi/alice/O2Physics/PWGJE/Tasks/JPsiWorkDir/ResultsLHC24am_pass1_DIELC_R4_4/Analysis_z_Correlations_Xi.root",
+    "input_file_name": "/home/ferrandi/alice/O2Physics/PWGJE/Tasks/JPsiWorkDir/ResultsLHC24am_pass1_DIELC_R4_4/AnalysisCompleteSubJobsLHC24am_apass1_25-03-21.root",
     "input_name": "j-psi-fragmentation-function-task/h_diel_z_vs_mass_5000_to_7000MeV",
     "desired_bins": 700,
     "pdf_dictionary": {

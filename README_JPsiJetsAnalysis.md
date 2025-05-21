@@ -45,7 +45,7 @@
      - Bkg function
      - etc.
 - Run `tutorial.py`, which runs `DQFitter` for every x-projection of the histo:
-     - `python tutorial.py configFitWithoutPsi2sMuensterWorkshop.json --run_fit_projections`
+     - `python tutorial.py configFit_z_Xi.json --run_fit_projections`
 - A root file should've been created in output/ containing:
      - A copy of the input histogram and inclusive mass distribution
      -  Results of the fits for every x projection
