@@ -32,21 +32,16 @@ class DQFitter:
         self.fInputName = fInputName
         self.fFileIn = TFile.Open(fInName)
         self.fInput = self.fFileIn.Get(fInputName)
-        print("self.fInput.ClassName() = ", self.fInput.ClassName())
-        print("self.fInput = ", self.fInput)
+        FileOutName = "{}{}FitterResults.root".format(fOutPath, fInName.rsplit("/", 1)[-1][9:-5])
         if binY is None or binY == 1: # if None, not analysis in bins. If 1st bin, the file has to be created and mass hist written
             # self.fFileOut = TFile("{}{}.root".format(fOutPath, fInputName.rsplit("/", 1)[-1]), "RECREATE")
-            self.fFileOut = TFile("{}FitterResults_{}".format(fOutPath, fInName.rsplit("/", 1)[-1]), "UPDATE")
+            self.fFileOut = TFile(FileOutName, "UPDATE")
             self.fFileOut.cd()
             # EDir = FileOut.GetDirectory(EDirName) or FileOut.mkdir(EDirName)
             if "pT" in fInputName:
                 DirName = "Analysis_in_pT_Ranges"
                 self.Dir = self.fFileOut.GetDirectory(DirName) or self.fFileOut.mkdir(DirName)
-                # if "SemiInclusive" in input_name:
-                #     print("Found SemiInclusive in histogram name")
-                #     continue #temporary. Later include the same analysis for semiinclusive
                 self.Dir.cd()
-                # self.thisRangeDir = self.Dir.GetDirectory(input_name.split("/")[-1]) or self.Dir.mkdir(input_name.split("/")[-1])
                 self.thisRangeDir = self.Dir.mkdir(fInputName.split("/")[-1])
                 self.thisRangeDir.cd() #maybe exit the directory later
                 self.fInput.Write()
@@ -64,7 +59,7 @@ class DQFitter:
                 h_inclusive_mass.Write()
         else:
             # self.fFileOut = TFile("{}{}.root".format(fOutPath, fInputName.rsplit("/", 1)[-1]), "UPDATE")
-            self.fFileOut = TFile("{}FitterResults_{}".format(fOutPath, fInName.rsplit("/", 1)[-1]), "UPDATE") 
+            self.fFileOut = TFile(FileOutName, "UPDATE") 
             self.fFileOut.cd()
             if "pT" in fInputName:
                 DirName = "Analysis_in_pT_Ranges"
@@ -85,19 +80,16 @@ class DQFitter:
         self.run_projections = run_projections
         if run_projections:
             print("Projecting 2D histogram to 1D histograms")
-            print(f"Projecting bin {binY}")
             y_max = self.fInput.GetYaxis().GetXmax()
             y_min = self.fInput.GetYaxis().GetXmin()
             NBinsY = self.fInput.GetNbinsY()
             binYValueMin = y_min + ((binY-1)*(y_max - y_min) / NBinsY)
             binYValueMax = y_min + ((binY)*(y_max - y_min) / NBinsY)
             self.subDirName = "bin_" + str(binYValueMin) + "_to_" + str(binYValueMax)
-            print(f"Subdirectory name: {self.subDirName}")
             projected_hist = self.fInput.ProjectionX("proj_x", binY, binY)
             original_bins = projected_hist.GetNbinsX()
             rebin_factor = original_bins / desired_Nbins
             rebinned_hist = projected_hist.Rebin(int(rebin_factor), f"rebinned_proj_x{binY}")
-            print(f"Rebinned bins: {rebinned_hist.GetNbinsX()}")
             # self.fFileOut.cd()
             # rebinned_hist.Write()
             self.fInput = rebinned_hist
@@ -177,8 +169,6 @@ class DQFitter:
         self.fRooWorkspace.Print()
         pdf = self.fRooWorkspace.pdf("sum")
         self.fRooMass.setRange("range", fitRangeMin, fitRangeMax)
-        print("fitRangeMin = ", fitRangeMin)
-        print("fitRangeMax = ", fitRangeMax)
         if "TTree" in self.fInput.ClassName():
             print("Perform unbinned fit")
             rooDs = RooDataSet(
@@ -206,8 +196,6 @@ class DQFitter:
         rooFitRes = ROOT.RooFitResult(pdf.fitTo(rooDs, ROOT.RooFit.Save(True)))
         fRooPlot = self.fRooMass.frame(ROOT.RooFit.Title(binPlotsName))
         fRooPlotCopy = self.fRooMass.frame(ROOT.RooFit.Title(binPlotsName))
-        print("fitRangeMinPLOT = ", fitRangeMin)
-        print("fitRangeMaxPLOT = ", fitRangeMax)
         rooDs.plotOn(fRooPlot, ROOT.RooFit.MarkerStyle(20), ROOT.RooFit.MarkerSize(0.6), ROOT.RooFit.Range(fitRangeMin, fitRangeMax))
         pdf.plotOn(fRooPlot, ROOT.RooFit.LineColor(ROOT.kRed+1), ROOT.RooFit.LineWidth(2), ROOT.RooFit.Range(fitRangeMin, fitRangeMax))
 
@@ -286,26 +274,15 @@ class DQFitter:
         gPad.SetLeftMargin(0.15)
         fRooPlot.GetYaxis().SetTitleOffset(1.4)
         fRooPlot.Draw()
-
         # Residual plot
         canvasResidual = DoResidualPlot(fRooPlot, self.fRooMass, binPlotsName)
-
         # Pull plot
         canvasPull = DoPullPlot(fRooPlot, self.fRooMass, binPlotsName)
-
         # Correlation matrix plot
         canvasCorrMat = DoCorrMatPlot(rooFitRes, binPlotsName)
-
         # Propaganda plot
         if self.fPdfDict["doPropagandaPlot"]:
             DoPropagandaPlot(rooDs, pdf, fRooPlotCopy, self.fPdfDict, self.fInputName, binPlotsName, self.fOutPath, extraText)
-
-        # Save results
-        # self.fFileOut.cd()
-        # if run_projections:
-        #     if not self.fFileOut.GetDirectory(self.subDirName):
-        #         self.fFileOut.mkdir(self.subDirName) # create 1 subdir for each z bin
-        #     self.fFileOut.cd(self.subDirName)
         self.fFileOut.cd()
         if "pT" in self.fInputName:
             self.Dir.cd()
@@ -334,37 +311,5 @@ class DQFitter:
             )
             RangeName = f"DictRange_{self.fFitRangeMin[iRange]} to {self.fFitRangeMax[iRange]} GeV"
             BinResultsDict[RangeName] = DictRange
-            print("DictRange = ", DictRange)
-        for i in BinResultsDict:
-            print(f"BinResultsDict[{i}] = \n", BinResultsDict[i])
         self.fFileOut.Close()
         return BinResultsDict
-    
-    # def PlotInitialParameters(self, component_name, output_name="initial_plot.png"):
-    #     """
-    #     Plot a PDF component with initial parameters (no fit)
-    #     Available PDFs: ['JpsiPdf', 'BkgPdf', 'sum']
-    #     """
-    #     # Get the PDF component from workspace
-    #     pdf = self.fRooWorkspace.pdf(component_name)
-        
-    #     if not pdf:
-    #         print(f"ERROR: PDF {component_name} not found in workspace!")
-    #         # Correct way to list PDFs:
-    #         pdf_list = [pdf.GetName() for pdf in self.fRooWorkspace.allPdfs()]
-    #         print("Available PDFs:", pdf_list)
-    #         return
-
-    #     # Create plotting frame
-    #     frame = self.fRooMass.frame(ROOT.RooFit.Title(f"Initial {component_name}"))
-        
-    #     # Plot using ROOT's argument syntax
-    #     pdf.plotOn(frame, 
-    #             ROOT.RooFit.LineColor(ROOT.kRed),
-    #             ROOT.RooFit.LineWidth(2),
-    #             ROOT.RooFit.Normalization(1.0, ROOT.RooAbsReal.Relative))
-
-    #     # Draw and save
-    #     c = ROOT.TCanvas("c", "Initial Parameters", 800, 600)
-    #     frame.Draw()
-    #     c.SaveAs(output_name)

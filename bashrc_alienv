@@ -162,7 +162,7 @@ alias clearrm='clear && rm *QC* *dump* *txt'
 alias tra="gio trash"
 
 #25-01-13:
-alias rootbrowser="root -l -e 'new TBrowser;'"
+# alias rootbrowser="root -l -e 'new TBrowser;'"
 
 # 25-01-21
 # function lssort() {
@@ -208,10 +208,21 @@ jupconvert() {
 }
 
 #25-05-20:
-alias rootb='root -l \
--e '\''TBrowser *b = new TBrowser("MyBrowser", nullptr, "ROOT Browser");'\'' \
--e '\''TBrowserImp *imp = b->GetBrowserImp();'\'' \
--e '\''TGMainFrame *mainFrame = imp->GetMainFrame();'\'' \
--e '\''mainFrame->MoveResize(1920, 0, 1550, 1080);'\''
--e '\''TGCompositeFrame *leftPanel = (TGCompositeFrame*)mainFrame->GetFirst()->GetFirst();'\'' \
--e '\''leftPanel->Resize(1000, leftPanel->GetDefaultWidth());'\'''
+# rootb() {
+#     root -l "$1" -e 'TBrowser *b = new TBrowser("MyBrowser", nullptr, "ROOT Browser");' \
+#             -e 'TBrowserImp *imp = b->GetBrowserImp();' \
+#             -e 'TGMainFrame *mainFrame = imp->GetMainFrame();' \
+#             -e 'mainFrame->MoveResize(1920, 0, 1550, 1080);'
+# }
+rootb() {
+    local file="${1:-}"
+    root -l $file \
+        -e 'TBrowser *b = new TBrowser("MyBrowser", nullptr, "ROOT Browser");' \
+        -e 'TBrowserImp *imp = b->GetBrowserImp();' \
+        -e 'TGMainFrame *mainFrame = imp->GetMainFrame();' \
+        -e 'mainFrame->MoveResize(1920, 0, 1550, 1080);'
+}
+
+
+
+
