@@ -24,7 +24,7 @@
           1
         ],
         "pdfStyle": [
-          1,
+          2,
           2
         ],
         "parVal": [
@@ -91,10 +91,10 @@
           [
             "mean_Jpsi",
             "width_Jpsi",
-            "a_Jpsi",
-            "b_Jpsi",
-            "c_Jpsi",
-            "d_Jpsi"
+            "leftLeg_rough_Jpsi",
+            "leftLeg_fine_Jpsi",
+            "rightLeg_rough_Jpsi",
+            "rightLeg_fine_Jpsi"
           ],
           [
             "aa",

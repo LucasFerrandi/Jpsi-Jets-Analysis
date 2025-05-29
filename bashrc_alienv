@@ -208,19 +208,14 @@ jupconvert() {
 }
 
 #25-05-20:
-# rootb() {
-#     root -l "$1" -e 'TBrowser *b = new TBrowser("MyBrowser", nullptr, "ROOT Browser");' \
-#             -e 'TBrowserImp *imp = b->GetBrowserImp();' \
-#             -e 'TGMainFrame *mainFrame = imp->GetMainFrame();' \
-#             -e 'mainFrame->MoveResize(1920, 0, 1550, 1080);'
-# }
+
 rootb() {
     local file="${1:-}"
     root -l $file \
         -e 'TBrowser *b = new TBrowser("MyBrowser", nullptr, "ROOT Browser");' \
         -e 'TBrowserImp *imp = b->GetBrowserImp();' \
         -e 'TGMainFrame *mainFrame = imp->GetMainFrame();' \
-        -e 'mainFrame->MoveResize(1920, 0, 1550, 1080);'
+        -e 'mainFrame->MoveResize(1920, 0, 1545, 1080);'
 }
 
 

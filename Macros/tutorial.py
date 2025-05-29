@@ -109,10 +109,24 @@ def crystal_ball(x, params):
     
     return 0.0
 
+def vwg(x, params):
+    A, B, C = params
+    sigma = B + C * ((x - A) / A)
+    return np.exp(-(x - A) * (x - A) / (2. * sigma * sigma))
+
+def funcsSum(x, paramscb2, paramsvwg):
+    return crystal_ball(x, paramscb2) + vwg(x, paramsvwg)
+
 # ROOT function wrapper
-class CB2Pdf:
+class PDF:
+    def __init__(self, pdf_name):
+        self.pdf_name = pdf_name
+
     def __call__(self, x, par):
-        return crystal_ball(x[0], [par[0], par[1], par[2], par[3], par[4], par[5]])
+        if self.pdf_name == "CB2":
+            return crystal_ball(x[0], [par[0], par[1], par[2], par[3], par[4], par[5]])
+        if self.pdf_name == "VWG":
+            return vwg(x[0], [par[0], par[1], par[2]])
 
 def main():
     parser = argparse.ArgumentParser(description="Arguments to pass")
@@ -172,7 +186,7 @@ def main():
             input_name = JPsiDirName + "/" + histpT.GetName()
             InputHist = FileIn.Get(input_name)
             Nbinsz=InputHist.GetNbinsY()
-            Test = False
+            Test = True
             if Test:
                 Nbinsz = 5
                 if "Energy" in input_name:
@@ -502,21 +516,58 @@ def main():
                     c.Write()
 
             # Plot function with parameters from json (without fitting)
-            f = TF1("cb2", CB2Pdf(), 0, 5, 6)
-            parValIni = inputCfg["input"]["pdf_dictionary"]["parVal"][0]
-            f.SetParameters(*parValIni)
-            f.SetParNames("A", "B", "C", "D", "E", "F")
-            f.SetLineColor(Colors[2])
-            f.SetLineWidth(2)
-            f.SetTitle("CB2 Function With Initial-Values Parameters;x;Probability Density")  
-            f.SetMaximum(1.2)     
-            f.Draw()
-            f.Write()
+            canvasRawPDFs = TCanvas("canvasRawPDFs", "canvasRawPDFs", 1400, 1080)
+            fitSumLeg = TLegend(*legCoords)
+            funcs = []
+            for pdf_i, pdf_name in enumerate(inputCfg["input"]["pdf_dictionary"]["pdf"][:-1]): # excludes the "SUM"
+                fitRangeMin = inputCfg["input"]["pdf_dictionary"]["fitRangeMin"][0] # The first range has to be the largest, as in DQFitter
+                fitRangeMax = inputCfg["input"]["pdf_dictionary"]["fitRangeMax"][0]
+                n_pars = len(inputCfg["input"]["pdf_dictionary"]["parName"][pdf_i]) 
+                f = TF1(pdf_name, PDF(pdf_name), fitRangeMin, fitRangeMax, n_pars)
+                parValIni = inputCfg["input"]["pdf_dictionary"]["parVal"][pdf_i]
+                f.SetParameters(*parValIni)
+                f.SetParNames(*inputCfg["input"]["pdf_dictionary"]["parName"][pdf_i])
+                f.SetLineColor(Colors[pdf_i])
+                f.SetLineWidth(2)
+                f.SetTitle(f"PDFs With Initial-Values Parameters;x;Probability Density")  
+                f.SetMaximum(2.0)
+                print("pdf_i: ", pdf_i)
+                if pdf_i == 0:
+                    f.Draw()
+                else:
+                    f.Draw("same")
+                # f.Write()
+                fitSumLeg.AddEntry(f, pdf_name, "l")
+                fitSumLeg.SetFillStyle(0)
+                fitSumLeg.SetBorderSize(0)
+                funcs.append(f)
+            # Plot the sum of all pdfs
+            fitSumMin = inputCfg["input"]["pdf_dictionary"]["fitRangeMin"][0]
+            fitSumMax = inputCfg["input"]["pdf_dictionary"]["fitRangeMax"][0]
+            npoints = 500
+            xs = [fitSumMin + i*(fitSumMax-fitSumMin)/(npoints-1) for i in range(npoints)]
+            ys = []
+            for x in xs:
+                total = sum(f.Eval(x) for f in funcs)   # funcs contém [CB2, VWG, ...]
+                ys.append(total)
+            xa = np.array(xs, dtype=np.float64)
+            ya = np.array(ys, dtype=np.float64)
+            fitSum = TGraph(npoints, xa, ya)
+            fitSum.SetLineColor(Colors[len(funcs)])
+            fitSum.SetLineWidth(2)
+            fitSum.SetTitle("PDFs Sum;x;PDF")
+            fitSum.Draw("L SAME")
+            fitSumLeg.AddEntry(fitSum, "PDFs Sum", "l")
+            fitSumLeg.Draw()
+            canvasRawPDFs.Update()
+            canvasRawPDFs.Write()
             FileOut.Close()
             print("Fit for multiple x projections: Done!")
         # All z distributions for different pT ranges
         FileOut = TFile(FileOutName, "UPDATE")
         FileOut.cd()
+        Dir = FileOut.GetDirectory(DirName)
+        Dir.cd()
         czspTsNormalized = TCanvas("JPsi z, All pT Ranges", "JPsi z, All pT Ranges", 1400, 1080)
         legend_zspTs = TLegend(*legCoords)
         legend_zspTs.AddEntry("legLine_zspTs1", legLine1, "")
@@ -530,7 +581,6 @@ def main():
         if skipSemiInlclusive == True:
             hist_z_mean_norm_ini = 1
         for range_pT_i, hist_z in enumerate(hists_z_mean_norm[hist_z_mean_norm_ini:, 0], hist_z_mean_norm_ini): # starts from hist_z_mean_norm_ini
-            print("range_pT_i: ", range_pT_i)
             hist_z.SetMarkerStyle(markerStyle)
             hist_z.SetMarkerColor(ColorsExt[range_pT_i])
             hist_z.SetLineColor(ColorsExt[range_pT_i])
