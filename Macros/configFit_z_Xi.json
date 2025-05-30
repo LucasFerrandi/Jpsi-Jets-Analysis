@@ -24,7 +24,7 @@
           1
         ],
         "pdfStyle": [
-          2,
+          1,
           2
         ],
         "parVal": [
@@ -38,7 +38,7 @@
           ],
           [
             1,
-            0.5,
+            0.6,
             0.5
           ],
           [
@@ -50,16 +50,16 @@
         "parLimMin": [
           [
             3.05,
-            7.0e-02,
+            5.0e-02,
             1.089,
             3.393,
             2.097,
             8.694
           ],
           [
-            -10,
+            -2.0,
             0.01,
-            -1
+            -2.0
           ],
           [
             0,
@@ -70,16 +70,16 @@
         "parLimMax": [
           [
             3.15,
-            1.9e-01,
+            1.2e-01,
             1.089,
             3.393,
             2.097,
             8.694
           ],
           [
-            2.9,
-            5,
-            1
+            5.0,
+            5.0,
+            2.0
           ],
           [
             5000000,
@@ -89,17 +89,17 @@
         ],
         "parName": [
           [
-            "mean_Jpsi",
-            "width_Jpsi",
-            "leftLeg_rough_Jpsi",
-            "leftLeg_fine_Jpsi",
-            "rightLeg_rough_Jpsi",
-            "rightLeg_fine_Jpsi"
+            "meanJpsi",
+            "widthJpsi",
+            "leftLegroughJpsi",
+            "leftLegfineJpsi",
+            "rightLegroughJpsi",
+            "rightLegfineJpsi"
           ],
           [
-            "aa",
-            "bb",
-            "cc"
+            "GausCenter",
+            "GausWidth",
+            "GausAsym"
           ],
           [
             "sig_Jpsi",

@@ -201,6 +201,7 @@ alias ninjajpsi="cd ~/alice/sw/BUILD/O2Physics-latest/O2Physics/ && time ninja P
 # export JPsiBuild="$HOME/alice/sw/BUILD/O2Physics-latest/O2Physics/"
 export JPsiDir="$HOME/alice/O2Physics/PWGJE/Tasks/JPsiWorkDir/"
 export FitDir="$HOME/alice/O2Physics/PWGDQ/Macros"
+export RepoJPsi="$HOME/alice/JPsi-Jets-Analysis_LinksRepo"
 
 #25-02-26:
 jupconvert() {
@@ -216,6 +217,16 @@ rootb() {
         -e 'TBrowserImp *imp = b->GetBrowserImp();' \
         -e 'TGMainFrame *mainFrame = imp->GetMainFrame();' \
         -e 'mainFrame->MoveResize(1920, 0, 1545, 1080);'
+}
+
+#25-05-30:
+runFitter() {
+    tra output/z_Correlations_XiFitterResults.root
+    clear
+    echo 'Running tutorial.py...'
+    time python tutorial.py configFit_z_Xi.json
+    echo 'Fitter done!'
+    rootb output/z_Correlations_XiFitterResults.root
 }
 
 

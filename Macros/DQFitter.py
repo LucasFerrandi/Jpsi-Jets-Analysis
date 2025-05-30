@@ -32,8 +32,9 @@ class DQFitter:
         self.fInputName = fInputName
         self.fFileIn = TFile.Open(fInName)
         self.fInput = self.fFileIn.Get(fInputName)
+        NBinsTot=self.fInput.GetNbinsY()
         FileOutName = "{}{}FitterResults.root".format(fOutPath, fInName.rsplit("/", 1)[-1][9:-5])
-        if binY is None or binY == 1: # if None, not analysis in bins. If 1st bin, the file has to be created and mass hist written
+        if binY is None or binY == NBinsTot: # if None, not analysis in bins. If 1st bin, the file has to be created and mass hist written
             # self.fFileOut = TFile("{}{}.root".format(fOutPath, fInputName.rsplit("/", 1)[-1]), "RECREATE")
             self.fFileOut = TFile(FileOutName, "UPDATE")
             self.fFileOut.cd()
