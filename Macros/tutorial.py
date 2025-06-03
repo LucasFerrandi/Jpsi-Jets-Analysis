@@ -31,6 +31,7 @@ from ROOT import (
 import re
 
 import numpy as np
+import copy
 
 def GenerateTutorialSample():
     """
@@ -129,7 +130,7 @@ class PDF:
             return vwg(x[0], [par[0], par[1], par[2]])
         
 LEGEND_SIZE_DEFAULT = 0.02
-LEGEND_COORDS_DEFAULT = [0.2, 0.7, 0.4, 0.9]
+LEGEND_COORDS_DEFAULT = [0.2, 0.6, 0.4, 0.9]
 def createLegend(legLines, legCoords=LEGEND_COORDS_DEFAULT, textSize=LEGEND_SIZE_DEFAULT, isMC=False):
     legend = TLegend(*legCoords)
     legend.SetFillStyle(0)
@@ -209,7 +210,7 @@ def main():
         for histEInput in histsEInput:
             print("Found Energy histogram: ", histEInput.GetName())
         # TODO: Implement the analysis for energy histograms aiming Xi analysis
-    onlySemiInclusivepT = False # For testing
+    onlySemiInclusivepT = False # For testing. If True, hist for all pT ranges doesn't work
     if onlySemiInclusivepT:
         print("Only SemiInclusive pT histograms will be analyzed")
         histsInput = [hist for hist in JPsiDir.GetListOfKeys() if "h_diel_z" in hist.GetName() and "SemiInclusive" in hist.GetName() and "pT" in hist.GetName()]
@@ -228,6 +229,9 @@ def main():
         BinResultsDicts_inv = [] # List of z_size dictionaries, each one with 3 dicts (1 for each fit range)
         # FileIn.Close() #Maybe this should not be commented. previously this was after "for binZ..."
         #for binZ in range(1, Nbinsz + 1):
+        parValsPDFs = [copy.deepcopy(inputCfg["input"]["pdf_dictionary"]["parVal"])]
+        print('inputCfg["input"]["pdf_dictionary"]["parVal"]: ', inputCfg["input"]["pdf_dictionary"]["parVal"])
+        print("parValsPDFs1: ", parValsPDFs)
         for binZ in range(lastBinZ, lastBinZ - Nbinsz, -1): # from higher bins to lower
             print("Running fit for bin index %d" % binZ)
             MinDataRange = inputCfg["input"]["pdf_dictionary"]["fitRangeMin"][0] #the range of the data is the greater range of the fit (the larger has to be the first?)
@@ -236,12 +240,16 @@ def main():
                 inputCfg["input"]["input_file_name"], input_name, inputCfg["output"]["output_file_name"], MinDataRange, MaxDataRange, inputCfg["input"]["desired_bins"], True, binZ
             )
             if binZ != lastBinZ: # Fit-parameters initial values given by the result of previous fit (except for the first bin)
-                print("binZ :", binZ, " != lastBinZ-1:", lastBinZ-1)
-                NparPDFs = [len(parNamePDF) for parNamePDF in inputCfg["input"]["pdf_dictionary"]["parName"]]
-                print("NparPDF:", NparPDFs)
+                # NparPDFs = [len(parNamePDF) for parNamePDF in inputCfg["input"]["pdf_dictionary"]["parName"]]
+                # print("NparPDF:", NparPDFs)
+                parValBin = []
                 for PDF_i, parNamesPDF in enumerate(inputCfg["input"]["pdf_dictionary"]["parName"]):
+                    parValPDF = []
                     for PDFpar_i, parNamePdf in enumerate(parNamesPDF):
-                            inputCfg["input"]["pdf_dictionary"]["parVal"][PDF_i][PDFpar_i] = BinResultsDicts_inv[-1]["DictRange_1.8 to 4.2 GeV"][parNamePdf]
+                        inputCfg["input"]["pdf_dictionary"]["parVal"][PDF_i][PDFpar_i] = BinResultsDicts_inv[-1]["DictRange_1.8 to 4.2 GeV"][parNamePdf] # The fit range here is arbitrary
+                        parValPDF.append(copy.deepcopy(BinResultsDicts_inv[-1]["DictRange_1.8 to 4.2 GeV"][parNamePdf]))
+                    parValBin.append(parValPDF)
+                parValsPDFs.append(parValBin)
             dqFitter.SetFitConfig(inputCfg["input"]["pdf_dictionary"])
             BinResultsDicts_inv.append(dqFitter.MultiTrial()) # Fitting happens here
         # print(f"BinResultsDicts_inv:{BinResultsDicts_inv} \n\n\n\n")
@@ -448,8 +456,9 @@ def main():
         parCanvases = []
         parDir = thisRangeDir.GetDirectory("Fit Parameters") or thisRangeDir.mkdir("Fit Parameters")
         parDir.cd()
-        for i in range(len(inputCfg["input"]["pdf_dictionary"]["parName"])):
-            for j, parName in enumerate(inputCfg["input"]["pdf_dictionary"]["parName"][i]):
+        parValGraphs = []
+        for PDF_i in range(len(inputCfg["input"]["pdf_dictionary"]["parName"])): # PDF
+            for j, parName in enumerate(inputCfg["input"]["pdf_dictionary"]["parName"][PDF_i]):
                 c = TCanvas(f"canvas_{parName}", f"{parName}", 1000, 800)
                 c.cd()
                 graphs = []
@@ -470,6 +479,10 @@ def main():
                     legendPar.AddEntry(parGraph, f"{RangeName[10:]}", "p")
                     graphs.append(parGraph)
                     graphsY.append(graphY)
+                parValGraphY = [bin_Z [PDF_i][j] for bin_Z in parValsPDFs[::-1]]
+                parValGraph = TGraph(Nbinsz-InitialBin, array("f", np.arange(InitialBin*binWidth, Nbinsz*binWidth, binWidth)), array("f", parValGraphY[InitialBin:]))
+                parValGraph.SetMarkerStyle(7)
+                parValGraphs.append(parValGraph)
                 graphs[0].SetTitle(f";z Bin (lower bound);{parName}") # Axis titles
                 graphs[0].Draw("APL")
                 parTitle = createPaveText(f"{parName} values from fit")
@@ -486,29 +499,32 @@ def main():
                 meanGraph.Draw("PL SAME")
                 
                 # Horizontal lines representing min, max and initial values for parameters fit
-                y_Min = inputCfg["input"]["pdf_dictionary"]["parLimMin"][i][j]
+                y_Min = inputCfg["input"]["pdf_dictionary"]["parLimMin"][PDF_i][j]
                 lineMin = TLine(graphs[0].GetXaxis().GetXmin(), y_Min,
                 graphs[0].GetXaxis().GetXmax(), y_Min)
                 lineMin.SetLineColor(kGray+3)
                 lineMin.SetLineStyle(9)
                 lineMin.SetLineWidth(2)
                 lineMin.Draw("same")
-                y_Max = inputCfg["input"]["pdf_dictionary"]["parLimMax"][i][j]
+                y_Max = inputCfg["input"]["pdf_dictionary"]["parLimMax"][PDF_i][j]
                 lineMax = TLine(graphs[0].GetXaxis().GetXmin(), y_Max,
                 graphs[0].GetXaxis().GetXmax(), y_Max)
                 lineMax.SetLineColor(kGray+3)
                 lineMax.SetLineStyle(5)
                 lineMax.SetLineWidth(2)
                 lineMax.Draw("same")
-                y_Ini = inputCfg["input"]["pdf_dictionary"]["parVal"][i][j]
-                lineIni = TLine(graphs[0].GetXaxis().GetXmin(), y_Ini,
-                graphs[0].GetXaxis().GetXmax(), y_Ini)
-                lineIni.SetLineColor(kGray+3)
-                lineIni.SetLineStyle(2)
-                lineIni.SetLineWidth(2)
-                lineIni.Draw("same")
+                # y_Ini = inputCfg["input"]["pdf_dictionary"]["parVal"][i][j]
+                # lineIni = TLine(graphs[0].GetXaxis().GetXmin(), y_Ini,
+                # graphs[0].GetXaxis().GetXmax(), y_Ini)
+                # lineIni.SetLineColor(kGray+3)
+                # lineIni.SetLineStyle(2)
+                # lineIni.SetLineWidth(2)
+                # lineIni.Draw("same")
+                # y_Ini = parValsPDFs[0][i][j] # Initial value from the first fit
+                parValGraph.Draw("P SAME")
                 legendPar.AddEntry(lineMax, f"Max Value", "l")
-                legendPar.AddEntry(lineIni, f"Initial Value", "l")
+                # legendPar.AddEntry(lineIni, f"Initial Value", "l")
+                legendPar.AddEntry(parValGraph, f"Initial Value", "p")
                 legendPar.AddEntry(lineMin, f"Min Value", "l")
                 legendPar.Draw()
                 for graph in graphs[1:]:
