@@ -143,6 +143,7 @@ alias setDefautEnv='source /lustre/alice/users/miranov/NOTES/alice-tpc-notes2/JI
 #24-04-15:
 pyscript() {
     echo 'command to run: $O2PHYSICS_ROOT/share/scripts/find_dependencies.py -t <table (without "O2")>'
+    echo '============================================'
     $O2PHYSICS_ROOT/share/scripts/find_dependencies.py -t $1
 } # BOTAR NO ENVIRONMENT DO ALICE!
 
@@ -195,13 +196,14 @@ done | sort -nr
 }
 
 #25-02-11:
-alias ninjajpsi="cd ~/alice/sw/BUILD/O2Physics-latest/O2Physics/ && time ninja PWGJE/Tasks/install -j 3 && cd $HOME/alice/O2Physics/PWGJE/Tasks/JPsiWorkDir/"
+alias ninjajpsi="cd ~/alice/sw/BUILD/O2Physics-latest/O2Physics/ && time ninja -d explain -j 3 PWGJE/Tasks/install && cd $HOME/alice/O2Physics/PWGJE/Tasks/JPsiWorkDir/"
 
 #25-02-17:
 # export JPsiBuild="$HOME/alice/sw/BUILD/O2Physics-latest/O2Physics/"
 export JPsiDir="$HOME/alice/O2Physics/PWGJE/Tasks/JPsiWorkDir/"
-export FitDir="$HOME/alice/O2Physics/PWGDQ/Macros"
-export RepoJPsi="$HOME/alice/JPsi-Jets-Analysis_LinksRepo"
+export JPsiMCDir="$HOME/alice/O2Physics/PWGJE/Tasks/JPsiWorkDir/JPsiMC/"
+export JPsiFitDir="$HOME/alice/O2Physics/PWGDQ/Macros"
+export JPsiRepo="$HOME/alice/JPsi-Jets-Analysis_LinksRepo"
 
 #25-02-26:
 jupconvert() {
@@ -223,12 +225,20 @@ rootb() {
 runFitter() {
     tra output/z_Correlations_XiFitterResults.root
     clear
-    echo 'Running tutorial.py...'
+    echo 'Running commmands:'
+    echo 'tra output/z_Correlations_XiFitterResults.root'
+    echo 'clear'
+    echo 'time python tutorial.py configFit_z_Xi.json'
+    echo 'rootb output/z_Correlations_XiFitterResults.root'
+    echo '====================================================='
+
     time python tutorial.py configFit_z_Xi.json
+    echo '====================================================='
     echo 'Fitter done!'
     rootb output/z_Correlations_XiFitterResults.root
 }
 
-
+#25-06-30
+alias lss='ls -ltrh'
 
 

@@ -230,8 +230,6 @@ def main():
         # FileIn.Close() #Maybe this should not be commented. previously this was after "for binZ..."
         #for binZ in range(1, Nbinsz + 1):
         parValsPDFs = [copy.deepcopy(inputCfg["input"]["pdf_dictionary"]["parVal"])]
-        print('inputCfg["input"]["pdf_dictionary"]["parVal"]: ', inputCfg["input"]["pdf_dictionary"]["parVal"])
-        print("parValsPDFs1: ", parValsPDFs)
         for binZ in range(lastBinZ, lastBinZ - Nbinsz, -1): # from higher bins to lower
             print("Running fit for bin index %d" % binZ)
             MinDataRange = inputCfg["input"]["pdf_dictionary"]["fitRangeMin"][0] #the range of the data is the greater range of the fit (the larger has to be the first?)
@@ -246,14 +244,17 @@ def main():
                 for PDF_i, parNamesPDF in enumerate(inputCfg["input"]["pdf_dictionary"]["parName"]):
                     parValPDF = []
                     for PDFpar_i, parNamePdf in enumerate(parNamesPDF):
-                        inputCfg["input"]["pdf_dictionary"]["parVal"][PDF_i][PDFpar_i] = BinResultsDicts_inv[-1]["DictRange_1.8 to 4.2 GeV"][parNamePdf] # The fit range here is arbitrary
-                        parValPDF.append(copy.deepcopy(BinResultsDicts_inv[-1]["DictRange_1.8 to 4.2 GeV"][parNamePdf]))
+                        inputCfg["input"]["pdf_dictionary"]["parVal"][PDF_i][PDFpar_i] = list(BinResultsDicts_inv[-1].values())[0][parNamePdf] # The fit range here is arbitrary
+                        parValPDF.append(copy.deepcopy(list(BinResultsDicts_inv[-1].values())[0][parNamePdf]))
                     parValBin.append(parValPDF)
                 parValsPDFs.append(parValBin)
             dqFitter.SetFitConfig(inputCfg["input"]["pdf_dictionary"])
             BinResultsDicts_inv.append(dqFitter.MultiTrial()) # Fitting happens here
         # print(f"BinResultsDicts_inv:{BinResultsDicts_inv} \n\n\n\n")
         BinResultsDicts = BinResultsDicts_inv[::-1] # Reverse the list to have the bins in ascending order
+        print("BinResultsDicts:")
+        for i, BinResultsDict in enumerate(BinResultsDicts):
+            print(f"Bin {i+1}: {BinResultsDict}")
         FileOutName = "{}{}FitterResults.root".format(inputCfg["output"]["output_file_name"], inputCfg["input"]["input_file_name"].rsplit("/", 1)[-1][9:-5])
         FileOut = TFile(FileOutName, "UPDATE") # Has to be openned again due to the fact that it was closed in dqFitter.
         FileOut.cd()
@@ -513,6 +514,7 @@ def main():
                 lineMax.SetLineStyle(5)
                 lineMax.SetLineWidth(2)
                 lineMax.Draw("same")
+                graphs[0].GetYaxis().SetRangeUser(y_Min - 0.1*(y_Max-y_Min), y_Max + 0.1*(y_Max-y_Min))
                 # y_Ini = inputCfg["input"]["pdf_dictionary"]["parVal"][i][j]
                 # lineIni = TLine(graphs[0].GetXaxis().GetXmin(), y_Ini,
                 # graphs[0].GetXaxis().GetXmax(), y_Ini)

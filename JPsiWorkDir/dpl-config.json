@@ -1,7 +1,7 @@
 {
     "internal-dpl-clock": "",
     "internal-dpl-aod-reader": {
-        "aod-file-private": "@CompleteAO2DFilesSubJobs_24Gb_LHC24am_pass1.txt",
+        "aod-file-private": "~\/alice\/JPsiDerivedDatasetSubJobs\/MC\/AO2DMC_2.root",
         "aod-max-io-rate": "0",
         "time-limit": "0",
         "orbit-offset-enumeration": "0",
@@ -10,67 +10,64 @@
         "end-value-enumeration": "-1",
         "step-value-enumeration": "1"
     },
-    "jet-finder-dielectron-data-charged": {
-        "vertexZCut": "10",
-        "centralityMin": "-999",
-        "centralityMax": "999",
-        "trackOccupancyInTimeRangeMax": "999999",
-        "eventSelections": "sel8",
-        "triggerMasks": "",
-        "trackPtMin": "0.150000006",
-        "trackPtMax": "1000",
-        "trackEtaMin": "-0.899999976",
-        "trackEtaMax": "0.899999976",
-        "trackPhiMin": "-999",
-        "trackPhiMax": "999",
-        "trackingEfficiency": "1",
-        "trackSelections": "globalTracks",
-        "particleSelections": "PhysicalPrimary",
-        "clusterDefinition": "kV3Default",
-        "clusterEtaMin": "-0.709999979",
-        "clusterEtaMax": "0.709999979",
-        "clusterPhiMin": "1.38999999",
-        "clusterPhiMax": "3.26999998",
-        "clusterEnergyMin": "0.5",
-        "clusterTimeMin": "-25",
-        "clusterTimeMax": "25",
-        "clusterRejectExotics": "true",
-        "candPtMin": "1",
-        "candPtMax": "100",
-        "candYMin": "-0.899999976",
-        "candYMax": "0.899999976",
-        "rejectBackgroundMCDCandidates": "false",
-        "rejectIncorrectDecaysMCP": "true",
-        "jetRadius": {
+    "internal-dpl-aod-spawner": "",
+    "j-psi-fragmentation-function-task": {
+        "binDielPt": {
             "values": [
-                "0.40000000000000002"
+                "1000",
+                "0",
+                "30"
             ]
         },
-        "jetPtMin": "0",
-        "jetPtMax": "1000",
-        "jetEWSPtMin": "0",
-        "jetEWSPtMax": "1000",
-        "jetEtaMin": "-99",
-        "jetEtaMax": "99",
-        "jetTypeParticleLevel": "1",
-        "jetAlgorithm": "2",
-        "jetRecombScheme": "0",
-        "jetGhostArea": "0.00499999989",
-        "ghostRepeat": "1",
-        "DoTriggering": "false",
-        "jetAreaFractionMin": "-99",
-        "jetPtBinWidth": "5",
-        "fillTHnSparse": "false",
-        "jetExtraParam": "-99",
-        "processDummy": "false",
-        "processChargedJetsData": "true",
-        "processChargedEvtWiseSubJetsData": "false",
-        "processChargedJetsMCD": "false",
-        "processChargedEvtWiseSubJetsMCD": "false",
-        "processChargedJetsMCP": "false",
-        "processChargedEvtWiseSubJetsMCP": "false"
-    },
-    "j-psi-fragmentation-function-task": {
+        "binJetPt": {
+            "values": [
+                "1000",
+                "0",
+                "150"
+            ]
+        },
+        "binEta": {
+            "values": [
+                "200",
+                "-1",
+                "1"
+            ]
+        },
+        "phiAxis": {
+            "values": [
+                "200",
+                "-3.2000000000000002",
+                "6.4000000000000004"
+            ]
+        },
+        "binVtxZ": {
+            "values": [
+                "200",
+                "-20",
+                "20"
+            ]
+        },
+        "binDielMass": {
+            "values": [
+                "10000",
+                "0",
+                "35"
+            ]
+        },
+        "binZ": {
+            "values": [
+                "20",
+                "0",
+                "1"
+            ]
+        },
+        "binPtRatio": {
+            "values": [
+                "700",
+                "0",
+                "1"
+            ]
+        },
         "ptBounds": {
             "values": [
                 "5",
@@ -91,9 +88,11 @@
                 "128",
                 "140"
             ]
-        }
+        },
+        "processDummy": "false",
+        "processJPsiJetsData": "false",
+        "processJPsiMCValidation": "true"
     },
-    "internal-dpl-aod-writer": "",
     "internal-dpl-aod-global-analysis-file-sink": "",
     "internal-dpl-injected-dummy-sink": ""
 }
