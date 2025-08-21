@@ -241,4 +241,14 @@ runFitter() {
 #25-06-30
 alias lss='ls -ltrh'
 
+#25-08-14
+# highlight_brackets() {
+#     "$@" | GREP_COLOR='01;33' grep --color=always -E '\[[^]]+\]|$'
+# }
+# export GREP_COLOR='01;33'
+# alias tail='tail -f | grep --color=always -E "\[[^]]+\]|$"'
+highlight_brackets() {
+    "$@" | sed -E 's/(\[[^]]+\])/\x1b[33m\1\x1b[0m/g'
+}
 
+#teste2

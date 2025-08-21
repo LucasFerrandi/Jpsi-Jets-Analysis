@@ -9,7 +9,7 @@ echo "JSON: $JSON"
 time \
 # o2-analysis-dq-efficiency-with-assoc $BATCH --configuration  json://$JSON  | \
 #--severity error --shm-segment-size 12000000000 --aod-writer-json aodWriterTempConfig.json -b  | \
-# o2-analysis-dq-table-maker-mc-with-assoc $BATCH --configuration  json://$JSON  | \
+o2-analysis-dq-table-maker-mc-with-assoc $BATCH --configuration  json://$JSON  | \
 o2-analysis-timestamp $BATCH --configuration  json://$JSON  | \
 o2-analysis-event-selection $BATCH --configuration  json://$JSON  | \
 o2-analysis-multiplicity-table $BATCH --configuration  json://$JSON  | \
