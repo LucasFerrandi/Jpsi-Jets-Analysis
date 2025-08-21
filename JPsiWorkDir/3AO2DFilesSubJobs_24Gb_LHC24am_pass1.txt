@@ -1,3 +1,0 @@
-/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/alice/cern.ch/user/a/alihyperloop/jobs/0122/hy_1220688/0001/AO2D.root
-/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/alice/cern.ch/user/a/alihyperloop/jobs/0122/hy_1220688/0005/AO2D.root
-/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/alice/cern.ch/user/a/alihyperloop/jobs/0122/hy_1220688/0007/AO2D.root
