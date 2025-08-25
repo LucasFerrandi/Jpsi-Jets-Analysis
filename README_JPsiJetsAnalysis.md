@@ -50,3 +50,22 @@
      - A copy of the input histogram and inclusive mass distribution
      -  Results of the fits for every x projection
      - For each fit range, a histogram compiling these results
+
+## Monte Carlo
+Analysis done in `/PWGJE/Tasks/JPsiWorkDir/JPsiMC/`
+- Given J/Psi Monte Carlo datasets, Skim them using TableMakerMC_withAssoc
+     - Provide reco and gen level MCSignals to it. Ex.: `eFromJpsi,eFromPromptJpsi,eFromNonpromptJpsi,Jpsi,nonPromptJpsi,promptJpsi,allBeautyHadrons,Bplus,protonPrimary, everythingFromEverythingFromBeauty`
+     - Output:
+          - AO2D.root with reduced tables for reco-level tracks (mainly electrons) and gen-level (particles matching provided MCSignals or matching reco tracks)
+          - AnalysisResults.root with general statistics
+- run dqEfficiency_withAssoc on reduced AO2D
+     - analysis on pairs of electrons
+     - For `same-event-pairing`, provide gen and reco MCsignals, such as`"cfgBarrelMCGenSignals": "promptJpsi,nonPromptJpsi"` and`"cfgBarrelMCRecSignals": "eePrimaryFromPromptJPsi,eePrimaryFromNonPromptJPsi"`
+     - Output:
+          - AnalysisResults.root with histograms for dielectron which passes each MCSignal
+          - AnalysisResults_Trees.root with dielectron trees (tables). Can be `dielectronsAll`, for example
+
+## Machine Learning and Efficiency
+- Create a Python virtual environment inside ALIEnv (`alice/Hipe4MLenv`, for example)
+- Install Hipe4ML in it
+- Efficiency calculated in `alice/EfficiencyAndML/Hipe4MCYuanjing`

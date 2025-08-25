@@ -124,7 +124,7 @@
         "energy": "13600",
         "cfgBarrelMCGenSignals": "promptJpsi,nonPromptJpsi",
         "cfgMCGenSignalsJSON": "",
-        "cfgBarrelMCRecSignals": "eeFromJPsi",
+        "cfgBarrelMCRecSignals": "eePrimaryFromPromptJPsi,eePrimaryFromNonPromptJPsi",
         "cfgMCRecSignalsJSON": "",
         "cfgSkimSignalOnly": "false",
         "useMiniTree": {
