@@ -1,8 +1,9 @@
-# Tutorial on running J/psi jets analysis
+# J/psi-jets Analysis
 (created on April 11, 2025. Aliases aimed to my pc)
 
 This repository is a compilation of hardlinks to many files which are important for my analysis within ALICE, but separated across different local directories. Below, a detailed tutorial on running things locally.
 
+## Tutorial
 1. **Install O2Physics (see [O2 Documentation](https://aliceo2group.github.io/analysis-framework/docs/))**  
 2.  **Enter O2Physics environment:**
   - Using alias:`alice` & `source bashrc_alienv`
