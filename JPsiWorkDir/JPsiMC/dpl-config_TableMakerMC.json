@@ -1,7 +1,7 @@
 {
     "internal-dpl-clock": "",
     "internal-dpl-aod-reader": {
-        "aod-file-private": "~\/alice\/JPsiDatasets\/MC\/RawMC\/AO2DMC_LHC25b16_0_550369_AOD_001.root",
+        "aod-file-private": "~/alice/JPsiDatasets/MC/RawMC/AO2DMC_LHC25b16_0_550369_AOD_001.root",
         "aod-max-io-rate": "0",
         "time-limit": "0",
         "orbit-offset-enumeration": "0",
@@ -9,6 +9,14 @@
         "start-value-enumeration": "0",
         "end-value-enumeration": "-1",
         "step-value-enumeration": "1"
+    },
+    "__comments__": {
+        "comment1":"~/alice/JPsiDatasets/MC/RawMC/AO2DMC_LHC25b15_0_539908_AOD_002.root",
+        "comment2":"~/alice/JPsiDatasets/MC/RawMC/AO2DMC_LHC25b16_0_550369_AOD_001.root",
+        "comment3":"~/alice/JPsiDatasets/MC/RawMC/AO2DMC_LHC25b17_1_550367_AOD_002.root",
+        "comment4":"~/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b15/AO2D-0228-hy_2280113-AOD-001.root",
+        "comment5":"~/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b16/AO2D-0228-hy_2283791-AOD-001.root",
+        "comment6":"~/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root"
     },
     "internal-dpl-aod-spawner": "",
     "internal-dpl-aod-index-builder": "",

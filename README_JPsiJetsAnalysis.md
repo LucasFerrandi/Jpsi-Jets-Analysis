@@ -66,6 +66,11 @@ Analysis done in `/PWGJE/Tasks/JPsiWorkDir/JPsiMC/`
           - AnalysisResults_Trees.root with dielectron trees (tables). Can be `dielectronsAll`, for example
 
 ## Machine Learning and Efficiency
-- Create a Python virtual environment inside ALIEnv (`alice/Hipe4MLenv`, for example)
-- Install Hipe4ML in it
-- Efficiency calculated in `alice/EfficiencyAndML/Hipe4MCYuanjing`
+1. Create a Python virtual environment inside ALIEnv (`alice/Hipe4MLenv`, for example)
+2. Install Hipe4ML in it
+3. Enter ALIEnv: `alice` & `source bashrc_alienv`
+4. Enter Hipe4ML venv: `source Hipe4MLev/bin/activate`
+5. Efficiency calculated in `alice/EfficiencyAndML/Hipe4MCYuanjing`
+     - Open with `code` and select `Hipe4MLenv` Python kernel
+6. BDT trained in the same folder
+7. With the model trained and converted to ONNX, do the inference on data using MLResponse

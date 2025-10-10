@@ -160,7 +160,7 @@ struct JPsiFragmentationFunctionTask{
   void processJPsiJetsData(JetCollision const& collision, soa::Join<aod::DielectronChargedJets, aod::DielectronChargedJetConstituents> const& jets, aod::CandidatesDielectronData const& cands, JetTracks const& tracks)
   {
     registry.fill(HIST("h_coll_z"), collision.posZ());
-    registry.fill(HIST("h_coll_mult"), collision.multiplicity());
+    // registry.fill(HIST("h_coll_mult"), collision.multiplicity()); // "no member called 'multiplicity'". See JCOLLISION in JetReducedData.h
     registry.fill(HIST("h_coll_evtsel"), collision.eventSel());
     int dielsInColl = 0;
     for (auto& cand : cands) {
@@ -261,6 +261,125 @@ struct JPsiFragmentationFunctionTask{
   }
   PROCESS_SWITCH(JPsiFragmentationFunctionTask, processJPsiJetsData, "JPsi Fragmentation Function Data Task", false);
 
+
+
+
+
+
+  // 25-09-30
+  // Almost a copy of processJPsiJetsData. TODO: make it a template function
+
+  void processJPsiJetsMC(JetCollision const& collision, soa::Join<aod::DielectronChargedMCParticleLevelJets, aod::DielectronChargedMCParticleLevelJetConstituents> const& jets, aod::CandidatesDielectronData const& cands, JetTracks const& tracks)
+  {
+    registry.fill(HIST("h_coll_z"), collision.posZ());
+    // registry.fill(HIST("h_coll_mult"), collision.multiplicity()); // "no member called 'multiplicity'". See JCOLLISION in JetReducedData.h
+    registry.fill(HIST("h_coll_evtsel"), collision.eventSel());
+    int dielsInColl = 0;
+    for (auto& cand : cands) {
+      dielsInColl++;
+    }
+    registry.fill(HIST("h_diels_per_coll"), dielsInColl);
+    int trackInColl = 0;
+    for (auto& track : tracks) {
+      trackInColl++;
+    }
+    registry.fill(HIST("h_tracks_per_coll"), trackInColl);
+    int jetInColl = 0;
+    for (auto& jet : jets) {
+      bool jetHasJPsi = false;
+      registry.fill(HIST("h_Jet_pt"), jet.pt());
+      registry.fill(HIST("h_Jet_eta"), jet.eta());
+      registry.fill(HIST("h_Jet_y"), jet.y());
+      registry.fill(HIST("h_Jet_phi"), jet.phi());
+      registry.fill(HIST("h_Jet_area"), jet.area());
+      registry.fill(HIST("h_Jet_energy"), jet.energy());
+      if (jet.pt() > 10){
+        registry.fill(HIST("h_area_jet_vs_pT"), jet.pt(), jet.area());
+      }
+      TVector3 jetVector(jet.px(), jet.py(), jet.pz());
+      for (auto& jpsiCandidate : jet.candidates_as<aod::CandidatesDielectronData>()) {
+        jetHasJPsi = true;
+        registry.fill(HIST("h_diel_mass"), jpsiCandidate.mass());
+        registry.fill(HIST("h_diel_pt"), jpsiCandidate.pt());
+        registry.fill(HIST("h_diel_eta"), jpsiCandidate.eta());
+        registry.fill(HIST("h_diel_y"), jpsiCandidate.y());
+        registry.fill(HIST("h_diel_phi"), jpsiCandidate.phi());
+        registry.fill(HIST("h_diel_sign"), jpsiCandidate.sign());
+        TVector3 jpsiVector(jpsiCandidate.px(), jpsiCandidate.py(), jpsiCandidate.pz());
+        double z_parallel = (jetVector * jpsiVector) / (jetVector * jetVector);
+        double z_perpendicular = (jetVector.Cross(jpsiVector)).Mag() / jetVector.Mag();
+        double pt_ratio = jpsiCandidate.pt() / jet.pt();
+        registry.fill(HIST("h_diel_jet_projection"), z_parallel);
+        registry.fill(HIST("h_diel_jet_rejection"), z_perpendicular);
+        registry.fill(HIST("h_diel_pt_projection"), pt_ratio);
+        double candDistToAxis = jetutilities::deltaR(jpsiCandidate, jet);
+        registry.fill(HIST("h_diel_jet_distance"), candDistToAxis);
+        registry.fill(HIST("h_diel_jet_distance_vs_projection"), candDistToAxis, z_parallel);
+        int jetCounter = 0;
+        for (auto& otherJet : jets) { //Distances JPsi-jet
+          double candJetDistToJets = jetutilities::deltaR(jet, otherJet);
+          if (candJetDistToJets < 0.001){
+            continue;
+          }
+          registry.fill(HIST("h_jet_otherJet_distance"), candJetDistToJets);
+          registry.fill(HIST("h_jet_otherJet_distance_vs_projection"), candJetDistToJets, z_parallel);
+          double candDistToJets = jetutilities::deltaR(jpsiCandidate, otherJet); //otherJet
+          registry.fill(HIST("h_diel_otherJet_distance"), candDistToJets);
+          registry.fill(HIST("h_diel_otherJet_distance_vs_projection"), candDistToJets, z_parallel);
+          double candAzimutDistToJets = RecoDecay::constrainAngle(std::abs(jpsiCandidate.phi() - otherJet.phi()), 0, 2);
+          registry.fill(HIST("h_diel_otherJet_Azimutdistance"), candAzimutDistToJets);
+          registry.fill(HIST("h_diel_otherJet_Azimutdistance_vs_projection"), candAzimutDistToJets, z_parallel);
+          double candJetAzimutDistToJets = RecoDecay::constrainAngle(std::abs(jet.phi() - otherJet.phi()), 0, 2);
+          registry.fill(HIST("h_jet_otherJet_Azimutdistance"), candJetAzimutDistToJets);
+          registry.fill(HIST("h_jet_otherJet_Azimutdistance_vs_projection"), candJetAzimutDistToJets, z_parallel);
+        }
+      }
+      registry.fill(HIST("h_dielSize_per_jet"), jet.candidatesIds().size()); //Always = 1 if doCandidateJetFinding = true
+      registry.fill(HIST("h_tracks_per_jets"), jet.tracksIds().size());
+      jet_globalid++;
+      jetInColl++;
+      for (size_t i = 0; i < hDielZVsMassHists.size(); i++) { //Checks in which pT range the jet is
+        if (ptBounds.value[i] < jet.pt() && jet.pt() < ptBounds.value[i+1]) {
+          for (auto& jpsiCandidate : jet.candidates_as<aod::CandidatesDielectronData>()) {
+            TVector3 jpsiVector(jpsiCandidate.px(), jpsiCandidate.py(), jpsiCandidate.pz());
+            double pt_ratio = jpsiCandidate.pt() / jet.pt();
+            // std::string z_mass_histname ="h_diel_z_vs_mass_" + std::format("{:.2f}", ptBounds.value[i]) + "_to_" + std::format("{:.2f}", ptBounds.value[i+1]) + "GeV";
+            // registry.fill(HIST(h_diel_z_vs_mass_names[i].c_str()), pt_ratio, jpsiCandidate.mass());
+            // registry.fill(HIST(hDielZVsMassHists[i]), pt_ratio, jpsiCandidate.mass());
+            // hDielZVsMassHists[i]->Fill(pt_ratio, jpsiCandidate.mass());
+            // std::get<std::shared_ptr<TH2F>>(hDielZVsMassHists[i])->Fill(pt_ratio, jpsiCandidate.mass());
+            std::get<std::shared_ptr<TH2>>(hDielZVsMassHists[i])->Fill(jpsiCandidate.mass(), pt_ratio);
+            std::get<std::shared_ptr<TH2>>(hDielZVsMassHists.back())->Fill(jpsiCandidate.mass(), pt_ratio);
+            // registry.fill(HIST(h_diel_z_vs_mass_pTInclusive_name.c_str()), jpsiCandidate.mass(), pt_ratio);
+            // registry.get<TH2F>(hDielZVsMassHists[i])->Fill(pt_ratio, jpsiCandidate.mass());
+          }
+        }
+      }
+      for (size_t i = 0; i < hDielZVsMassHistsE.size(); i++) { //Checks in which E range the jet is
+        if (EBounds.value[i] < jet.energy() && jet.energy() < EBounds.value[i+1]) {
+          for (auto& jpsiCandidate : jet.candidates_as<aod::CandidatesDielectronData>()) {
+            TVector3 jpsiVector(jpsiCandidate.px(), jpsiCandidate.py(), jpsiCandidate.pz());
+            double pt_ratio = jpsiCandidate.pt() / jet.pt();
+            std::get<std::shared_ptr<TH2>>(hDielZVsMassHistsE[i])->Fill(jpsiCandidate.mass(), pt_ratio);
+            std::get<std::shared_ptr<TH2>>(hDielZVsMassHistsE.back())->Fill(jpsiCandidate.mass(), pt_ratio);
+            // registry.fill(HIST(h_diel_z_vs_mass_EInclusive_name.c_str()), jpsiCandidate.mass(), pt_ratio);
+          }
+        }
+      }
+    }
+    registry.fill(HIST("h_jets_per_coll"), jetInColl);
+    // registry.fill(HIST("h_coll_id"), coll_id);
+    // coll_id++;
+  } 
+  PROCESS_SWITCH(JPsiFragmentationFunctionTask, processJPsiJetsMC, "JPsi Fragmentation Function Task for MC", false);
+
+
+
+
+
+
+
+
   int mcPartCounter = 0;
   int trackCounter = 0;
   void processJPsiMCValidation(aod::Collision const& collision, mcTracks const& tracks, aod::McParticles const&) // mcParticle is accessed by the tracks
@@ -303,7 +422,7 @@ struct JPsiFragmentationFunctionTask{
           // if(mcParticle.mothersIds().size() > 1){
           //   std::cout << "Mother 1: " << mcParticle.mothersIds()[0].pdgCode() <<  std::endl;
           //   std::cout << "Mother 2: " << mcParticle.mothersIds()[1].pdgCode() <<  std::endl;
-          }
+          // }
           if(mother.pdgCode() == 443){
             registry.fill(HIST("h_mcp_jpsipt"), mother.pt()); // This way duplicate JPsis needs to be excluded!
             // registry.fill(HIST("h_mcp_jpsipt"), mcParticle.pt());
