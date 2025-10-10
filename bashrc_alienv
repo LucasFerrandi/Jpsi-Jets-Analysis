@@ -196,14 +196,14 @@ done | sort -nr
 }
 
 #25-02-11:
-alias ninjajpsi="cd ~/alice/sw/BUILD/O2Physics-latest/O2Physics/ && time ninja -d explain -j 3 PWGJE/Tasks/install && cd $HOME/alice/O2Physics/PWGJE/Tasks/JPsiWorkDir/"
+# alias ninjajpsi="cd ~/alice/sw/BUILD/O2Physics-latest/O2Physics/ && time ninja -d explain -j3 PWGJE/Tasks/install && cd $HOME/alice/O2Physics/PWGJE/Tasks/JPsiWorkDir/"
+
 
 #25-02-17:
 # export JPsiBuild="$HOME/alice/sw/BUILD/O2Physics-latest/O2Physics/"
-export JPsiDir="$HOME/alice/O2Physics/PWGJE/Tasks/JPsiWorkDir/"
-export JPsiMCDir="$HOME/alice/O2Physics/PWGJE/Tasks/JPsiWorkDir/JPsiMC/"
-export JPsiFitDir="$HOME/alice/O2Physics/PWGDQ/Macros"
-export JPsiRepo="$HOME/alice/JPsi-Jets-Analysis_LinksRepo"
+# export JPsiDir="$HOME/alice/O2Physics/PWGJE/Tasks/JPsiWorkDir/"
+# export JPsiMCDir="$HOME/alice/O2Physics/PWGJE/Tasks/JPsiWorkDir/JPsiMC/"
+# export JPsiFitDir="$HOME/alice/O2Physics/PWGDQ/Macros"
 
 #25-02-26:
 jupconvert() {
@@ -251,4 +251,63 @@ highlight_brackets() {
     "$@" | sed -E 's/(\[[^]]+\])/\x1b[33m\1\x1b[0m/g'
 }
 
-#teste2
+# 25-09-02
+# export JPsiDQEff="$HOME/alice/O2Physics/PWGJE/Tasks/JPsiWorkDir/JPsiMC/DQEfficiency"
+
+# 25-09-04
+# export JPsiDatasetsMC="$HOME/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy"
+
+#25-10-10
+
+checkalienv() {
+    alienv list &>"tempalienvlistOutput.txt"
+    local isOkToRunNinja=1  # default: false
+    if grep -q "^No Modulefiles Currently Loaded" tempalienvlistOutput.txt; then
+        echo "No ALICE environment loaded. You can run ninja :)"
+        isOkToRunNinja=0 # isOkToRunNinja=true
+    elif grep -q "^Currently Loaded Modulefiles" tempalienvlistOutput.txt; then
+        echo "Some ALICE environment is loaded! In order to run ninja, run 'exit' to leave alienv!"
+        isOkToRunNinja=1
+    else
+        echo "Error reading alienv list status from tempalienvlistOutput.txt"
+        isOkToRunNinja=1
+    fi
+
+    rm -f "tempalienvlistOutput.txt"
+    return $isOkToRunNinja
+}
+
+checkdirenv() {
+    which cmake &>"tempwhichcmakeOutput.txt"
+    if grep -q "alice" "tempwhichcmakeOutput.txt"; then
+        echo "direnv is active. You can run ninja :)"
+        isOkToRunNinja=0 #true
+    else
+        echo "direnv is not active! In order to run ninja, exit alienv and run 'cdNinjaBuildDir'!"
+        isOkToRunNinja=1
+    fi
+    rm -f "tempwhichcmakeOutput.txt"
+    return $isOkToRunNinja
+}
+
+ninjajpsi() {
+    if checkalienv && checkdirenv; then
+      echo 'Running: time ninja -d explain -j3 PWGJE/Tasks/install'
+      time ninja -d explain -j3 PWGJE/Tasks/install
+      cd $HOME/alice/O2Physics/PWGJE/Tasks/JPsiWorkDir/
+    fi
+}
+
+runNinja() {
+    local dirToBuild="$1"
+    if checkalienv && checkdirenv; then
+      echo "Running: time ninja -d explain -j3 ${dirToBuild}install"
+      time ninja -d explain -j3 ${dirToBuild}install
+      cd $HOME/alice/O2Physics/${dirToBuild}JPsiWorkDir/
+    fi
+}
+
+cdNinjaBuildDir() {
+    cd $NinjaBuildDir
+    checkalienv
+}
