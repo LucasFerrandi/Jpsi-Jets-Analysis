@@ -1,0 +1,226 @@
+{
+    "internal-dpl-clock": "",
+    "internal-dpl-aod-reader": {
+        "aod-file-private": "~\/alice\/JPsiDatasets\/MC\/DerivedMC\/OutputFromJpsi-DQ-standard-analysis-midy\/LHC25b16\/AO2D-0228-hy_2283791-AOD-001.root",
+        "aod-max-io-rate": "0",
+        "time-limit": "0",
+        "orbit-offset-enumeration": "0",
+        "orbit-multiplier-enumeration": "0",
+        "start-value-enumeration": "0",
+        "end-value-enumeration": "-1",
+        "step-value-enumeration": "1"
+    },
+    "__comments__": {
+        "comment1":"~/alice/JPsiDatasets/MC/RawMC/AO2DMC_LHC25b15_0_539908_AOD_002.root",
+        "comment2":"~/alice/JPsiDatasets/MC/RawMC/AO2DMC_LHC25b16_0_550369_AOD_001.root",
+        "comment3":"~/alice/JPsiDatasets/MC/RawMC/AO2DMC_LHC25b17_1_550367_AOD_002.root",
+        "comment4":"~/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b15/AO2D-0228-hy_2280113-AOD-001.root",
+        "comment5":"~/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b16/AO2D-0228-hy_2283791-AOD-001.root",
+        "comment6":"~/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root"
+    },
+    "analysis-event-selection": {
+        "cfgEventCuts": "eventStandard",
+        "cfgEventCutsJSON": "",
+        "cfgQA": "false",
+        "cfgAddEventHistogram": "",
+        "cfgAddEventMCHistogram": "generator",
+        "cfgAddJSONHistograms": "",
+        "splitCollisionsDeltaZ": "1",
+        "splitCollisionsDeltaBC": "100",
+        "checkSplitCollisions": "false",
+        "ccdb-url": "http:\/\/alice-ccdb.cern.ch",
+        "ccdb-no-later-than": "1759327805241",
+        "processSkimmed": "false",
+        "processDummy": "false"
+    },
+    "analysis-muon-selection": "",
+    "analysis-track-selection": {
+        "cfgTrackCuts": "jpsiO2MCdebugCuts2",
+        "cfgBarrelTrackCutsJSON": "",
+        "cfgQA": "false",
+        "cfgAddTrackHistogram": "",
+        "cfgAddJSONHistograms": "",
+        "cfgPublishAmbiguity": "true",
+        "ccdb-url": "http:\/\/alice-ccdb.cern.ch",
+        "ccdb-path-tpc": "Users\/z\/zhxiong\/TPCPID\/PostCalib",
+        "ccdb-no-later-than": "1759327805243",
+        "cfgTPCpostCalib": "false",
+        "grpmagPath": "GLO\/Config\/GRPMagField",
+        "cfgTrackMCSignals": "",
+        "cfgTrackMCsignalsJSON": "",
+        "processSkimmed": "false",
+        "processSkimmedWithCov": "false",
+        "processDummy": "false"
+    },
+    "analysis-asymmetric-pairing": {
+        "cfgLegCuts": "",
+        "cfgLegAFilterMask": "0",
+        "cfgLegBFilterMask": "0",
+        "cfgLegCFilterMask": "0",
+        "cfgCommonTrackCuts": "",
+        "cfgPairCuts": "",
+        "cfgPairCutsJSON": "",
+        "cfgSkipAmbiguousIdCombinations": "true",
+        "cfgAsymmetricPairingHistogramsSubgroups": "barrel,vertexing",
+        "cfgSameSignHistograms": "false",
+        "cfgReflectedHistograms": "false",
+        "cfgQA": "false",
+        "cfgAddJSONHistograms": "",
+        "ccdb-url": "http:\/\/alice-ccdb.cern.ch",
+        "grpmagPath": "GLO\/Config\/GRPMagField",
+        "cfgUseRemoteField": "false",
+        "cfgMagField": "5",
+        "cfgUseKFVertexing": "false",
+        "cfgUseAbsDCA": "false",
+        "cfgPropToPCA": "false",
+        "lutPath": "GLO\/Param\/MatLUT",
+        "cfgBarrelMCGenSignals": "",
+        "cfgBarrelMCRecSignals": "",
+        "cfgMCRecSignalsJSON": "",
+        "cfgMCGenSignalsJSON": "",
+        "processKaonPionSkimmed": "false",
+        "processKaonPionSkimmedMultExtra": "false",
+        "processKaonPionPionSkimmed": "false",
+        "processMCGen": "false",
+        "processMCGenWithEventSelection": "false",
+        "processDummy": "true"
+    },
+    "analysis-prefilter-selection": {
+        "cfgPrefilterTrackCut": "",
+        "cfgPrefilterPairCut": "",
+        "cfgTrackCuts": "",
+        "cfgPropTrack": "false",
+        "processBarrelSkimmed": "false",
+        "processDummy": "false"
+    },
+    "analysis-same-event-pairing": {
+        "cfgTrackCuts": "jpsiO2MCdebugCuts14",
+        "cfgMuonCuts": "",
+        "cfgPairCuts": "",
+        "cfgQA": "true",
+        "cfgAddSEPHistogram": "barrel,vertexing",
+        "cfgAddJSONHistograms": "",
+        "ccdb-url": "http:\/\/alice-ccdb.cern.ch",
+        "grpmagPath": "GLO\/Config\/GRPMagField",
+        "lutPath": "GLO\/Param\/MatLUT",
+        "geoPath": "GLO\/Config\/GeometryAligned",
+        "cfgUseRemoteField": "false",
+        "cfgMagField": "5",
+        "cfgFlatTables": "true",
+        "cfgUseKFVertexing": "false",
+        "cfgUseAbsDCA": "false",
+        "cfgPropToPCA": "false",
+        "cfgCorrFullGeo": "false",
+        "cfgNoCorrFwdProp": "false",
+        "syst": "pp",
+        "energy": "13600",
+        "cfgBarrelMCGenSignals": "promptJpsi,nonPromptJpsi",
+        "cfgMCGenSignalsJSON": "",
+        "cfgBarrelMCRecSignals": "eePrimaryFromPromptJPsi,eePrimaryFromNonPromptJPsi",
+        "cfgMCRecSignalsJSON": "",
+        "cfgSkimSignalOnly": "false",
+        "useMiniTree": {
+            "cfgMiniTree": "false",
+            "cfgMiniTreeMinMass": "2",
+            "cfgMiniTreeMaxMass": "5"
+        },
+        "cfgPropTrack": "true",
+        "processAllSkimmed": "false",
+        "processBarrelOnlySkimmed": "true",
+        "processBarrelOnlyWithCollSkimmed": "false",
+        "processMuonOnlySkimmed": "false",
+        "processMCGen": "true",
+        "processDummy": "false"},
+    "analysis-dilepton-track": {
+        "processBarrelSkimmed": "false",
+        "processDstarToD0Pi": "false",
+        "processMuonSkimmed": "false",
+        "processMCGen": "false",
+        "processMCGenWithEventSelection": "false",
+        "processDummy": "true"},
+    "j-psi-fragmentation-function-task": {
+        "binDielPt": {
+            "values": [
+                "1000",
+                "0",
+                "30"
+            ]
+        },
+        "binJetPt": {
+            "values": [
+                "1000",
+                "0",
+                "150"
+            ]
+        },
+        "binEta": {
+            "values": [
+                "200",
+                "-1",
+                "1"
+            ]
+        },
+        "phiAxis": {
+            "values": [
+                "200",
+                "-3.2000000000000002",
+                "6.4000000000000004"
+            ]
+        },
+        "binVtxZ": {
+            "values": [
+                "200",
+                "-20",
+                "20"
+            ]
+        },
+        "binDielMass": {
+            "values": [
+                "10000",
+                "0",
+                "35"
+            ]
+        },
+        "binZ": {
+            "values": [
+                "20",
+                "0",
+                "1"
+            ]
+        },
+        "binPtRatio": {
+            "values": [
+                "700",
+                "0",
+                "1"
+            ]
+        },
+        "ptBounds": {
+            "values": [
+                "5",
+                "7",
+                "15",
+                "35"
+            ]
+        },
+        "EBounds": {
+            "values": [
+                "44",
+                "56",
+                "68",
+                "80",
+                "92",
+                "104",
+                "116",
+                "128",
+                "140"
+            ]
+        },
+        "processDummy": "false",
+        "processJPsiJetsData": "false",
+        "processJPsiMCValidation": "true"
+    },
+    "internal-dpl-aod-writer": "",
+    "internal-dpl-aod-global-analysis-file-sink": "",
+    "internal-dpl-injected-dummy-sink": ""
+}

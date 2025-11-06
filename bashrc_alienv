@@ -311,3 +311,9 @@ cdNinjaBuildDir() {
     cd $NinjaBuildDir
     checkalienv
 }
+
+hipe4MLenvEnter() {
+    echo "Reminder: you must be in ALICE environment to run hipe4ML!"
+    echo "Entering hipe4ML environment ('source ~/alice/Hipe4MLenv/bin/activate')..."
+    source ~/alice/Hipe4MLenv/bin/activate
+}
