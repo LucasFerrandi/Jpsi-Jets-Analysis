@@ -9,7 +9,8 @@ echo "JSON: $JSON"
 time \
 # o2-analysis-dq-efficiency-with-assoc $BATCH --configuration json://$JSON --aod-writer-keep AOD/RTDIELEEXTRA/0,AOD/RTDIELECTRON/0,AOD/RTDIELECTRONALL/0 --shm-segment-size 8000000000 --aod-memory-rate-limit 500000000 
 
-o2-analysis-dq-efficiency-with-assoc $BATCH --internal-dpl-aod-reader "--aod-file-entry-min 0 --aod-file-entry-max 2" --run --configuration json://$JSON --aod-writer-keep AOD/RTDIELEEXTRA/0,AOD/RTDIELECTRON/0,AOD/RTDIELECTRONALL/0 --shm-segment-size 8000000000 --aod-memory-rate-limit 500000000 
+o2-analysis-dq-efficiency-with-assoc $BATCH --internal-dpl-aod-reader "--aod-file-entry-min 0 --aod-file-entry-max 2" --run --configuration json://$JSON --aod-writer-keep AOD/RTDIELECTRONALL/0 --shm-segment-size 8000000000 --aod-memory-rate-limit 500000000 
+# --aod-writer-keep AOD/RTDIELEEXTRA/0,AOD/RTDIELECTRON/0,AOD/RTDIELECTRONALL/0
 
 
 # o2-analysis-dq-efficiency $BATCH --configuration json://$JSON --aod-writer-keep AOD/RTDIELECTRONALL/0

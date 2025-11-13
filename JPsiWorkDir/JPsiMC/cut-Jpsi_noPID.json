@@ -1,0 +1,33 @@
+{
+    "Jpsi_noPID": {
+        "type": "AnalysisCompositeCut",
+        "title": "jpsiKineDcaQualitynoPID",
+        "useAND": true,
+        "AddCut-jpsiStandardKine": {
+            "type": "AnalysisCut",
+            "library": "jpsiStandardKine"
+        },
+        "AddCut-electronStandardQualityForO2MCdebug": {
+            "type": "AnalysisCut",
+            "library": "electronStandardQualityForO2MCdebug"
+        },
+        "AddCut-electronDcaxyQualitySkimmed": {
+            "type": "AnalysisCut",
+            "title": "electronDcaxyQualitySkimmed",
+            "AddCut-electronDcaxyQualitySkimmed": {
+                "var": "kTrackDCAxy",
+                "cutLow": -1.5,
+                "cutHigh": 1.5
+            }
+        },
+        "AddCut-electronDcazQualitySkimmed": {
+            "type": "AnalysisCut",
+            "title": "electronDcazQualitySkimmed",
+            "AddCut-electronDcazQualitySkimmed": {
+                "var": "kTrackDCAz",
+                "cutLow": -1.5,
+                "cutHigh": 1.5
+            }
+        }
+    }
+}

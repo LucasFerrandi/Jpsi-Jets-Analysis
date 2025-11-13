@@ -1,0 +1,890 @@
+[O2Physics/latest]:~/alice/O2Physics/PWGJE/Tasks/JPsiWorkDir/JPsiMC/DQEfficiency$ ./RunDQEfficiencyMCSignals25-08-25.sh dpl-configDQEfficiencyMCSignals25-08-25.json -b
+JSON: dpl-configDQEfficiencyMCSignals25-08-25.json
+[INFO] Initialising O2 Data Processing Layer. Driver PID: 52865.
+[INFO] Driver listening on port: 30945
+[INFO] Rate limiting set up at 500 MB distributed over 1 readers
+[INFO] O2 Data Processing Layer initialised. We brake for nobody.
+[INFO] Optimised build. O2DEBUG / LOG(debug) / LOGF(debug) / assert statement will not be shown.
+[INFO] Redeployment of configuration asked.
+[INFO] Starting internal-dpl-clock on pid 52866
+[INFO] Starting internal-dpl-aod-reader on pid 52867
+[INFO] Starting analysis-event-selection on pid 52868
+[INFO] Starting analysis-muon-selection on pid 52869
+[INFO] Starting analysis-track-selection on pid 52870
+[INFO] Starting analysis-asymmetric-pairing on pid 52871
+[INFO] Starting analysis-prefilter-selection on pid 52872
+[INFO] Starting analysis-same-event-pairing on pid 52873
+[INFO] Starting analysis-dilepton-track on pid 52874
+[INFO] Starting internal-dpl-aod-writer on pid 52875
+[INFO] Starting internal-dpl-aod-global-analysis-file-sink on pid 52876
+[INFO] Starting internal-dpl-injected-dummy-sink on pid 52877
+[INFO] Redeployment of configuration done.
+[52866:internal-dpl-clock]: [INFO] Instrumenting crash signals
+[52866:internal-dpl-clock]: [INFO] Spawing new device internal-dpl-clock in process with pid 52866
+[52866:internal-dpl-clock]: [18:00:02][INFO] 
+[52866:internal-dpl-clock]:       ______      _    _______  _________ 
+[52866:internal-dpl-clock]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.2
+[52866:internal-dpl-clock]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[52866:internal-dpl-clock]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[52866:internal-dpl-clock]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[52866:internal-dpl-clock]: 
+[52866:internal-dpl-clock]: [18:00:02][STATE] Starting FairMQ state machine --> IDLE
+[52866:internal-dpl-clock]: [18:00:02][STATE] IDLE ---> INITIALIZING DEVICE
+[52867:internal-dpl-aod-reader]: [INFO] Instrumenting crash signals
+[52866:internal-dpl-clock]: [18:00:02][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[52866:internal-dpl-clock]: [18:00:02][STATE] INITIALIZED ---> BINDING
+[52866:internal-dpl-clock]: [18:00:02][STATE] BINDING ---> BOUND
+[52866:internal-dpl-clock]: [18:00:02][STATE] BOUND ---> CONNECTING
+[52866:internal-dpl-clock]: [18:00:02][STATE] CONNECTING ---> DEVICE READY
+[52866:internal-dpl-clock]: [18:00:02][STATE] DEVICE READY ---> INITIALIZING TASK
+[52866:internal-dpl-clock]: [18:00:02][STATE] INITIALIZING TASK ---> READY
+[52866:internal-dpl-clock]: [18:00:02][STATE] READY ---> RUNNING
+[52866:internal-dpl-clock]: [18:00:02][INFO] fair::mq::Device running...
+[52866:internal-dpl-clock]: [18:00:02][INFO] LHCPeriod is not available, using current month SEP
+[52866:internal-dpl-clock]: [18:00:02][INFO] Correctly handshaken websocket connection.
+[INFO] Controller for internal-dpl-aod-reader not yet available.
+[52868:analysis-event-selection]: [INFO] Instrumenting crash signals
+[52871:analysis-asymmetric-pairing]: [INFO] Instrumenting crash signals
+[52867:internal-dpl-aod-reader]: [INFO] Spawing new device internal-dpl-aod-reader in process with pid 52867
+[52867:internal-dpl-aod-reader]: [18:00:02][INFO] 
+[52867:internal-dpl-aod-reader]:       ______      _    _______  _________ 
+[52867:internal-dpl-aod-reader]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.2
+[52867:internal-dpl-aod-reader]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[52867:internal-dpl-aod-reader]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[52867:internal-dpl-aod-reader]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[52867:internal-dpl-aod-reader]: 
+[52867:internal-dpl-aod-reader]: [18:00:02][STATE] Starting FairMQ state machine --> IDLE
+[52867:internal-dpl-aod-reader]: [18:00:02][STATE] IDLE ---> INITIALIZING DEVICE
+[52873:analysis-same-event-pairing]: [INFO] Instrumenting crash signals
+[52868:analysis-event-selection]: [INFO] Spawing new device analysis-event-selection in process with pid 52868
+[52871:analysis-asymmetric-pairing]: [INFO] Spawing new device analysis-asymmetric-pairing in process with pid 52871
+[52871:analysis-asymmetric-pairing]: [18:00:03][INFO] 
+[52871:analysis-asymmetric-pairing]:       ______      _    _______  _________ 
+[52871:analysis-asymmetric-pairing]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.2
+[52871:analysis-asymmetric-pairing]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[52871:analysis-asymmetric-pairing]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[52871:analysis-asymmetric-pairing]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[52871:analysis-asymmetric-pairing]: 
+[52871:analysis-asymmetric-pairing]: [18:00:03][STATE] Starting FairMQ state machine --> IDLE
+[52868:analysis-event-selection]: [18:00:03][INFO] 
+[52868:analysis-event-selection]:       ______      _    _______  _________ 
+[52868:analysis-event-selection]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.2
+[52868:analysis-event-selection]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[52868:analysis-event-selection]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[52868:analysis-event-selection]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[52868:analysis-event-selection]: 
+[52871:analysis-asymmetric-pairing]: [18:00:03][STATE] IDLE ---> INITIALIZING DEVICE
+[52868:analysis-event-selection]: [18:00:03][STATE] Starting FairMQ state machine --> IDLE
+[52868:analysis-event-selection]: [18:00:03][STATE] IDLE ---> INITIALIZING DEVICE
+[52871:analysis-asymmetric-pairing]: [18:00:03][INFO] Init CcdApi with UserAgentID: Ferrandi-Lenovo-IdeaPad-S145-15IWL-1758315603-nhVRJN, Host: http://alice-ccdb.cern.ch/, Curl timeouts: upload:20 download:5
+[52868:analysis-event-selection]: [18:00:03][INFO] Init CcdApi with UserAgentID: Ferrandi-Lenovo-IdeaPad-S145-15IWL-1758315603-9JaIfd, Host: http://alice-ccdb.cern.ch/, Curl timeouts: upload:20 download:5
+[52871:analysis-asymmetric-pairing]: [18:00:03][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[52871:analysis-asymmetric-pairing]: [18:00:03][STATE] INITIALIZED ---> BINDING
+[52871:analysis-asymmetric-pairing]: [18:00:03][STATE] BINDING ---> BOUND
+[52871:analysis-asymmetric-pairing]: [18:00:03][STATE] BOUND ---> CONNECTING
+[52871:analysis-asymmetric-pairing]: [18:00:03][STATE] CONNECTING ---> DEVICE READY
+[52871:analysis-asymmetric-pairing]: [18:00:03][STATE] DEVICE READY ---> INITIALIZING TASK
+[52871:analysis-asymmetric-pairing]: [18:00:03][STATE] INITIALIZING TASK ---> READY
+[52871:analysis-asymmetric-pairing]: [18:00:03][STATE] READY ---> RUNNING
+[52871:analysis-asymmetric-pairing]: [18:00:03][INFO] fair::mq::Device running...
+[52871:analysis-asymmetric-pairing]: [18:00:03][INFO] LHCPeriod is not available, using current month SEP
+[52871:analysis-asymmetric-pairing]: [18:00:03][INFO] Correctly handshaken websocket connection.
+[52869:analysis-muon-selection]: [INFO] Instrumenting crash signals
+[52873:analysis-same-event-pairing]: [INFO] Spawing new device analysis-same-event-pairing in process with pid 52873
+[52873:analysis-same-event-pairing]: [18:00:03][INFO] 
+[52873:analysis-same-event-pairing]:       ______      _    _______  _________ 
+[52873:analysis-same-event-pairing]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.2
+[52873:analysis-same-event-pairing]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[52873:analysis-same-event-pairing]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[52873:analysis-same-event-pairing]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[52873:analysis-same-event-pairing]: 
+[52873:analysis-same-event-pairing]: [18:00:03][STATE] Starting FairMQ state machine --> IDLE
+[52872:analysis-prefilter-selection]: [INFO] Instrumenting crash signals
+[52873:analysis-same-event-pairing]: [18:00:03][STATE] IDLE ---> INITIALIZING DEVICE
+[52873:analysis-same-event-pairing]: [18:00:03][INFO] Init CcdApi with UserAgentID: Ferrandi-Lenovo-IdeaPad-S145-15IWL-1758315603-rZtxtP, Host: http://alice-ccdb.cern.ch/, Curl timeouts: upload:20 download:5
+[52873:analysis-same-event-pairing]: [18:00:03][INFO] Init CcdApi with UserAgentID: Ferrandi-Lenovo-IdeaPad-S145-15IWL-1758315603-rZtxtP, Host: http://alice-ccdb.cern.ch, Curl timeouts: upload:20 download:5
+[52877:internal-dpl-injected-dummy-sink]: [INFO] Instrumenting crash signals
+[52875:internal-dpl-aod-writer]: [INFO] Instrumenting crash signals
+[52870:analysis-track-selection]: [INFO] Instrumenting crash signals
+[52874:analysis-dilepton-track]: [INFO] Instrumenting crash signals
+[52869:analysis-muon-selection]: [INFO] Spawing new device analysis-muon-selection in process with pid 52869
+[52869:analysis-muon-selection]: [18:00:03][INFO] 
+[52869:analysis-muon-selection]:       ______      _    _______  _________ 
+[52869:analysis-muon-selection]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.2
+[52869:analysis-muon-selection]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[52869:analysis-muon-selection]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[52869:analysis-muon-selection]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[52869:analysis-muon-selection]: 
+[52869:analysis-muon-selection]: [18:00:03][STATE] Starting FairMQ state machine --> IDLE
+[52872:analysis-prefilter-selection]: [INFO] Spawing new device analysis-prefilter-selection in process with pid 52872
+[52872:analysis-prefilter-selection]: [18:00:03][INFO] 
+[52872:analysis-prefilter-selection]:       ______      _    _______  _________ 
+[52872:analysis-prefilter-selection]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.2
+[52872:analysis-prefilter-selection]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[52872:analysis-prefilter-selection]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[52872:analysis-prefilter-selection]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[52872:analysis-prefilter-selection]: 
+[52872:analysis-prefilter-selection]: [18:00:03][STATE] Starting FairMQ state machine --> IDLE
+[52869:analysis-muon-selection]: [18:00:03][STATE] IDLE ---> INITIALIZING DEVICE
+[52869:analysis-muon-selection]: [18:00:03][INFO] Init CcdApi with UserAgentID: Ferrandi-Lenovo-IdeaPad-S145-15IWL-1758315603-lhpVh5, Host: http://alice-ccdb.cern.ch/, Curl timeouts: upload:20 download:5
+[52869:analysis-muon-selection]: [18:00:03][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[52869:analysis-muon-selection]: [18:00:03][STATE] INITIALIZED ---> BINDING
+[52869:analysis-muon-selection]: [18:00:03][STATE] BINDING ---> BOUND
+[52869:analysis-muon-selection]: [18:00:03][STATE] BOUND ---> CONNECTING
+[52869:analysis-muon-selection]: [18:00:03][STATE] CONNECTING ---> DEVICE READY
+[52869:analysis-muon-selection]: [18:00:03][STATE] DEVICE READY ---> INITIALIZING TASK
+[52869:analysis-muon-selection]: [18:00:03][STATE] INITIALIZING TASK ---> READY
+[52869:analysis-muon-selection]: [18:00:03][STATE] READY ---> RUNNING
+[52869:analysis-muon-selection]: [18:00:03][INFO] fair::mq::Device running...
+[52869:analysis-muon-selection]: [18:00:03][INFO] LHCPeriod is not available, using current month SEP
+[52869:analysis-muon-selection]: [18:00:03][INFO] Correctly handshaken websocket connection.
+[52872:analysis-prefilter-selection]: [18:00:03][STATE] IDLE ---> INITIALIZING DEVICE
+[52870:analysis-track-selection]: [INFO] Spawing new device analysis-track-selection in process with pid 52870
+[52872:analysis-prefilter-selection]: [18:00:03][WARN]  No track cuts to prefilter! Prefilter will not be run
+[52872:analysis-prefilter-selection]: [18:00:03][WARN]  No prefilter loose selection specified! Prefilter will not be run
+[52872:analysis-prefilter-selection]: [18:00:03][WARN] No specified loose cut or track cuts for prefiltering. This task will do nothing.
+[52872:analysis-prefilter-selection]: [18:00:03][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[52870:analysis-track-selection]: [18:00:03][INFO] 
+[52870:analysis-track-selection]:       ______      _    _______  _________ 
+[52870:analysis-track-selection]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.2
+[52870:analysis-track-selection]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[52870:analysis-track-selection]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[52870:analysis-track-selection]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[52870:analysis-track-selection]: 
+[52870:analysis-track-selection]: [18:00:03][STATE] Starting FairMQ state machine --> IDLE
+[52872:analysis-prefilter-selection]: [18:00:03][STATE] INITIALIZED ---> BINDING
+[52872:analysis-prefilter-selection]: [18:00:03][STATE] BINDING ---> BOUND
+[52877:internal-dpl-injected-dummy-sink]: [INFO] Spawing new device internal-dpl-injected-dummy-sink in process with pid 52877
+[52872:analysis-prefilter-selection]: [18:00:03][STATE] BOUND ---> CONNECTING
+[52872:analysis-prefilter-selection]: [18:00:03][STATE] CONNECTING ---> DEVICE READY
+[52872:analysis-prefilter-selection]: [18:00:03][STATE] DEVICE READY ---> INITIALIZING TASK
+[52872:analysis-prefilter-selection]: [18:00:03][STATE] INITIALIZING TASK ---> READY
+[52872:analysis-prefilter-selection]: [18:00:03][STATE] READY ---> RUNNING
+[52872:analysis-prefilter-selection]: [18:00:03][INFO] fair::mq::Device running...
+[52872:analysis-prefilter-selection]: [18:00:03][INFO] LHCPeriod is not available, using current month SEP
+[52877:internal-dpl-injected-dummy-sink]: [18:00:03][INFO] 
+[52877:internal-dpl-injected-dummy-sink]:       ______      _    _______  _________ 
+[52877:internal-dpl-injected-dummy-sink]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.2
+[52877:internal-dpl-injected-dummy-sink]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[52877:internal-dpl-injected-dummy-sink]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[52877:internal-dpl-injected-dummy-sink]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[52877:internal-dpl-injected-dummy-sink]: 
+[52877:internal-dpl-injected-dummy-sink]: [18:00:03][STATE] Starting FairMQ state machine --> IDLE
+[52875:internal-dpl-aod-writer]: [INFO] Spawing new device internal-dpl-aod-writer in process with pid 52875
+[52872:analysis-prefilter-selection]: [18:00:03][INFO] Correctly handshaken websocket connection.
+[52875:internal-dpl-aod-writer]: [18:00:03][INFO] 
+[52875:internal-dpl-aod-writer]:       ______      _    _______  _________ 
+[52875:internal-dpl-aod-writer]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.2
+[52875:internal-dpl-aod-writer]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[52875:internal-dpl-aod-writer]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[52875:internal-dpl-aod-writer]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[52875:internal-dpl-aod-writer]: 
+[52875:internal-dpl-aod-writer]: [18:00:03][STATE] Starting FairMQ state machine --> IDLE
+[52876:internal-dpl-aod-global-analysis-file-sink]: [INFO] Instrumenting crash signals
+[52877:internal-dpl-injected-dummy-sink]: [18:00:03][STATE] IDLE ---> INITIALIZING DEVICE
+[52870:analysis-track-selection]: [18:00:03][STATE] IDLE ---> INITIALIZING DEVICE
+[52877:internal-dpl-injected-dummy-sink]: [18:00:03][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[52877:internal-dpl-injected-dummy-sink]: [18:00:03][STATE] INITIALIZED ---> BINDING
+[52877:internal-dpl-injected-dummy-sink]: [18:00:03][STATE] BINDING ---> BOUND
+[52877:internal-dpl-injected-dummy-sink]: [18:00:03][STATE] BOUND ---> CONNECTING
+[52870:analysis-track-selection]: [18:00:03][INFO] Init CcdApi with UserAgentID: Ferrandi-Lenovo-IdeaPad-S145-15IWL-1758315603-jD3Sfx, Host: http://alice-ccdb.cern.ch/, Curl timeouts: upload:20 download:5
+[52875:internal-dpl-aod-writer]: [18:00:03][STATE] IDLE ---> INITIALIZING DEVICE
+[52877:internal-dpl-injected-dummy-sink]: [18:00:03][STATE] CONNECTING ---> DEVICE READY
+[52877:internal-dpl-injected-dummy-sink]: [18:00:03][STATE] DEVICE READY ---> INITIALIZING TASK
+[52877:internal-dpl-injected-dummy-sink]: [18:00:03][STATE] INITIALIZING TASK ---> READY
+[52877:internal-dpl-injected-dummy-sink]: [18:00:03][STATE] READY ---> RUNNING
+[52877:internal-dpl-injected-dummy-sink]: [18:00:03][INFO] fair::mq::Device running...
+[52877:internal-dpl-injected-dummy-sink]: [18:00:03][INFO] LHCPeriod is not available, using current month SEP
+[52877:internal-dpl-injected-dummy-sink]: [18:00:03][INFO] Correctly handshaken websocket connection.
+[52875:internal-dpl-aod-writer]: [18:00:03][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[52875:internal-dpl-aod-writer]: [18:00:03][STATE] INITIALIZED ---> BINDING
+[52875:internal-dpl-aod-writer]: [18:00:03][STATE] BINDING ---> BOUND
+[52875:internal-dpl-aod-writer]: [18:00:03][STATE] BOUND ---> CONNECTING
+[52874:analysis-dilepton-track]: [INFO] Spawing new device analysis-dilepton-track in process with pid 52874
+[52875:internal-dpl-aod-writer]: [18:00:03][STATE] CONNECTING ---> DEVICE READY
+[52875:internal-dpl-aod-writer]: [18:00:03][STATE] DEVICE READY ---> INITIALIZING TASK
+[52874:analysis-dilepton-track]: [18:00:03][INFO] 
+[52874:analysis-dilepton-track]:       ______      _    _______  _________ 
+[52874:analysis-dilepton-track]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.2
+[52874:analysis-dilepton-track]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[52874:analysis-dilepton-track]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[52874:analysis-dilepton-track]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[52874:analysis-dilepton-track]: 
+[52874:analysis-dilepton-track]: [18:00:03][STATE] Starting FairMQ state machine --> IDLE
+[52874:analysis-dilepton-track]: [18:00:03][STATE] IDLE ---> INITIALIZING DEVICE
+[52874:analysis-dilepton-track]: [18:00:03][INFO] Init CcdApi with UserAgentID: Ferrandi-Lenovo-IdeaPad-S145-15IWL-1758315603-SMHEbU, Host: http://alice-ccdb.cern.ch/, Curl timeouts: upload:20 download:5
+[52874:analysis-dilepton-track]: [18:00:03][INFO] Dummy function is enabled. Skipping the rest of the init function
+[52874:analysis-dilepton-track]: 
+[52874:analysis-dilepton-track]: [18:00:03][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[52874:analysis-dilepton-track]: [18:00:03][STATE] INITIALIZED ---> BINDING
+[52874:analysis-dilepton-track]: [18:00:03][STATE] BINDING ---> BOUND
+[52874:analysis-dilepton-track]: [18:00:03][STATE] BOUND ---> CONNECTING
+[52874:analysis-dilepton-track]: [18:00:03][STATE] CONNECTING ---> DEVICE READY
+[52874:analysis-dilepton-track]: [18:00:03][STATE] DEVICE READY ---> INITIALIZING TASK
+[52874:analysis-dilepton-track]: [18:00:03][STATE] INITIALIZING TASK ---> READY
+[52874:analysis-dilepton-track]: [18:00:03][STATE] READY ---> RUNNING
+[52874:analysis-dilepton-track]: [18:00:03][INFO] fair::mq::Device running...
+[52874:analysis-dilepton-track]: [18:00:03][INFO] LHCPeriod is not available, using current month SEP
+[52874:analysis-dilepton-track]: [18:00:03][INFO] Correctly handshaken websocket connection.
+[52875:internal-dpl-aod-writer]: [18:00:03][STATE] INITIALIZING TASK ---> READY
+[52875:internal-dpl-aod-writer]: [18:00:03][STATE] READY ---> RUNNING
+[52875:internal-dpl-aod-writer]: [18:00:03][INFO] fair::mq::Device running...
+[52875:internal-dpl-aod-writer]: [18:00:03][INFO] LHCPeriod is not available, using current month SEP
+[52875:internal-dpl-aod-writer]: [18:00:03][INFO] Correctly handshaken websocket connection.
+[52876:internal-dpl-aod-global-analysis-file-sink]: [INFO] Spawing new device internal-dpl-aod-global-analysis-file-sink in process with pid 52876
+[52876:internal-dpl-aod-global-analysis-file-sink]: [18:00:03][INFO] 
+[52876:internal-dpl-aod-global-analysis-file-sink]:       ______      _    _______  _________ 
+[52876:internal-dpl-aod-global-analysis-file-sink]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.2
+[52876:internal-dpl-aod-global-analysis-file-sink]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[52876:internal-dpl-aod-global-analysis-file-sink]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[52876:internal-dpl-aod-global-analysis-file-sink]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[52876:internal-dpl-aod-global-analysis-file-sink]: 
+[52876:internal-dpl-aod-global-analysis-file-sink]: [18:00:03][STATE] Starting FairMQ state machine --> IDLE
+[52876:internal-dpl-aod-global-analysis-file-sink]: [18:00:03][STATE] IDLE ---> INITIALIZING DEVICE
+[52876:internal-dpl-aod-global-analysis-file-sink]: [18:00:03][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[52876:internal-dpl-aod-global-analysis-file-sink]: [18:00:03][STATE] INITIALIZED ---> BINDING
+[52876:internal-dpl-aod-global-analysis-file-sink]: [18:00:03][STATE] BINDING ---> BOUND
+[52876:internal-dpl-aod-global-analysis-file-sink]: [18:00:03][STATE] BOUND ---> CONNECTING
+[52876:internal-dpl-aod-global-analysis-file-sink]: [18:00:03][STATE] CONNECTING ---> DEVICE READY
+[52876:internal-dpl-aod-global-analysis-file-sink]: [18:00:03][STATE] DEVICE READY ---> INITIALIZING TASK
+[52876:internal-dpl-aod-global-analysis-file-sink]: [18:00:03][STATE] INITIALIZING TASK ---> READY
+[52876:internal-dpl-aod-global-analysis-file-sink]: [18:00:03][STATE] READY ---> RUNNING
+[52876:internal-dpl-aod-global-analysis-file-sink]: [18:00:03][INFO] fair::mq::Device running...
+[52876:internal-dpl-aod-global-analysis-file-sink]: [18:00:03][INFO] LHCPeriod is not available, using current month SEP
+[52876:internal-dpl-aod-global-analysis-file-sink]: [18:00:03][INFO] Correctly handshaken websocket connection.
+[52868:analysis-event-selection]: [18:00:04][WARN] HistogramManager::AddHistogram(): Histogram MCVtxX_VtxY already exists in class EventsMC
+[52868:analysis-event-selection]: [18:00:04][INFO] ========================================== interpreting JSON for adding histograms
+[52868:analysis-event-selection]: [18:00:04][INFO]       json string is: 
+[52868:analysis-event-selection]: [18:00:04][INFO] Init CcdApi with UserAgentID: Ferrandi-Lenovo-IdeaPad-S145-15IWL-1758315603-9JaIfd, Host: http://alice-ccdb.cern.ch, Curl timeouts: upload:20 download:5
+[52868:analysis-event-selection]: [18:00:04][INFO] Init CcdApi with UserAgentID: Ferrandi-Lenovo-IdeaPad-S145-15IWL-1758315602-sshdsZ, Host: http://alice-ccdb.cern.ch, Curl timeouts: upload:20 download:5
+[52868:analysis-event-selection]: [18:00:04][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[52868:analysis-event-selection]: [18:00:04][STATE] INITIALIZED ---> BINDING
+[52868:analysis-event-selection]: [18:00:04][STATE] BINDING ---> BOUND
+[52868:analysis-event-selection]: [18:00:04][STATE] BOUND ---> CONNECTING
+[52868:analysis-event-selection]: [18:00:04][STATE] CONNECTING ---> DEVICE READY
+[52868:analysis-event-selection]: [18:00:04][STATE] DEVICE READY ---> INITIALIZING TASK
+[52868:analysis-event-selection]: [18:00:04][STATE] INITIALIZING TASK ---> READY
+[52868:analysis-event-selection]: [18:00:04][STATE] READY ---> RUNNING
+[52868:analysis-event-selection]: [18:00:04][INFO] fair::mq::Device running...
+[52868:analysis-event-selection]: [18:00:04][INFO] LHCPeriod is not available, using current month SEP
+[52868:analysis-event-selection]: [18:00:04][INFO] Correctly handshaken websocket connection.
+[52867:internal-dpl-aod-reader]: [18:00:04][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[52867:internal-dpl-aod-reader]: [18:00:04][STATE] INITIALIZED ---> BINDING
+[52867:internal-dpl-aod-reader]: [18:00:04][STATE] BINDING ---> BOUND
+[52867:internal-dpl-aod-reader]: [18:00:04][STATE] BOUND ---> CONNECTING
+[52867:internal-dpl-aod-reader]: [18:00:04][STATE] CONNECTING ---> DEVICE READY
+[52867:internal-dpl-aod-reader]: [18:00:04][STATE] DEVICE READY ---> INITIALIZING TASK
+[INFO] Controller for internal-dpl-aod-reader now available.
+[52867:internal-dpl-aod-reader]: [18:00:04][STATE] INITIALIZING TASK ---> READY
+[52867:internal-dpl-aod-reader]: [18:00:04][STATE] READY ---> RUNNING
+[52867:internal-dpl-aod-reader]: [18:00:04][INFO] fair::mq::Device running...
+[52867:internal-dpl-aod-reader]: [18:00:04][INFO] LHCPeriod is not available, using current month SEP
+[52867:internal-dpl-aod-reader]: [18:00:04][INFO] Correctly handshaken websocket connection.
+[52870:analysis-track-selection]: [18:00:04][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[52870:analysis-track-selection]: [18:00:04][STATE] INITIALIZED ---> BINDING
+[52870:analysis-track-selection]: [18:00:04][STATE] BINDING ---> BOUND
+[52870:analysis-track-selection]: [18:00:04][STATE] BOUND ---> CONNECTING
+[52870:analysis-track-selection]: [18:00:04][STATE] CONNECTING ---> DEVICE READY
+[52870:analysis-track-selection]: [18:00:04][STATE] DEVICE READY ---> INITIALIZING TASK
+[52870:analysis-track-selection]: [18:00:04][STATE] INITIALIZING TASK ---> READY
+[52870:analysis-track-selection]: [18:00:04][STATE] READY ---> RUNNING
+[52870:analysis-track-selection]: [18:00:04][INFO] fair::mq::Device running...
+[52870:analysis-track-selection]: [18:00:04][INFO] LHCPeriod is not available, using current month SEP
+[52870:analysis-track-selection]: [18:00:04][INFO] Correctly handshaken websocket connection.
+[52867:internal-dpl-aod-reader]: [18:00:04][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52873:analysis-same-event-pairing]: DN >>> C=ch/O=AliEn2/CN=Users/CN=lferrand/OU=lferrand
+[52873:analysis-same-event-pairing]: ISSUER >>> C=ch/O=AliEn2/CN=AliEn CA
+[52873:analysis-same-event-pairing]: BEGIN >>> 2025-09-18 12:28:37
+[52873:analysis-same-event-pairing]: EXPIRE >>> 2025-10-19 14:28:37
+[52867:internal-dpl-aod-reader]: [18:00:06][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=1,read_bytes=1026502,read_calls=9,io_time=1.7,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:06][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:06][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=1,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:06][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:06][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=1,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:06][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:06][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=1,read_bytes=162790,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:06][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:06][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=1,read_bytes=1196221,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:06][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:06][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=1,read_bytes=962821,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:06][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:06][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=1,read_bytes=1056003,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:06][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:06][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=1,read_bytes=3535885,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:06][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:06][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=1,read_bytes=338197,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:06][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:06][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=1,read_bytes=5939246,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:06][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:06][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=1,read_bytes=5358768,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:06][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:06][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=1,read_bytes=362690,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:06][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:06][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=1,read_bytes=1297331,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:06][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=1,read_bytes=17325348,read_calls=9,io_time=0.2,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=2,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=2,read_bytes=1017647,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=2,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=2,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=2,read_bytes=162727,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=2,read_bytes=1307751,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=2,read_bytes=953983,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=2,read_bytes=1046382,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=2,read_bytes=3505540,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=2,read_bytes=337924,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=2,read_bytes=5887599,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=2,read_bytes=5311612,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=2,read_bytes=359195,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=2,read_bytes=1286041,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=2,read_bytes=17641512,read_calls=9,io_time=0.2,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=3,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=3,read_bytes=691188,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=3,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=3,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=3,read_bytes=109545,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=3,read_bytes=806279,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:07][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=3,read_bytes=649739,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=3,read_bytes=711761,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=3,read_bytes=2426477,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=3,read_bytes=232845,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=3,read_bytes=4057293,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=3,read_bytes=3664974,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=3,read_bytes=244845,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=3,read_bytes=888313,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=3,read_bytes=11691650,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=4,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=4,read_bytes=1023931,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=4,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=4,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=4,read_bytes=162626,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=4,read_bytes=1206867,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=4,read_bytes=958842,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=4,read_bytes=1053381,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=4,read_bytes=3478335,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=4,read_bytes=337651,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=4,read_bytes=5839533,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=4,read_bytes=5269371,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=4,read_bytes=356844,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=4,read_bytes=1276252,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:08][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=4,read_bytes=17442923,read_calls=9,io_time=0.2,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=5,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=5,read_bytes=1017019,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=5,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=5,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=5,read_bytes=161474,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=5,read_bytes=1206326,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52873:analysis-same-event-pairing]: Info in <TJAlienConnectionManager>: Opening connection to JCentral. Please wait
+[52873:analysis-same-event-pairing]: Info in <TJAlienConnectionManager>: Opening connection to 128.142.249.47
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=5,read_bytes=955030,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=5,read_bytes=1045923,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=5,read_bytes=3556970,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=5,read_bytes=339277,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=5,read_bytes=5966908,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=5,read_bytes=5383703,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=5,read_bytes=362460,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=5,read_bytes=1301957,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=5,read_bytes=17403321,read_calls=9,io_time=0.2,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:00:09][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52873:analysis-same-event-pairing]: Info in <TJAlienConnectionManager>: Successfully connected to 128.142.249.47
+[52873:analysis-same-event-pairing]: Info in <TJAlienFile::Open>: Accessing file /alice/data/CCDB/GLO/Param/MatLUT/02/28498/ef7855a7-4397-11f0-ac70-58ac5bc4250c in SE <ALICE::CCIN2P3::SE>
+[52870:analysis-track-selection]: DN >>> C=ch/O=AliEn2/CN=Users/CN=lferrand/OU=lferrand
+[52870:analysis-track-selection]: ISSUER >>> C=ch/O=AliEn2/CN=AliEn CA
+[52870:analysis-track-selection]: BEGIN >>> 2025-09-18 12:28:37
+[52870:analysis-track-selection]: EXPIRE >>> 2025-10-19 14:28:37
+[52873:analysis-same-event-pairing]: [18:00:55][INFO] ccdb reads http://alice-ccdb.cern.ch/GLO/Param/MatLUT/1704063600000/ef7855a7-4397-11f0-ac70-58ac5bc4250c for 1758315603138 (retrieve, agent_id: Ferrandi-Lenovo-IdeaPad-S145-15IWL-1758315603-rZtxtP), 
+[52873:analysis-same-event-pairing]: [18:00:55][INFO] Initializing voxel layer lookup
+[52870:analysis-track-selection]: Info in <TJAlienConnectionManager>: Opening connection to JCentral. Please wait
+[52870:analysis-track-selection]: Info in <TJAlienConnectionManager>: Opening connection to 128.142.249.62
+[52873:analysis-same-event-pairing]: [18:00:56][INFO] ========================================== interpreting JSON for adding histograms
+[52873:analysis-same-event-pairing]: [18:00:56][INFO]       json string is: 
+[52873:analysis-same-event-pairing]: [18:00:56][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[52873:analysis-same-event-pairing]: [18:00:56][STATE] INITIALIZED ---> BINDING
+[52873:analysis-same-event-pairing]: [18:00:56][STATE] BINDING ---> BOUND
+[52873:analysis-same-event-pairing]: [18:00:56][STATE] BOUND ---> CONNECTING
+[52873:analysis-same-event-pairing]: [18:00:56][STATE] CONNECTING ---> DEVICE READY
+[52873:analysis-same-event-pairing]: [18:00:56][STATE] DEVICE READY ---> INITIALIZING TASK
+[52873:analysis-same-event-pairing]: [18:00:56][STATE] INITIALIZING TASK ---> READY
+[52873:analysis-same-event-pairing]: [18:00:56][STATE] READY ---> RUNNING
+[52873:analysis-same-event-pairing]: [18:00:56][INFO] fair::mq::Device running...
+[52873:analysis-same-event-pairing]: [18:00:56][INFO] LHCPeriod is not available, using current month SEP
+[52873:analysis-same-event-pairing]: [18:00:56][INFO] Correctly handshaken websocket connection.
+[52870:analysis-track-selection]: Info in <TJAlienConnectionManager>: Successfully connected to 128.142.249.62
+[52870:analysis-track-selection]: Info in <TJAlienFile::Open>: Accessing file /alice/data/CCDB/GLO/Config/GRPMagField/08/44968/1bff10bd-8b7d-11ef-a7aa-0aa202c71b9a in SE <ALICE::CCIN2P3::SE>
+[52870:analysis-track-selection]: [18:01:02][INFO] ccdb reads http://alice-ccdb.cern.ch/GLO/Config/GRPMagField/1729055492859/1bff10bd-8b7d-11ef-a7aa-0aa202c71b9a for 1729065683382 (retrieve, agent_id: Ferrandi-Lenovo-IdeaPad-S145-15IWL-1758315603-jD3Sfx), 
+[52873:analysis-same-event-pairing]: /home/ferrandi/alice/sw/BUILD/4e7167808b738117c3452b35e6e483dc5b576362/arrow/src_tmp/cpp/src/gandiva/cache.cc:58: Creating gandiva cache with capacity of 5000
+[52873:analysis-same-event-pairing]: /home/ferrandi/alice/sw/BUILD/4e7167808b738117c3452b35e6e483dc5b576362/arrow/src_tmp/cpp/src/gandiva/engine.cc:282: Detected CPU Name : skylake
+[52873:analysis-same-event-pairing]: /home/ferrandi/alice/sw/BUILD/4e7167808b738117c3452b35e6e483dc5b576362/arrow/src_tmp/cpp/src/gandiva/engine.cc:283: Detected CPU Features: [ +prfchw -cldemote +avx +aes +sahf +pclmul -xop +crc32 +xsaves -avx512fp16 -usermsr -sm4 +sse4.1 -avx512ifma +xsave -avx512pf +sse4.2 -tsxldtrk -ptwrite -widekl -sm3 +invpcid +64bit +xsavec -avx10.1-512 -avx512vpopcntdq +cmov -avx512vp2intersect -avx512cd +movbe -avxvnniint8 -avx512er -amx-int8 -kl -avx10.1-256 -sha512 -avxvnni -rtm +adx +avx2 -hreset -movdiri -serialize -vpclmulqdq -avx512vl -uintr +clflushopt -raoint -cmpccxadd +bmi -amx-tile +sse -gfni -avxvnniint16 -amx-fp16 +xsaveopt +rdrnd -avx512f -amx-bf16 -avx512bf16 -avx512vnni +cx8 -avx512bw +sse3 -pku +fsgsbase -clzero -mwaitx -lwp +lzcnt -sha -movdir64b -wbnoinvd -enqcmd -prefetchwt1 -avxneconvert -tbm -pconfig -amx-complex +ssse3 +cx16 +bmi2 +fma +popcnt -avxifma +f16c -avx512bitalg -rdpru -clwb +mmx +sse2 +rdseed -avx512vbmi2 -prefetchi -rdpid -fma4 -avx512vbmi -shstk -vaes -waitpkg +sgx +fxsr -avx512dq -sse4a]
+[52867:internal-dpl-aod-reader]: [18:08:55][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=6,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=525.3,level=0
+[52867:internal-dpl-aod-reader]: [18:08:55][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:08:55][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=6,read_bytes=1019539,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:08:55][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:08:55][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=6,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:08:55][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:08:55][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=6,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:08:55][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:08:55][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=6,read_bytes=161694,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:08:55][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:08:55][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=6,read_bytes=1187815,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:08:55][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:08:55][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=6,read_bytes=955153,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:08:55][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:08:55][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=6,read_bytes=1048945,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:08:55][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:08:55][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=6,read_bytes=3578405,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:08:55][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:08:55][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=6,read_bytes=342439,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:08:55][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:08:55][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=6,read_bytes=6013186,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:08:55][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:08:55][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=6,read_bytes=5425469,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:08:55][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:08:55][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=6,read_bytes=365216,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:08:55][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:08:55][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=6,read_bytes=1312095,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:08:55][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:08:55][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=6,read_bytes=17188430,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:08:55][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:16:45][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=470.1,level=0
+[52867:internal-dpl-aod-reader]: [18:16:45][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:16:45][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=1027522,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:16:45][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:16:45][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:16:45][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:16:45][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:16:45][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:16:45][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=163061,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:16:45][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:16:45][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=1197982,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:16:45][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:16:45][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=963980,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:16:45][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:16:46][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=1056925,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:16:46][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:16:46][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=3569682,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:16:46][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:16:46][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=339899,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:16:46][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:16:46][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=5987443,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:16:46][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:16:46][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=5403447,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:16:46][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:16:46][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=364580,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:16:46][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:16:46][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=1307688,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:16:46][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:16:46][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=17341986,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:16:46][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:20:19][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=213.1,level=0
+[52867:internal-dpl-aod-reader]: [18:20:19][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:20:19][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=1023305,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:20:19][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:20:19][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:20:19][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:20:19][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:20:19][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:20:19][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=162306,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:20:19][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:20:19][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=1200721,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:20:19][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:20:19][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=959116,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:20:19][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:20:19][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=1052796,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:20:19][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:20:19][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=3596149,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:20:19][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:20:19][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=343090,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:20:19][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:20:19][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=6037540,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:20:19][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:20:19][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=5446667,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:20:19][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:20:19][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=367195,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:20:19][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:20:19][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=1318187,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:20:19][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:20:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=17350161,read_calls=9,io_time=0.2,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:20:20][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:28:12][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=472.5,level=0
+[52867:internal-dpl-aod-reader]: [18:28:12][INFO] Opening file: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[52867:internal-dpl-aod-reader]: [18:28:12][INFO] No input files left to read for reader 0!
+[52867:internal-dpl-aod-reader]: [18:28:12][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[52867:internal-dpl-aod-reader]: [18:28:12][INFO] Sending end-of-stream message to channel from_internal-dpl-aod-reader_to_analysis-event-selection
+[52867:internal-dpl-aod-reader]: [18:28:12][INFO] Sending end-of-stream message to channel from_internal-dpl-aod-reader_to_analysis-track-selection
+[52867:internal-dpl-aod-reader]: [18:28:12][INFO] Sending end-of-stream message to channel from_internal-dpl-aod-reader_to_internal-dpl-aod-writer
+[52868:analysis-event-selection]: [18:28:13][INFO] CCDBManager summary: 0 queries, 0 bytes for 0 objects, 0 good fetches (and 0 failed ones) in 0 ms, instance: Ferrandi-Lenovo-IdeaPad-S145-15IWL-1758315603-9JaIfd
+[52868:analysis-event-selection]: [18:28:13][INFO] CCDB cache miss/hit/failures
+[52868:analysis-event-selection]: [18:28:13][INFO] Sending end-of-stream message to channel from_analysis-event-selection_to_analysis-muon-selection
+[52868:analysis-event-selection]: [18:28:13][INFO] Sending end-of-stream message to channel from_analysis-event-selection_to_analysis-track-selection
+[52868:analysis-event-selection]: [18:28:13][INFO] Sending end-of-stream message to channel from_analysis-event-selection_to_internal-dpl-aod-global-analysis-file-sink
+[52869:analysis-muon-selection]: [18:28:15][INFO] CCDBManager summary: 0 queries, 0 bytes for 0 objects, 0 good fetches (and 0 failed ones) in 0 ms, instance: Ferrandi-Lenovo-IdeaPad-S145-15IWL-1758315603-lhpVh5
+[52869:analysis-muon-selection]: [18:28:15][INFO] CCDB cache miss/hit/failures
+[52869:analysis-muon-selection]: [18:28:15][INFO] Sending end-of-stream message to channel from_analysis-muon-selection_to_analysis-track-selection
+[52869:analysis-muon-selection]: [18:28:15][INFO] Sending end-of-stream message to channel from_analysis-muon-selection_to_internal-dpl-aod-global-analysis-file-sink
+[52869:analysis-muon-selection]: [18:28:15][INFO] Sending end-of-stream message to channel from_analysis-muon-selection_to_internal-dpl-aod-writer
+[52870:analysis-track-selection]: [18:28:15][INFO] CCDBManager summary: 1 queries, 1,107 bytes for 1 objects, 1 good fetches (and 0 failed ones) in 9,899 ms, instance: Ferrandi-Lenovo-IdeaPad-S145-15IWL-1758315603-jD3Sfx
+[52870:analysis-track-selection]: [18:28:15][INFO] CCDB cache miss/hit/failures
+[52870:analysis-track-selection]: [18:28:15][INFO]   GLO/Config/GRPMagField: 1/0/0 (1107-1107 bytes)
+[52870:analysis-track-selection]: [18:28:15][INFO] Sending end-of-stream message to channel from_analysis-track-selection_to_analysis-asymmetric-pairing
+[52870:analysis-track-selection]: [18:28:15][INFO] Sending end-of-stream message to channel from_analysis-track-selection_to_analysis-prefilter-selection
+[52870:analysis-track-selection]: [18:28:15][INFO] Sending end-of-stream message to channel from_analysis-track-selection_to_analysis-same-event-pairing
+[52870:analysis-track-selection]: [18:28:15][INFO] Sending end-of-stream message to channel from_analysis-track-selection_to_internal-dpl-aod-global-analysis-file-sink
+[52871:analysis-asymmetric-pairing]: [18:28:16][INFO] CCDBManager summary: 0 queries, 0 bytes for 0 objects, 0 good fetches (and 0 failed ones) in 0 ms, instance: Ferrandi-Lenovo-IdeaPad-S145-15IWL-1758315603-nhVRJN
+[52871:analysis-asymmetric-pairing]: [18:28:16][INFO] CCDB cache miss/hit/failures
+[52871:analysis-asymmetric-pairing]: [18:28:16][INFO] Sending end-of-stream message to channel from_analysis-asymmetric-pairing_to_analysis-prefilter-selection
+[52871:analysis-asymmetric-pairing]: [18:28:16][INFO] Sending end-of-stream message to channel from_analysis-asymmetric-pairing_to_internal-dpl-aod-global-analysis-file-sink
+[52871:analysis-asymmetric-pairing]: [18:28:16][INFO] Sending end-of-stream message to channel from_analysis-asymmetric-pairing_to_internal-dpl-aod-writer
+[52872:analysis-prefilter-selection]: [18:28:16][INFO] Sending end-of-stream message to channel from_analysis-prefilter-selection_to_analysis-same-event-pairing
+[52876:internal-dpl-aod-global-analysis-file-sink]: [18:28:16][ERROR] Cannot read class info from buffer of ATSK/ccde149e74b7____/0
+[52876:internal-dpl-aod-global-analysis-file-sink]: [18:28:16][ERROR] Cannot read class info from buffer of ATSK/ccde149e796e____/0
+[52876:internal-dpl-aod-global-analysis-file-sink]: [18:28:16][ERROR] Cannot read class info from buffer of ATSK/ccde149e7c9c____/0
+[52875:internal-dpl-aod-writer]: [18:59:22][CRITICAL] Some Lifetime::Timeframe data got dropped starting at 8
+[52873:analysis-same-event-pairing]: Error in <TBufferFile::WriteByteCount>: bytecount too large (more than 1073741822)
+[52873:analysis-same-event-pairing]: Error in <TBufferFile::WriteByteCount>: bytecount too large (more than 1073741822)
+[52873:analysis-same-event-pairing]: [18:59:28][INFO] CCDBManager summary: 1 queries, 21,492,662 bytes for 1 objects, 1 good fetches (and 0 failed ones) in 52,109 ms, instance: Ferrandi-Lenovo-IdeaPad-S145-15IWL-1758315603-rZtxtP
+[52873:analysis-same-event-pairing]: [18:59:28][INFO] CCDB cache miss/hit/failures
+[52873:analysis-same-event-pairing]: [18:59:28][INFO]   GLO/Param/MatLUT: 1/0/0 (21492662-21492662 bytes)
+[52873:analysis-same-event-pairing]: [18:59:28][INFO] Sending end-of-stream message to channel from_analysis-same-event-pairing_to_analysis-dilepton-track
+[52873:analysis-same-event-pairing]: [18:59:28][INFO] Sending end-of-stream message to channel from_analysis-same-event-pairing_to_internal-dpl-aod-global-analysis-file-sink
+[52873:analysis-same-event-pairing]: [18:59:28][INFO] Sending end-of-stream message to channel from_analysis-same-event-pairing_to_internal-dpl-aod-writer
+[52874:analysis-dilepton-track]: [18:59:29][INFO] CCDBManager summary: 0 queries, 0 bytes for 0 objects, 0 good fetches (and 0 failed ones) in 0 ms, instance: Ferrandi-Lenovo-IdeaPad-S145-15IWL-1758315603-SMHEbU
+[52874:analysis-dilepton-track]: [18:59:29][INFO] CCDB cache miss/hit/failures
+[52874:analysis-dilepton-track]: [18:59:29][INFO] Sending end-of-stream message to channel from_analysis-dilepton-track_to_internal-dpl-aod-global-analysis-file-sink
+[52874:analysis-dilepton-track]: [18:59:29][INFO] Sending end-of-stream message to channel from_analysis-dilepton-track_to_internal-dpl-aod-writer
+[52875:internal-dpl-aod-writer]: [18:59:29][INFO] Sending end-of-stream message to channel from_internal-dpl-aod-writer_to_internal-dpl-injected-dummy-sink
+[52876:internal-dpl-aod-global-analysis-file-sink]: Error in <TBufferFile::CheckByteCount>: object of class TList read too many bytes: 2055350850 instead of 981609026
+[52876:internal-dpl-aod-global-analysis-file-sink]: Warning in <TBufferFile::CheckByteCount>: TList::Streamer() not in sync with data, fix Streamer()
+[52876:internal-dpl-aod-global-analysis-file-sink]: Error in <TBufferFile::WriteByteCount>: bytecount too large (more than 1073741822)
+[52876:internal-dpl-aod-global-analysis-file-sink]: [18:59:43][ERROR] Cannot read class info from buffer of ATSK/ccde149e4070____/0
+[INFO] Quitting
+[INFO] QUIT_REQUESTED
+[52871:analysis-asymmetric-pairing]: [18:59:43][INFO] Received device shutdown request (signal 15).
+[52871:analysis-asymmetric-pairing]: [18:59:43][INFO] Waiting for graceful device shutdown. Hit Ctrl-C again to abort immediately.
+[52876:internal-dpl-aod-global-analysis-file-sink]: [18:59:43][INFO] Received device shutdown request (signal 15).
+[52876:internal-dpl-aod-global-analysis-file-sink]: [18:59:43][INFO] Waiting for graceful device shutdown. Hit Ctrl-C again to abort immediately.
+[52871:analysis-asymmetric-pairing]: [18:59:43][INFO] New state requested. No timeout set, quitting immediately as per --completion-policy
+[52871:analysis-asymmetric-pairing]: [18:59:43][STATE] RUNNING ---> READY
+[52871:analysis-asymmetric-pairing]: [18:59:43][STATE] READY ---> RESETTING TASK
+[52876:internal-dpl-aod-global-analysis-file-sink]: [18:59:43][INFO] New state requested. No timeout set, quitting immediately as per --completion-policy
+[52876:internal-dpl-aod-global-analysis-file-sink]: [18:59:43][STATE] RUNNING ---> READY
+[52876:internal-dpl-aod-global-analysis-file-sink]: [18:59:43][STATE] READY ---> RESETTING TASK
+[52871:analysis-asymmetric-pairing]: [18:59:43][STATE] RESETTING TASK ---> DEVICE READY
+[52876:internal-dpl-aod-global-analysis-file-sink]: [18:59:43][STATE] RESETTING TASK ---> DEVICE READY
+[52871:analysis-asymmetric-pairing]: [18:59:43][STATE] DEVICE READY ---> RESETTING DEVICE
+[52876:internal-dpl-aod-global-analysis-file-sink]: [18:59:43][STATE] DEVICE READY ---> RESETTING DEVICE
+[52871:analysis-asymmetric-pairing]: [18:59:43][STATE] RESETTING DEVICE ---> IDLE
+[52871:analysis-asymmetric-pairing]: [18:59:43][STATE] IDLE ---> EXITING
+[52873:analysis-same-event-pairing]: [18:59:43][INFO] Received device shutdown request (signal 15).
+[52873:analysis-same-event-pairing]: [18:59:43][INFO] Waiting for graceful device shutdown. Hit Ctrl-C again to abort immediately.
+[52873:analysis-same-event-pairing]: [18:59:43][INFO] New state requested. No timeout set, quitting immediately as per --completion-policy
+[52873:analysis-same-event-pairing]: [18:59:43][STATE] RUNNING ---> READY
+[52873:analysis-same-event-pairing]: [18:59:43][STATE] READY ---> RESETTING TASK
+[52873:analysis-same-event-pairing]: [18:59:43][STATE] RESETTING TASK ---> DEVICE READY
+[52873:analysis-same-event-pairing]: [18:59:43][STATE] DEVICE READY ---> RESETTING DEVICE
+[52871:analysis-asymmetric-pairing]: [18:59:43][STATE] Exiting FairMQ state machine
+[52874:analysis-dilepton-track]: [18:59:43][INFO] Received device shutdown request (signal 15).
+[52874:analysis-dilepton-track]: [18:59:43][INFO] Waiting for graceful device shutdown. Hit Ctrl-C again to abort immediately.
+[52874:analysis-dilepton-track]: [18:59:43][INFO] New state requested. No timeout set, quitting immediately as per --completion-policy
+[52874:analysis-dilepton-track]: [18:59:43][STATE] RUNNING ---> READY
+[52874:analysis-dilepton-track]: [18:59:43][STATE] READY ---> RESETTING TASK
+[52874:analysis-dilepton-track]: [18:59:43][STATE] RESETTING TASK ---> DEVICE READY
+[52874:analysis-dilepton-track]: [18:59:43][STATE] DEVICE READY ---> RESETTING DEVICE
+[52874:analysis-dilepton-track]: [18:59:43][STATE] RESETTING DEVICE ---> IDLE
+[52874:analysis-dilepton-track]: [18:59:43][STATE] IDLE ---> EXITING
+[52874:analysis-dilepton-track]: [18:59:43][STATE] Exiting FairMQ state machine
+[52866:internal-dpl-clock]: [18:59:43][INFO] Received device shutdown request (signal 15).
+[52866:internal-dpl-clock]: [18:59:43][INFO] Waiting for graceful device shutdown. Hit Ctrl-C again to abort immediately.
+[52866:internal-dpl-clock]: [18:59:43][INFO] New state requested. No timeout set, quitting immediately as per --completion-policy
+[52868:analysis-event-selection]: [18:59:43][INFO] Received device shutdown request (signal 15).
+[52868:analysis-event-selection]: [18:59:43][INFO] Waiting for graceful device shutdown. Hit Ctrl-C again to abort immediately.
+[52866:internal-dpl-clock]: [18:59:43][INFO] Sending end-of-stream message to channel from_internal-dpl-clock_to_internal-dpl-aod-reader
+[52866:internal-dpl-clock]: [18:59:43][STATE] RUNNING ---> READY
+[52868:analysis-event-selection]: [18:59:43][INFO] New state requested. No timeout set, quitting immediately as per --completion-policy
+[52866:internal-dpl-clock]: [18:59:43][STATE] READY ---> RESETTING TASK
+[52866:internal-dpl-clock]: [18:59:43][STATE] RESETTING TASK ---> DEVICE READY
+[52866:internal-dpl-clock]: [18:59:43][STATE] DEVICE READY ---> RESETTING DEVICE
+[52868:analysis-event-selection]: [18:59:43][STATE] RUNNING ---> READY
+[52868:analysis-event-selection]: [18:59:43][STATE] READY ---> RESETTING TASK
+[52868:analysis-event-selection]: [18:59:43][STATE] RESETTING TASK ---> DEVICE READY
+[52868:analysis-event-selection]: [18:59:43][STATE] DEVICE READY ---> RESETTING DEVICE
+[52866:internal-dpl-clock]: [18:59:43][STATE] RESETTING DEVICE ---> IDLE
+[52866:internal-dpl-clock]: [18:59:43][STATE] IDLE ---> EXITING
+[52866:internal-dpl-clock]: [18:59:43][STATE] Exiting FairMQ state machine
+[52870:analysis-track-selection]: [18:59:43][INFO] Received device shutdown request (signal 15).
+[52870:analysis-track-selection]: [18:59:43][INFO] Waiting for graceful device shutdown. Hit Ctrl-C again to abort immediately.
+[52870:analysis-track-selection]: [18:59:43][INFO] New state requested. No timeout set, quitting immediately as per --completion-policy
+[52870:analysis-track-selection]: [18:59:43][STATE] RUNNING ---> READY
+[52870:analysis-track-selection]: [18:59:43][STATE] READY ---> RESETTING TASK
+[52870:analysis-track-selection]: [18:59:43][STATE] RESETTING TASK ---> DEVICE READY
+[52870:analysis-track-selection]: [18:59:43][STATE] DEVICE READY ---> RESETTING DEVICE
+[52868:analysis-event-selection]: [18:59:43][STATE] RESETTING DEVICE ---> IDLE
+[52868:analysis-event-selection]: [18:59:43][STATE] IDLE ---> EXITING
+[52868:analysis-event-selection]: [18:59:43][STATE] Exiting FairMQ state machine
+[52867:internal-dpl-aod-reader]: [18:59:43][INFO] Received device shutdown request (signal 15).
+[52867:internal-dpl-aod-reader]: [18:59:43][INFO] Waiting for graceful device shutdown. Hit Ctrl-C again to abort immediately.
+[52867:internal-dpl-aod-reader]: [18:59:43][INFO] New state requested. No timeout set, quitting immediately as per --completion-policy
+[52867:internal-dpl-aod-reader]: [18:59:43][STATE] RUNNING ---> READY
+[52867:internal-dpl-aod-reader]: [18:59:43][STATE] READY ---> RESETTING TASK
+[52867:internal-dpl-aod-reader]: [18:59:43][STATE] RESETTING TASK ---> DEVICE READY
+[52867:internal-dpl-aod-reader]: [18:59:43][STATE] DEVICE READY ---> RESETTING DEVICE
+[52876:internal-dpl-aod-global-analysis-file-sink]: [18:59:43][STATE] RESETTING DEVICE ---> IDLE
+[52876:internal-dpl-aod-global-analysis-file-sink]: [18:59:43][STATE] IDLE ---> EXITING
+[52876:internal-dpl-aod-global-analysis-file-sink]: [18:59:43][STATE] Exiting FairMQ state machine
+[52869:analysis-muon-selection]: [18:59:43][INFO] Received device shutdown request (signal 15).
+[52869:analysis-muon-selection]: [18:59:43][INFO] Waiting for graceful device shutdown. Hit Ctrl-C again to abort immediately.
+[52869:analysis-muon-selection]: [18:59:43][INFO] New state requested. No timeout set, quitting immediately as per --completion-policy
+[52869:analysis-muon-selection]: [18:59:43][STATE] RUNNING ---> READY
+[52869:analysis-muon-selection]: [18:59:43][STATE] READY ---> RESETTING TASK
+[52869:analysis-muon-selection]: [18:59:43][STATE] RESETTING TASK ---> DEVICE READY
+[52869:analysis-muon-selection]: [18:59:43][STATE] DEVICE READY ---> RESETTING DEVICE
+[52869:analysis-muon-selection]: [18:59:43][STATE] RESETTING DEVICE ---> IDLE
+[52869:analysis-muon-selection]: [18:59:43][STATE] IDLE ---> EXITING
+[52869:analysis-muon-selection]: [18:59:43][STATE] Exiting FairMQ state machine
+[52872:analysis-prefilter-selection]: [18:59:43][INFO] Received device shutdown request (signal 15).
+[52872:analysis-prefilter-selection]: [18:59:43][INFO] Waiting for graceful device shutdown. Hit Ctrl-C again to abort immediately.
+[52872:analysis-prefilter-selection]: [18:59:43][INFO] New state requested. No timeout set, quitting immediately as per --completion-policy
+[52872:analysis-prefilter-selection]: [18:59:43][STATE] RUNNING ---> READY
+[52872:analysis-prefilter-selection]: [18:59:43][STATE] READY ---> RESETTING TASK
+[52872:analysis-prefilter-selection]: [18:59:43][STATE] RESETTING TASK ---> DEVICE READY
+[52872:analysis-prefilter-selection]: [18:59:43][STATE] DEVICE READY ---> RESETTING DEVICE
+[52875:internal-dpl-aod-writer]: [18:59:43][INFO] Received device shutdown request (signal 15).
+[52875:internal-dpl-aod-writer]: [18:59:43][INFO] Waiting for graceful device shutdown. Hit Ctrl-C again to abort immediately.
+[52875:internal-dpl-aod-writer]: [18:59:43][INFO] New state requested. No timeout set, quitting immediately as per --completion-policy
+[52875:internal-dpl-aod-writer]: [18:59:43][STATE] RUNNING ---> READY
+[52875:internal-dpl-aod-writer]: [18:59:43][STATE] READY ---> RESETTING TASK
+[52875:internal-dpl-aod-writer]: [18:59:43][STATE] RESETTING TASK ---> DEVICE READY
+[52875:internal-dpl-aod-writer]: [18:59:43][STATE] DEVICE READY ---> RESETTING DEVICE
+[52877:internal-dpl-injected-dummy-sink]: [18:59:43][INFO] Received device shutdown request (signal 15).
+[52877:internal-dpl-injected-dummy-sink]: [18:59:43][INFO] Waiting for graceful device shutdown. Hit Ctrl-C again to abort immediately.
+[52877:internal-dpl-injected-dummy-sink]: [18:59:43][INFO] New state requested. No timeout set, quitting immediately as per --completion-policy
+[52877:internal-dpl-injected-dummy-sink]: [18:59:43][STATE] RUNNING ---> READY
+[52877:internal-dpl-injected-dummy-sink]: [18:59:43][STATE] READY ---> RESETTING TASK
+[52877:internal-dpl-injected-dummy-sink]: [18:59:43][STATE] RESETTING TASK ---> DEVICE READY
+[52877:internal-dpl-injected-dummy-sink]: [18:59:43][STATE] DEVICE READY ---> RESETTING DEVICE
+[52872:analysis-prefilter-selection]: [18:59:43][STATE] RESETTING DEVICE ---> IDLE
+[52872:analysis-prefilter-selection]: [18:59:43][STATE] IDLE ---> EXITING
+[52872:analysis-prefilter-selection]: [18:59:43][STATE] Exiting FairMQ state machine
+[52877:internal-dpl-injected-dummy-sink]: [18:59:43][STATE] RESETTING DEVICE ---> IDLE
+[52877:internal-dpl-injected-dummy-sink]: [18:59:43][STATE] IDLE ---> EXITING
+[52877:internal-dpl-injected-dummy-sink]: [18:59:43][STATE] Exiting FairMQ state machine
+[52875:internal-dpl-aod-writer]: [18:59:43][INFO] Cleaning up for shared memory id '4e812c9c'...
+[52875:internal-dpl-aod-writer]: [18:59:43][INFO] Found 0 unmanaged regions...
+[52875:internal-dpl-aod-writer]: [18:59:43][INFO] Found 1 managed segments...
+[52875:internal-dpl-aod-writer]: [18:59:43][INFO] Successfully removed 'fmq_4e812c9c_m_0'.
+[52875:internal-dpl-aod-writer]: [18:59:43][INFO] Successfully removed 'fmq_4e812c9c_mng'.
+[52875:internal-dpl-aod-writer]: [18:59:43][STATE] RESETTING DEVICE ---> IDLE
+[52875:internal-dpl-aod-writer]: [18:59:43][STATE] IDLE ---> EXITING
+[52875:internal-dpl-aod-writer]: [18:59:43][STATE] Exiting FairMQ state machine
+[52870:analysis-track-selection]: [18:59:43][STATE] RESETTING DEVICE ---> IDLE
+[52870:analysis-track-selection]: [18:59:43][STATE] IDLE ---> EXITING
+[52870:analysis-track-selection]: [18:59:43][STATE] Exiting FairMQ state machine
+[52867:internal-dpl-aod-reader]: [18:59:43][STATE] RESETTING DEVICE ---> IDLE
+[52867:internal-dpl-aod-reader]: [18:59:43][STATE] IDLE ---> EXITING
+[52867:internal-dpl-aod-reader]: [18:59:43][STATE] Exiting FairMQ state machine
+[52873:analysis-same-event-pairing]: [18:59:44][STATE] RESETTING DEVICE ---> IDLE
+[52873:analysis-same-event-pairing]: [18:59:44][STATE] IDLE ---> EXITING
+[52873:analysis-same-event-pairing]: [18:59:44][STATE] Exiting FairMQ state machine
+[INFO] ## Processes completed. Run summary:
+[INFO] ### Devices started: 12
+[INFO]  - Device internal-dpl-clock: pid 52866 (exit 0)
+[INFO]  - Device internal-dpl-aod-reader: pid 52867 (exit 0)
+[INFO]  - Device analysis-event-selection: pid 52868 (exit 0)
+[INFO]  - Device analysis-muon-selection: pid 52869 (exit 0)
+[INFO]  - Device analysis-track-selection: pid 52870 (exit 0)
+[INFO]  - Device analysis-asymmetric-pairing: pid 52871 (exit 0)
+[INFO]  - Device analysis-prefilter-selection: pid 52872 (exit 0)
+[INFO]  - Device analysis-same-event-pairing: pid 52873 (exit 0)
+[INFO]  - Device analysis-dilepton-track: pid 52874 (exit 0)
+[INFO]  - Device internal-dpl-aod-writer: pid 52875 (exit 0)
+[INFO]  - Device internal-dpl-aod-global-analysis-file-sink: pid 52876 (exit 0)
+[INFO]  - Device internal-dpl-injected-dummy-sink: pid 52877 (exit 0)
+[INFO] ## Analysis Run Summary ##
+[INFO] ### Files read stats ###
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=1056925,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=3569682,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=339899,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=5987443,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=5403447,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=364580,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=1307688,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=17341986,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=213.1,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=1023305,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=162306,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=1200721,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=959116,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=1052796,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=3596149,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=343090,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=6037540,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=5446667,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=367195,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=1318187,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=17350161,read_calls=9,io_time=0.2,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=472.5,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=470.1,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=1027522,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=163061,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=1197982,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=963980,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=1056925,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=3569682,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=339899,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=5987443,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=5403447,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=364580,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=1307688,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=17341986,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=213.1,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=1023305,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=162306,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=1200721,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=959116,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=1052796,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=3596149,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=343090,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=6037540,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=5446667,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=367195,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=1318187,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=17350161,read_calls=9,io_time=0.2,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=472.5,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=470.1,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=1027522,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=163061,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=1197982,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=963980,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=1056925,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=3569682,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=339899,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=5987443,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=5403447,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=364580,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=1307688,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=17341986,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=213.1,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=1023305,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=162306,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=1200721,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=959116,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=1052796,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=3596149,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=343090,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=6037540,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=5446667,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=367195,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=1318187,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=17350161,read_calls=9,io_time=0.2,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=472.5,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=470.1,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=1027522,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=163061,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=1197982,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=963980,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=1056925,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=3569682,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=339899,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=5987443,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=5403447,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=364580,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=1307688,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=7,read_bytes=17341986,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=213.1,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=1023305,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=162306,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=1200721,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=959116,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=1052796,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=3596149,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=343090,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=6037540,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=5446667,read_calls=9,io_time=0.1,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=367195,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=1318187,read_calls=9,io_time=0.0,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=17350161,read_calls=9,io_time=0.2,wait_time=0.0,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=472.5,level=0
+[INFO] lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718,total_df=8,read_df=8,read_bytes=7543,read_calls=4,io_time=0.0,wait_time=0.0,level=0
+[INFO] ### Files opened stats ###
+[INFO] Last file opened: lfn=/home/ferrandi/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root,size=302559718
+[INFO] Dumping used configuration in dpl-config.json
+
+real	59m44,800s
+user	64m48,746s
+sys	0m31,324s

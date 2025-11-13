@@ -1,0 +1,1360 @@
+[INFO] Initialising O2 Data Processing Layer. Driver PID: 79955.
+[INFO] Driver listening on port: 28035
+[INFO] Rate limiting set up at 500MB distributed over 1 readers
+[INFO] O2 Data Processing Layer initialised. We brake for nobody.
+[INFO] Optimised build. O2DEBUG / LOG(debug) / LOGF(debug) / assert statement will not be shown.
+[INFO] Redeployment of configuration asked.
+[INFO] Starting internal-dpl-clock on pid 79960
+[INFO] Starting internal-dpl-aod-reader on pid 79961
+[INFO] Starting internal-dpl-aod-spawner on pid 79962
+[INFO] Starting internal-dpl-aod-index-builder on pid 79963
+[INFO] Starting mc-collision-converter on pid 79964
+[INFO] Starting timestamp-task on pid 79965
+[INFO] Starting bc-selection-task on pid 79966
+[INFO] Starting fwd-track-extension on pid 79967
+[INFO] Starting tracks-extra-v002-converter on pid 79968
+[INFO] Starting tracks-extra-spawner on pid 79969
+[INFO] Starting track-propagation on pid 79970
+[INFO] Starting tof-signal on pid 79971
+[INFO] Starting event-selection-task on pid 79972
+[INFO] Starting track-selection on pid 79973
+[INFO] Starting pid-multiplicity on pid 79974
+[INFO] Starting tpc-pid on pid 79975
+[INFO] Starting ft0-corrected-table on pid 79976
+[INFO] Starting track-to-collision-association on pid 79977
+[INFO] Starting tof-event-time on pid 79978
+[INFO] Starting tof-pid-full on pid 79979
+[INFO] Starting tof-pid-beta on pid 79980
+[INFO] Starting internal-dpl-aod-writer on pid 79981
+[INFO] Starting internal-dpl-aod-global-analysis-file-sink on pid 79982
+[INFO] Starting internal-dpl-injected-dummy-sink on pid 79983
+[INFO] Redeployment of configuration done.
+[79961:internal-dpl-aod-reader]: [INFO] Instrumenting crash signals
+[79964:mc-collision-converter]: [INFO] Instrumenting crash signals
+[79961:internal-dpl-aod-reader]: [INFO] Spawing new device internal-dpl-aod-reader in process with pid 79961
+[79961:internal-dpl-aod-reader]: [18:32:19][INFO] 
+[79961:internal-dpl-aod-reader]:       ______      _    _______  _________ 
+[79961:internal-dpl-aod-reader]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.0
+[79961:internal-dpl-aod-reader]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[79961:internal-dpl-aod-reader]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[79961:internal-dpl-aod-reader]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[79961:internal-dpl-aod-reader]: 
+[79961:internal-dpl-aod-reader]: [18:32:19][STATE] Starting FairMQ state machine --> IDLE
+[79961:internal-dpl-aod-reader]: [18:32:19][STATE] IDLE ---> INITIALIZING DEVICE
+[79961:internal-dpl-aod-reader]: [18:32:19][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[79961:internal-dpl-aod-reader]: [18:32:19][STATE] INITIALIZED ---> BINDING
+[79961:internal-dpl-aod-reader]: [18:32:19][STATE] BINDING ---> BOUND
+[79964:mc-collision-converter]: [INFO] Spawing new device mc-collision-converter in process with pid 79964
+[79961:internal-dpl-aod-reader]: [18:32:19][STATE] BOUND ---> CONNECTING
+[79961:internal-dpl-aod-reader]: [18:32:19][STATE] CONNECTING ---> DEVICE READY
+[79964:mc-collision-converter]: [18:32:19][INFO] 
+[79964:mc-collision-converter]:       ______      _    _______  _________ 
+[79964:mc-collision-converter]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.0
+[79964:mc-collision-converter]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[79964:mc-collision-converter]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[79964:mc-collision-converter]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[79964:mc-collision-converter]: 
+[79961:internal-dpl-aod-reader]: [18:32:19][STATE] DEVICE READY ---> INITIALIZING TASK
+[79964:mc-collision-converter]: [18:32:19][STATE] Starting FairMQ state machine --> IDLE
+[79964:mc-collision-converter]: [18:32:19][STATE] IDLE ---> INITIALIZING DEVICE
+[79964:mc-collision-converter]: [18:32:19][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[79964:mc-collision-converter]: [18:32:19][STATE] INITIALIZED ---> BINDING
+[79964:mc-collision-converter]: [18:32:19][STATE] BINDING ---> BOUND
+[79964:mc-collision-converter]: [18:32:19][STATE] BOUND ---> CONNECTING
+[79964:mc-collision-converter]: [18:32:19][STATE] CONNECTING ---> DEVICE READY
+[79964:mc-collision-converter]: [18:32:19][STATE] DEVICE READY ---> INITIALIZING TASK
+[79961:internal-dpl-aod-reader]: [18:32:19][STATE] INITIALIZING TASK ---> READY
+[79961:internal-dpl-aod-reader]: [18:32:19][STATE] READY ---> RUNNING
+[79961:internal-dpl-aod-reader]: [18:32:19][INFO] fair::mq::Device running...
+[79961:internal-dpl-aod-reader]: [18:32:19][INFO] LHCPeriod is not available, using current month JUL
+[79961:internal-dpl-aod-reader]: [18:32:19][INFO] Correctly handshaken websocket connection.
+[79964:mc-collision-converter]: [18:32:19][STATE] INITIALIZING TASK ---> READY
+[79964:mc-collision-converter]: [18:32:19][STATE] READY ---> RUNNING
+[79964:mc-collision-converter]: [18:32:19][INFO] fair::mq::Device running...
+[79964:mc-collision-converter]: [18:32:19][INFO] LHCPeriod is not available, using current month JUL
+[79964:mc-collision-converter]: [18:32:19][INFO] Correctly handshaken websocket connection.
+[79968:tracks-extra-v002-converter]: [INFO] Instrumenting crash signals
+[79966:bc-selection-task]: [INFO] Instrumenting crash signals
+[79965:timestamp-task]: [INFO] Instrumenting crash signals
+[79963:internal-dpl-aod-index-builder]: [INFO] Instrumenting crash signals
+[79969:tracks-extra-spawner]: [INFO] Instrumenting crash signals
+[79960:internal-dpl-clock]: [INFO] Instrumenting crash signals
+[79966:bc-selection-task]: [INFO] Spawing new device bc-selection-task in process with pid 79966
+[79966:bc-selection-task]: [18:32:19][INFO] 
+[79966:bc-selection-task]:       ______      _    _______  _________ 
+[79966:bc-selection-task]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.0
+[79966:bc-selection-task]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[79966:bc-selection-task]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[79966:bc-selection-task]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[79966:bc-selection-task]: 
+[79966:bc-selection-task]: [18:32:19][STATE] Starting FairMQ state machine --> IDLE
+[79968:tracks-extra-v002-converter]: [INFO] Spawing new device tracks-extra-v002-converter in process with pid 79968
+[79968:tracks-extra-v002-converter]: [18:32:19][INFO] 
+[79968:tracks-extra-v002-converter]:       ______      _    _______  _________ 
+[79968:tracks-extra-v002-converter]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.0
+[79968:tracks-extra-v002-converter]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[79968:tracks-extra-v002-converter]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[79968:tracks-extra-v002-converter]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[79968:tracks-extra-v002-converter]: 
+[79968:tracks-extra-v002-converter]: [18:32:19][STATE] Starting FairMQ state machine --> IDLE
+[79966:bc-selection-task]: [18:32:19][STATE] IDLE ---> INITIALIZING DEVICE
+[79963:internal-dpl-aod-index-builder]: [INFO] Spawing new device internal-dpl-aod-index-builder in process with pid 79963
+[79963:internal-dpl-aod-index-builder]: [18:32:19][INFO] 
+[79963:internal-dpl-aod-index-builder]:       ______      _    _______  _________ 
+[79963:internal-dpl-aod-index-builder]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.0
+[79963:internal-dpl-aod-index-builder]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[79963:internal-dpl-aod-index-builder]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[79963:internal-dpl-aod-index-builder]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[79963:internal-dpl-aod-index-builder]: 
+[79963:internal-dpl-aod-index-builder]: [18:32:19][STATE] Starting FairMQ state machine --> IDLE
+[79966:bc-selection-task]: [18:32:19][INFO] Init CcdApi with UserAgentID: ferrandi-Lenovo-IdeaPad-S145-15IWL-1752010339-Eeahpg, Host: http://alice-ccdb.cern.ch/, Curl timeouts: upload:20 download:1
+[79966:bc-selection-task]: [18:32:19][INFO] Init CcdApi with UserAgentID: ferrandi-Lenovo-IdeaPad-S145-15IWL-1752010339-Eeahpg, Host: http://alice-ccdb.cern.ch, Curl timeouts: upload:20 download:1
+[79966:bc-selection-task]: [18:32:19][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[79966:bc-selection-task]: [18:32:19][STATE] INITIALIZED ---> BINDING
+[79966:bc-selection-task]: [18:32:19][STATE] BINDING ---> BOUND
+[79966:bc-selection-task]: [18:32:19][STATE] BOUND ---> CONNECTING
+[79966:bc-selection-task]: [18:32:19][STATE] CONNECTING ---> DEVICE READY
+[79966:bc-selection-task]: [18:32:19][STATE] DEVICE READY ---> INITIALIZING TASK
+[79968:tracks-extra-v002-converter]: [18:32:19][STATE] IDLE ---> INITIALIZING DEVICE
+[79968:tracks-extra-v002-converter]: [18:32:19][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[79968:tracks-extra-v002-converter]: [18:32:19][STATE] INITIALIZED ---> BINDING
+[79968:tracks-extra-v002-converter]: [18:32:19][STATE] BINDING ---> BOUND
+[79968:tracks-extra-v002-converter]: [18:32:19][STATE] BOUND ---> CONNECTING
+[79968:tracks-extra-v002-converter]: [18:32:19][STATE] CONNECTING ---> DEVICE READY
+[79968:tracks-extra-v002-converter]: [18:32:19][STATE] DEVICE READY ---> INITIALIZING TASK
+[79963:internal-dpl-aod-index-builder]: [18:32:19][STATE] IDLE ---> INITIALIZING DEVICE
+[79963:internal-dpl-aod-index-builder]: [18:32:19][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[79963:internal-dpl-aod-index-builder]: [18:32:19][STATE] INITIALIZED ---> BINDING
+[79963:internal-dpl-aod-index-builder]: [18:32:19][STATE] BINDING ---> BOUND
+[79963:internal-dpl-aod-index-builder]: [18:32:19][STATE] BOUND ---> CONNECTING
+[79963:internal-dpl-aod-index-builder]: [18:32:19][STATE] CONNECTING ---> DEVICE READY
+[79963:internal-dpl-aod-index-builder]: [18:32:19][STATE] DEVICE READY ---> INITIALIZING TASK
+[79968:tracks-extra-v002-converter]: [18:32:19][STATE] INITIALIZING TASK ---> READY
+[79968:tracks-extra-v002-converter]: [18:32:19][STATE] READY ---> RUNNING
+[79968:tracks-extra-v002-converter]: [18:32:19][INFO] fair::mq::Device running...
+[79968:tracks-extra-v002-converter]: [18:32:19][INFO] LHCPeriod is not available, using current month JUL
+[79968:tracks-extra-v002-converter]: [18:32:19][INFO] Correctly handshaken websocket connection.
+[79960:internal-dpl-clock]: [INFO] Spawing new device internal-dpl-clock in process with pid 79960
+[79960:internal-dpl-clock]: [18:32:19][INFO] 
+[79960:internal-dpl-clock]:       ______      _    _______  _________ 
+[79960:internal-dpl-clock]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.0
+[79960:internal-dpl-clock]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[79960:internal-dpl-clock]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[79960:internal-dpl-clock]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[79960:internal-dpl-clock]: 
+[79960:internal-dpl-clock]: [18:32:19][STATE] Starting FairMQ state machine --> IDLE
+[79963:internal-dpl-aod-index-builder]: [18:32:19][STATE] INITIALIZING TASK ---> READY
+[79963:internal-dpl-aod-index-builder]: [18:32:19][STATE] READY ---> RUNNING
+[79963:internal-dpl-aod-index-builder]: [18:32:19][INFO] fair::mq::Device running...
+[79963:internal-dpl-aod-index-builder]: [18:32:19][INFO] LHCPeriod is not available, using current month JUL
+[79963:internal-dpl-aod-index-builder]: [18:32:19][INFO] Correctly handshaken websocket connection.
+[79965:timestamp-task]: [INFO] Spawing new device timestamp-task in process with pid 79965
+[79960:internal-dpl-clock]: [18:32:19][STATE] IDLE ---> INITIALIZING DEVICE
+[79966:bc-selection-task]: [18:32:19][STATE] INITIALIZING TASK ---> READY
+[79966:bc-selection-task]: [18:32:19][STATE] READY ---> RUNNING
+[79966:bc-selection-task]: [18:32:19][INFO] fair::mq::Device running...
+[79966:bc-selection-task]: [18:32:19][INFO] LHCPeriod is not available, using current month JUL
+[79966:bc-selection-task]: [18:32:19][INFO] Correctly handshaken websocket connection.
+[79965:timestamp-task]: [18:32:19][INFO] 
+[79965:timestamp-task]:       ______      _    _______  _________ 
+[79965:timestamp-task]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.0
+[79965:timestamp-task]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[79965:timestamp-task]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[79965:timestamp-task]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[79965:timestamp-task]: 
+[79965:timestamp-task]: [18:32:19][STATE] Starting FairMQ state machine --> IDLE
+[79960:internal-dpl-clock]: [18:32:19][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[79960:internal-dpl-clock]: [18:32:19][STATE] INITIALIZED ---> BINDING
+[79960:internal-dpl-clock]: [18:32:19][STATE] BINDING ---> BOUND
+[79960:internal-dpl-clock]: [18:32:19][STATE] BOUND ---> CONNECTING
+[79960:internal-dpl-clock]: [18:32:19][STATE] CONNECTING ---> DEVICE READY
+[79960:internal-dpl-clock]: [18:32:19][STATE] DEVICE READY ---> INITIALIZING TASK
+[79960:internal-dpl-clock]: [18:32:19][STATE] INITIALIZING TASK ---> READY
+[79960:internal-dpl-clock]: [18:32:19][STATE] READY ---> RUNNING
+[79960:internal-dpl-clock]: [18:32:19][INFO] fair::mq::Device running...
+[79960:internal-dpl-clock]: [18:32:19][INFO] LHCPeriod is not available, using current month JUL
+[79960:internal-dpl-clock]: [18:32:19][INFO] Correctly handshaken websocket connection.
+[79969:tracks-extra-spawner]: [INFO] Spawing new device tracks-extra-spawner in process with pid 79969
+[79969:tracks-extra-spawner]: [18:32:19][INFO] 
+[79969:tracks-extra-spawner]:       ______      _    _______  _________ 
+[79969:tracks-extra-spawner]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.0
+[79969:tracks-extra-spawner]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[79969:tracks-extra-spawner]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[79969:tracks-extra-spawner]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[79969:tracks-extra-spawner]: 
+[79969:tracks-extra-spawner]: [18:32:19][STATE] Starting FairMQ state machine --> IDLE
+[79965:timestamp-task]: [18:32:19][STATE] IDLE ---> INITIALIZING DEVICE
+[79965:timestamp-task]: [18:32:19][INFO] Init CcdApi with UserAgentID: ferrandi-Lenovo-IdeaPad-S145-15IWL-1752010339-LxpPHz, Host: http://alice-ccdb.cern.ch/, Curl timeouts: upload:20 download:1
+[79965:timestamp-task]: [18:32:19][INFO] Initializing TimestampTask
+[79965:timestamp-task]: [18:32:19][INFO] Init CcdApi with UserAgentID: ferrandi-Lenovo-IdeaPad-S145-15IWL-1752010339-LxpPHz, Host: https://alice-ccdb.cern.ch, Curl timeouts: upload:20 download:1
+[79965:timestamp-task]: [18:32:19][INFO] Init CcdApi with UserAgentID: ferrandi-Lenovo-IdeaPad-S145-15IWL-1752010339-TPvf1T, Host: https://alice-ccdb.cern.ch, Curl timeouts: upload:20 download:1
+[79973:track-selection]: [INFO] Instrumenting crash signals
+[79975:tpc-pid]: [INFO] Instrumenting crash signals
+[79962:internal-dpl-aod-spawner]: [INFO] Instrumenting crash signals
+[79971:tof-signal]: [INFO] Instrumenting crash signals
+[79974:pid-multiplicity]: [INFO] Instrumenting crash signals
+[79972:event-selection-task]: [INFO] Instrumenting crash signals
+[79973:track-selection]: [INFO] Spawing new device track-selection in process with pid 79973
+[79973:track-selection]: [18:32:19][INFO] 
+[79973:track-selection]:       ______      _    _______  _________ 
+[79973:track-selection]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.0
+[79973:track-selection]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[79973:track-selection]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[79973:track-selection]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[79973:track-selection]: 
+[79973:track-selection]: [18:32:19][STATE] Starting FairMQ state machine --> IDLE
+[79970:track-propagation]: [INFO] Instrumenting crash signals
+[79973:track-selection]: [18:32:19][STATE] IDLE ---> INITIALIZING DEVICE
+[79969:tracks-extra-spawner]: [18:32:19][STATE] IDLE ---> INITIALIZING DEVICE
+[79973:track-selection]: [18:32:19][INFO] Auto-enabling table: TrackSelection
+[79973:track-selection]: [18:32:19][INFO] Auto-disabling table: TrackSelectionExtension
+[79973:track-selection]: [18:32:19][INFO] setting up getGlobalTrackSelectionRun3ITSMatch(TrackSelection::GlobalTrackRun3ITSMatching::Run3ITSibAny, 0);
+[79973:track-selection]: [18:32:19][INFO] Track selection, set track type: 254
+[79973:track-selection]: [18:32:19][INFO] Track selection, set pt range: 0.1 - 1e+10
+[79973:track-selection]: [18:32:19][INFO] Track selection, set eta range: -0.8 - 0.8
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require ITS refit: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require TPC refit: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require golden chi2: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set min N crossed rows TPC: 70
+[79973:track-selection]: [18:32:19][INFO] Track selection, set min N crossed rows over findable clusters TPC: 0.8
+[79973:track-selection]: [18:32:19][INFO] Track selection, set max chi2 per cluster TPC: 4
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require hits in ITS layers: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set max chi2 per cluster ITS: 36
+[79973:track-selection]: [18:32:19][INFO] Track selection, set max DCA xy pt dep: 0.0455
+[79973:track-selection]: [18:32:19][INFO] Track selection, set max DCA z: 2
+[79973:track-selection]: [18:32:19][INFO] Track selection, set track type: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require hits in ITS layers: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set pt range: 0.1 - 1e+10
+[79973:track-selection]: [18:32:19][INFO] Track selection, set eta range: -0.8 - 0.8
+[79973:track-selection]: [18:32:19][INFO] Track selection, set track type: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection:
+[79973:track-selection]: [18:32:19][INFO] TrackType == 1
+[79973:track-selection]: [18:32:19][INFO] PtRange in [0.1, 1e+10]
+[79973:track-selection]: [18:32:19][INFO] EtaRange in [-0.8, 0.8]
+[79973:track-selection]: [18:32:19][INFO] TPCNCls > 0
+[79973:track-selection]: [18:32:19][INFO] TPCCrossedRows > 70
+[79973:track-selection]: [18:32:19][INFO] TPCCrossedRowsOverNCls > 0.8
+[79973:track-selection]: [18:32:19][INFO] TPCChi2NDF < 4
+[79973:track-selection]: [18:32:19][INFO] TPCRefit == 1
+[79973:track-selection]: [18:32:19][INFO] ITSNCls > 0
+[79973:track-selection]: [18:32:19][INFO] ITSChi2NDF < 36
+[79973:track-selection]: [18:32:19][INFO] ITSRefit == 1
+[79973:track-selection]: [18:32:19][INFO] ITSHits == 
+[79973:track-selection]: [18:32:19][INFO] GoldenChi2 == 1
+[79973:track-selection]: [18:32:19][INFO] DCAxy < 1e+10
+[79973:track-selection]: [18:32:19][INFO] DCAz < 2
+[79973:track-selection]: [18:32:19][INFO] Track selection, set track type: 254
+[79973:track-selection]: [18:32:19][INFO] Track selection, set pt range: 0.1 - 1e+10
+[79973:track-selection]: [18:32:19][INFO] Track selection, set eta range: -0.8 - 0.8
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require ITS refit: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require TPC refit: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require golden chi2: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set min N crossed rows TPC: 70
+[79973:track-selection]: [18:32:19][INFO] Track selection, set min N crossed rows over findable clusters TPC: 0.8
+[79973:track-selection]: [18:32:19][INFO] Track selection, set max chi2 per cluster TPC: 4
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require hits in ITS layers: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set max chi2 per cluster ITS: 36
+[79973:track-selection]: [18:32:19][INFO] Track selection, set max DCA xy pt dep: 0.0455
+[79973:track-selection]: [18:32:19][INFO] Track selection, set max DCA z: 2
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require no hits in ITS layers
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require hits in ITS layers: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set pt range: 0.1 - 1e+10
+[79973:track-selection]: [18:32:19][INFO] Track selection, set eta range: -0.8 - 0.8
+[79973:track-selection]: [18:32:19][INFO] Track selection, set track type: 254
+[79973:track-selection]: [18:32:19][INFO] Track selection, set pt range: 0.1 - 1e+10
+[79973:track-selection]: [18:32:19][INFO] Track selection, set eta range: -0.8 - 0.8
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require ITS refit: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require TPC refit: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require golden chi2: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set min N crossed rows TPC: 70
+[79973:track-selection]: [18:32:19][INFO] Track selection, set min N crossed rows over findable clusters TPC: 0.8
+[79973:track-selection]: [18:32:19][INFO] Track selection, set max chi2 per cluster TPC: 4
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require hits in ITS layers: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set max chi2 per cluster ITS: 36
+[79973:track-selection]: [18:32:19][INFO] Track selection, set max DCA xy pt dep: 0.0455
+[79973:track-selection]: [18:32:19][INFO] Track selection, set max DCA z: 2
+[79973:track-selection]: [18:32:19][INFO] Track selection, set track type: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require hits in ITS layers: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set track type: 254
+[79973:track-selection]: [18:32:19][INFO] Track selection, set pt range: 0.1 - 1e+10
+[79973:track-selection]: [18:32:19][INFO] Track selection, set eta range: -0.8 - 0.8
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require ITS refit: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require TPC refit: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require golden chi2: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set min N crossed rows TPC: 70
+[79973:track-selection]: [18:32:19][INFO] Track selection, set min N crossed rows over findable clusters TPC: 0.8
+[79973:track-selection]: [18:32:19][INFO] Track selection, set max chi2 per cluster TPC: 4
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require hits in ITS layers: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set max chi2 per cluster ITS: 36
+[79973:track-selection]: [18:32:19][INFO] Track selection, set max DCA xy pt dep: 0.0455
+[79973:track-selection]: [18:32:19][INFO] Track selection, set max DCA z: 2
+[79973:track-selection]: [18:32:19][INFO] Track selection, set track type: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require hits in ITS layers: 2
+[79973:track-selection]: [18:32:19][INFO] Track selection, set track type: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set pt range: 0.1 - 1e+10
+[79973:track-selection]: [18:32:19][INFO] Track selection, set eta range: -0.8 - 0.8
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require ITS refit: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require TPC refit: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require golden chi2: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set min N crossed rows TPC: 70
+[79973:track-selection]: [18:32:19][INFO] Track selection, set min N crossed rows over findable clusters TPC: 0.8
+[79973:track-selection]: [18:32:19][INFO] Track selection, set max chi2 per cluster TPC: 4
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require hits in ITS layers: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set max chi2 per cluster ITS: 36
+[79973:track-selection]: [18:32:19][INFO] Track selection, set max DCA z: 2
+[79973:track-selection]: [18:32:19][INFO] Track selection, set max DCA xy: 0.25
+[79973:track-selection]: [18:32:19][INFO] Track selection, set track type: 254
+[79973:track-selection]: [18:32:19][INFO] Track selection, set pt range: 0.1 - 1e+10
+[79973:track-selection]: [18:32:19][INFO] Track selection, set eta range: -0.8 - 0.8
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require ITS refit: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require TPC refit: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require golden chi2: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set min N crossed rows TPC: 70
+[79973:track-selection]: [18:32:19][INFO] Track selection, set min N crossed rows over findable clusters TPC: 0.8
+[79973:track-selection]: [18:32:19][INFO] Track selection, set max chi2 per cluster TPC: 4
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require hits in ITS layers: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set max chi2 per cluster ITS: 36
+[79973:track-selection]: [18:32:19][INFO] Track selection, set max DCA xy pt dep: 0.0455
+[79973:track-selection]: [18:32:19][INFO] Track selection, set max DCA z: 2
+[79973:track-selection]: [18:32:19][INFO] Track selection, set track type: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require hits in ITS layers: 2
+[79973:track-selection]: [18:32:19][INFO] setting up filtBit5 = getJEGlobalTrackSelectionRun2();
+[79973:track-selection]: [18:32:19][INFO] Track selection, set track type: 254
+[79973:track-selection]: [18:32:19][INFO] Track selection, set pt range: 0.1 - 1e+10
+[79973:track-selection]: [18:32:19][INFO] Track selection, set eta range: -0.8 - 0.8
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require ITS refit: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require TPC refit: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require golden chi2: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set min N crossed rows TPC: 70
+[79973:track-selection]: [18:32:19][INFO] Track selection, set min N crossed rows over findable clusters TPC: 0.8
+[79973:track-selection]: [18:32:19][INFO] Track selection, set max chi2 per cluster TPC: 4
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require hits in ITS layers: 1
+[79973:track-selection]: [18:32:19][INFO] Track selection, set max chi2 per cluster ITS: 36
+[79973:track-selection]: [18:32:19][INFO] Track selection, set max DCA xy pt dep: 0.0455
+[79973:track-selection]: [18:32:19][INFO] Track selection, set max DCA z: 2
+[79973:track-selection]: [18:32:19][INFO] Track selection, set pt range: 0.15 - 1e+15
+[79973:track-selection]: [18:32:19][INFO] Track selection, set require golden chi2: 0
+[79973:track-selection]: [18:32:19][INFO] Track selection, set max DCA xy pt dep: 1e+10
+[79973:track-selection]: [18:32:19][INFO] Track selection, set eta range: -0.9 - 0.9
+[79973:track-selection]: [18:32:19][INFO] Track selection, set max DCA xy: 2.4
+[79973:track-selection]: [18:32:19][INFO] Track selection, set max DCA z: 3.2
+[79973:track-selection]: [18:32:19][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[79969:tracks-extra-spawner]: [18:32:19][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[79969:tracks-extra-spawner]: [18:32:19][STATE] INITIALIZED ---> BINDING
+[79969:tracks-extra-spawner]: [18:32:19][STATE] BINDING ---> BOUND
+[79973:track-selection]: [18:32:19][STATE] INITIALIZED ---> BINDING
+[79973:track-selection]: [18:32:19][STATE] BINDING ---> BOUND
+[79973:track-selection]: [18:32:19][STATE] BOUND ---> CONNECTING
+[79973:track-selection]: [18:32:19][STATE] CONNECTING ---> DEVICE READY
+[79973:track-selection]: [18:32:19][STATE] DEVICE READY ---> INITIALIZING TASK
+[79969:tracks-extra-spawner]: [18:32:19][STATE] BOUND ---> CONNECTING
+[79969:tracks-extra-spawner]: [18:32:19][STATE] CONNECTING ---> DEVICE READY
+[79969:tracks-extra-spawner]: [18:32:19][STATE] DEVICE READY ---> INITIALIZING TASK
+[79975:tpc-pid]: [INFO] Spawing new device tpc-pid in process with pid 79975
+[79978:tof-event-time]: [INFO] Instrumenting crash signals
+[79971:tof-signal]: [INFO] Spawing new device tof-signal in process with pid 79971
+[79971:tof-signal]: [18:32:19][INFO] 
+[79971:tof-signal]:       ______      _    _______  _________ 
+[79971:tof-signal]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.0
+[79971:tof-signal]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[79971:tof-signal]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[79971:tof-signal]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[79971:tof-signal]: 
+[79975:tpc-pid]: [18:32:19][INFO] 
+[79975:tpc-pid]:       ______      _    _______  _________ 
+[79975:tpc-pid]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.0
+[79975:tpc-pid]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[79975:tpc-pid]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[79975:tpc-pid]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[79975:tpc-pid]: 
+[79969:tracks-extra-spawner]: [18:32:19][STATE] INITIALIZING TASK ---> READY
+[79969:tracks-extra-spawner]: [18:32:19][STATE] READY ---> RUNNING
+[79969:tracks-extra-spawner]: [18:32:19][INFO] fair::mq::Device running...
+[79969:tracks-extra-spawner]: [18:32:19][INFO] LHCPeriod is not available, using current month JUL
+[79971:tof-signal]: [18:32:19][STATE] Starting FairMQ state machine --> IDLE
+[79975:tpc-pid]: [18:32:19][STATE] Starting FairMQ state machine --> IDLE
+[79969:tracks-extra-spawner]: [18:32:19][INFO] Correctly handshaken websocket connection.
+[79975:tpc-pid]: [18:32:19][STATE] IDLE ---> INITIALIZING DEVICE
+[79971:tof-signal]: [18:32:19][STATE] IDLE ---> INITIALIZING DEVICE
+[79971:tof-signal]: [18:32:19][INFO] Table TOFSignal enabled!
+[79971:tof-signal]: [18:32:19][INFO] Configuring selections for good match: 999 low mult 999 mult. threshold 0
+[79971:tof-signal]: [18:32:19][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[79975:tpc-pid]: [18:32:19][INFO] Init CcdApi with UserAgentID: ferrandi-Lenovo-IdeaPad-S145-15IWL-1752010339-tBFfZp, Host: http://alice-ccdb.cern.ch/, Curl timeouts: upload:20 download:1
+[79975:tpc-pid]: [18:32:19][INFO] Auto-disabling table: pidTPCFullEl
+[79975:tpc-pid]: [18:32:19][INFO] Auto-disabling table: pidTPCFullMu
+[79975:tpc-pid]: [18:32:19][INFO] Auto-disabling table: pidTPCFullPi
+[79975:tpc-pid]: [18:32:19][INFO] Auto-disabling table: pidTPCFullKa
+[79975:tpc-pid]: [18:32:19][INFO] Auto-disabling table: pidTPCFullPr
+[79975:tpc-pid]: [18:32:19][INFO] Auto-disabling table: pidTPCFullDe
+[79975:tpc-pid]: [18:32:19][INFO] Auto-disabling table: pidTPCFullTr
+[79975:tpc-pid]: [18:32:19][INFO] Auto-disabling table: pidTPCFullHe
+[79975:tpc-pid]: [18:32:19][INFO] Auto-disabling table: pidTPCFullAl
+[79975:tpc-pid]: [18:32:19][INFO] Auto-disabling table: pidTPCEl
+[79975:tpc-pid]: [18:32:19][INFO] Auto-disabling table: pidTPCMu
+[79975:tpc-pid]: [18:32:19][INFO] Auto-disabling table: pidTPCPi
+[79975:tpc-pid]: [18:32:19][INFO] Auto-disabling table: pidTPCKa
+[79975:tpc-pid]: [18:32:19][INFO] Auto-disabling table: pidTPCPr
+[79975:tpc-pid]: [18:32:19][INFO] Auto-disabling table: pidTPCDe
+[79975:tpc-pid]: [18:32:19][INFO] Auto-disabling table: pidTPCTr
+[79975:tpc-pid]: [18:32:19][INFO] Auto-disabling table: pidTPCHe
+[79975:tpc-pid]: [18:32:19][INFO] Auto-disabling table: pidTPCAl
+[79975:tpc-pid]: [18:32:19][INFO] Init CcdApi with UserAgentID: ferrandi-Lenovo-IdeaPad-S145-15IWL-1752010339-tBFfZp, Host: https://alice-ccdb.cern.ch, Curl timeouts: upload:20 download:1
+[79975:tpc-pid]: [18:32:19][INFO] Init CcdApi with UserAgentID: ferrandi-Lenovo-IdeaPad-S145-15IWL-1752010339-7xxVbH, Host: https://alice-ccdb.cern.ch, Curl timeouts: upload:20 download:1
+[79971:tof-signal]: [18:32:19][STATE] INITIALIZED ---> BINDING
+[79971:tof-signal]: [18:32:19][STATE] BINDING ---> BOUND
+[79975:tpc-pid]: [18:32:19][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[79975:tpc-pid]: [18:32:19][STATE] INITIALIZED ---> BINDING
+[79971:tof-signal]: [18:32:19][STATE] BOUND ---> CONNECTING
+[79975:tpc-pid]: [18:32:19][STATE] BINDING ---> BOUND
+[79975:tpc-pid]: [18:32:19][STATE] BOUND ---> CONNECTING
+[79971:tof-signal]: [18:32:19][STATE] CONNECTING ---> DEVICE READY
+[79971:tof-signal]: [18:32:19][STATE] DEVICE READY ---> INITIALIZING TASK
+[79975:tpc-pid]: [18:32:19][STATE] CONNECTING ---> DEVICE READY
+[79975:tpc-pid]: [18:32:19][STATE] DEVICE READY ---> INITIALIZING TASK
+[79970:track-propagation]: [INFO] Spawing new device track-propagation in process with pid 79970
+[79973:track-selection]: [18:32:19][STATE] INITIALIZING TASK ---> READY
+[79970:track-propagation]: [18:32:19][INFO] 
+[79970:track-propagation]:       ______      _    _______  _________ 
+[79970:track-propagation]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.0
+[79970:track-propagation]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[79970:track-propagation]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[79970:track-propagation]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[79970:track-propagation]: 
+[79970:track-propagation]: [18:32:19][STATE] Starting FairMQ state machine --> IDLE
+[79973:track-selection]: [18:32:19][STATE] READY ---> RUNNING
+[79973:track-selection]: [18:32:19][INFO] fair::mq::Device running...
+[79973:track-selection]: [18:32:19][INFO] LHCPeriod is not available, using current month JUL
+[79973:track-selection]: [18:32:19][INFO] Correctly handshaken websocket connection.
+[79974:pid-multiplicity]: [INFO] Spawing new device pid-multiplicity in process with pid 79974
+[79974:pid-multiplicity]: [18:32:19][INFO] 
+[79974:pid-multiplicity]:       ______      _    _______  _________ 
+[79974:pid-multiplicity]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.0
+[79974:pid-multiplicity]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[79974:pid-multiplicity]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[79974:pid-multiplicity]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[79974:pid-multiplicity]: 
+[79974:pid-multiplicity]: [18:32:19][STATE] Starting FairMQ state machine --> IDLE
+[79972:event-selection-task]: [INFO] Spawing new device event-selection-task in process with pid 79972
+[79970:track-propagation]: [18:32:19][STATE] IDLE ---> INITIALIZING DEVICE
+[79972:event-selection-task]: [18:32:19][INFO] 
+[79972:event-selection-task]:       ______      _    _______  _________ 
+[79972:event-selection-task]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.0
+[79972:event-selection-task]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[79972:event-selection-task]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[79972:event-selection-task]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[79972:event-selection-task]: 
+[79972:event-selection-task]: [18:32:19][STATE] Starting FairMQ state machine --> IDLE
+[79970:track-propagation]: [18:32:19][INFO] Init CcdApi with UserAgentID: ferrandi-Lenovo-IdeaPad-S145-15IWL-1752010339-CiiSDB, Host: http://alice-ccdb.cern.ch/, Curl timeouts: upload:20 download:1
+[79970:track-propagation]: [18:32:19][INFO] Enabling processStandard
+[79970:track-propagation]: [18:32:19][INFO] Init CcdApi with UserAgentID: ferrandi-Lenovo-IdeaPad-S145-15IWL-1752010339-CiiSDB, Host: https://alice-ccdb.cern.ch, Curl timeouts: upload:20 download:1
+[79970:track-propagation]: [18:32:19][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[79970:track-propagation]: [18:32:19][STATE] INITIALIZED ---> BINDING
+[79970:track-propagation]: [18:32:19][STATE] BINDING ---> BOUND
+[79970:track-propagation]: [18:32:19][STATE] BOUND ---> CONNECTING
+[79972:event-selection-task]: [18:32:19][STATE] IDLE ---> INITIALIZING DEVICE
+[79978:tof-event-time]: [INFO] Spawing new device tof-event-time in process with pid 79978
+[79971:tof-signal]: [18:32:19][STATE] INITIALIZING TASK ---> READY
+[79978:tof-event-time]: [18:32:19][INFO] 
+[79978:tof-event-time]:       ______      _    _______  _________ 
+[79978:tof-event-time]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.0
+[79978:tof-event-time]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[79978:tof-event-time]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[79978:tof-event-time]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[79978:tof-event-time]: 
+[79978:tof-event-time]: [18:32:19][STATE] Starting FairMQ state machine --> IDLE
+[79971:tof-signal]: [18:32:19][STATE] READY ---> RUNNING
+[79971:tof-signal]: [18:32:19][INFO] fair::mq::Device running...
+[79971:tof-signal]: [18:32:19][INFO] LHCPeriod is not available, using current month JUL
+[79971:tof-signal]: [18:32:19][INFO] Correctly handshaken websocket connection.
+[79972:event-selection-task]: [18:32:19][INFO] Init CcdApi with UserAgentID: ferrandi-Lenovo-IdeaPad-S145-15IWL-1752010339-5XF23L, Host: http://alice-ccdb.cern.ch/, Curl timeouts: upload:20 download:1
+[79972:event-selection-task]: [18:32:19][INFO] Init CcdApi with UserAgentID: ferrandi-Lenovo-IdeaPad-S145-15IWL-1752010339-5XF23L, Host: http://alice-ccdb.cern.ch, Curl timeouts: upload:20 download:1
+[79972:event-selection-task]: [18:32:19][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[79972:event-selection-task]: [18:32:19][STATE] INITIALIZED ---> BINDING
+[79972:event-selection-task]: [18:32:19][STATE] BINDING ---> BOUND
+[79972:event-selection-task]: [18:32:19][STATE] BOUND ---> CONNECTING
+[79975:tpc-pid]: [18:32:19][STATE] INITIALIZING TASK ---> READY
+[79975:tpc-pid]: [18:32:19][STATE] READY ---> RUNNING
+[79975:tpc-pid]: [18:32:19][INFO] fair::mq::Device running...
+[79975:tpc-pid]: [18:32:19][INFO] LHCPeriod is not available, using current month JUL
+[79975:tpc-pid]: [18:32:20][INFO] Correctly handshaken websocket connection.
+[79979:tof-pid-full]: [INFO] Instrumenting crash signals
+[79962:internal-dpl-aod-spawner]: [INFO] Spawing new device internal-dpl-aod-spawner in process with pid 79962
+[79962:internal-dpl-aod-spawner]: [18:32:20][INFO] 
+[79962:internal-dpl-aod-spawner]:       ______      _    _______  _________ 
+[79962:internal-dpl-aod-spawner]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.0
+[79962:internal-dpl-aod-spawner]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[79962:internal-dpl-aod-spawner]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[79962:internal-dpl-aod-spawner]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[79962:internal-dpl-aod-spawner]: 
+[79962:internal-dpl-aod-spawner]: [18:32:20][STATE] Starting FairMQ state machine --> IDLE
+[79974:pid-multiplicity]: [18:32:20][STATE] IDLE ---> INITIALIZING DEVICE
+[79974:pid-multiplicity]: [18:32:20][INFO] Initializing PID Mult Task
+[79974:pid-multiplicity]: [18:32:20][INFO] Table TPC PID Multiplicity enabled!
+[79974:pid-multiplicity]: [18:32:20][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[79974:pid-multiplicity]: [18:32:20][STATE] INITIALIZED ---> BINDING
+[79974:pid-multiplicity]: [18:32:20][STATE] BINDING ---> BOUND
+[79974:pid-multiplicity]: [18:32:20][STATE] BOUND ---> CONNECTING
+[79974:pid-multiplicity]: [18:32:20][STATE] CONNECTING ---> DEVICE READY
+[79974:pid-multiplicity]: [18:32:20][STATE] DEVICE READY ---> INITIALIZING TASK
+[79978:tof-event-time]: [18:32:20][STATE] IDLE ---> INITIALIZING DEVICE
+[79974:pid-multiplicity]: [18:32:20][STATE] INITIALIZING TASK ---> READY
+[79974:pid-multiplicity]: [18:32:20][STATE] READY ---> RUNNING
+[79974:pid-multiplicity]: [18:32:20][INFO] fair::mq::Device running...
+[79974:pid-multiplicity]: [18:32:20][INFO] LHCPeriod is not available, using current month JUL
+[79974:pid-multiplicity]: [18:32:20][INFO] Correctly handshaken websocket connection.
+[79978:tof-event-time]: [18:32:20][INFO] Init CcdApi with UserAgentID: ferrandi-Lenovo-IdeaPad-S145-15IWL-1752010340-gguCjb, Host: http://alice-ccdb.cern.ch/, Curl timeouts: upload:20 download:1
+[79978:tof-event-time]: [18:32:20][INFO] Checking for option 'ccdb-url' in task 'tof-signal'
+[79978:tof-event-time]: [18:32:20][INFO]  Device 0 internal-dpl-clock
+[79978:tof-event-time]: [18:32:20][INFO]  Device 1 internal-dpl-aod-reader
+[79978:tof-event-time]: [18:32:20][INFO]  Device 2 internal-dpl-aod-spawner
+[79978:tof-event-time]: [18:32:20][INFO]  Device 3 internal-dpl-aod-index-builder
+[79978:tof-event-time]: [18:32:20][INFO]  Device 4 mc-collision-converter
+[79978:tof-event-time]: [18:32:20][INFO]  Device 5 timestamp-task
+[79978:tof-event-time]: [18:32:20][INFO]  Device 6 bc-selection-task
+[79978:tof-event-time]: [18:32:20][INFO]  Device 7 fwd-track-extension
+[79978:tof-event-time]: [18:32:20][INFO]  Device 8 tracks-extra-v002-converter
+[79978:tof-event-time]: [18:32:20][INFO]  Device 9 tracks-extra-spawner
+[79978:tof-event-time]: [18:32:20][INFO]  Device 10 track-propagation
+[79978:tof-event-time]: [18:32:20][INFO]  Device 11 tof-signal
+[79978:tof-event-time]: [18:32:20][INFO]   Option 0 ccdb-url = 'http://alice-ccdb.cern.ch'
+[79978:tof-event-time]: [18:32:20][INFO]    Found option 'ccdb-url' with value 'http://alice-ccdb.cern.ch'
+[79978:tof-event-time]: [18:32:20][INFO]   Option 1 ccdb-timestamp = '-1'
+[79978:tof-event-time]: [18:32:20][INFO]   Option 2 timeShiftCCDBPath = ''
+[79978:tof-event-time]: [18:32:20][INFO]   Option 3 distanceForGoodMatch = '999'
+[79978:tof-event-time]: [18:32:20][INFO]   Option 4 distanceForGoodMatchLowMult = '999'
+[79978:tof-event-time]: [18:32:20][INFO]   Option 5 multThreshold = '0'
+[79978:tof-event-time]: [18:32:20][INFO]   Option 6 enableQaHistograms = '0'
+[79978:tof-event-time]: [18:32:20][INFO]   Option 7 processRun3 = '1'
+[79978:tof-event-time]: [18:32:20][INFO]   Option 8 processRun2 = '0'
+[79978:tof-event-time]: [18:32:20][INFO] Checking for option 'ccdb-timestamp' in task 'tof-signal'
+[79978:tof-event-time]: [18:32:20][INFO]  Device 0 internal-dpl-clock
+[79978:tof-event-time]: [18:32:20][INFO]  Device 1 internal-dpl-aod-reader
+[79978:tof-event-time]: [18:32:20][INFO]  Device 2 internal-dpl-aod-spawner
+[79978:tof-event-time]: [18:32:20][INFO]  Device 3 internal-dpl-aod-index-builder
+[79978:tof-event-time]: [18:32:20][INFO]  Device 4 mc-collision-converter
+[79978:tof-event-time]: [18:32:20][INFO]  Device 5 timestamp-task
+[79978:tof-event-time]: [18:32:20][INFO]  Device 6 bc-selection-task
+[79978:tof-event-time]: [18:32:20][INFO]  Device 7 fwd-track-extension
+[79978:tof-event-time]: [18:32:20][INFO]  Device 8 tracks-extra-v002-converter
+[79978:tof-event-time]: [18:32:20][INFO]  Device 9 tracks-extra-spawner
+[79978:tof-event-time]: [18:32:20][INFO]  Device 10 track-propagation
+[79978:tof-event-time]: [18:32:20][INFO]  Device 11 tof-signal
+[79978:tof-event-time]: [18:32:20][INFO]   Option 0 ccdb-url = 'http://alice-ccdb.cern.ch'
+[79978:tof-event-time]: [18:32:20][INFO]   Option 1 ccdb-timestamp = '-1'
+[79978:tof-event-time]: [18:32:20][INFO]    Found option 'ccdb-timestamp' with value '-1'
+[79978:tof-event-time]: [18:32:20][INFO]   Option 2 timeShiftCCDBPath = ''
+[79978:tof-event-time]: [18:32:20][INFO]   Option 3 distanceForGoodMatch = '999'
+[79978:tof-event-time]: [18:32:20][INFO]   Option 4 distanceForGoodMatchLowMult = '999'
+[79978:tof-event-time]: [18:32:20][INFO]   Option 5 multThreshold = '0'
+[79978:tof-event-time]: [18:32:20][INFO]   Option 6 enableQaHistograms = '0'
+[79978:tof-event-time]: [18:32:20][INFO]   Option 7 processRun3 = '1'
+[79978:tof-event-time]: [18:32:20][INFO]   Option 8 processRun2 = '0'
+[79978:tof-event-time]: [18:32:20][INFO] Configuring track sample for TOF ev. time: 0.5 < p < 2
+[79978:tof-event-time]: [18:32:20][INFO] Enabling process function: processNoFT0
+[79978:tof-event-time]: [18:32:20][INFO] Table TOFEvTime enabled!
+[79978:tof-event-time]: [18:32:20][INFO] Init CcdApi with UserAgentID: ferrandi-Lenovo-IdeaPad-S145-15IWL-1752010340-gguCjb, Host: http://alice-ccdb.cern.ch, Curl timeouts: upload:20 download:1
+[79978:tof-event-time]: [18:32:20][INFO] Using parameter collection, starting from pass 'apass1'
+[79978:tof-event-time]: [18:32:20][INFO] Parameters 'TOFResoParamsV2'
+[79978:tof-event-time]: [18:32:20][INFO] Parameter 0/12 TrkRes.Pi.P0 is 0.008
+[79978:tof-event-time]: [18:32:20][INFO] Parameter 1/12 TrkRes.Pi.P1 is 0.008
+[79978:tof-event-time]: [18:32:20][INFO] Parameter 2/12 TrkRes.Pi.P2 is 0.002
+[79978:tof-event-time]: [18:32:20][INFO] Parameter 3/12 TrkRes.Pi.P3 is 40
+[79978:tof-event-time]: [18:32:20][INFO] Parameter 4/12 time_resolution is 60
+[79978:tof-event-time]: [18:32:20][INFO] Parameter 5/12 TrkRes.Ka.P0 is 0.008
+[79978:tof-event-time]: [18:32:20][INFO] Parameter 6/12 TrkRes.Ka.P1 is 0.008
+[79978:tof-event-time]: [18:32:20][INFO] Parameter 7/12 TrkRes.Ka.P2 is 0.002
+[79978:tof-event-time]: [18:32:20][INFO] Parameter 8/12 TrkRes.Ka.P3 is 40
+[79978:tof-event-time]: [18:32:20][INFO] Parameter 9/12 TrkRes.Pr.P0 is 0.008
+[79978:tof-event-time]: [18:32:20][INFO] Parameter 10/12 TrkRes.Pr.P1 is 0.008
+[79978:tof-event-time]: [18:32:20][INFO] Parameter 11/12 TrkRes.Pr.P2 is 0.002
+[79978:tof-event-time]: [18:32:20][INFO] Parameter 12/12 TrkRes.Pr.P3 is 40
+[79978:tof-event-time]: [18:32:20][INFO] eventTimeContainer configuration:
+[79978:tof-event-time]: [18:32:20][INFO]  maxNtracksInSet = 10
+[79978:tof-event-time]: [18:32:20][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[79978:tof-event-time]: [18:32:20][STATE] INITIALIZED ---> BINDING
+[79978:tof-event-time]: [18:32:20][STATE] BINDING ---> BOUND
+[79978:tof-event-time]: [18:32:20][STATE] BOUND ---> CONNECTING
+[79970:track-propagation]: [18:32:20][STATE] CONNECTING ---> DEVICE READY
+[79970:track-propagation]: [18:32:20][STATE] DEVICE READY ---> INITIALIZING TASK
+[79978:tof-event-time]: [18:32:20][STATE] CONNECTING ---> DEVICE READY
+[79978:tof-event-time]: [18:32:20][STATE] DEVICE READY ---> INITIALIZING TASK
+[79962:internal-dpl-aod-spawner]: [18:32:20][STATE] IDLE ---> INITIALIZING DEVICE
+[79962:internal-dpl-aod-spawner]: [18:32:20][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[79962:internal-dpl-aod-spawner]: [18:32:20][STATE] INITIALIZED ---> BINDING
+[79962:internal-dpl-aod-spawner]: [18:32:20][STATE] BINDING ---> BOUND
+[79962:internal-dpl-aod-spawner]: [18:32:20][STATE] BOUND ---> CONNECTING
+[79972:event-selection-task]: [18:32:20][STATE] CONNECTING ---> DEVICE READY
+[79972:event-selection-task]: [18:32:20][STATE] DEVICE READY ---> INITIALIZING TASK
+[79962:internal-dpl-aod-spawner]: [18:32:20][STATE] CONNECTING ---> DEVICE READY
+[79962:internal-dpl-aod-spawner]: [18:32:20][STATE] DEVICE READY ---> INITIALIZING TASK
+[79970:track-propagation]: [18:32:20][STATE] INITIALIZING TASK ---> READY
+[79970:track-propagation]: [18:32:20][STATE] READY ---> RUNNING
+[79970:track-propagation]: [18:32:20][INFO] fair::mq::Device running...
+[79970:track-propagation]: [18:32:20][INFO] LHCPeriod is not available, using current month JUL
+[79970:track-propagation]: [18:32:20][INFO] Correctly handshaken websocket connection.
+[79972:event-selection-task]: [18:32:20][STATE] INITIALIZING TASK ---> READY
+[79972:event-selection-task]: [18:32:20][STATE] READY ---> RUNNING
+[79972:event-selection-task]: [18:32:20][INFO] fair::mq::Device running...
+[79972:event-selection-task]: [18:32:20][INFO] LHCPeriod is not available, using current month JUL
+[79972:event-selection-task]: [18:32:20][INFO] Correctly handshaken websocket connection.
+[79978:tof-event-time]: [18:32:20][STATE] INITIALIZING TASK ---> READY
+[79978:tof-event-time]: [18:32:20][STATE] READY ---> RUNNING
+[79978:tof-event-time]: [18:32:20][INFO] fair::mq::Device running...
+[79978:tof-event-time]: [18:32:20][INFO] LHCPeriod is not available, using current month JUL
+[79978:tof-event-time]: [18:32:20][INFO] Correctly handshaken websocket connection.
+[79979:tof-pid-full]: [INFO] Spawing new device tof-pid-full in process with pid 79979
+[79979:tof-pid-full]: [18:32:20][INFO] 
+[79979:tof-pid-full]:       ______      _    _______  _________ 
+[79979:tof-pid-full]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.0
+[79979:tof-pid-full]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[79979:tof-pid-full]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[79979:tof-pid-full]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[79979:tof-pid-full]: 
+[79979:tof-pid-full]: [18:32:20][STATE] Starting FairMQ state machine --> IDLE
+[79962:internal-dpl-aod-spawner]: [18:32:20][STATE] INITIALIZING TASK ---> READY
+[79962:internal-dpl-aod-spawner]: [18:32:20][STATE] READY ---> RUNNING
+[79962:internal-dpl-aod-spawner]: [18:32:20][INFO] fair::mq::Device running...
+[79962:internal-dpl-aod-spawner]: [18:32:20][INFO] LHCPeriod is not available, using current month JUL
+[79962:internal-dpl-aod-spawner]: [18:32:20][INFO] Correctly handshaken websocket connection.
+[79979:tof-pid-full]: [18:32:20][STATE] IDLE ---> INITIALIZING DEVICE
+[79979:tof-pid-full]: [18:32:20][INFO] Init CcdApi with UserAgentID: ferrandi-Lenovo-IdeaPad-S145-15IWL-1752010340-5rzhB3, Host: http://alice-ccdb.cern.ch/, Curl timeouts: upload:20 download:1
+[79979:tof-pid-full]: [18:32:20][INFO] Checking for option 'ccdb-url' in task 'tof-signal'
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 0 internal-dpl-clock
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 1 internal-dpl-aod-reader
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 2 internal-dpl-aod-spawner
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 3 internal-dpl-aod-index-builder
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 4 mc-collision-converter
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 5 timestamp-task
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 6 bc-selection-task
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 7 fwd-track-extension
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 8 tracks-extra-v002-converter
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 9 tracks-extra-spawner
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 10 track-propagation
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 11 tof-signal
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 0 ccdb-url = 'http://alice-ccdb.cern.ch'
+[79979:tof-pid-full]: [18:32:20][INFO]    Found option 'ccdb-url' with value 'http://alice-ccdb.cern.ch'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 1 ccdb-timestamp = '-1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 2 timeShiftCCDBPath = ''
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 3 distanceForGoodMatch = '999'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 4 distanceForGoodMatchLowMult = '999'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 5 multThreshold = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 6 enableQaHistograms = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 7 processRun3 = '1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 8 processRun2 = '0'
+[79979:tof-pid-full]: [18:32:20][INFO] Checking for option 'ccdb-timestamp' in task 'tof-signal'
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 0 internal-dpl-clock
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 1 internal-dpl-aod-reader
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 2 internal-dpl-aod-spawner
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 3 internal-dpl-aod-index-builder
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 4 mc-collision-converter
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 5 timestamp-task
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 6 bc-selection-task
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 7 fwd-track-extension
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 8 tracks-extra-v002-converter
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 9 tracks-extra-spawner
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 10 track-propagation
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 11 tof-signal
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 0 ccdb-url = 'http://alice-ccdb.cern.ch'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 1 ccdb-timestamp = '-1'
+[79979:tof-pid-full]: [18:32:20][INFO]    Found option 'ccdb-timestamp' with value '-1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 2 timeShiftCCDBPath = ''
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 3 distanceForGoodMatch = '999'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 4 distanceForGoodMatchLowMult = '999'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 5 multThreshold = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 6 enableQaHistograms = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 7 processRun3 = '1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 8 processRun2 = '0'
+[79979:tof-pid-full]: [18:32:20][INFO] Checking for option 'paramFileName' in task 'tof-event-time'
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 0 internal-dpl-clock
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 1 internal-dpl-aod-reader
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 2 internal-dpl-aod-spawner
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 3 internal-dpl-aod-index-builder
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 4 mc-collision-converter
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 5 timestamp-task
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 6 bc-selection-task
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 7 fwd-track-extension
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 8 tracks-extra-v002-converter
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 9 tracks-extra-spawner
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 10 track-propagation
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 11 tof-signal
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 12 event-selection-task
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 13 track-selection
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 14 pid-multiplicity
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 15 tpc-pid
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 16 ft0-corrected-table
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 17 track-to-collision-association
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 18 tof-event-time
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 0 inheritFromBaseTask = '1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 1 ccdb-url = ''
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 2 ccdb-timestamp = '-1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 3 minMomentum = '0.5'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 4 maxMomentum = '2'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 5 maxEvTimeTOF = '100000'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 6 sel8TOFEvTime = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 7 maxNtracksInSet = '10'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 8 paramFileName = ''
+[79979:tof-pid-full]: [18:32:20][INFO]    Found option 'paramFileName' with value ''
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 9 parametrizationPath = 'TOF/Calib/Params'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 10 passName = 'apass1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 11 loadResponseFromCCDB = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 12 enableTimeDependentResponse = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 13 fatalOnPassNotAvailable = '1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 14 processRun2 = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 15 processNoFT0 = '1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 16 processFT0 = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 17 processOnlyFT0 = '0'
+[79979:tof-pid-full]: [18:32:20][INFO] Checking for option 'parametrizationPath' in task 'tof-event-time'
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 0 internal-dpl-clock
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 1 internal-dpl-aod-reader
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 2 internal-dpl-aod-spawner
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 3 internal-dpl-aod-index-builder
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 4 mc-collision-converter
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 5 timestamp-task
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 6 bc-selection-task
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 7 fwd-track-extension
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 8 tracks-extra-v002-converter
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 9 tracks-extra-spawner
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 10 track-propagation
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 11 tof-signal
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 12 event-selection-task
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 13 track-selection
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 14 pid-multiplicity
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 15 tpc-pid
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 16 ft0-corrected-table
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 17 track-to-collision-association
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 18 tof-event-time
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 0 inheritFromBaseTask = '1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 1 ccdb-url = ''
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 2 ccdb-timestamp = '-1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 3 minMomentum = '0.5'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 4 maxMomentum = '2'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 5 maxEvTimeTOF = '100000'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 6 sel8TOFEvTime = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 7 maxNtracksInSet = '10'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 8 paramFileName = ''
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 9 parametrizationPath = 'TOF/Calib/Params'
+[79979:tof-pid-full]: [18:32:20][INFO]    Found option 'parametrizationPath' with value 'TOF/Calib/Params'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 10 passName = 'apass1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 11 loadResponseFromCCDB = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 12 enableTimeDependentResponse = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 13 fatalOnPassNotAvailable = '1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 14 processRun2 = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 15 processNoFT0 = '1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 16 processFT0 = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 17 processOnlyFT0 = '0'
+[79979:tof-pid-full]: [18:32:20][INFO] Checking for option 'passName' in task 'tof-event-time'
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 0 internal-dpl-clock
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 1 internal-dpl-aod-reader
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 2 internal-dpl-aod-spawner
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 3 internal-dpl-aod-index-builder
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 4 mc-collision-converter
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 5 timestamp-task
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 6 bc-selection-task
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 7 fwd-track-extension
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 8 tracks-extra-v002-converter
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 9 tracks-extra-spawner
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 10 track-propagation
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 11 tof-signal
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 12 event-selection-task
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 13 track-selection
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 14 pid-multiplicity
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 15 tpc-pid
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 16 ft0-corrected-table
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 17 track-to-collision-association
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 18 tof-event-time
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 0 inheritFromBaseTask = '1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 1 ccdb-url = ''
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 2 ccdb-timestamp = '-1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 3 minMomentum = '0.5'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 4 maxMomentum = '2'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 5 maxEvTimeTOF = '100000'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 6 sel8TOFEvTime = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 7 maxNtracksInSet = '10'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 8 paramFileName = ''
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 9 parametrizationPath = 'TOF/Calib/Params'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 10 passName = 'apass1'
+[79979:tof-pid-full]: [18:32:20][INFO]    Found option 'passName' with value 'apass1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 11 loadResponseFromCCDB = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 12 enableTimeDependentResponse = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 13 fatalOnPassNotAvailable = '1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 14 processRun2 = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 15 processNoFT0 = '1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 16 processFT0 = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 17 processOnlyFT0 = '0'
+[79979:tof-pid-full]: [18:32:20][INFO] Checking for option 'timeShiftCCDBPath' in task 'tof-signal'
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 0 internal-dpl-clock
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 1 internal-dpl-aod-reader
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 2 internal-dpl-aod-spawner
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 3 internal-dpl-aod-index-builder
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 4 mc-collision-converter
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 5 timestamp-task
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 6 bc-selection-task
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 7 fwd-track-extension
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 8 tracks-extra-v002-converter
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 9 tracks-extra-spawner
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 10 track-propagation
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 11 tof-signal
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 0 ccdb-url = 'http://alice-ccdb.cern.ch'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 1 ccdb-timestamp = '-1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 2 timeShiftCCDBPath = ''
+[79979:tof-pid-full]: [18:32:20][INFO]    Found option 'timeShiftCCDBPath' with value ''
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 3 distanceForGoodMatch = '999'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 4 distanceForGoodMatchLowMult = '999'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 5 multThreshold = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 6 enableQaHistograms = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 7 processRun3 = '1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 8 processRun2 = '0'
+[79979:tof-pid-full]: [18:32:20][INFO] Checking for option 'loadResponseFromCCDB' in task 'tof-event-time'
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 0 internal-dpl-clock
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 1 internal-dpl-aod-reader
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 2 internal-dpl-aod-spawner
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 3 internal-dpl-aod-index-builder
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 4 mc-collision-converter
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 5 timestamp-task
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 6 bc-selection-task
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 7 fwd-track-extension
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 8 tracks-extra-v002-converter
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 9 tracks-extra-spawner
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 10 track-propagation
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 11 tof-signal
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 12 event-selection-task
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 13 track-selection
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 14 pid-multiplicity
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 15 tpc-pid
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 16 ft0-corrected-table
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 17 track-to-collision-association
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 18 tof-event-time
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 0 inheritFromBaseTask = '1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 1 ccdb-url = ''
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 2 ccdb-timestamp = '-1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 3 minMomentum = '0.5'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 4 maxMomentum = '2'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 5 maxEvTimeTOF = '100000'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 6 sel8TOFEvTime = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 7 maxNtracksInSet = '10'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 8 paramFileName = ''
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 9 parametrizationPath = 'TOF/Calib/Params'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 10 passName = 'apass1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 11 loadResponseFromCCDB = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]    Found option 'loadResponseFromCCDB' with value '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 12 enableTimeDependentResponse = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 13 fatalOnPassNotAvailable = '1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 14 processRun2 = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 15 processNoFT0 = '1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 16 processFT0 = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 17 processOnlyFT0 = '0'
+[79979:tof-pid-full]: [18:32:20][INFO] Checking for option 'enableTimeDependentResponse' in task 'tof-event-time'
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 0 internal-dpl-clock
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 1 internal-dpl-aod-reader
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 2 internal-dpl-aod-spawner
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 3 internal-dpl-aod-index-builder
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 4 mc-collision-converter
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 5 timestamp-task
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 6 bc-selection-task
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 7 fwd-track-extension
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 8 tracks-extra-v002-converter
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 9 tracks-extra-spawner
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 10 track-propagation
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 11 tof-signal
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 12 event-selection-task
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 13 track-selection
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 14 pid-multiplicity
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 15 tpc-pid
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 16 ft0-corrected-table
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 17 track-to-collision-association
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 18 tof-event-time
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 0 inheritFromBaseTask = '1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 1 ccdb-url = ''
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 2 ccdb-timestamp = '-1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 3 minMomentum = '0.5'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 4 maxMomentum = '2'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 5 maxEvTimeTOF = '100000'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 6 sel8TOFEvTime = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 7 maxNtracksInSet = '10'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 8 paramFileName = ''
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 9 parametrizationPath = 'TOF/Calib/Params'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 10 passName = 'apass1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 11 loadResponseFromCCDB = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 12 enableTimeDependentResponse = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]    Found option 'enableTimeDependentResponse' with value '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 13 fatalOnPassNotAvailable = '1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 14 processRun2 = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 15 processNoFT0 = '1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 16 processFT0 = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 17 processOnlyFT0 = '0'
+[79979:tof-pid-full]: [18:32:20][INFO] Checking for option 'fatalOnPassNotAvailable' in task 'tof-event-time'
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 0 internal-dpl-clock
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 1 internal-dpl-aod-reader
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 2 internal-dpl-aod-spawner
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 3 internal-dpl-aod-index-builder
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 4 mc-collision-converter
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 5 timestamp-task
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 6 bc-selection-task
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 7 fwd-track-extension
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 8 tracks-extra-v002-converter
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 9 tracks-extra-spawner
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 10 track-propagation
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 11 tof-signal
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 12 event-selection-task
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 13 track-selection
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 14 pid-multiplicity
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 15 tpc-pid
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 16 ft0-corrected-table
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 17 track-to-collision-association
+[79979:tof-pid-full]: [18:32:20][INFO]  Device 18 tof-event-time
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 0 inheritFromBaseTask = '1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 1 ccdb-url = ''
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 2 ccdb-timestamp = '-1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 3 minMomentum = '0.5'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 4 maxMomentum = '2'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 5 maxEvTimeTOF = '100000'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 6 sel8TOFEvTime = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 7 maxNtracksInSet = '10'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 8 paramFileName = ''
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 9 parametrizationPath = 'TOF/Calib/Params'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 10 passName = 'apass1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 11 loadResponseFromCCDB = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 12 enableTimeDependentResponse = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 13 fatalOnPassNotAvailable = '1'
+[79979:tof-pid-full]: [18:32:20][INFO]    Found option 'fatalOnPassNotAvailable' with value '1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 14 processRun2 = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 15 processNoFT0 = '1'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 16 processFT0 = '0'
+[79979:tof-pid-full]: [18:32:20][INFO]   Option 17 processOnlyFT0 = '0'
+[79979:tof-pid-full]: [18:32:20][INFO] Auto-disabling table: pidTOFFullEl
+[79979:tof-pid-full]: [18:32:20][INFO] Auto-disabling table: pidTOFFullMu
+[79979:tof-pid-full]: [18:32:20][INFO] Auto-disabling table: pidTOFFullPi
+[79979:tof-pid-full]: [18:32:20][INFO] Auto-disabling table: pidTOFFullKa
+[79979:tof-pid-full]: [18:32:20][INFO] Auto-disabling table: pidTOFFullPr
+[79979:tof-pid-full]: [18:32:20][INFO] Auto-disabling table: pidTOFFullDe
+[79979:tof-pid-full]: [18:32:20][INFO] Auto-disabling table: pidTOFFullTr
+[79979:tof-pid-full]: [18:32:20][INFO] Auto-disabling table: pidTOFFullHe
+[79979:tof-pid-full]: [18:32:20][INFO] Auto-disabling table: pidTOFFullAl
+[79979:tof-pid-full]: [18:32:20][INFO] ++ Enabled tables:
+[79979:tof-pid-full]: [18:32:20][INFO] Init CcdApi with UserAgentID: ferrandi-Lenovo-IdeaPad-S145-15IWL-1752010340-5rzhB3, Host: http://alice-ccdb.cern.ch, Curl timeouts: upload:20 download:1
+[79979:tof-pid-full]: [18:32:20][INFO] Using parameter collection, starting from pass 'apass1'
+[79979:tof-pid-full]: [18:32:20][INFO] Parameters 'TOFResoParamsV2'
+[79979:tof-pid-full]: [18:32:20][INFO] Parameter 0/12 TrkRes.Pi.P0 is 0.008
+[79979:tof-pid-full]: [18:32:20][INFO] Parameter 1/12 TrkRes.Pi.P1 is 0.008
+[79979:tof-pid-full]: [18:32:20][INFO] Parameter 2/12 TrkRes.Pi.P2 is 0.002
+[79979:tof-pid-full]: [18:32:20][INFO] Parameter 3/12 TrkRes.Pi.P3 is 40
+[79979:tof-pid-full]: [18:32:20][INFO] Parameter 4/12 time_resolution is 60
+[79979:tof-pid-full]: [18:32:20][INFO] Parameter 5/12 TrkRes.Ka.P0 is 0.008
+[79979:tof-pid-full]: [18:32:20][INFO] Parameter 6/12 TrkRes.Ka.P1 is 0.008
+[79979:tof-pid-full]: [18:32:20][INFO] Parameter 7/12 TrkRes.Ka.P2 is 0.002
+[79979:tof-pid-full]: [18:32:20][INFO] Parameter 8/12 TrkRes.Ka.P3 is 40
+[79979:tof-pid-full]: [18:32:20][INFO] Parameter 9/12 TrkRes.Pr.P0 is 0.008
+[79979:tof-pid-full]: [18:32:20][INFO] Parameter 10/12 TrkRes.Pr.P1 is 0.008
+[79979:tof-pid-full]: [18:32:20][INFO] Parameter 11/12 TrkRes.Pr.P2 is 0.002
+[79979:tof-pid-full]: [18:32:20][INFO] Parameter 12/12 TrkRes.Pr.P3 is 40
+[79979:tof-pid-full]: [18:32:20][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[79979:tof-pid-full]: [18:32:20][STATE] INITIALIZED ---> BINDING
+[79979:tof-pid-full]: [18:32:20][STATE] BINDING ---> BOUND
+[79979:tof-pid-full]: [18:32:20][STATE] BOUND ---> CONNECTING
+[79979:tof-pid-full]: [18:32:20][STATE] CONNECTING ---> DEVICE READY
+[79979:tof-pid-full]: [18:32:20][STATE] DEVICE READY ---> INITIALIZING TASK
+[79979:tof-pid-full]: [18:32:20][STATE] INITIALIZING TASK ---> READY
+[79979:tof-pid-full]: [18:32:20][STATE] READY ---> RUNNING
+[79979:tof-pid-full]: [18:32:20][INFO] fair::mq::Device running...
+[79979:tof-pid-full]: [18:32:20][INFO] LHCPeriod is not available, using current month JUL
+[79979:tof-pid-full]: [18:32:20][INFO] Correctly handshaken websocket connection.
+[79967:fwd-track-extension]: [INFO] Instrumenting crash signals
+[79981:internal-dpl-aod-writer]: [INFO] Instrumenting crash signals
+[79976:ft0-corrected-table]: [INFO] Instrumenting crash signals
+[79977:track-to-collision-association]: [INFO] Instrumenting crash signals
+[79982:internal-dpl-aod-global-analysis-file-sink]: [INFO] Instrumenting crash signals
+[79967:fwd-track-extension]: [INFO] Spawing new device fwd-track-extension in process with pid 79967
+[79967:fwd-track-extension]: [18:32:20][INFO] 
+[79967:fwd-track-extension]:       ______      _    _______  _________ 
+[79967:fwd-track-extension]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.0
+[79967:fwd-track-extension]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[79967:fwd-track-extension]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[79967:fwd-track-extension]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[79967:fwd-track-extension]: 
+[79967:fwd-track-extension]: [18:32:20][STATE] Starting FairMQ state machine --> IDLE
+[79967:fwd-track-extension]: [18:32:20][STATE] IDLE ---> INITIALIZING DEVICE
+[79967:fwd-track-extension]: [18:32:20][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[79967:fwd-track-extension]: [18:32:20][STATE] INITIALIZED ---> BINDING
+[79967:fwd-track-extension]: [18:32:20][STATE] BINDING ---> BOUND
+[79967:fwd-track-extension]: [18:32:20][STATE] BOUND ---> CONNECTING
+[79967:fwd-track-extension]: [18:32:20][STATE] CONNECTING ---> DEVICE READY
+[79967:fwd-track-extension]: [18:32:20][STATE] DEVICE READY ---> INITIALIZING TASK
+[79980:tof-pid-beta]: [INFO] Instrumenting crash signals
+[79983:internal-dpl-injected-dummy-sink]: [INFO] Instrumenting crash signals
+[79976:ft0-corrected-table]: [INFO] Spawing new device ft0-corrected-table in process with pid 79976
+[79977:track-to-collision-association]: [INFO] Spawing new device track-to-collision-association in process with pid 79977
+[79967:fwd-track-extension]: [18:32:20][STATE] INITIALIZING TASK ---> READY
+[79967:fwd-track-extension]: [18:32:20][STATE] READY ---> RUNNING
+[79967:fwd-track-extension]: [18:32:20][INFO] fair::mq::Device running...
+[79967:fwd-track-extension]: [18:32:20][INFO] LHCPeriod is not available, using current month JUL
+[79977:track-to-collision-association]: [18:32:20][INFO] 
+[79977:track-to-collision-association]:       ______      _    _______  _________ 
+[79977:track-to-collision-association]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.0
+[79977:track-to-collision-association]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[79977:track-to-collision-association]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[79977:track-to-collision-association]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[79977:track-to-collision-association]: 
+[79977:track-to-collision-association]: [18:32:20][STATE] Starting FairMQ state machine --> IDLE
+[79967:fwd-track-extension]: [18:32:20][INFO] Correctly handshaken websocket connection.
+[79976:ft0-corrected-table]: [18:32:20][INFO] 
+[79976:ft0-corrected-table]:       ______      _    _______  _________ 
+[79976:ft0-corrected-table]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.0
+[79976:ft0-corrected-table]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[79976:ft0-corrected-table]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[79976:ft0-corrected-table]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[79976:ft0-corrected-table]: 
+[79976:ft0-corrected-table]: [18:32:20][STATE] Starting FairMQ state machine --> IDLE
+[79976:ft0-corrected-table]: [18:32:20][STATE] IDLE ---> INITIALIZING DEVICE
+[79977:track-to-collision-association]: [18:32:20][STATE] IDLE ---> INITIALIZING DEVICE
+[79977:track-to-collision-association]: [18:32:20][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[79977:track-to-collision-association]: [18:32:20][STATE] INITIALIZED ---> BINDING
+[79977:track-to-collision-association]: [18:32:20][STATE] BINDING ---> BOUND
+[79977:track-to-collision-association]: [18:32:20][STATE] BOUND ---> CONNECTING
+[79976:ft0-corrected-table]: [18:32:20][INFO] Init CcdApi with UserAgentID: ferrandi-Lenovo-IdeaPad-S145-15IWL-1752010340-gDlr5r, Host: http://alice-ccdb.cern.ch/, Curl timeouts: upload:20 download:1
+[79977:track-to-collision-association]: [18:32:20][STATE] CONNECTING ---> DEVICE READY
+[79977:track-to-collision-association]: [18:32:20][STATE] DEVICE READY ---> INITIALIZING TASK
+[79976:ft0-corrected-table]: [18:32:20][INFO] Init CcdApi with UserAgentID: ferrandi-Lenovo-IdeaPad-S145-15IWL-1752010340-gDlr5r, Host: http://alice-ccdb.cern.ch, Curl timeouts: upload:20 download:1
+[79977:track-to-collision-association]: [18:32:20][STATE] INITIALIZING TASK ---> READY
+[79977:track-to-collision-association]: [18:32:20][STATE] READY ---> RUNNING
+[79977:track-to-collision-association]: [18:32:20][INFO] fair::mq::Device running...
+[79977:track-to-collision-association]: [18:32:20][INFO] LHCPeriod is not available, using current month JUL
+[79977:track-to-collision-association]: [18:32:20][INFO] Correctly handshaken websocket connection.
+[79976:ft0-corrected-table]: [18:32:20][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[79976:ft0-corrected-table]: [18:32:20][STATE] INITIALIZED ---> BINDING
+[79982:internal-dpl-aod-global-analysis-file-sink]: [INFO] Spawing new device internal-dpl-aod-global-analysis-file-sink in process with pid 79982
+[79976:ft0-corrected-table]: [18:32:20][STATE] BINDING ---> BOUND
+[79976:ft0-corrected-table]: [18:32:20][STATE] BOUND ---> CONNECTING
+[79976:ft0-corrected-table]: [18:32:20][STATE] CONNECTING ---> DEVICE READY
+[79976:ft0-corrected-table]: [18:32:20][STATE] DEVICE READY ---> INITIALIZING TASK
+[79976:ft0-corrected-table]: [18:32:20][STATE] INITIALIZING TASK ---> READY
+[79982:internal-dpl-aod-global-analysis-file-sink]: [18:32:20][INFO] 
+[79982:internal-dpl-aod-global-analysis-file-sink]:       ______      _    _______  _________ 
+[79982:internal-dpl-aod-global-analysis-file-sink]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.0
+[79982:internal-dpl-aod-global-analysis-file-sink]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[79982:internal-dpl-aod-global-analysis-file-sink]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[79982:internal-dpl-aod-global-analysis-file-sink]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[79982:internal-dpl-aod-global-analysis-file-sink]: 
+[79976:ft0-corrected-table]: [18:32:20][STATE] READY ---> RUNNING
+[79976:ft0-corrected-table]: [18:32:20][INFO] fair::mq::Device running...
+[79976:ft0-corrected-table]: [18:32:20][INFO] LHCPeriod is not available, using current month JUL
+[79976:ft0-corrected-table]: [18:32:20][INFO] Correctly handshaken websocket connection.
+[79982:internal-dpl-aod-global-analysis-file-sink]: [18:32:20][STATE] Starting FairMQ state machine --> IDLE
+[79981:internal-dpl-aod-writer]: [INFO] Spawing new device internal-dpl-aod-writer in process with pid 79981
+[79981:internal-dpl-aod-writer]: [18:32:20][INFO] 
+[79981:internal-dpl-aod-writer]:       ______      _    _______  _________ 
+[79981:internal-dpl-aod-writer]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.0
+[79981:internal-dpl-aod-writer]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[79981:internal-dpl-aod-writer]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[79981:internal-dpl-aod-writer]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[79981:internal-dpl-aod-writer]: 
+[79981:internal-dpl-aod-writer]: [18:32:20][STATE] Starting FairMQ state machine --> IDLE
+[79980:tof-pid-beta]: [INFO] Spawing new device tof-pid-beta in process with pid 79980
+[79980:tof-pid-beta]: [18:32:20][INFO] 
+[79980:tof-pid-beta]:       ______      _    _______  _________ 
+[79980:tof-pid-beta]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.0
+[79980:tof-pid-beta]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[79980:tof-pid-beta]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[79980:tof-pid-beta]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[79980:tof-pid-beta]: 
+[79980:tof-pid-beta]: [18:32:20][STATE] Starting FairMQ state machine --> IDLE
+[79981:internal-dpl-aod-writer]: [18:32:20][STATE] IDLE ---> INITIALIZING DEVICE
+[79982:internal-dpl-aod-global-analysis-file-sink]: [18:32:20][STATE] IDLE ---> INITIALIZING DEVICE
+[79982:internal-dpl-aod-global-analysis-file-sink]: [18:32:20][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[79982:internal-dpl-aod-global-analysis-file-sink]: [18:32:20][STATE] INITIALIZED ---> BINDING
+[79982:internal-dpl-aod-global-analysis-file-sink]: [18:32:20][STATE] BINDING ---> BOUND
+[79982:internal-dpl-aod-global-analysis-file-sink]: [18:32:20][STATE] BOUND ---> CONNECTING
+[79983:internal-dpl-injected-dummy-sink]: [INFO] Spawing new device internal-dpl-injected-dummy-sink in process with pid 79983
+[79981:internal-dpl-aod-writer]: [18:32:20][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[79981:internal-dpl-aod-writer]: [18:32:20][STATE] INITIALIZED ---> BINDING
+[79982:internal-dpl-aod-global-analysis-file-sink]: [18:32:20][STATE] CONNECTING ---> DEVICE READY
+[79982:internal-dpl-aod-global-analysis-file-sink]: [18:32:20][STATE] DEVICE READY ---> INITIALIZING TASK
+[79982:internal-dpl-aod-global-analysis-file-sink]: [18:32:20][STATE] INITIALIZING TASK ---> READY
+[79982:internal-dpl-aod-global-analysis-file-sink]: [18:32:20][STATE] READY ---> RUNNING
+[79982:internal-dpl-aod-global-analysis-file-sink]: [18:32:20][INFO] fair::mq::Device running...
+[79982:internal-dpl-aod-global-analysis-file-sink]: [18:32:20][INFO] LHCPeriod is not available, using current month JUL
+[79981:internal-dpl-aod-writer]: [18:32:20][STATE] BINDING ---> BOUND
+[79981:internal-dpl-aod-writer]: [18:32:20][STATE] BOUND ---> CONNECTING
+[79983:internal-dpl-injected-dummy-sink]: [18:32:20][INFO] 
+[79983:internal-dpl-injected-dummy-sink]:       ______      _    _______  _________ 
+[79983:internal-dpl-injected-dummy-sink]:      / ____/___ _(_)_______   |/  /_  __ \    version 1.9.0
+[79983:internal-dpl-injected-dummy-sink]:     / /_  / __ `/ / ___/__  /|_/ /_  / / /    build RELWITHDEBINFO
+[79983:internal-dpl-injected-dummy-sink]:    / __/ / /_/ / / /    _  /  / / / /_/ /     https://github.com/FairRootGroup/FairMQ
+[79983:internal-dpl-injected-dummy-sink]:   /_/    \__,_/_/_/     /_/  /_/  \___\_\     LGPL-3.0  © 2012-2025 GSI
+[79983:internal-dpl-injected-dummy-sink]: 
+[79983:internal-dpl-injected-dummy-sink]: [18:32:20][STATE] Starting FairMQ state machine --> IDLE
+[79981:internal-dpl-aod-writer]: [18:32:20][STATE] CONNECTING ---> DEVICE READY
+[79981:internal-dpl-aod-writer]: [18:32:20][STATE] DEVICE READY ---> INITIALIZING TASK
+[79982:internal-dpl-aod-global-analysis-file-sink]: [18:32:20][INFO] Correctly handshaken websocket connection.
+[79980:tof-pid-beta]: [18:32:20][STATE] IDLE ---> INITIALIZING DEVICE
+[79981:internal-dpl-aod-writer]: [18:32:20][STATE] INITIALIZING TASK ---> READY
+[79981:internal-dpl-aod-writer]: [18:32:20][STATE] READY ---> RUNNING
+[79981:internal-dpl-aod-writer]: [18:32:20][INFO] fair::mq::Device running...
+[79981:internal-dpl-aod-writer]: [18:32:20][INFO] LHCPeriod is not available, using current month JUL
+[79981:internal-dpl-aod-writer]: [18:32:20][INFO] Correctly handshaken websocket connection.
+[79980:tof-pid-beta]: [18:32:20][INFO] Init CcdApi with UserAgentID: ferrandi-Lenovo-IdeaPad-S145-15IWL-1752010340-DSoA9e, Host: http://alice-ccdb.cern.ch/, Curl timeouts: upload:20 download:1
+[79980:tof-pid-beta]: [18:32:20][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[79980:tof-pid-beta]: [18:32:20][STATE] INITIALIZED ---> BINDING
+[79980:tof-pid-beta]: [18:32:20][STATE] BINDING ---> BOUND
+[79980:tof-pid-beta]: [18:32:20][STATE] BOUND ---> CONNECTING
+[79980:tof-pid-beta]: [18:32:20][STATE] CONNECTING ---> DEVICE READY
+[79980:tof-pid-beta]: [18:32:20][STATE] DEVICE READY ---> INITIALIZING TASK
+[79983:internal-dpl-injected-dummy-sink]: [18:32:20][STATE] IDLE ---> INITIALIZING DEVICE
+[79980:tof-pid-beta]: [18:32:20][STATE] INITIALIZING TASK ---> READY
+[79980:tof-pid-beta]: [18:32:20][STATE] READY ---> RUNNING
+[79980:tof-pid-beta]: [18:32:20][INFO] fair::mq::Device running...
+[79980:tof-pid-beta]: [18:32:20][INFO] LHCPeriod is not available, using current month JUL
+[79980:tof-pid-beta]: [18:32:20][INFO] Correctly handshaken websocket connection.
+[79983:internal-dpl-injected-dummy-sink]: [18:32:20][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[79983:internal-dpl-injected-dummy-sink]: [18:32:20][STATE] INITIALIZED ---> BINDING
+[79983:internal-dpl-injected-dummy-sink]: [18:32:20][STATE] BINDING ---> BOUND
+[79983:internal-dpl-injected-dummy-sink]: [18:32:20][STATE] BOUND ---> CONNECTING
+[79983:internal-dpl-injected-dummy-sink]: [18:32:20][STATE] CONNECTING ---> DEVICE READY
+[79983:internal-dpl-injected-dummy-sink]: [18:32:20][STATE] DEVICE READY ---> INITIALIZING TASK
+[79983:internal-dpl-injected-dummy-sink]: [18:32:20][STATE] INITIALIZING TASK ---> READY
+[79983:internal-dpl-injected-dummy-sink]: [18:32:20][STATE] READY ---> RUNNING
+[79983:internal-dpl-injected-dummy-sink]: [18:32:20][INFO] fair::mq::Device running...
+[79983:internal-dpl-injected-dummy-sink]: [18:32:20][INFO] LHCPeriod is not available, using current month JUL
+[79983:internal-dpl-injected-dummy-sink]: [18:32:20][INFO] Correctly handshaken websocket connection.
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=1,read_bytes=16750,read_calls=8,io_time=1.2,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=1,read_bytes=5457,read_calls=3,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=1,read_bytes=5457,read_calls=3,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=1,read_bytes=2597809,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=1,read_bytes=2675790,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=1,read_bytes=8832,read_calls=7,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=1,read_bytes=233582,read_calls=22,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=1,read_bytes=247843,read_calls=26,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=1,read_bytes=282253,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=1,read_bytes=30314,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=1,read_bytes=35933,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=1,read_bytes=62052,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=1,read_bytes=12309,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=2,read_bytes=5457,read_calls=3,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=2,read_bytes=16530,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=2,read_bytes=5457,read_calls=3,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=2,read_bytes=5457,read_calls=3,io_time=0.0,wait_time=0.0,level=0
+[79962:internal-dpl-aod-spawner]: /home/ferrandi/alice/sw/BUILD/c020d98dc9a944cac0a4d14745b232a5ab09faa8/arrow/src_tmp/cpp/src/gandiva/cache.cc:61: Creating gandiva cache with capacity of 5000
+[79962:internal-dpl-aod-spawner]: /home/ferrandi/alice/sw/BUILD/c020d98dc9a944cac0a4d14745b232a5ab09faa8/arrow/src_tmp/cpp/src/gandiva/engine.cc:276: Detected CPU Name : skylake
+[79962:internal-dpl-aod-spawner]: /home/ferrandi/alice/sw/BUILD/c020d98dc9a944cac0a4d14745b232a5ab09faa8/arrow/src_tmp/cpp/src/gandiva/engine.cc:277: Detected CPU Features: [ +prfchw -cldemote +avx +aes +sahf +pclmul -xop +crc32 +xsaves -avx512fp16 -usermsr -sm4 +sse4.1 -avx512ifma +xsave -avx512pf +sse4.2 -tsxldtrk -ptwrite -widekl -sm3 +invpcid +64bit +xsavec -avx10.1-512 -avx512vpopcntdq +cmov -avx512vp2intersect -avx512cd +movbe -avxvnniint8 -avx512er -amx-int8 -kl -avx10.1-256 -sha512 -avxvnni -rtm +adx +avx2 -hreset -movdiri -serialize -vpclmulqdq -avx512vl -uintr +clflushopt -raoint -cmpccxadd +bmi -amx-tile +sse -gfni -avxvnniint16 -amx-fp16 +xsaveopt +rdrnd -avx512f -amx-bf16 -avx512bf16 -avx512vnni +cx8 -avx512bw +sse3 -pku +fsgsbase -clzero -mwaitx -lwp +lzcnt -sha -movdir64b -wbnoinvd -enqcmd -prefetchwt1 -avxneconvert -tbm -pconfig -amx-complex +ssse3 +cx16 +bmi2 +fma +popcnt -avxifma +f16c -avx512bitalg -rdpru -clwb +mmx +sse2 +rdseed -avx512vbmi2 -prefetchi -rdpid -fma4 -avx512vbmi -shstk -vaes -waitpkg +sgx +fxsr -avx512dq -sse4a]
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=2,read_bytes=2597138,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=2,read_bytes=2669163,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=2,read_bytes=8832,read_calls=7,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=2,read_bytes=236623,read_calls=23,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=2,read_bytes=251828,read_calls=27,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=2,read_bytes=284658,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=2,read_bytes=30618,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79965:timestamp-task]: [18:32:20][INFO] From metadata this data is from Run 2
+[79965:timestamp-task]: [18:32:20][INFO] From metadata this data is from Data
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=2,read_bytes=35805,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79965:timestamp-task]: [18:32:20][STATE] INITIALIZING DEVICE ---> INITIALIZED
+[79965:timestamp-task]: [18:32:20][STATE] INITIALIZED ---> BINDING
+[79965:timestamp-task]: [18:32:20][STATE] BINDING ---> BOUND
+[79965:timestamp-task]: [18:32:20][STATE] BOUND ---> CONNECTING
+[79965:timestamp-task]: [18:32:20][STATE] CONNECTING ---> DEVICE READY
+[79965:timestamp-task]: [18:32:20][STATE] DEVICE READY ---> INITIALIZING TASK
+[79965:timestamp-task]: [18:32:20][STATE] INITIALIZING TASK ---> READY
+[79965:timestamp-task]: [18:32:20][STATE] READY ---> RUNNING
+[79965:timestamp-task]: [18:32:20][INFO] fair::mq::Device running...
+[79965:timestamp-task]: [18:32:20][INFO] LHCPeriod is not available, using current month JUL
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=2,read_bytes=63695,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=2,read_bytes=11471,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=3,read_bytes=5457,read_calls=3,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=3,read_bytes=15934,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=3,read_bytes=5457,read_calls=3,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=3,read_bytes=5457,read_calls=3,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=3,read_bytes=2601076,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=3,read_bytes=2680611,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:20][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=3,read_bytes=8832,read_calls=7,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=3,read_bytes=232751,read_calls=22,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=3,read_bytes=247251,read_calls=26,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=3,read_bytes=280449,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=3,read_bytes=29956,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=3,read_bytes=35692,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=3,read_bytes=63723,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=3,read_bytes=11267,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=4,read_bytes=5457,read_calls=3,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=4,read_bytes=17618,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=4,read_bytes=5457,read_calls=3,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=4,read_bytes=5457,read_calls=3,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=4,read_bytes=2714158,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=4,read_bytes=2792788,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=4,read_bytes=8832,read_calls=7,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=4,read_bytes=241708,read_calls=24,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=4,read_bytes=257670,read_calls=27,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=4,read_bytes=293176,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=4,read_bytes=30951,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=4,read_bytes=36467,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=4,read_bytes=65544,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=4,read_bytes=11901,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=5,read_bytes=5457,read_calls=3,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=5,read_bytes=16291,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=5,read_bytes=5457,read_calls=3,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=5,read_bytes=5457,read_calls=3,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=5,read_bytes=2543524,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=5,read_bytes=2620119,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=5,read_bytes=8832,read_calls=7,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=5,read_bytes=228758,read_calls=22,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=5,read_bytes=240128,read_calls=26,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=5,read_bytes=276341,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=5,read_bytes=30681,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=5,read_bytes=35209,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=5,read_bytes=62054,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=5,read_bytes=12604,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=6,read_bytes=5457,read_calls=3,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=6,read_bytes=17150,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=6,read_bytes=5457,read_calls=3,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=6,read_bytes=5457,read_calls=3,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=6,read_bytes=2735424,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=6,read_bytes=2814375,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=6,read_bytes=8832,read_calls=7,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=6,read_bytes=243783,read_calls=24,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=6,read_bytes=259662,read_calls=27,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=6,read_bytes=298305,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=6,read_bytes=31497,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=6,read_bytes=36651,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=6,read_bytes=65694,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=6,read_bytes=12070,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=7,read_bytes=5457,read_calls=3,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=7,read_bytes=16182,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=7,read_bytes=5457,read_calls=3,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=7,read_bytes=5457,read_calls=3,io_time=0.0,wait_time=0.0,level=0
+[79969:tracks-extra-spawner]: /home/ferrandi/alice/sw/BUILD/c020d98dc9a944cac0a4d14745b232a5ab09faa8/arrow/src_tmp/cpp/src/gandiva/cache.cc:61: Creating gandiva cache with capacity of 5000
+[79969:tracks-extra-spawner]: /home/ferrandi/alice/sw/BUILD/c020d98dc9a944cac0a4d14745b232a5ab09faa8/arrow/src_tmp/cpp/src/gandiva/engine.cc:276: Detected CPU Name : skylake
+[79969:tracks-extra-spawner]: /home/ferrandi/alice/sw/BUILD/c020d98dc9a944cac0a4d14745b232a5ab09faa8/arrow/src_tmp/cpp/src/gandiva/engine.cc:277: Detected CPU Features: [ +prfchw -cldemote +avx +aes +sahf +pclmul -xop +crc32 +xsaves -avx512fp16 -usermsr -sm4 +sse4.1 -avx512ifma +xsave -avx512pf +sse4.2 -tsxldtrk -ptwrite -widekl -sm3 +invpcid +64bit +xsavec -avx10.1-512 -avx512vpopcntdq +cmov -avx512vp2intersect -avx512cd +movbe -avxvnniint8 -avx512er -amx-int8 -kl -avx10.1-256 -sha512 -avxvnni -rtm +adx +avx2 -hreset -movdiri -serialize -vpclmulqdq -avx512vl -uintr +clflushopt -raoint -cmpccxadd +bmi -amx-tile +sse -gfni -avxvnniint16 -amx-fp16 +xsaveopt +rdrnd -avx512f -amx-bf16 -avx512bf16 -avx512vnni +cx8 -avx512bw +sse3 -pku +fsgsbase -clzero -mwaitx -lwp +lzcnt -sha -movdir64b -wbnoinvd -enqcmd -prefetchwt1 -avxneconvert -tbm -pconfig -amx-complex +ssse3 +cx16 +bmi2 +fma +popcnt -avxifma +f16c -avx512bitalg -rdpru -clwb +mmx +sse2 +rdseed -avx512vbmi2 -prefetchi -rdpid -fma4 -avx512vbmi -shstk -vaes -waitpkg +sgx +fxsr -avx512dq -sse4a]
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=7,read_bytes=2669863,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=7,read_bytes=2750718,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=7,read_bytes=8832,read_calls=7,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=7,read_bytes=239975,read_calls=23,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=7,read_bytes=253991,read_calls=27,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=7,read_bytes=293382,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=7,read_bytes=30807,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=7,read_bytes=36792,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=7,read_bytes=63313,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=7,read_bytes=12062,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=8,read_bytes=5457,read_calls=3,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=8,read_bytes=17540,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=8,read_bytes=5457,read_calls=3,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=8,read_bytes=5457,read_calls=3,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=8,read_bytes=2609757,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=8,read_bytes=2678837,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=8,read_bytes=8832,read_calls=7,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=8,read_bytes=240205,read_calls=24,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=8,read_bytes=254949,read_calls=27,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=8,read_bytes=293811,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=8,read_bytes=31506,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=8,read_bytes=36734,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=8,read_bytes=63830,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=8,read_bytes=11334,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=9,read_bytes=5457,read_calls=3,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=9,read_bytes=17477,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=9,read_bytes=5457,read_calls=3,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=9,read_bytes=5457,read_calls=3,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=9,read_bytes=2639222,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=9,read_bytes=2716081,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=9,read_bytes=8832,read_calls=7,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=9,read_bytes=242567,read_calls=24,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=9,read_bytes=254917,read_calls=27,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=9,read_bytes=295291,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=9,read_bytes=31407,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=9,read_bytes=36902,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=9,read_bytes=64485,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=9,read_bytes=11212,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=10,read_bytes=5457,read_calls=3,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=10,read_bytes=15776,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=10,read_bytes=5457,read_calls=3,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=10,read_bytes=5457,read_calls=3,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=10,read_bytes=2503466,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=10,read_bytes=2574896,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=10,read_bytes=8832,read_calls=7,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=10,read_bytes=232490,read_calls=22,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=10,read_bytes=247378,read_calls=26,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=10,read_bytes=282707,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=10,read_bytes=30196,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=10,read_bytes=36063,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=10,read_bytes=63049,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=10,read_bytes=11846,read_calls=8,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] No input files left to read for reader 0!
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Read info: lfn=/home/ferrandi/alice/JPsiDerivedDatasetSubJobs/MC/AO2DMC_LHC25b16_0_550369_AOD_001.root,size=622731968,total_df=10,read_df=10,read_bytes=5457,read_calls=3,io_time=0.0,wait_time=0.0,level=0
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Sending end-of-stream message to channel from_internal-dpl-aod-reader_to_internal-dpl-aod-spawner
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Sending end-of-stream message to channel from_internal-dpl-aod-reader_to_internal-dpl-aod-index-builder
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Sending end-of-stream message to channel from_internal-dpl-aod-reader_to_mc-collision-converter
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Sending end-of-stream message to channel from_internal-dpl-aod-reader_to_fwd-track-extension
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Sending end-of-stream message to channel from_internal-dpl-aod-reader_to_track-to-collision-association
+[79961:internal-dpl-aod-reader]: [18:32:21][INFO] Sending end-of-stream message to channel from_internal-dpl-aod-reader_to_internal-dpl-aod-writer
+[79964:mc-collision-converter]: [18:32:21][INFO] Sending end-of-stream message to channel from_mc-collision-converter_to_internal-dpl-aod-writer
+[79963:internal-dpl-aod-index-builder]: [18:32:21][INFO] Sending end-of-stream message to channel from_internal-dpl-aod-index-builder_to_timestamp-task
+[79963:internal-dpl-aod-index-builder]: [18:32:21][INFO] Sending end-of-stream message to channel from_internal-dpl-aod-index-builder_to_bc-selection-task
+[79962:internal-dpl-aod-spawner]: [18:32:21][INFO] Sending end-of-stream message to channel from_internal-dpl-aod-spawner_to_fwd-track-extension
+[79962:internal-dpl-aod-spawner]: [18:32:21][INFO] Sending end-of-stream message to channel from_internal-dpl-aod-spawner_to_tracks-extra-v002-converter
+[79962:internal-dpl-aod-spawner]: [18:32:21][INFO] Sending end-of-stream message to channel from_internal-dpl-aod-spawner_to_track-propagation
+[79962:internal-dpl-aod-spawner]: [18:32:21][INFO] Sending end-of-stream message to channel from_internal-dpl-aod-spawner_to_tof-signal
+[79967:fwd-track-extension]: [18:32:21][INFO] Sending end-of-stream message to channel from_fwd-track-extension_to_track-propagation
+[79967:fwd-track-extension]: [18:32:21][INFO] Sending end-of-stream message to channel from_fwd-track-extension_to_internal-dpl-aod-writer
+[79968:tracks-extra-v002-converter]: [18:32:21][INFO] Sending end-of-stream message to channel from_tracks-extra-v002-converter_to_tracks-extra-spawner
+[79969:tracks-extra-spawner]: [18:32:21][INFO] Sending end-of-stream message to channel from_tracks-extra-spawner_to_tof-signal
+[79965:timestamp-task]: DN >>> C=ch/O=AliEn2/CN=Users/CN=lferrand/OU=lferrand
+[79965:timestamp-task]: ISSUER >>> C=ch/O=AliEn2/CN=AliEn CA
+[79965:timestamp-task]: BEGIN >>> 2025-07-07 16:10:04
+[79965:timestamp-task]: EXPIRE >>> 2025-08-07 18:10:04
+[79965:timestamp-task]: Info in <TJAlienConnectionManager>: Opening connection to JCentral. Please wait
+[79965:timestamp-task]: Info in <TJAlienConnectionManager>: Opening connection to 128.142.249.49
+[79965:timestamp-task]: Info in <TJAlienConnectionManager>: Successfully connected to 128.142.249.49
+[79965:timestamp-task]: Info in <TJAlienFile::Open>: Accessing file /alice/data/CCDB/CTP/Calib/OrbitReset/01/55466/220f5e14-fe69-11ee-9881-0aa140641b9a in SE <ALICE::CCIN2P3::SE>
+[79965:timestamp-task]: [18:32:40][INFO] ccdb reads https://alice-ccdb.cern.ch/CTP/Calib/OrbitReset/1713543798766/220f5e14-fe69-11ee-9881-0aa140641b9a for 1713559253038 (retrieve, agent_id: ferrandi-Lenovo-IdeaPad-S145-15IWL-1752010339-LxpPHz), 
+[79965:timestamp-task]: [18:32:40][INFO] Add new run number 550369 with orbit-reset timestamp 1713543798765712, SOR: 1713549704194, EOR: 1713568801882 to cache
+[79965:timestamp-task]: [18:32:40][INFO] Correctly handshaken websocket connection.
+[79965:timestamp-task]: [18:32:40][INFO] CCDBManager summary: 2 queries, 563 bytes for 2 objects, 1 good fetches (and 0 failed ones) in 17,311 ms, instance: ferrandi-Lenovo-IdeaPad-S145-15IWL-1752010339-LxpPHz
+[79965:timestamp-task]: [18:32:40][INFO] CCDB cache miss/hit/failures
+[79965:timestamp-task]: [18:32:40][INFO]   CTP/Calib/OrbitReset: 1/0/0 (563-563 bytes)
+[79965:timestamp-task]: [18:32:40][INFO]   RCT-Run-Info HeaderOnly: 1/0/0 (0-0 bytes)
+[79965:timestamp-task]: [18:32:40][INFO] Sending end-of-stream message to channel from_timestamp-task_to_bc-selection-task
+[79966:bc-selection-task]: DN >>> C=ch/O=AliEn2/CN=Users/CN=lferrand/OU=lferrand
+[79966:bc-selection-task]: ISSUER >>> C=ch/O=AliEn2/CN=AliEn CA
+[79966:bc-selection-task]: BEGIN >>> 2025-07-07 16:10:04
+[79966:bc-selection-task]: EXPIRE >>> 2025-08-07 18:10:04
+[79966:bc-selection-task]: Info in <TJAlienConnectionManager>: Opening connection to JCentral. Please wait
+[79966:bc-selection-task]: Info in <TJAlienConnectionManager>: Opening connection to 128.142.249.33
+[79966:bc-selection-task]: Info in <TJAlienConnectionManager>: Successfully connected to 128.142.249.33
+[79966:bc-selection-task]: Info in <TJAlienFile::Open>: Accessing file /alice/data/CCDB/CTP/Calib/OrbitReset/01/55466/220f5e14-fe69-11ee-9881-0aa140641b9a in SE <ALICE::CCIN2P3::SE>
+[79966:bc-selection-task]: [18:32:50][INFO] ccdb reads http://alice-ccdb.cern.ch/CTP/Calib/OrbitReset/1713543798766/220f5e14-fe69-11ee-9881-0aa140641b9a for 1713559253038 (retrieve, agent_id: ferrandi-Lenovo-IdeaPad-S145-15IWL-1752010339-Eeahpg), 
+[79966:bc-selection-task]: Info in <TJAlienFile::Open>: Accessing file /alice/data/CCDB/GLO/Config/GRPECS/02/26987/32effee7-fea4-11ee-9949-0aa145271b9a in SE <ALICE::CCIN2P3::SE>
+[79966:bc-selection-task]: [18:32:55][INFO] ccdb reads http://alice-ccdb.cern.ch/GLO/Config/GRPECS/1713549645767/32effee7-fea4-11ee-9949-0aa145271b9a for 1713559253038 (retrieve, agent_id: ferrandi-Lenovo-IdeaPad-S145-15IWL-1752010339-Eeahpg), 
+[79966:bc-selection-task]: Info in <TJAlienFile::Open>: Accessing file /alice/data/CCDB/CTP/Calib/FirstRunOrbit/01/25444/e1f84faf-fe76-11ee-988c-0aa140641b9a in SE <ALICE::CCIN2P3::SE>
+[79966:bc-selection-task]: [18:33:00][INFO] ccdb reads http://alice-ccdb.cern.ch/CTP/Calib/FirstRunOrbit/1713549704226/e1f84faf-fe76-11ee-988c-0aa140641b9a for 1713559253038 (retrieve, agent_id: ferrandi-Lenovo-IdeaPad-S145-15IWL-1752010339-Eeahpg), 
+[79966:bc-selection-task]: [18:33:00][WARN] Adjusting SOR from 1713549704194 to 1713549704195
+[79966:bc-selection-task]: Info in <TJAlienFile::Open>: Accessing file /alice/data/CCDB/EventSelection/EventSelectionParams/05/07443/5f880452-f6ff-11ee-82dc-90ce809b250c in SE <ALICE::CCIN2P3::SE>
+[79966:bc-selection-task]: [18:33:05][INFO] ccdb reads http://alice-ccdb.cern.ch/EventSelection/EventSelectionParams/1543767116001/5f880452-f6ff-11ee-82dc-90ce809b250c for 1713559253038 (retrieve, agent_id: ferrandi-Lenovo-IdeaPad-S145-15IWL-1752010339-Eeahpg), 
+[79966:bc-selection-task]: Info in <TJAlienFile::Open>: Accessing file /alice/data/CCDB/ITS/Config/AlpideParam/08/51650/66978da2-fbea-11ee-95e5-0aa202c71b9a in SE <ALICE::CCIN2P3::SE>
+[79966:bc-selection-task]: [18:33:11][INFO] ccdb reads http://alice-ccdb.cern.ch/ITS/Config/AlpideParam/1713269465717/66978da2-fbea-11ee-95e5-0aa202c71b9a for 1713559253038 (retrieve, agent_id: ferrandi-Lenovo-IdeaPad-S145-15IWL-1752010339-Eeahpg), 
+[79966:bc-selection-task]: Info in <TJAlienFile::Open>: Accessing file /alice/data/CCDB/EventSelection/TriggerAliases/11/38530/cc5a692d-2165-11ef-b8e6-90ce809b250c in SE <ALICE::CCIN2P3::SE>
+[79966:bc-selection-task]: [18:33:16][INFO] ccdb reads http://alice-ccdb.cern.ch/EventSelection/TriggerAliases/1713549703194/cc5a692d-2165-11ef-b8e6-90ce809b250c for 1713559253038 (retrieve, agent_id: ferrandi-Lenovo-IdeaPad-S145-15IWL-1752010339-Eeahpg), 
+[79966:bc-selection-task]: Info in <TJAlienFile::Open>: Accessing file /alice/data/CCDB/GLO/Config/GRPLHCIF/15/27499/fdc6dc88-fe71-11ee-9882-0aa202c71b9a in SE <ALICE::CCIN2P3::SE>
+[79966:bc-selection-task]: [18:33:21][INFO] ccdb reads http://alice-ccdb.cern.ch/GLO/Config/GRPLHCIF/1713547603745/fdc6dc88-fe71-11ee-9882-0aa202c71b9a for 1713559253038 (retrieve, agent_id: ferrandi-Lenovo-IdeaPad-S145-15IWL-1752010339-Eeahpg), 
+[79966:bc-selection-task]: Info in <TJAlienFile::Open>: Accessing file /alice/data/CCDB/ITS/Calib/TimeDeadMap/00/48237/8ce89d6a-1744-11ef-9393-200114580202 in SE <ALICE::CCIN2P3::SE>
+[79966:bc-selection-task]: [18:33:27][INFO] ccdb reads http://alice-ccdb.cern.ch/ITS/Calib/TimeDeadMap/1713549644194/8ce89d6a-1744-11ef-9393-200114580202 for 1713559253038 (retrieve, agent_id: ferrandi-Lenovo-IdeaPad-S145-15IWL-1752010339-Eeahpg), 
+[79970:track-propagation]: [18:33:29][INFO] Loading material look-up table for timestamp: 1713552356636
+[79966:bc-selection-task]: [18:33:29][INFO] CCDBManager summary: 9 queries, 196,351 bytes for 9 objects, 8 good fetches (and 0 failed ones) in 45,367 ms, instance: ferrandi-Lenovo-IdeaPad-S145-15IWL-1752010339-Eeahpg
+[79966:bc-selection-task]: [18:33:29][INFO] CCDB cache miss/hit/failures
+[79966:bc-selection-task]: [18:33:29][INFO]   ITS/Calib/TimeDeadMap: 1/0/0 (187261-187261 bytes)
+[79966:bc-selection-task]: [18:33:29][INFO]   ITS/Config/AlpideParam: 1/0/0 (1413-1413 bytes)
+[79966:bc-selection-task]: [18:33:29][INFO]   GLO/Config/GRPLHCIF: 1/0/0 (1902-1902 bytes)
+[79966:bc-selection-task]: [18:33:29][INFO]   EventSelection/EventSelectionParams: 1/0/0 (1610-1610 bytes)
+[79966:bc-selection-task]: [18:33:29][INFO]   CTP/Calib/FirstRunOrbit: 1/0/0 (579-579 bytes)
+[79966:bc-selection-task]: [18:33:29][INFO]   GLO/Config/GRPECS: 1/0/0 (1883-1883 bytes)
+[79966:bc-selection-task]: [18:33:29][INFO]   EventSelection/TriggerAliases: 1/0/0 (1140-1140 bytes)
+[79966:bc-selection-task]: [18:33:29][INFO]   CTP/Calib/OrbitReset: 1/0/0 (563-563 bytes)
+[79966:bc-selection-task]: [18:33:29][INFO]   RCT-Run-Info HeaderOnly: 1/0/0 (0-0 bytes)
+[79966:bc-selection-task]: [18:33:29][INFO] Sending end-of-stream message to channel from_bc-selection-task_to_track-propagation
+[79966:bc-selection-task]: [18:33:29][INFO] Sending end-of-stream message to channel from_bc-selection-task_to_event-selection-task
+[79966:bc-selection-task]: [18:33:29][INFO] Sending end-of-stream message to channel from_bc-selection-task_to_internal-dpl-aod-global-analysis-file-sink
+[79970:track-propagation]: DN >>> C=ch/O=AliEn2/CN=Users/CN=lferrand/OU=lferrand
+[79970:track-propagation]: ISSUER >>> C=ch/O=AliEn2/CN=AliEn CA
+[79970:track-propagation]: BEGIN >>> 2025-07-07 16:10:04
+[79970:track-propagation]: EXPIRE >>> 2025-08-07 18:10:04
+[79970:track-propagation]: Info in <TJAlienConnectionManager>: Opening connection to JCentral. Please wait
+[79970:track-propagation]: Info in <TJAlienConnectionManager>: Opening connection to 128.142.249.76
+[79970:track-propagation]: Info in <TJAlienConnectionManager>: Successfully connected to 128.142.249.76
+[79970:track-propagation]: Info in <TJAlienFile::Open>: Accessing file /alice/data/CCDB/GLO/Param/MatLUT/02/28498/ef7855a7-4397-11f0-ac70-58ac5bc4250c in SE <ALICE::CCIN2P3::SE>
+[79970:track-propagation]: Error in <TJAlienFile::ReadBuffer>: [FATAL] Invalid address
+[79970:track-propagation]: Error in <TKey::ReadFile>: Failed to read data.
+[79970:track-propagation]: Error in unzip ZSTD. Type = Corrupted block detected . Code = 18446744073709551596
+[79970:track-propagation]: [18:36:17][WARN] Did not find object under expected name ccdb_object

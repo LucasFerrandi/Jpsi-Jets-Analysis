@@ -317,3 +317,8 @@ hipe4MLenvEnter() {
     echo "Entering hipe4ML environment ('source ~/alice/Hipe4MLenv/bin/activate')..."
     source ~/alice/Hipe4MLenv/bin/activate
 }
+
+# 25-11-07
+# Uncomment the following lines to enable git branch in prompt
+# source ~/git-prompt.sh
+# export PS1="$PS1\$(__git_ps1 \" (%s)\")> "

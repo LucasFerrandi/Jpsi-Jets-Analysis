@@ -1,0 +1,14 @@
+#0  0x00007f8e980c2c3a in wait4 () from /lib/x86_64-linux-gnu/libc.so.6
+#1  0x00007f8e98031f67 in ?? () from /lib/x86_64-linux-gnu/libc.so.6
+#2  0x00007f8e98a05e19 in TUnixSystem::Exec (this=0x26cb85d0, shellcmd=<optimized out>) at /home/ferrandi/alice/sw/SOURCES/ROOT/v6-32-06-alice9/v6-32-06-alice9/core/unix/src/TUnixSystem.cxx:2157
+#3  TUnixSystem::StackTrace (this=0x26cb85d0) at /home/ferrandi/alice/sw/SOURCES/ROOT/v6-32-06-alice9/v6-32-06-alice9/core/unix/src/TUnixSystem.cxx:2448
+#4  0x00007f8e9ca1c1ea in FairLogger::LogFatalMessage () at /home/ferrandi/alice/sw/SOURCES/FairRoot/v18.4.9-alice3/v18.4.9-alice3/fairtools/FairLogger.cxx:195
+#5  0x00007f8e99c01c08 in std::function<void()>::operator() (this=0x7f8e99c13600 <fair::Logger::fFatalCallback>) at /home/ferrandi/alice/sw/ubuntu2004_x86-64/GCC-Toolchain/v14.2.0-alice2-local1/include/c++/14.2.0/bits/std_function.h:587
+#6  fair::Logger::~Logger (this=0x7ffea421b920, __in_chrg=<optimized out>) at /home/ferrandi/alice/sw/SOURCES/FairLogger/v2.1.0/v2.1.0/logger/Logger.cxx:278
+#7  0x00007f8e9d7d4dd7 in doUnknownException (s=..., processName=processName
+entry=0x7ffea421c805 "o2-analysis-dq-efficiency-with-assoc") at /home/ferrandi/alice/sw/ubuntu2004_x86-64/GCC-Toolchain/v14.2.0-alice2-local1/include/c++/14.2.0/bits/allocator.h:182
+#8  0x00007f8e9d4ab6b6 in callMain (argc=argc
+entry=4, argv=argv
+entry=0x7ffea421c0d8, mainNoCatch=mainNoCatch
+entry=0x446550 <mainNoCatch(int, char**)>) at /home/ferrandi/alice/sw/SOURCES/O2/dev/0/Framework/Core/src/runDataProcessing.cxx:218
+#9  0x0000000000427719 in main (argc=4, argv=0x7ffea421c0d8) at /home/ferrandi/alice/sw/ubuntu2004_x86-64/O2/dev-local1/include/Framework/runDataProcessing.h:218

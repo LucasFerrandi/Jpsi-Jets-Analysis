@@ -119,7 +119,7 @@
         "cfgUseRemoteField": "false",
         "cfgMagField": "5",
         "cfgFlatTables": "true",
-        "cfgUseKFVertexing": "false",
+        "cfgUseKFVertexing": "true",
         "cfgUseAbsDCA": "false",
         "cfgPropToPCA": "false",
         "cfgCorrFullGeo": "false",
