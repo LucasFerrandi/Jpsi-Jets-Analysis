@@ -78,7 +78,8 @@ This is mainly done by `jpsiFragmentationFunction.cxx` task.
 
           - (Or `o2-analysis-je-jet-jpsi-fragmentation -b --configuration json:<JSON> | o2-analysis-je-jet-finder-dielectron-data-charged -b --configuration json://<JSON>`)
      - A `AnalysisResults.root` should've been created with jet spectra and z-vs-mass histograms for each pT range
-4. Run the fitter:     - `cd ~/alice/Jpsi-Jets-Analysis/JpsiFitter`
+4. Run the fitter:
+     - `cd ~/alice/Jpsi-Jets-Analysis/JpsiFitter`
      - a json file must me passed with
           - Input root file
           - Histogram to be fitted
