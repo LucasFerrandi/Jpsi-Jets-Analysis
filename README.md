@@ -17,6 +17,14 @@ Repository for J/psi-jets analysis within ALICE's Run 3. In general terms, this 
 
 Below, a detailed tutorial on running things locally.
 
+## Contents
+
+- [Preparing the Framework](#preparing-the-framework)
+- [Calculation of Momentum Fraction](#calculation-of-momentum-fraction)
+- [Monte Carlo](#monte-carlo)
+- [Efficiency Calculation](#efficiency-calculation)
+- [Separation of Prompt and Non-Prompt J/psi](#separation-of-prompt-and-non-prompt-jpsi)
+
 ## Preparing the Framework
 
 The usage of this repository generally demands ALICE's O2 analysis framework
