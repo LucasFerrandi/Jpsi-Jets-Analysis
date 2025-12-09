@@ -1,7 +1,7 @@
 {
     "internal-dpl-clock": "",
     "internal-dpl-aod-reader": {
-        "aod-file-private": "~\/alice\/JPsiDatasets\/MC\/DerivedMC\/mySkimming\/LHC25b14\/train549992\/jobs\/0335\/hy_3350913\/0001\/AO2D.root",
+        "aod-file-private": "~\/alice\/datasets\/MC\/derivedMC\/myTableMakerMCNoPID25-11-19\/LHC25b14\/jobs\/0343\/hy_3435396\/AOD\/002\/AO2D.root",
         "aod-max-io-rate": "0",
         "time-limit": "0",
         "orbit-offset-enumeration": "0",
@@ -10,7 +10,9 @@
         "end-value-enumeration": "-1",
         "step-value-enumeration": "1"
     },
+    "reduced-m-cevent-converter000_001": "",
     "analysis-event-selection": {
+        "cfgMixingVars": "",
         "cfgEventCuts": "eventStandardSel8NoTFBNoITSROFB",
         "cfgEventCutsJSON": "",
         "cfgQA": "true",
@@ -44,9 +46,9 @@
         "processDummy": "true"
     },
     "analysis-track-selection": {
-        "cfgTrackCuts": "jpsiO2MCdebugCuts14,protonPIDPV2",
+        "cfgTrackCuts": "jpsiKineDcaQualitynoPID",
         "cfgBarrelTrackCutsJSON": "",
-        "cfgQA": "false",
+        "cfgQA": "true",
         "cfgAddTrackHistogram": "dca,its,map,tpcpid,tofpid,tpc",
         "cfgAddJSONHistograms": "",
         "cfgPublishAmbiguity": "true",
@@ -103,9 +105,10 @@
         "processDummy": "false"
     },
     "analysis-same-event-pairing": {
-        "cfgTrackCuts": "jpsiO2MCdebugCuts14",
+        "cfgTrackCuts": "jpsiKineDcaQualitynoPID",
         "cfgMuonCuts": "",
         "cfgPairCuts": "",
+        "cfgMCGenAccCut": "",
         "cfgQA": "true",
         "cfgAddSEPHistogram": "barrel,vertexing,kalman-filter",
         "cfgAddJSONHistograms": "",
@@ -139,6 +142,7 @@
         "processBarrelOnlyWithCollSkimmed": "true",
         "processMuonOnlySkimmed": "false",
         "processMCGen": "true",
+        "processMCGenWithGrouping": "false",
         "processDummy": "false"
     },
     "analysis-dilepton-track": {
@@ -148,6 +152,9 @@
         "cfgDileptonpTCut": "0",
         "cfgDileptonLxyCut": "-100000",
         "cfgUseKFVertexing": "false",
+        "cfgDileptonLowpTCut": "0",
+        "cfgDileptonHighpTCut": "100000",
+        "cfgDileptonRapCutAbs": "1",
         "cfgDileptonTrackHistogramsSubgroups": "invmass",
         "cfgAddJSONHistograms": "",
         "cfgUseRemoteField": "false",
@@ -155,7 +162,7 @@
         "cfgMagField": "5",
         "ccdb-url": "http:\/\/alice-ccdb.cern.ch",
         "grpmagPath": "GLO\/Config\/GRPMagField",
-        "ccdb-no-later-than": "1762809013681",
+        "ccdb-no-later-than": "1765301467542",
         "geoPath": "GLO\/Config\/GeometryAligned",
         "cfgMCRecSignals": "",
         "cfgMCGenSignals": "Jpsi,protonPrimary",
@@ -168,11 +175,17 @@
         "cfgMCGenHadronPtMin": "9.99999975e-05",
         "cfgMCGenDileptonLegEtaAbs": "0.899999976",
         "cfgMCGenHadronEtaAbs": "0.899999976",
+        "cfgUseMCRapcut": "false",
+        "cfgMixingDepth": "5",
         "processBarrelSkimmed": "false",
         "processDstarToD0Pi": "false",
         "processMuonSkimmed": "false",
         "processMCGen": "false",
         "processMCGenWithEventSelection": "false",
+        "processMCGenEnergyCorrelators": "false",
+        "processMCGenEnergyCorrelatorsPion": "false",
+        "processMCGenEnergyCorrelatorsME": "false",
+        "processMCGenEnergyCorrelatorsPionME": "false",
         "processDummy": "true"
     },
     "internal-dpl-aod-writer": "",

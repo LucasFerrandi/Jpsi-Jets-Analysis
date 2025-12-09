@@ -322,3 +322,14 @@ hipe4MLenvEnter() {
 # Uncomment the following lines to enable git branch in prompt
 # source ~/git-prompt.sh
 # export PS1="$PS1\$(__git_ps1 \" (%s)\")> "
+
+alias tree2="tree -L 2"
+alias tree3="tree -L 3"
+
+#25-12-08
+alias sourcebash="source ~/.bashrc"
+alias codebash="code ~/.bashrc"
+
+#25-12-09
+echo "Running alien-token-init..."
+alien-token-init

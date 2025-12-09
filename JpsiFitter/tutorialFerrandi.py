@@ -366,7 +366,7 @@ def main():
         czsNormalized.Write()
 
         # Final z distribution
-        hist_z_mean = TH1F(f"h_z_mean", "", Nbinsz-InitialBin, (InitialBin/Nbinsz), 1)
+        hist_z_mean = TH1F("h_z_mean", "", Nbinsz-InitialBin, (InitialBin/Nbinsz), 1)
         # Uncertainties
         hist_z_stat = hist_z_mean.Clone("hist_z_stat")
         hist_z_syst = hist_z_mean.Clone("hist_z_syst")
@@ -524,10 +524,10 @@ def main():
                 # lineIni.Draw("same")
                 # y_Ini = parValsPDFs[0][i][j] # Initial value from the first fit
                 parValGraph.Draw("P SAME")
-                legendPar.AddEntry(lineMax, f"Max Value", "l")
+                legendPar.AddEntry(lineMax, "Max Value", "l")
                 # legendPar.AddEntry(lineIni, f"Initial Value", "l")
-                legendPar.AddEntry(parValGraph, f"Initial Value", "p")
-                legendPar.AddEntry(lineMin, f"Min Value", "l")
+                legendPar.AddEntry(parValGraph, "Initial Value", "p")
+                legendPar.AddEntry(lineMin, "Min Value", "l")
                 legendPar.Draw()
                 for graph in graphs[1:]:
                     graph.Draw("PL SAME")
@@ -549,7 +549,7 @@ def main():
             f.SetParNames(*inputCfg["input"]["pdf_dictionary"]["parName"][pdf_i])
             f.SetLineColor(Colors[pdf_i])
             f.SetLineWidth(2)
-            f.SetTitle(f"PDFs With Initial-Values Parameters;x;Probability Density")  
+            f.SetTitle("PDFs With Initial-Values Parameters;x;Probability Density")  
             f.SetMaximum(2.0)
             print("pdf_i: ", pdf_i)
             if pdf_i == 0:
@@ -592,7 +592,7 @@ def main():
     hists_z_mean_norm_hs = THStack("hists_z_mean_norm", "")
     skipSemiInlclusive = True
     hist_z_mean_norm_ini = 0
-    if skipSemiInlclusive == True:
+    if skipSemiInlclusive:
         hist_z_mean_norm_ini = 1
     for range_pT_i, hist_z in enumerate(hists_z_mean_norm[hist_z_mean_norm_ini:, 0], hist_z_mean_norm_ini): # starts from hist_z_mean_norm_ini
         hist_z.SetMarkerStyle(markerStyle)
