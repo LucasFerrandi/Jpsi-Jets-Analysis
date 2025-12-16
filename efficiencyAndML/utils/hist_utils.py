@@ -20,6 +20,7 @@ def hist_to_df(hist, clean_names=True, isLabeledHist=False):  # For pyROOT histo
     """
 
     if hist.ClassName().startswith("TH1"):
+        print("Converting TH1 histogram to DataFrame...")
         nbins = hist.GetNbinsX()
         edges = np.array([hist.GetBinLowEdge(i) for i in range(1, nbins+2)])
         values = np.array([hist.GetBinContent(i) for i in range(1, nbins+1)])
@@ -45,6 +46,7 @@ def hist_to_df(hist, clean_names=True, isLabeledHist=False):  # For pyROOT histo
             })
 
     elif hist.ClassName().startswith("TH2"):
+        print("Converting TH2 histogram to DataFrame...")
         nx = hist.GetNbinsX()
         ny = hist.GetNbinsY()
         x_edges = np.array([hist.GetXaxis().GetBinLowEdge(i) for i in range(1, nx+2)])
@@ -64,7 +66,7 @@ def hist_to_df(hist, clean_names=True, isLabeledHist=False):  # For pyROOT histo
             x_name = clean_name(x_name)
             y_name = clean_name(y_name)
         
-        if isLabeledHist:
+        if isLabeledHist: # For histograms with string labels on x-axis
             labels_x = []
             labels_y = []
             for i in range(1, nx+1):
@@ -84,14 +86,17 @@ def hist_to_df(hist, clean_names=True, isLabeledHist=False):  # For pyROOT histo
             #         labels_y.append(label_y)
             columnsNames = [f"{x_name}Label", f"{y_name}Label", "counts"]
 
-            return pd.DataFrame(data={
+            df = pd.DataFrame(data={
                 f"{x_name}XLabel": labels_x,
                 f"{y_name}YLabel": labels_y,
                 "counts": [row[4] for row in data]
             })
 
+            return df
+
         columnsNames = [f"{x_name}_left", f"{x_name}_right", f"{y_name}_left", f"{y_name}_right", "counts"]
-        return pd.DataFrame(data, columns=columnsNames)
+
+        return pd.DataFrame(data, columns=columnsNames) # if isLabeledHist, this line is irrelevant
 
     else:
         raise NotImplementedError(f"Only TH1 and TH2 supported, but got {hist.ClassName()}")
@@ -373,3 +378,44 @@ def EfficiencyxMultPlot(a, b, path, graph_title, legText, ptBins = [0, 1, 2, 3, 
 #     if isMC:
 #         legend.AddEntry(legend, "MC, |y| < 0.9", "")
 #     return legend
+
+
+# get_hist and join_dfs are initially from efficiencies_skimming.ipynb
+
+def get_hist(filePath, rootDir_name, histName):
+
+    """
+    Get histogram from root file
+    """
+    root_file = ROOT.TFile.Open(filePath)
+    rootDir = root_file.Get(rootDir_name) # can be e.g "dir/subdir/subdir"
+    if not rootDir:
+        print(f"{rootDir_name} not found in {filePath}.")
+    mcSigHist = rootDir.FindObject(histName)
+    if not mcSigHist:
+        print(f"{histName} not found in {rootDir_name}")
+    return mcSigHist
+
+def join_dfs(dir_path, fileNames, rootDir_name, histName, datasetsNames=None):
+
+    """
+    Create dataframes from histograms from many root files and joins them into a single dataframe.
+    """
+    dfs = pd.DataFrame()
+    for i,fileName in enumerate(fileNames):
+        filePath = f"{dir_path}/{fileName}"
+        hist = get_hist(filePath, rootDir_name, histName)
+        df = hist_to_df(hist, isLabeledHist=True)
+        if i==0:
+            # dfs["XLabel"] = df["XLabel"]
+            # dfs["YLabel"] = df["YLabel"]
+
+            dfs["XLabel"] = df.iloc[:,0]
+            if hist.ClassName().startswith("TH2"):
+                dfs["YLabel"] = df.iloc[:,1]
+            print(dfs.to_string())
+        if datasetsNames is not None:
+             dfs[datasetsNames[i]] = df["counts"]
+        else:
+             dfs[fileName] = df["counts"]
+    return dfs
