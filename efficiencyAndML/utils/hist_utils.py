@@ -2,6 +2,7 @@ import ROOT
 import numpy as np
 import pandas as pd
 import ROOT
+
 def test_utils():
  print("hist_utils.py imported successfully :)")
  print("In order to update it more dinamically, use 'reload' method from 'importlib' library.")
@@ -399,7 +400,7 @@ def get_hist(filePath, rootDir_name, histName):
 def join_dfs(dir_path, fileNames, rootDir_name, histName, datasetsNames=None):
 
     """
-    Create dataframes from histograms from many root files and joins them into a single dataframe.
+    Create Pandas dataframes from histograms from many root files and joins them into a single dataframe.
     """
     dfs = pd.DataFrame()
     for i,fileName in enumerate(fileNames):
@@ -419,3 +420,39 @@ def join_dfs(dir_path, fileNames, rootDir_name, histName, datasetsNames=None):
         else:
              dfs[fileName] = df["counts"]
     return dfs
+
+def merge_TDirs(root_file, mergeDFs = True, target_dir_name="Merged"):
+    """
+    NOT FUNCTIONAL YET! Merge multiple TDirectories into a single TDirectory within the same ROOT file.
+    """
+    root_file = ROOT.TFile.Open(root_file, "UPDATE")
+    target_dir = root_file.Get(target_dir_name)
+    print("target dir type: ", type(target_dir))
+    if not target_dir:
+        target_dir = root_file.mkdir(target_dir_name)
+
+    if mergeDFs:
+        treesNames = []
+        DFFound = False
+        for keyDir in root_file.GetListOfKeys():
+            dir =root_file.Get(keyDir.GetName())
+            print("dir: ", dir)
+            dirID = 0
+            if keyDir.GetName().startswith("DF"):
+                if dirID == 0:
+                    for treeKey in dir.GetListOfKeys():
+                        print("create TList?")
+                print("DF found: ", dir.GetName())
+                DFFound = True
+                # target_dir.Merge(dir)
+                for treeKey in dir.GetListOfKeys():
+                    print("treeKey Name: ", treeKey.GetName())
+                    tree = dir.Get(treeKey.GetName())
+                    tree_clone = tree.Clone()
+                    target_dir.cd()
+                    tree_clone.Write()
+        if not DFFound:
+            print('No "DF..." directory found')
+    #     target_dir.Write("", ROOT.TObject.kOverwrite)
+    # else:
+    #     print('Merging of non-"DF" objects is not implemented yet.')
