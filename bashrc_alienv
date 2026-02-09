@@ -64,13 +64,18 @@ fi
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
-esac
+# case "$TERM" in
+# xterm*|rxvt*)
+#     PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+#     ;;
+# *)
+#     ;;
+# esac
+# 26-02-05 (and commented the above):
+setTitle () {
+  PS1="${PS1#*\a\]}"
+  PS1="\[\e]0;$1\a\]$PS1"
+}
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
@@ -239,7 +244,12 @@ runFitter() {
 }
 
 #25-06-30
-alias lss='ls -ltrh'
+# alias lss='ls -ltrh'
+
+#26-01-15
+lss() {
+  ls -ltrh --color=always | awk '{$1=$2=$3=$4=""; sub(/^ +/,""); print}'
+}
 
 #25-08-14
 # highlight_brackets() {
@@ -331,5 +341,5 @@ alias sourcebash="source ~/.bashrc"
 alias codebash="code ~/.bashrc"
 
 #25-12-09
-echo "Running alien-token-init..."
-alien-token-init
+# echo "Running alien-token-init..."
+# alien-token-init

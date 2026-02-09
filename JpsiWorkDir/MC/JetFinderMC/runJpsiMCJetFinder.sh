@@ -8,11 +8,12 @@ echo "JSON: $JSON"
 #--aod-writer-json test.json
 
 time \
-o2-analysis-je-jpsi-fragmentation $BATCH --configuration json://$JSON | \
-o2-analysis-je-jet-finder-dielectron-mcp-charged $BATCH --configuration json://$JSON | \
-o2-analysis-je-jet-deriveddata-producer $BATCH --configuration json://$JSON | \
-o2-analysis-mccollision-converter $BATCH --configuration json://$JSON | \  #--aod-parent-access-level 1 | \
-o2-analysis-dq-efficiency-with-assoc $BATCH --configuration json://$JSON #| \
+# o2-analysis-je-jpsi-fragmentation $BATCH --configuration json://$JSON | \
+# o2-analysis-je-jet-finder-dielectron-mcp-charged $BATCH --configuration json://$JSON --aod-parent-access-level 1 | \
+# o2-analysis-je-jet-deriveddata-writer $BATCH --configuration json://$JSON --aod-parent-access-level 1 | \
+o2-analysis-je-jet-deriveddata-producer $BATCH --configuration json://$JSON --aod-parent-access-level 1 | \
+o2-analysis-mccollision-converter $BATCH --configuration json://$JSON --aod-parent-access-level 1
+# o2-analysis-dq-efficiency-with-assoc $BATCH --configuration json://$JSON --aod-parent-access-level 1 #| \
 # o2-analysis-mc-converter $BATCH --configuration json://$JSON --aod-parent-access-level 1 #| \
 # o2-analysis-je-jet-finder-dielectron-data-charged $BATCH --configuration json://$JSON
 # o2-analysis-je-jet-deriveddata-writer  $BATCH --configuration json://$JSON | \

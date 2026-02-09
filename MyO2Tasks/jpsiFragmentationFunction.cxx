@@ -3,8 +3,9 @@
 #include "TVector3.h"
 // #include <format>
 
-#include "fastjet/PseudoJet.hh"
-#include "fastjet/ClusterSequenceArea.hh"
+// #include "fastjet/PseudoJet.hh"
+// #include <fastjet/PseudoJet.hh>
+// #include "fastjet/ClusterSequenceArea.hh"
 
 #include "CommonConstants/PhysicsConstants.h"
 #include "Framework/AnalysisTask.h"
@@ -18,12 +19,19 @@
 #include "Common/DataModel/EventSelection.h"
 #include "Common/DataModel/TrackSelectionTables.h"
 
-#include "PWGJE/DataModel/Jet.h"
-#include "PWGJE/DataModel/JetSubstructure.h"
-#include "PWGJE/Core/JetFinder.h"
-#include "PWGJE/Core/FastJetUtilities.h"
-#include "PWGJE/Core/JetUtilities.h"
+// #include "PWGJE/DataModel/Jet.h"
+// #include "PWGJE/DataModel/JetSubstructure.h"
+// #include "PWGJE/Core/JetFinder.h"
+// #include "PWGJE/Core/FastJetUtilities.h"
+// #include "PWGJE/Core/JetUtilities.h"
 // #include "PWGJE/Core/JetDQUtilities.h" ?
+
+//Christian includes:
+#include "PWGJE/Core/JetDerivedDataUtilities.h"
+#include "PWGJE/Core/JetUtilities.h"
+#include "PWGJE/DataModel/Jet.h"
+#include "PWGJE/DataModel/JetReducedData.h"
+//
 
 using namespace o2;
 using namespace o2::framework;

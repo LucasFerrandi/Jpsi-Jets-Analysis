@@ -1,0 +1,23 @@
+{
+    "internal-dpl-clock": "",
+    "internal-dpl-aod-reader": {
+        "aod-file-private": "~\/alice\/datasets\/MC\/derivedMC\/myTableMakerMCNoPID25-11-19\/LHC25b14\/jobs\/0343\/hy_3435396\/AOD\/002\/AO2D.root",
+        "aod-max-io-rate": "0",
+        "time-limit": "0",
+        "orbit-offset-enumeration": "0",
+        "orbit-multiplier-enumeration": "0",
+        "start-value-enumeration": "0",
+        "end-value-enumeration": "-1",
+        "step-value-enumeration": "1"
+    },
+    "reduced-m-cevent-converter000_001": "",
+    "analysis-p-i-d-efficiency": {
+        "test": "true",
+        "NevtsForTest": "50",
+        "effMapPath": "~\/alice\/Jpsi-Jets-Analysis\/JpsiWorkDir\/PIDEfficiency\/PIDEfficiencyConverter\/toyElectronPidEff.root",
+        "processDummy": "false",
+        "processJpsiPIDEfficiency": "true"
+    },
+    "internal-dpl-aod-global-analysis-file-sink": "",
+    "internal-dpl-injected-dummy-sink": ""
+}

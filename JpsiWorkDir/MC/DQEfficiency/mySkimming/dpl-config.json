@@ -46,7 +46,7 @@
         "processDummy": "true"
     },
     "analysis-track-selection": {
-        "cfgTrackCuts": "jpsiKineDcaQualitynoPID",
+        "cfgTrackCuts": "jpsiO2MCdebugCuts14",
         "cfgBarrelTrackCutsJSON": "",
         "cfgQA": "true",
         "cfgAddTrackHistogram": "dca,its,map,tpcpid,tofpid,tpc",
@@ -105,7 +105,7 @@
         "processDummy": "false"
     },
     "analysis-same-event-pairing": {
-        "cfgTrackCuts": "jpsiKineDcaQualitynoPID",
+        "cfgTrackCuts": "jpsiO2MCdebugCuts14",
         "cfgMuonCuts": "",
         "cfgPairCuts": "",
         "cfgMCGenAccCut": "",
@@ -162,7 +162,7 @@
         "cfgMagField": "5",
         "ccdb-url": "http:\/\/alice-ccdb.cern.ch",
         "grpmagPath": "GLO\/Config\/GRPMagField",
-        "ccdb-no-later-than": "1765301467542",
+        "ccdb-no-later-than": "1767997050021",
         "geoPath": "GLO\/Config\/GeometryAligned",
         "cfgMCRecSignals": "",
         "cfgMCGenSignals": "Jpsi,protonPrimary",

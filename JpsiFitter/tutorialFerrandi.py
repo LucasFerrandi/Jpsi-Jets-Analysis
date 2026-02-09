@@ -157,6 +157,18 @@ def createPaveText(text):
     return pave_text
 
 def main():
+    """
+    J/psi fragmentation function analysis with multi-trial fitting.
+    - Performs z-distribution analysis across multiple bins:
+       - Iterates through z bins in reverse order (high to low) for sequential fitting
+       - Uses previous bin results to initialize parameters for next bin
+       - Extracts J/Psi signal yields and uncertainties from fit results
+       - Calculates statistical and systematic uncertainties from fit range variations
+       - Generates histograms of z-distributions for each kinematic range
+    - Creates visualization canvases
+        None. All results are written to ROOT output file.
+    """
+
     parser = argparse.ArgumentParser(description="Arguments to pass")
     parser.add_argument(
         "cfgFileName", metavar="text", default="configFit.json", help="config file name"

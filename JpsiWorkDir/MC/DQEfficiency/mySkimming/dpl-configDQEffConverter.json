@@ -13,7 +13,8 @@
     "__comments__": {
         "comment1":"~/alice/datasets/MC/DerivedMC/mySkimming2/LHC25b15/train554865/jobs/0341/hy_3410213/0001/AO2D.",
         "comment2":"~/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b16/AO2D-0228-hy_2283791-AOD-001.root",
-        "comment3":"~/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root"},
+        "comment3":"~/alice/JPsiDatasets/MC/DerivedMC/OutputFromJpsi-DQ-standard-analysis-midy/LHC25b17/0229-hy_2295519-AOD-001.root"
+    },
     "analysis-event-selection": {
         "cfgEventCuts": "eventStandardSel8NoTFBNoITSROFB",
         "cfgEventCutsJSON": "",
@@ -47,7 +48,7 @@
         "processDummy": "true"
     },
     "analysis-track-selection": {
-        "cfgTrackCuts": "jpsiKineDcaQualitynoPID",
+        "cfgTrackCuts": "jpsiO2MCdebugCuts14",
         "cfgBarrelTrackCutsJSON": "",
         "cfgQA": "true",
         "cfgAddTrackHistogram": "dca,its,map,tpcpid,tofpid,tpc",
@@ -106,7 +107,7 @@
         "processDummy": "false"
     },
     "analysis-same-event-pairing": {
-        "cfgTrackCuts": "jpsiKineDcaQualitynoPID",
+        "cfgTrackCuts": "jpsiO2MCdebugCuts14",
         "cfgMuonCuts": "",
         "cfgPairCuts": "",
         "cfgQA": "true",
