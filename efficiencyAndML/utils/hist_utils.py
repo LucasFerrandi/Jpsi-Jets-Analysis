@@ -8,6 +8,12 @@ def test_utils():
  print("In order to update it more dinamically, use 'reload' method from 'importlib' library.")
 
 def clean_name(name):
+    if "pt" in name.lower() or "p_{t}" in name.lower():
+        return "p_{T}"
+    if "eta" in name.lower():
+        return "eta"
+    if "phi" in name.lower():
+        return "phi"
     name = name.replace("MC", "")
     name = name.replace(" ", "")
     name = name.replace("(GeV/c)", "")
@@ -202,6 +208,64 @@ def EfficiencyPlot(a, b, path, graph_title, legText, ptBins = [0, 1, 2, 3, 4, 5,
     ROOT.SetOwnership(graph, True)
     graph.GetXaxis().SetTitle("p_{T} (GeV/c)")
     graph.GetYaxis().SetTitle("A x #epsilon")
+    graph.SetMarkerColor(ROOT.kRed-2)
+    graph.SetLineColor(ROOT.kRed-2)
+    graph.SetLineWidth(2)
+
+    legend = ROOT.TLegend(0.55, 0.7, 0.9, 0.9)
+    legend.AddEntry(legend,"pp @ 13.6 TeV", "")
+    legend.AddEntry(graph, legText, "p")
+    legend.SetFillStyle(0)
+    legend.SetBorderSize(0)
+    legend.SetTextSize(0.03)
+
+    output_dir.Delete()
+    root_file.Close()
+    root_file.Delete()
+
+    return graph, legend
+
+def PIDEfficiencyPlot(a, b, path, graph_title, legText, ptBins = [0, 1, 2, 3, 4, 5, 6, 7, 8, 20]):
+    # Apllies cut on |eta| < 0.9 and make plot of a/b vs pt (e.g. hWeightedJpsiEffPtEta / hMatchedJpsiPtEta)
+    # Expected that a = Weighted efficiency and b = simples spectrum (e.g. pT)
+    root_file = ROOT.TFile.Open(path)    
+    output_dir_name = 'analysis-p-i-d-efficiency'
+    output_dir = root_file.Get(output_dir_name)
+    if not output_dir:
+        print(f"{output_dir_name} not found in the ROOT file.")
+
+    df_a = None
+    df_b = None
+
+    hWeighted = output_dir.Get(a)
+    df_a = hist_to_df(hWeighted, clean_names=True)
+    hDist = output_dir.Get(b)
+    df_b = hist_to_df(hDist, clean_names=True)
+
+    if not hWeighted or not hDist:
+        raise RuntimeError("Histograms not found")
+    # filter out |eta| > 0.9
+    df_aFilt = df_a[~((df_a["eta_left"] < -0.9001) | (df_a["eta_right"] > 0.9001))] # 0.9001 due to floating-point error
+    df_bFilt = df_b[~((df_b["eta_left"] < -0.9001) | (df_b["eta_right"] > 0.9001))]
+
+    print("df_aFilt: \n", df_aFilt)
+    print("df_bFilt: \n", df_bFilt)
+
+    df_aFiltReb = rebin_df(df_aFilt, ptBins, x_left="p_{T}_left", x_right="p_{T}_right", counts="counts")
+    df_bFiltReb = rebin_df(df_bFilt, ptBins, x_left="p_{T}_left", x_right="p_{T}_right", counts="counts")
+
+    print("df_aFiltReb: \n", df_aFiltReb)
+    print("df_bFiltReb: \n", df_bFiltReb)
+
+    df_eff = df_aFiltReb.copy()
+    df_eff['counts'] = df_aFiltReb['counts'] / df_bFiltReb['counts']
+
+    # Statistical Uncertainty
+    eff_statUnc = np.sqrt(df_eff['counts'] * (1 - df_eff['counts']) / df_bFiltReb['counts']) # Binomial uncertainty
+    graph = df_to_root_graph(df_eff, "efficiency_graph", graph_title, yerr=np.array(eff_statUnc))
+    ROOT.SetOwnership(graph, True)
+    graph.GetXaxis().SetTitle("p_{T}^{gen} (GeV/c)")
+    graph.GetYaxis().SetTitle("#epsilon_{PID}")
     graph.SetMarkerColor(ROOT.kRed-2)
     graph.SetLineColor(ROOT.kRed-2)
     graph.SetLineWidth(2)

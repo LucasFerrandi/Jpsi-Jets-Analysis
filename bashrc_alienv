@@ -248,7 +248,7 @@ runFitter() {
 
 #26-01-15
 lss() {
-  ls -ltrh --color=always | awk '{$1=$2=$3=$4=""; sub(/^ +/,""); print}'
+  ls -ltrh --color=always $1 | awk '{$1=$2=$3=$4=""; sub(/^ +/,""); print}'
 }
 
 #25-08-14
