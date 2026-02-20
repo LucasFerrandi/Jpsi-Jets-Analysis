@@ -2,12 +2,18 @@ import ROOT
 import numpy as np
 import pandas as pd
 import ROOT
+import os
+import glob
 
 def test_utils():
  print("hist_utils.py imported successfully :)")
  print("In order to update it more dinamically, use 'reload' method from 'importlib' library.")
 
 def clean_name(name):
+    """
+    Clean axis names by removing spaces, "MC", and standardizing common variable names.
+    """
+    
     if "pt" in name.lower() or "p_{t}" in name.lower():
         return "p_{T}"
     if "eta" in name.lower():
@@ -109,6 +115,10 @@ def hist_to_df(hist, clean_names=True, isLabeledHist=False):  # For pyROOT histo
         raise NotImplementedError(f"Only TH1 and TH2 supported, but got {hist.ClassName()}")
     
 def rebin_df(df, new_edges, x_left="x_left", x_right="x_right", counts="counts"):
+    """
+    Rebins a DataFrame with columns [x_left, x_right, counts] into new bins defined by new_edges.
+    """
+
     new_counts = []
     
     for i in range(len(new_edges)-1):
@@ -153,8 +163,10 @@ def df_to_root_graph(df, graph_name="graph", graph_title="Histogram with errors"
     return graph
 
 def EfficiencyPlot(a, b, path, graph_title, legText, ptBins = [0, 1, 2, 3, 4, 5, 6, 7, 8, 12]):
-    # Apllies cut on |eta| < 0.9 and make plot of a/b vs pt
-    # Expected that a = reconstructed and b = generated
+    """
+    Apllies cut on |eta| < 0.9 and make plot of a/b vs pt
+    Expected that a = reconstructed and b = generated
+    """
     root_file = ROOT.TFile.Open(path)    
     output_dir_name = 'analysis-same-event-pairing/output;1'
     output_dir = root_file.Get(output_dir_name)
@@ -193,8 +205,10 @@ def EfficiencyPlot(a, b, path, graph_title, legText, ptBins = [0, 1, 2, 3, 4, 5,
                 df_b = hist_to_df(hist, clean_names=True)
     
     # filter out |eta| > 0.9
-    df_aFilt = df_a[~((df_a["eta_left"] < -0.9001) | (df_a["eta_right"] > 0.9001))] # 0.9001 due to floating-point error
-    df_bFilt = df_b[~((df_b["eta_left"] < -0.9001) | (df_b["eta_right"] > 0.9001))]
+    etaCut = 0.9
+    etaCutPlus = etaCut + 0.0001# To account for floating-point precision issues
+    df_aFilt = df_a[~((df_a["eta_left"] < -etaCutPlus) | (df_a["eta_right"] > etaCutPlus))]
+    df_bFilt = df_b[~((df_b["eta_left"] < -etaCutPlus) | (df_b["eta_right"] > etaCutPlus))]
 
     df_aFiltReb = rebin_df(df_aFilt, ptBins, x_left="p_{T}_left", x_right="p_{T}_right", counts="counts")
     df_bFiltReb = rebin_df(df_bFilt, ptBins, x_left="p_{T}_left", x_right="p_{T}_right", counts="counts")
@@ -213,7 +227,7 @@ def EfficiencyPlot(a, b, path, graph_title, legText, ptBins = [0, 1, 2, 3, 4, 5,
     graph.SetLineWidth(2)
 
     legend = ROOT.TLegend(0.55, 0.7, 0.9, 0.9)
-    legend.AddEntry(legend,"pp @ 13.6 TeV", "")
+    legend.AddEntry(legend,f"pp @ 13.6 TeV, |#eta|<{etaCut}", "")
     legend.AddEntry(graph, legText, "p")
     legend.SetFillStyle(0)
     legend.SetBorderSize(0)
@@ -225,11 +239,12 @@ def EfficiencyPlot(a, b, path, graph_title, legText, ptBins = [0, 1, 2, 3, 4, 5,
 
     return graph, legend
 
-def PIDEfficiencyPlot(a, b, path, graph_title, legText, ptBins = [0, 1, 2, 3, 4, 5, 6, 7, 8, 20]):
-    # Apllies cut on |eta| < 0.9 and make plot of a/b vs pt (e.g. hWeightedJpsiEffPtEta / hMatchedJpsiPtEta)
-    # Expected that a = Weighted efficiency and b = simples spectrum (e.g. pT)
-    root_file = ROOT.TFile.Open(path)    
-    output_dir_name = 'analysis-p-i-d-efficiency'
+def PIDEfficiencyPlot(a, b, path, graph_title, legText, ptBins = [0, 1, 2, 3, 4, 5, 6, 7, 8, 20], output_dir_name='analysis-p-i-d-efficiency;1'):
+    """
+    Apllies cut on |eta| < 0.9 and make plot of a/b vs pt (e.g. hWeightedJpsiEffPtEta / hMatchedJpsiPtEta)
+    Expected that a = Weighted efficiency and b = simples spectrum (e.g. pT)
+    """
+    root_file = ROOT.TFile.Open(path)
     output_dir = root_file.Get(output_dir_name)
     if not output_dir:
         print(f"{output_dir_name} not found in the ROOT file.")
@@ -245,20 +260,25 @@ def PIDEfficiencyPlot(a, b, path, graph_title, legText, ptBins = [0, 1, 2, 3, 4,
     if not hWeighted or not hDist:
         raise RuntimeError("Histograms not found")
     # filter out |eta| > 0.9
-    df_aFilt = df_a[~((df_a["eta_left"] < -0.9001) | (df_a["eta_right"] > 0.9001))] # 0.9001 due to floating-point error
-    df_bFilt = df_b[~((df_b["eta_left"] < -0.9001) | (df_b["eta_right"] > 0.9001))]
+    etaCut = 0.9
+    etaCutPlus = etaCut + 0.0001# To account for floating-point precision issues
+    df_aFilt = df_a[~((df_a["eta_left"] < -etaCutPlus) | (df_a["eta_right"] > etaCutPlus))]
+    df_bFilt = df_b[~((df_b["eta_left"] < -etaCutPlus) | (df_b["eta_right"] > etaCutPlus))]
 
-    print("df_aFilt: \n", df_aFilt)
-    print("df_bFilt: \n", df_bFilt)
+    # print("df_aFilt: \n", df_aFilt)
+    # print("df_bFilt: \n", df_bFilt)
 
     df_aFiltReb = rebin_df(df_aFilt, ptBins, x_left="p_{T}_left", x_right="p_{T}_right", counts="counts")
     df_bFiltReb = rebin_df(df_bFilt, ptBins, x_left="p_{T}_left", x_right="p_{T}_right", counts="counts")
 
-    print("df_aFiltReb: \n", df_aFiltReb)
-    print("df_bFiltReb: \n", df_bFiltReb)
+    # print("df_aFiltReb: \n", df_aFiltReb)
+    # print("df_bFiltReb: \n", df_bFiltReb)
 
     df_eff = df_aFiltReb.copy()
     df_eff['counts'] = df_aFiltReb['counts'] / df_bFiltReb['counts']
+
+    # print(df_eff)
+
 
     # Statistical Uncertainty
     eff_statUnc = np.sqrt(df_eff['counts'] * (1 - df_eff['counts']) / df_bFiltReb['counts']) # Binomial uncertainty
@@ -271,7 +291,7 @@ def PIDEfficiencyPlot(a, b, path, graph_title, legText, ptBins = [0, 1, 2, 3, 4,
     graph.SetLineWidth(2)
 
     legend = ROOT.TLegend(0.55, 0.7, 0.9, 0.9)
-    legend.AddEntry(legend,"pp @ 13.6 TeV", "")
+    legend.AddEntry(legend,f"pp @ 13.6 TeV, |#eta|<{etaCut}", "")
     legend.AddEntry(graph, legText, "p")
     legend.SetFillStyle(0)
     legend.SetBorderSize(0)
@@ -284,8 +304,10 @@ def PIDEfficiencyPlot(a, b, path, graph_title, legText, ptBins = [0, 1, 2, 3, 4,
     return graph, legend
 
 def PurityPlot(a, b, path, graph_title, legText, ptBins = [0, 1, 2, 3, 4, 5, 6, 7, 8, 12], legPos=[0.55, 0.7, 0.9, 0.9]):
-    # Apllies cut on |eta| < 0.9 and make plot of a/(a+b) vs pt
-    # Expected that a = correct association and b = incorrect association
+    """
+    Apllies cut on |eta| < 0.9 and make plot of a/(a+b) vs pt
+    Expected that a = correct association and b = incorrect association
+    """
     root_file = ROOT.TFile.Open(path)    
     output_dir_name = 'analysis-same-event-pairing/output;1'
     output_dir = root_file.Get(output_dir_name)
@@ -324,8 +346,10 @@ def PurityPlot(a, b, path, graph_title, legText, ptBins = [0, 1, 2, 3, 4, 5, 6, 
                 df_b = hist_to_df(hist, clean_names=True)
     
     # filter out |eta| > 0.9
-    df_aFilt = df_a[~((df_a["eta_left"] < -0.9001) | (df_a["eta_right"] > 0.9001))] # 0.9001 due to floating-point error
-    df_bFilt = df_b[~((df_b["eta_left"] < -0.9001) | (df_b["eta_right"] > 0.9001))]
+    etaCut = 0.9
+    etaCutPlus = etaCut + 0.0001# To account for floating-point precision issues
+    df_aFilt = df_a[~((df_a["eta_left"] < -etaCutPlus) | (df_a["eta_right"] > etaCutPlus))]
+    df_bFilt = df_b[~((df_b["eta_left"] < -etaCutPlus) | (df_b["eta_right"] > etaCutPlus))]
 
     df_aFiltReb = rebin_df(df_aFilt, ptBins, x_left="p_{T}_left", x_right="p_{T}_right", counts="counts")
     df_bFiltReb = rebin_df(df_bFilt, ptBins, x_left="p_{T}_left", x_right="p_{T}_right", counts="counts")
@@ -345,7 +369,7 @@ def PurityPlot(a, b, path, graph_title, legText, ptBins = [0, 1, 2, 3, 4, 5, 6, 
     graphPurity.SetLineWidth(2)
 
     legPurity = ROOT.TLegend(*legPos)
-    legPurity.AddEntry(legPurity,"pp @ 13.6 TeV", "")
+    legPurity.AddEntry(legPurity,f"pp @ 13.6 TeV, |#eta|<{etaCut}", "")
     legPurity.AddEntry(graphPurity, legText, "p")
     legPurity.SetFillStyle(0)
     legPurity.SetBorderSize(0)
@@ -358,8 +382,10 @@ def PurityPlot(a, b, path, graph_title, legText, ptBins = [0, 1, 2, 3, 4, 5, 6, 
     return graphPurity, legPurity
 
 def EfficiencyxMultPlot(a, b, path, graph_title, legText, ptBins = [0, 1, 2, 3, 4, 5, 6, 7, 8, 12]):
-    # Apllies cut on |eta| < 0.9 and make plot of a/b vs pt
-    # Expected that a = reconstructed and b = generated
+    """
+    Apllies cut on |eta| < 0.9 and make plot of a/b vs pt
+    Expected that a = reconstructed and b = generated
+    """
     root_file = ROOT.TFile.Open(path)    
     output_dir_name = 'analysis-same-event-pairing/output;1'
     output_dir = root_file.Get(output_dir_name)
@@ -398,8 +424,10 @@ def EfficiencyxMultPlot(a, b, path, graph_title, legText, ptBins = [0, 1, 2, 3, 
                 df_b = hist_to_df(hist, clean_names=True)
     
     # filter out |eta| > 0.9
-    df_aFilt = df_a[~((df_a["eta_left"] < -0.9001) | (df_a["eta_right"] > 0.9001))] # 0.9001 due to floating-point error
-    df_bFilt = df_b[~((df_b["eta_left"] < -0.9001) | (df_b["eta_right"] > 0.9001))]
+    etaCut = 0.9
+    etaCutPlus = etaCut + 0.0001# To account for floating-point precision issues
+    df_aFilt = df_a[~((df_a["eta_left"] < -etaCutPlus) | (df_a["eta_right"] > etaCutPlus))]
+    df_bFilt = df_b[~((df_b["eta_left"] < -etaCutPlus) | (df_b["eta_right"] > etaCutPlus))]
 
     df_aFiltReb = rebin_df(df_aFilt, ptBins, x_left="p_{T}_left", x_right="p_{T}_right", counts="counts")
     df_bFiltReb = rebin_df(df_bFilt, ptBins, x_left="p_{T}_left", x_right="p_{T}_right", counts="counts")
@@ -418,7 +446,7 @@ def EfficiencyxMultPlot(a, b, path, graph_title, legText, ptBins = [0, 1, 2, 3, 
     graph.SetLineWidth(2)
 
     legend = ROOT.TLegend(0.55, 0.7, 0.9, 0.9)
-    legend.AddEntry(legend,"pp @ 13.6 TeV", "")
+    legend.AddEntry(legend,f"pp @ 13.6 TeV, |#eta|<{etaCut}", "")
     legend.AddEntry(graph, legText, "p")
     legend.SetFillStyle(0)
     legend.SetBorderSize(0)
@@ -520,3 +548,59 @@ def merge_TDirs(root_file, mergeDFs = True, target_dir_name="Merged"):
     #     target_dir.Write("", ROOT.TObject.kOverwrite)
     # else:
     #     print('Merging of non-"DF" objects is not implemented yet.')
+
+def PIDEfficiencyManyMaps(mapsDirPath = "~/alice/Jpsi-Jets-Analysis/JpsiWorkDir/PIDEfficiency/PIDEfficiencyConverter/output/JpsiEffFromIdasMapsLHC25b14",
+                          test=False,
+                          MCDataset="LHC25b14"
+                          ):
+    base_dir = os.path.expanduser(mapsDirPath)
+    root_files = sorted(glob.glob(f"{base_dir}/*.root"))
+    if test:
+        n = 3
+        root_files = root_files[:n]
+
+    ptBins = np.concatenate((np.arange(0, 10, 1),
+                            np.arange(10, 22, 2)), axis=0)
+
+    graphs = []
+
+    # outputDir = "output/PIDefficiency/"
+    pdf_name = "output/PIDefficiency/PIDEfficiency_AllMaps.pdf"
+
+    # abre PDF
+    c = ROOT.TCanvas()
+    c.Print(pdf_name + "[") # Multi-page PDF
+
+    # Individual plots
+    for i, path in enumerate(root_files):
+        # print(os.path.basename(path)[-8:-5])
+        stdLabel = "-4 < n#sigma_{El} < 4, n#sigma_{#pi} > 2.5, n#sigma_{p} > 2.5"
+        label = os.path.basename(path).replace("AnalysisResults_", "").replace(".root", "").replace("TrackBarrel_Conversions_withPID_", "")
+        if "nSigmaEl-" in label:
+            stdLabel = stdLabel.replace("-4<", "-"+label[-3]+"<")
+            stdLabel = stdLabel.replace("<4", "<"+label[-1])
+        if "nSigmaPi" in label:
+            stdLabel = stdLabel.replace("{#pi}>2.5", "{#pi}>"+label[-3:])
+        if "nSigmaPr" in label:
+            stdLabel = stdLabel.replace("{p}>2.5", "{p}>"+label[-3:])
+        label = stdLabel
+        
+        graph, _ = PIDEfficiencyPlot(
+            a="hWeightedJpsiEffPtEta",
+            b="hMatchedJpsiPtEta",
+            path=path,
+            graph_title="J/#psi PID Efficiency",
+            legText=label,
+            ptBins=ptBins
+        )
+        
+        graph.SetTitle(f"J/#psi PID Efficiency - {label}")
+        graph.SetMarkerStyle(20)
+        
+        c.Clear()
+        graph.Draw("AP")
+        c.Print(pdf_name)
+        
+        graphs.append((graph, label))
+
+    return graphs

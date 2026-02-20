@@ -1,7 +1,7 @@
 {
     "internal-dpl-clock": "",
     "internal-dpl-aod-reader": {
-        "aod-file-private": "~/alice/datasets/MC/derivedMC/myTableMakerMCNoPID25-11-19/LHC25b15/jobs/0343/hy_3437922/0001/AO2D.root",
+        "aod-file-private": "~\/alice\/datasets\/MC\/derivedMC\/myTableMakerMCNoPID25-11-19\/LHC25b14\/jobs\/0343\/hy_3435396\/AOD\/002\/AO2D.root",
         "aod-max-io-rate": "0",
         "time-limit": "0",
         "orbit-offset-enumeration": "0",
@@ -13,7 +13,7 @@
     "reduced-m-cevent-converter000_001": "",
     "analysis-p-i-d-efficiency": {
         "test": "true",
-        "NevtsForTest": "100",
+        "NevtsForTest": "10",
         "effMapPath": "~/alice/Jpsi-Jets-Analysis/JpsiWorkDir/PIDEfficiency/PIDEfficiencyConverter/IdasElectronMaps_DQ_LHC24_pass1_skimmed_V0candidates/TrackBarrel_Conversions_withPID_nSigmaEl-4-4/effMap_TrackBarrel_Conversions_withPID_nSigmaEl-4-4.root",
         "processDummy": "false",
         "processJpsiPIDEfficiency": "true"
