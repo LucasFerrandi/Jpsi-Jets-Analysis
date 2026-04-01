@@ -5,6 +5,8 @@ import ROOT
 import os
 import glob
 
+pTstr = "p_{T}(GeV/c)"
+
 def test_utils():
  print("hist_utils.py imported successfully :)")
  print("In order to update it more dinamically, use 'reload' method from 'importlib' library.")
@@ -15,7 +17,7 @@ def clean_name(name):
     """
     
     if "pt" in name.lower() or "p_{t}" in name.lower():
-        return "p_{T}"
+        return pTstr
     if "eta" in name.lower():
         return "eta"
     if "phi" in name.lower():
@@ -23,7 +25,7 @@ def clean_name(name):
     name = name.replace("MC", "")
     name = name.replace(" ", "")
     name = name.replace("(GeV/c)", "")
-    name = name.replace("#", "")
+    # name = name.replace("#", "")
     return name
 
 def hist_to_df(hist, clean_names=True, isLabeledHist=False):  # For pyROOT histograms
@@ -33,7 +35,7 @@ def hist_to_df(hist, clean_names=True, isLabeledHist=False):  # For pyROOT histo
     """
 
     if hist.ClassName().startswith("TH1"):
-        print("Converting TH1 histogram to DataFrame...")
+        # print("Converting TH1 histogram to DataFrame...")
         nbins = hist.GetNbinsX()
         edges = np.array([hist.GetBinLowEdge(i) for i in range(1, nbins+2)])
         values = np.array([hist.GetBinContent(i) for i in range(1, nbins+1)])
@@ -59,7 +61,7 @@ def hist_to_df(hist, clean_names=True, isLabeledHist=False):  # For pyROOT histo
             })
 
     elif hist.ClassName().startswith("TH2"):
-        print("Converting TH2 histogram to DataFrame...")
+        # print("Converting TH2 histogram to DataFrame...")
         nx = hist.GetNbinsX()
         ny = hist.GetNbinsY()
         x_edges = np.array([hist.GetXaxis().GetBinLowEdge(i) for i in range(1, nx+2)])
@@ -141,6 +143,9 @@ def df_to_root_graph(df, graph_name="graph", graph_title="Histogram with errors"
     Convert a pandas DataFrame with 'bin_left', 'bin_right', 'counts' to a ROOT TGraphErrors
     with horizontal error bars corresponding to bin widths.
     """
+    
+    df = df.dropna(subset=["counts"]) # Exlude bins with NaN counts
+    # print(df)
     bin_left = df["bin_left"].values
     bin_right = df["bin_right"].values
     counts = df["counts"].values
@@ -210,8 +215,8 @@ def EfficiencyPlot(a, b, path, graph_title, legText, ptBins = [0, 1, 2, 3, 4, 5,
     df_aFilt = df_a[~((df_a["eta_left"] < -etaCutPlus) | (df_a["eta_right"] > etaCutPlus))]
     df_bFilt = df_b[~((df_b["eta_left"] < -etaCutPlus) | (df_b["eta_right"] > etaCutPlus))]
 
-    df_aFiltReb = rebin_df(df_aFilt, ptBins, x_left="p_{T}_left", x_right="p_{T}_right", counts="counts")
-    df_bFiltReb = rebin_df(df_bFilt, ptBins, x_left="p_{T}_left", x_right="p_{T}_right", counts="counts")
+    df_aFiltReb = rebin_df(df_aFilt, ptBins, x_left=f"{pTstr}_left", x_right=f"{pTstr}_right", counts="counts")
+    df_bFiltReb = rebin_df(df_bFilt, ptBins, x_left=f"{pTstr}_left", x_right=f"{pTstr}_right", counts="counts")
 
     df_eff = df_aFiltReb.copy()
     df_eff['counts'] = df_aFiltReb['counts'] / df_bFiltReb['counts']
@@ -220,7 +225,7 @@ def EfficiencyPlot(a, b, path, graph_title, legText, ptBins = [0, 1, 2, 3, 4, 5,
     eff_statUnc = np.sqrt(df_eff['counts'] * (1 - df_eff['counts']) / df_bFiltReb['counts']) # Binomial uncertainty
     graph = df_to_root_graph(df_eff, "efficiency_graph", graph_title, yerr=np.array(eff_statUnc))
     ROOT.SetOwnership(graph, True)
-    graph.GetXaxis().SetTitle("p_{T} (GeV/c)")
+    graph.GetXaxis().SetTitle(f"{pTstr} (GeV/c)")
     graph.GetYaxis().SetTitle("A x #epsilon")
     graph.SetMarkerColor(ROOT.kRed-2)
     graph.SetLineColor(ROOT.kRed-2)
@@ -239,10 +244,10 @@ def EfficiencyPlot(a, b, path, graph_title, legText, ptBins = [0, 1, 2, 3, 4, 5,
 
     return graph, legend
 
-def PIDEfficiencyPlot(a, b, path, graph_title, legText, ptBins = [0, 1, 2, 3, 4, 5, 6, 7, 8, 20], output_dir_name='analysis-p-i-d-efficiency;1'):
+def PIDEfficiencyPlot(a, b, path, graph_title, legText, ptBins = [1, 2, 3, 4, 5, 6, 7, 8, 20], output_dir_name='analysis-p-i-d-efficiency;1'):
     """
     Apllies cut on |eta| < 0.9 and make plot of a/b vs pt (e.g. hWeightedJpsiEffPtEta / hMatchedJpsiPtEta)
-    Expected that a = Weighted efficiency and b = simples spectrum (e.g. pT)
+    Expected that a = Weighted efficiency and b = simple spectrum (e.g. pT)
     """
     root_file = ROOT.TFile.Open(path)
     output_dir = root_file.Get(output_dir_name)
@@ -265,11 +270,23 @@ def PIDEfficiencyPlot(a, b, path, graph_title, legText, ptBins = [0, 1, 2, 3, 4,
     df_aFilt = df_a[~((df_a["eta_left"] < -etaCutPlus) | (df_a["eta_right"] > etaCutPlus))]
     df_bFilt = df_b[~((df_b["eta_left"] < -etaCutPlus) | (df_b["eta_right"] > etaCutPlus))]
 
+    # Finding the pT column name dynamically
+    for col in df_aFilt.columns:
+        if "pt" in col.lower() or "p_{t}" in col.lower() or "{p}_{t}" in col.lower():
+            pTstr = col.replace("_left", "").replace("_right", "")
+            break
+
+    # Filter ou pT < 1 Gev. Because of the cut in electron pt
+    ptCut = 1.0
+    ptCutPlus = ptCut + 0.0001
+    df_aFilt = df_aFilt[(df_aFilt[f"{pTstr}_right"] > ptCutPlus)]
+    df_bFilt = df_bFilt[(df_bFilt[f"{pTstr}_right"] > ptCutPlus)]
+
     # print("df_aFilt: \n", df_aFilt)
     # print("df_bFilt: \n", df_bFilt)
 
-    df_aFiltReb = rebin_df(df_aFilt, ptBins, x_left="p_{T}_left", x_right="p_{T}_right", counts="counts")
-    df_bFiltReb = rebin_df(df_bFilt, ptBins, x_left="p_{T}_left", x_right="p_{T}_right", counts="counts")
+    df_aFiltReb = rebin_df(df_aFilt, ptBins, x_left=f"{pTstr}_left", x_right=f"{pTstr}_right", counts="counts")
+    df_bFiltReb = rebin_df(df_bFilt, ptBins, x_left=f"{pTstr}_left", x_right=f"{pTstr}_right", counts="counts")
 
     # print("df_aFiltReb: \n", df_aFiltReb)
     # print("df_bFiltReb: \n", df_bFiltReb)
@@ -284,7 +301,7 @@ def PIDEfficiencyPlot(a, b, path, graph_title, legText, ptBins = [0, 1, 2, 3, 4,
     eff_statUnc = np.sqrt(df_eff['counts'] * (1 - df_eff['counts']) / df_bFiltReb['counts']) # Binomial uncertainty
     graph = df_to_root_graph(df_eff, "efficiency_graph", graph_title, yerr=np.array(eff_statUnc))
     ROOT.SetOwnership(graph, True)
-    graph.GetXaxis().SetTitle("p_{T}^{gen} (GeV/c)")
+    graph.GetXaxis().SetTitle(pTstr)
     graph.GetYaxis().SetTitle("#epsilon_{PID}")
     graph.SetMarkerColor(ROOT.kRed-2)
     graph.SetLineColor(ROOT.kRed-2)
@@ -351,8 +368,8 @@ def PurityPlot(a, b, path, graph_title, legText, ptBins = [0, 1, 2, 3, 4, 5, 6, 
     df_aFilt = df_a[~((df_a["eta_left"] < -etaCutPlus) | (df_a["eta_right"] > etaCutPlus))]
     df_bFilt = df_b[~((df_b["eta_left"] < -etaCutPlus) | (df_b["eta_right"] > etaCutPlus))]
 
-    df_aFiltReb = rebin_df(df_aFilt, ptBins, x_left="p_{T}_left", x_right="p_{T}_right", counts="counts")
-    df_bFiltReb = rebin_df(df_bFilt, ptBins, x_left="p_{T}_left", x_right="p_{T}_right", counts="counts")
+    df_aFiltReb = rebin_df(df_aFilt, ptBins, x_left=f"{pTstr}_left", x_right=f"{pTstr}_right", counts="counts")
+    df_bFiltReb = rebin_df(df_bFilt, ptBins, x_left=f"{pTstr}_left", x_right=f"{pTstr}_right", counts="counts")
 
     df_purity = df_aFiltReb.copy()
     nTotAssocs = df_aFiltReb['counts'] + df_bFiltReb['counts']
@@ -362,7 +379,7 @@ def PurityPlot(a, b, path, graph_title, legText, ptBins = [0, 1, 2, 3, 4, 5, 6, 
     purity_statUnc = np.sqrt(df_purity['counts'] * (1 - df_purity['counts']) / nTotAssocs) # Binomial uncertainty
     graphPurity = df_to_root_graph(df_purity, "purity_graph", graph_title, yerr=np.array(purity_statUnc))
     ROOT.SetOwnership(graphPurity, True)
-    graphPurity.GetXaxis().SetTitle("p_{T} (GeV/c)")
+    graphPurity.GetXaxis().SetTitle(pTstr)
     graphPurity.GetYaxis().SetTitle("P")
     graphPurity.SetMarkerColor(ROOT.kRed-2)
     graphPurity.SetLineColor(ROOT.kRed-2)
@@ -429,8 +446,8 @@ def EfficiencyxMultPlot(a, b, path, graph_title, legText, ptBins = [0, 1, 2, 3, 
     df_aFilt = df_a[~((df_a["eta_left"] < -etaCutPlus) | (df_a["eta_right"] > etaCutPlus))]
     df_bFilt = df_b[~((df_b["eta_left"] < -etaCutPlus) | (df_b["eta_right"] > etaCutPlus))]
 
-    df_aFiltReb = rebin_df(df_aFilt, ptBins, x_left="p_{T}_left", x_right="p_{T}_right", counts="counts")
-    df_bFiltReb = rebin_df(df_bFilt, ptBins, x_left="p_{T}_left", x_right="p_{T}_right", counts="counts")
+    df_aFiltReb = rebin_df(df_aFilt, ptBins, x_left=f"{pTstr}_left", x_right=f"{pTstr}_right", counts="counts")
+    df_bFiltReb = rebin_df(df_bFilt, ptBins, x_left=f"{pTstr}_left", x_right=f"{pTstr}_right", counts="counts")
 
     df_eff = df_aFiltReb.copy()
     df_eff['counts'] = df_aFiltReb['counts'] / df_bFiltReb['counts']
@@ -439,7 +456,7 @@ def EfficiencyxMultPlot(a, b, path, graph_title, legText, ptBins = [0, 1, 2, 3, 
     eff_statUnc = np.sqrt(df_eff['counts'] * (1 - df_eff['counts']) / df_bFiltReb['counts']) # Binomial uncertainty
     graph = df_to_root_graph(df_eff, "efficiency_graph", graph_title, yerr=np.array(eff_statUnc))
     ROOT.SetOwnership(graph, True)
-    graph.GetXaxis().SetTitle("p_{T} (GeV/c)")
+    graph.GetXaxis().SetTitle(pTstr)
     graph.GetYaxis().SetTitle("A x #epsilon")
     graph.SetMarkerColor(ROOT.kRed-2)
     graph.SetLineColor(ROOT.kRed-2)
@@ -506,7 +523,7 @@ def join_dfs(dir_path, fileNames, rootDir_name, histName, datasetsNames=None):
             dfs["XLabel"] = df.iloc[:,0]
             if hist.ClassName().startswith("TH2"):
                 dfs["YLabel"] = df.iloc[:,1]
-            print(dfs.to_string())
+            # print(dfs.to_string())
         if datasetsNames is not None:
              dfs[datasetsNames[i]] = df["counts"]
         else:
@@ -550,8 +567,10 @@ def merge_TDirs(root_file, mergeDFs = True, target_dir_name="Merged"):
     #     print('Merging of non-"DF" objects is not implemented yet.')
 
 def PIDEfficiencyManyMaps(mapsDirPath = "~/alice/Jpsi-Jets-Analysis/JpsiWorkDir/PIDEfficiency/PIDEfficiencyConverter/output/JpsiEffFromIdasMapsLHC25b14",
+                          MCDataset="LHC25b14",
                           test=False,
-                          MCDataset="LHC25b14"
+                          weightedHist="hWeightedJpsiEffPtEta",
+                          matchedHist="hMatchedJpsiPtEta"
                           ):
     base_dir = os.path.expanduser(mapsDirPath)
     root_files = sorted(glob.glob(f"{base_dir}/*.root"))
@@ -561,46 +580,132 @@ def PIDEfficiencyManyMaps(mapsDirPath = "~/alice/Jpsi-Jets-Analysis/JpsiWorkDir/
 
     ptBins = np.concatenate((np.arange(0, 10, 1),
                             np.arange(10, 22, 2)), axis=0)
-
     graphs = []
 
-    # outputDir = "output/PIDefficiency/"
-    pdf_name = "output/PIDefficiency/PIDEfficiency_AllMaps.pdf"
-
-    # abre PDF
-    c = ROOT.TCanvas()
-    c.Print(pdf_name + "[") # Multi-page PDF
-
-    # Individual plots
     for i, path in enumerate(root_files):
         # print(os.path.basename(path)[-8:-5])
         stdLabel = "-4 < n#sigma_{El} < 4, n#sigma_{#pi} > 2.5, n#sigma_{p} > 2.5"
         label = os.path.basename(path).replace("AnalysisResults_", "").replace(".root", "").replace("TrackBarrel_Conversions_withPID_", "")
         if "nSigmaEl-" in label:
-            stdLabel = stdLabel.replace("-4<", "-"+label[-3]+"<")
-            stdLabel = stdLabel.replace("<4", "<"+label[-1])
+            stdLabel = stdLabel.replace("-4 <", "-"+label[-3]+" <")
+            stdLabel = stdLabel.replace("< 4", "< "+label[-1])
         if "nSigmaPi" in label:
-            stdLabel = stdLabel.replace("{#pi}>2.5", "{#pi}>"+label[-3:])
+            stdLabel = stdLabel.replace("{#pi} > 2.5", "{#pi} > "+label[-3:])
         if "nSigmaPr" in label:
-            stdLabel = stdLabel.replace("{p}>2.5", "{p}>"+label[-3:])
+            stdLabel = stdLabel.replace("{p} > 2.5", "{p} > "+label[-3:])
         label = stdLabel
-        
         graph, _ = PIDEfficiencyPlot(
-            a="hWeightedJpsiEffPtEta",
-            b="hMatchedJpsiPtEta",
+            weightedHist,
+            matchedHist,
             path=path,
             graph_title="J/#psi PID Efficiency",
             legText=label,
             ptBins=ptBins
         )
-        
         graph.SetTitle(f"J/#psi PID Efficiency - {label}")
-        graph.SetMarkerStyle(20)
-        
-        c.Clear()
-        graph.Draw("AP")
-        c.Print(pdf_name)
-        
+        graph.SetMarkerStyle(20)        
         graphs.append((graph, label))
-
     return graphs
+
+def averagePIDEfficiency(graphs): #graphs should be a tuple (graph, label)
+    """
+    Calculate graphs which is the average of all electron PID-efficiency maps (for comparision between datasets)
+    """
+    # Calculate graphs which is the average of all maps (for comparision between datasets)
+    graphs_only = [g for g, _ in graphs]
+    n_points = graphs_only[0].GetN()
+    n_graphs = len(graphs_only)
+
+    x_avg = []
+    y_avg = []
+    ex_avg = []
+    ey_avg = []
+
+    for i in range(n_points):
+        xs = []
+        ys = []
+        eys = []
+        exs = []
+
+        for g in graphs_only:
+            x = g.GetPointX(i)
+            y = g.GetPointY(i)
+            xs.append(float(x))
+            ys.append(float(y))
+            eys.append(g.GetErrorY(i))
+            exs.append(g.GetErrorX(i))
+
+        x_avg.append(xs[0])  # same binning
+        # y_avg.append(np.mean(ys)) # simple average
+        # simple_avg = np.mean(ys)
+        weighted_avg = np.average(ys, weights=1/np.array(eys)**2)  # average weighted by error of each point
+        # print(f"Simple average: {simple_avg}, Weighted average: {weighted_avg}")
+        y_avg.append(weighted_avg)
+        ex_avg.append(exs[0])
+
+        # propagate independent errors
+        # ey_avg.append(np.sqrt(np.sum(np.array(eys)**2)) / n_graphs) # simple error propagation for independent errors and simple average
+        sumWeights = np.sum(1/np.array(eys)**2)
+        stDevWeightedAvg = np.sqrt(1/sumWeights)  # error of the weighted average
+        chi2 = np.sum(((ys - weighted_avg) / eys)**2)
+        # stdDev = np.sqrt(np.sum((ys - weighted_avg)**2) / (n_graphs - 1)) # standard deviation (for simple avg, but also for weighted avg since each value is not a measurement of the same quantity)
+        # stdErrorOfMean = stdDev / np.sqrt(n_graphs)
+        birgeRatio = np.sqrt(chi2 / (n_graphs - 1)) # how much the dispersion differs from the expected. To account for big dispersion, since each value is not a measurement of the same quantity
+        # print(f"Standard deviation of weighted average: {stDevWeightedAvg} \nBirge ratio: {birgeRatio}, \nFinal error: {stDevWeightedAvg * birgeRatio}, \nStandard error of mean: {stdErrorOfMean}")
+        ey_avg.append(stDevWeightedAvg * birgeRatio)
+        # ey_avg.append(stdErrorOfMean)
+
+
+    avgGraph = ROOT.TGraphErrors(
+        n_points,
+        np.array(x_avg),
+        np.array(y_avg),
+        np.array(ex_avg),
+        np.array(ey_avg)
+    )
+    avgGraph.GetXaxis().SetTitle(pTstr)
+    avgGraph.GetYaxis().SetTitle("#epsilon_{PID}")
+    return avgGraph
+
+def plot_th2_with_python(a, path, output_dir_name='analysis-p-i-d-efficiency;1'):
+    import matplotlib.pyplot as plt
+    """
+    Convert a ROOT TH2 histogram to a Python plot.
+    """
+    root_file = ROOT.TFile.Open(path)
+    output_dir = root_file.Get(output_dir_name)
+    th2 = output_dir.Get(a)
+    nx = th2.GetNbinsX()
+    ny = th2.GetNbinsY()
+
+    xaxis = th2.GetXaxis()
+    yaxis = th2.GetYaxis()
+
+    # bin edges
+    x_edges = np.array([xaxis.GetBinLowEdge(i+1) for i in range(nx)] +
+                       [xaxis.GetBinUpEdge(nx)])
+    y_edges = np.array([yaxis.GetBinLowEdge(i+1) for i in range(ny)] +
+                       [yaxis.GetBinUpEdge(ny)])
+
+    # bin contents
+    z = np.zeros((nx, ny))
+    for ix in range(1, nx+1):
+        for iy in range(1, ny+1):
+            z[ix-1, iy-1] = th2.GetBinContent(ix, iy)
+            # if ix < 50 and z[ix-1, iy-1] > 0:
+            if z[ix-1, iy-1] > 0:
+                print(f"Bin ({ix}, {iy}): {z[ix-1, iy-1]}")                
+    print(f"TH2 histogram has {nx} bins in x and {ny} bins in y.")
+    z_min = np.min(z[z > 0])  # minimum non-zero value for better color scaling
+    print(f"Minimum non-zero bin content: {z_min}")
+
+    # matplotlib expects (ny, nx)
+    z = z.T
+    # z=z[:50,:50] # to focus on low pT region
+
+    plt.figure()
+    plt.pcolormesh(x_edges, y_edges, z, shading="auto")
+    plt.xlabel(xaxis.GetTitle())
+    plt.ylabel(yaxis.GetTitle())
+    plt.colorbar(label="Counts")
+    plt.show()

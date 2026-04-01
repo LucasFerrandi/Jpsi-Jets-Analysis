@@ -1,0 +1,58 @@
+{
+    "internal-dpl-clock": "",
+    "internal-dpl-aod-reader": {
+        "aod-file-private": "@/home/ferrandi/alice/datasets/testGianniScriptLHC25b14/input.txt",
+        "aod-max-io-rate": "0",
+        "time-limit": "0",
+        "orbit-offset-enumeration": "0",
+        "orbit-multiplier-enumeration": "0",
+        "start-value-enumeration": "0",
+        "end-value-enumeration": "-1",
+        "step-value-enumeration": "1"
+    },
+    "reduced-m-cevent-converter000_001": "",
+    "analysis-p-i-d-efficiency": {
+        "binPt": {
+            "values": [
+                "160",
+                "0",
+                "40"
+            ]
+        },
+        "binP_IN": {
+            "values": [
+                "160",
+                "0",
+                "40"
+            ]
+        },
+        "binEta": {
+            "values": [
+                "120",
+                "-1.5",
+                "1.5"
+            ]
+        },
+        "binPhi": {
+            "values": [
+                "80",
+                "0",
+                "4"
+            ]
+        },
+        "binPIDEff": {
+            "values": [
+                "100",
+                "0",
+                "1"
+            ]
+        },
+        "test": "false",
+        "NevtsForTest": "1000",
+        "effMapPath": "~\/alice\/datasets\/IdasElectronMaps_DQ_LHC24_pass1_skimmed_V0candidates\/TrackBarrel_Conversions_withPID_nSigmaEl-4-4\/effMap_TrackBarrel_Conversions_withPID_nSigmaEl-4-4.root",
+        "processDummy": "false",
+        "processJpsiPIDEfficiency": "true"
+    },
+    "internal-dpl-aod-global-analysis-file-sink": "",
+    "internal-dpl-injected-dummy-sink": ""
+}
