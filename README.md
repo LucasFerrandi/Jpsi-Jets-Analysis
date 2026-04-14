@@ -121,15 +121,26 @@ Analysis done in `~/alice/Jpsi-Jets-Analysis/JpsiWorkDir/MC`
           - AnalysisResults.root with histograms for dielectron which passes each MCSignal
           - AnalysisResults_Trees.root with dielectron trees (tables). Can be `dielectronsAll`, for example
 
-## Efficiency Calculation
+## Efficiencies Calculation
 
-Done by the matching between MC-truth-level and MC-reconstructed-level J/psis
+### Hipe4ML
+
+In this framework some efficiency scripts use Hipe4ML Python library. Instructions for its usage:
 1. Create a Python virtual environment inside ALIEnv (`alice/Hipe4MLenv`, for example)
 2. Install Hipe4ML in it
 3. Enter ALIEnv: `alice` & `source bashrc_alienv`
 4. Enter Hipe4ML venv: `source Hipe4MLev/bin/activate`
-5. Efficiency calculated in `Jpsi-Jets-Analysis/efficiencyAndML/efficienciesJpsi.ipynb`
-     - Open with `code` and select `Hipe4MLenv` Python kernel
+5. Open the script with `code` and select `Hipe4MLenv` Python kernel
+
+### J/psi Reconstruction Efficiency
+J/psi Reconstruction Efficiency calculated in `Jpsi-Jets-Analysis/efficiencyAndML/efficienciesJpsi.ipynb`
+
+### J/psi PID efficiency
+1. Electron PID-efficiency maps are needed as input
+2. Enter ALICE environment: run `alice`
+3. Then `cd JpsiWorkDir/PIDEfficiency`
+4. run `chmod +x runPIDEffConverterManyMapsAllDatasets26-02-25.sh`, then `./runPIDEffConverterManyMapsAllDatasets26-02-25.sh`. Root files with `hWeightedJpsiEffPtEta` and `hMatchedJpsiPtEta` histograms produced and saved in `output` (for prompt and non-prompt)
+5. Final plots produced with `efficiencyAndML/PIDefficiencyJpsi.ipynb` and saved as pdf in `output`
 
 ## Separation of Prompt and Non-Prompt J/psi
 
