@@ -22,7 +22,7 @@ Below, a detailed tutorial on running things locally.
 - [Preparing the Framework](#preparing-the-framework)
 - [Calculation of Momentum Fraction](#calculation-of-momentum-fraction)
 - [Monte Carlo](#monte-carlo)
-- [Efficiency Calculation](#efficiency-calculation)
+- [Efficiencies Calculations](#efficiencies-calculations)
 - [Separation of Prompt and Non-Prompt J/psi](#separation-of-prompt-and-non-prompt-jpsi)
 
 ## Preparing the Framework
@@ -121,7 +121,7 @@ Analysis done in `~/alice/Jpsi-Jets-Analysis/JpsiWorkDir/MC`
           - AnalysisResults.root with histograms for dielectron which passes each MCSignal
           - AnalysisResults_Trees.root with dielectron trees (tables). Can be `dielectronsAll`, for example
 
-## Efficiencies Calculation
+## Efficiencies Calculations
 
 ### Hipe4ML
 
@@ -133,7 +133,9 @@ In this framework some efficiency scripts use Hipe4ML Python library. Instructio
 5. Open the script with `code` and select `Hipe4MLenv` Python kernel
 
 ### J/psi Reconstruction Efficiency
-J/psi Reconstruction Efficiency calculated in `Jpsi-Jets-Analysis/efficiencyAndML/efficienciesJpsi.ipynb`
+Done by the matching between MC-truth-level and MC-reconstructed-level J/psis.
+Efficiency calculated in `Jpsi-Jets-Analysis/efficiencyAndML/efficienciesJpsi.ipynb`
+- Open with `code` and select `Hipe4MLenv` Python kernel
 
 ### J/psi PID efficiency
 1. Electron PID-efficiency maps are needed as input
