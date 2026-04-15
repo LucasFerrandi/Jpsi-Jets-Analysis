@@ -78,7 +78,7 @@ This is mainly done by `jpsiFragmentationFunction.cxx` task.
                p_T bounds (ex.: 5, 7, 15 and 35 GeV)
      - If a json file doesn't exist yet, run without it and it will be automatically generated
      - A script was created to run this, which can be executed as following:
-     - cd into `~/alice/Jpsi-Jets-Analysis/JpsiWorkDir` or
+     - cd into `~/alice/Jpsi-Jets-Analysis/workDir` or
           `cd $JpsiDir` (alias)
      - Run the script providing the json file:
           - Make it executable: `chmod +x runJPsiFragmentation.sh`
@@ -103,14 +103,14 @@ This is mainly done by `jpsiFragmentationFunction.cxx` task.
 
 ## Monte Carlo
 
-Analysis done in `~/alice/Jpsi-Jets-Analysis/JpsiWorkDir/MC`
+Analysis done in `~/alice/Jpsi-Jets-Analysis/workDir/MC`
 
 - Given J/psi Monte Carlo datasets, Skim them using TableMakerMC_withAssoc. Usually using Hyperloop.
      - Provide reco and gen level MCSignals to it. Ex.: `eFromJpsi,eFromPromptJpsi,eFromNonpromptJpsi,Jpsi,nonPromptJpsi,promptJpsi,allBeautyHadrons,Bplus,protonPrimary, everythingFromEverythingFromBeauty`
      - Output:
           - AO2D.root with reduced tables for reco-level tracks (mainly electrons) and gen-level (particles matching provided MCSignals or matching reco tracks)
           - AnalysisResults.root with general statistics
-- run dqEfficiency_withAssoc on reduced AO2D (done in `~/alice/Jpsi-Jets-Analysis/JpsiWorkDir/MC/DQEfficiency`)
+- run dqEfficiency_withAssoc on reduced AO2D (done in `~/alice/Jpsi-Jets-Analysis/workDir/MC/DQEfficiency`)
      - analysis on pairs of electrons
      - For `same-event-pairing`, provide gen and reco MCsignals, such as`"cfgBarrelMCGenSignals": "promptJpsi,nonPromptJpsi"` and`"cfgBarrelMCRecSignals": "eePrimaryFromPromptJPsi,eePrimaryFromNonPromptJPsi"`
      - Important: in order to produce `dielectronAll` table, one must:
@@ -140,7 +140,7 @@ Efficiency calculated in `Jpsi-Jets-Analysis/efficiencyAndML/efficienciesJpsi.ip
 ### J/psi PID efficiency
 1. Electron PID-efficiency maps are needed as input
 2. Enter ALICE environment: run `alice`
-3. Then `cd JpsiWorkDir/PIDEfficiency`
+3. Then `cd workDir/PIDEfficiency`
 4. run `chmod +x runPIDEffConverterManyMapsAllDatasets26-02-25.sh`, then `./runPIDEffConverterManyMapsAllDatasets26-02-25.sh`. Root files with `hWeightedJpsiEffPtEta` and `hMatchedJpsiPtEta` histograms produced and saved in `output` (for prompt and non-prompt)
 5. Final plots produced with `efficiencyAndML/PIDefficiencyJpsi.ipynb` and saved as pdf in `output`
 

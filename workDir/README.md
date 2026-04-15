@@ -1,4 +1,4 @@
-# JpsiWorkDir
+# workDir
 
 This is where O2 task are run, such as `dqEfficiency` and `tableMaker`. Typical content is:
 

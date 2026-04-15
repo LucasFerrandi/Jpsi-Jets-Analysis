@@ -41,8 +41,8 @@ struct AnalysisPIDEfficiency{
 
     Configurable<bool> test{"test", false, "Limits number of events"};
     Configurable<int> Nevts{"NevtsForTest", 100, "Number of events per DF (for testing)"};
-    // Configurable<std::string> effMapPath{"effMapPath", "$HOME/alice/Jpsi-Jets-Analysis/JpsiWorkDir/PIDEfficiency/PIDEfficiencyConverter/toyPIDEffMap/toyElectronPidEff.root", "Path to root file with PID-efficiency map"};
-    Configurable<std::string> effMapPath{"effMapPath", "$HOME/alice/Jpsi-Jets-Analysis/JpsiWorkDir/PIDEfficiency/PIDEfficiencyConverter/IdasElectronMaps_DQ_LHC24_pass1_skimmed_V0candidates/TrackBarrel_Conversions_withPID_nSigmaEl-4-4/effMap_TrackBarrel_Conversions_withPID_nSigmaEl-4-4.root", "Path to root file with PID-efficiency map"};
+    // Configurable<std::string> effMapPath{"effMapPath", "$HOME/alice/Jpsi-Jets-Analysis/workDir/PIDEfficiency/PIDEfficiencyConverter/toyPIDEffMap/toyElectronPidEff.root", "Path to root file with PID-efficiency map"};
+    Configurable<std::string> effMapPath{"effMapPath", "$HOME/alice/Jpsi-Jets-Analysis/workDir/PIDEfficiency/PIDEfficiencyConverter/IdasElectronMaps_DQ_LHC24_pass1_skimmed_V0candidates/TrackBarrel_Conversions_withPID_nSigmaEl-4-4/effMap_TrackBarrel_Conversions_withPID_nSigmaEl-4-4.root", "Path to root file with PID-efficiency map"};
     TH2D* hPMElecEffMap = nullptr;
     void init(o2::framework::InitContext const&)
     {
@@ -321,7 +321,7 @@ struct AnalysisPIDEfficiency{
 //     HistogramRegistry registry{"histos", {}, OutputObjHandlingPolicy::AnalysisObject};
 //     Configurable<bool> test{"test", false, "Limits number of events"};
 //     Configurable<int> Nevts{"NevtsForTest", 100, "Number of events per DF (for testing)"};
-//     Configurable<std::string> effMapPath{"effMapPath", "$HOME/alice/Jpsi-Jets-Analysis/JpsiWorkDir/PIDEfficiency/PIDEfficiencyConverter/toyElectronPidEff.root", "Path to root file with PID-efficiency map"};
+//     Configurable<std::string> effMapPath{"effMapPath", "$HOME/alice/Jpsi-Jets-Analysis/workDir/PIDEfficiency/PIDEfficiencyConverter/toyElectronPidEff.root", "Path to root file with PID-efficiency map"};
 //     TH2D* hPMElecEffMap = nullptr;
 //     void init(o2::framework::InitContext const&)
 //     {

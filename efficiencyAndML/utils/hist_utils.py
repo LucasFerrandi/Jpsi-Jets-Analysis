@@ -566,7 +566,7 @@ def merge_TDirs(root_file, mergeDFs = True, target_dir_name="Merged"):
     # else:
     #     print('Merging of non-"DF" objects is not implemented yet.')
 
-def PIDEfficiencyManyMaps(mapsDirPath = "~/alice/Jpsi-Jets-Analysis/JpsiWorkDir/PIDEfficiency/PIDEfficiencyConverter/output/JpsiEffFromIdasMapsLHC25b14",
+def PIDEfficiencyManyMaps(mapsDirPath = "~/alice/Jpsi-Jets-Analysis/workDir/PIDEfficiency/PIDEfficiencyConverter/output/JpsiEffFromIdasMapsLHC25b14",
                           MCDataset="LHC25b14",
                           test=False,
                           weightedHist="hWeightedJpsiEffPtEta",
