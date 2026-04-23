@@ -94,8 +94,8 @@ This is mainly done by `jpsiFragmentationFunction.cxx` task.
           - Signal function
           - Bkg function
           - etc.
-     - Run `tutorial.py` (or similar ones), which runs `DQFitter` for every x-projection of the histo:
-          - `python tutorial.py configFit_z_Xi.json --run_fit_projections`
+     - Run `fragFuncFitter.py`, which runs `DQFitter` for every x-projection of the histo:
+          - `python fragFuncFitter.py configFit_z_Xi.json --run_fit_projections`
      - A root file should've been created in `output/`, containing:
           - A copy of the input histogram and inclusive mass distribution
           - Results of the fits for every x projection
