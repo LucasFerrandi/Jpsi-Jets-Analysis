@@ -159,6 +159,6 @@ Efficiency calculated in `Jpsi-Jets-Analysis/efficiencyAndML/efficienciesJpsi.ip
 This is done using Boosted Decision Trees
 
 1. Produce a MC J/psi tree (such as one containing `dielectronall` produced using `dqEfficiency`)
-2. Enter Hipe4ML virtual environment such as described in [Efficiency section](#efficiency-calculation)
+2. Enter Hipe4ML virtual environment such as described in [Efficiency section](#efficiencies-calculations)
 3. run `promptSeparation.ipynb`
 4. TODO (25-11-14): With the model trained and converted to ONNX, do the inference on data using MLResponse framework
