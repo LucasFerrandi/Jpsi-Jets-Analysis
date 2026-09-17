@@ -135,7 +135,7 @@ Analysis done in `~/alice/Jpsi-Jets-Analysis/workDir/MC`
 
 In this framework some efficiency scripts use Hipe4ML Python library. Instructions for its usage:
 1. Create a Python virtual environment inside ALIEnv (`alice/Hipe4MLenv`, for example)
-2. Install Hipe4ML in it
+2. Install Hipe4ML in it. You can use my [Hipe4ML fork](https://github.com/LucasFerrandi/hipe4ml)
 3. Enter ALIEnv: `alice` & `source bashrc_alienv`
 4. Enter Hipe4ML venv: `source Hipe4MLev/bin/activate`
 5. Open the script with `code` and select `Hipe4MLenv` Python kernel
