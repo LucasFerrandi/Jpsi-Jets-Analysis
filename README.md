@@ -2,8 +2,6 @@
 
 (created on April 11, 2025. Aliases aimed to my pc)
 
-This is an old backup! This was turned private on 2026-09-16 and from now on, this serves only for historical reasons. A public copy of this repository was created
-
 Repository for J/psi-jets analysis within ALICE's Run 3. In general terms, this framework is meant for:
 
 - Prepare ALICE's data for analysis via data skimming
