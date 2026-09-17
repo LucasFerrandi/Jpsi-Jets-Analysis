@@ -1,0 +1,1 @@
+{"Jpsi_noPID":{"type":"AnalysisCompositeCut","title":"jpsiKineDcaQualitynoPID","useAND":true,"AddCut-jpsiKineSkimmed":{"type":"AnalysisCut","library":"jpsiKineSkimmed"},"AddCut-electronStandardQualityForO2MCdebug":{"type":"AnalysisCut","library":"electronStandardQualityForO2MCdebug"},"AddCut-dcaCut1_ionut":{"type":"AnalysisCut","library":"dcaCut1_ionut"}}}

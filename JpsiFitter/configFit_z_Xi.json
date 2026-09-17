@@ -1,0 +1,147 @@
+{
+    "input": {
+      "input_file_name": "/home/ferrandi/alice/O2Physics/PWGJE/Tasks/JPsiWorkDir/ResultsLHC24am_pass1_DIELC_R4_4/Analysis_z_Correlations_Xi.root",
+      "input_name": "j-psi-fragmentation-function-task/h_diel_z_vs_mass_pT_5000_to_7000MeV",
+      "desired_bins": 700,
+      "pdf_dictionary": {
+        "pdf": [
+          "CB2",
+          "VWG",
+          "SUM"
+        ],
+        "pdfName": [
+          "Jpsi",
+          "Bkg",
+          "SUM"
+        ],
+        "pdfNameForLegend": [
+          "J/#psi",
+          "Background",
+          "Fit"
+        ],
+        "pdfColor": [
+          861,
+          1
+        ],
+        "pdfStyle": [
+          1,
+          2
+        ],
+        "parVal": [
+          [
+            3.07,
+            6.9e-02,
+            0.30,
+            16.0,
+            2.097,
+            8.694
+          ],
+          [
+            3.0,
+            1.0,
+            0.8
+          ],
+          [
+            1000,
+            100,
+            100000
+          ]
+        ],
+        "parLimMin": [
+          [
+            3.00,
+            6.0e-02,
+            0.25,
+            15.0,
+            2.097,
+            8.694
+          ],
+          [
+            -1.2,
+            0.01,
+            -0.5
+          ],
+          [
+            0,
+            0,
+            0
+          ]
+        ],
+        "parLimMax": [
+          [
+            3.11,
+            8.0e-02,
+            0.6,
+            20.0,
+            2.097,
+            8.694
+          ],
+          [
+            5.0,
+            3.0,
+            2.0
+          ],
+          [
+            5000000,
+            5000000,
+            50000000
+          ]
+        ],
+        "parName": [
+          [
+            "meanJpsi",
+            "widthJpsi",
+            "leftLegroughJpsi",
+            "leftLegfineJpsi",
+            "rightLegroughJpsi",
+            "rightLegfineJpsi"
+          ],
+          [
+            "GausCenter",
+            "GausWidth",
+            "GausAsym"
+          ],
+          [
+            "sig_Jpsi",
+            "bkg"
+          ]
+        ],
+        "fitRangeMin": [
+          1.8,
+          1.9,
+          2.0
+        ],
+        "fitRangeMax": [
+          4.4,
+          4.1,
+          3.9
+        ],
+        "doPropagandaPlot": true,
+        "parForPropagandaPlot": [
+          "mean_Jpsi",
+          "width_Jpsi",
+          "sig_Jpsi"
+        ],
+        "parNameForPropagandaPlot": [
+          "#mu_{J/#psi}",
+          "#sigma_{J/#psi}",
+          "#it{N}_{J/#psi}"
+        ],
+        "textForPropagandaPlot": [
+          [
+            0.20,
+            0.87,
+            "Simulation, toy MC"
+          ],
+          [
+            0.20,
+            0.80,
+            "2.5 < #it{y} < 4, J/#psi #rightarrow #mu^{+}#mu^{-}"
+          ]
+        ]
+      }
+    },
+    "output": {
+      "output_file_name": "output/"
+    }
+  }

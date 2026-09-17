@@ -1,0 +1,22 @@
+{
+  "Eta_Pt_kVtxNcontrib": {
+    "type": "TH3",
+    "histClass": "MyHistClass",
+    "title": "Eta vs Pt vs Vertex N-Contrib",
+    "isProfile": false,
+    "nXbins": 40,
+    "xmin": -2.0,
+    "xmax": 2.0,
+    "varX": "kEta",
+    "nYbins": 200,
+    "ymin": 0.0,
+    "ymax": 20.0,
+    "varY": "kPt",
+    "nZbins": 100,
+    "zmin": 0.0,
+    "zmax": 10000.0,
+    "varZ": "kVtxNcontrib",
+    "isdouble": false,
+    "isFillLabelx": false
+  }
+}

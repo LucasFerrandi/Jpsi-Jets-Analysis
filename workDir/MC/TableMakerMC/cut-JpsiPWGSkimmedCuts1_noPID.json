@@ -1,0 +1,15 @@
+{
+    "JpsiPWGSkimmedCuts1_noPID": {
+        "type": "AnalysisCompositeCut",
+        "title": "JpsiPWGSkimmedCuts1_noPID",
+        "useAND": true,
+        "AddCut-jpsiKineSkimmed": {
+            "type": "AnalysisCut",
+            "library": "jpsiKineSkimmed"
+        },
+        "AddCut-electronTrackQualitySkimmed": {
+            "type": "AnalysisCut",
+            "library": "electronTrackQualitySkimmed"
+        }
+    }
+}
