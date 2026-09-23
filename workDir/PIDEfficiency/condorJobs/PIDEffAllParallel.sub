@@ -1,0 +1,24 @@
+universe   = vanilla
+executable = run_pid_eff.sh
+getenv = True # Get my ambient variables
+transfer_input_files = runPIDEffAllMapsDatasets_Condor.sh, configPIDEff.json
+
+should_transfer_files   = YES
+when_to_transfer_output = ON_EXIT
+
+request_cpus   = 1
+request_memory = 4GB
+
+BASE_JSON    = base.json
+MC_LIST = LHC25b14 LHC25b15
+MAPSDIR       = /caminho/para/o/subdir
+DATASETS_DIR = /caminho/para/os/datasets
+NMAPS        = 20
+
+output = logs/pid_eff.$(Cluster).$(Process).out
+error  = logs/pid_eff.$(Cluster).$(Process).err
+log    = logs/pid_eff.$(Cluster).log
+
+arguments = $(Process) $(NMAPS) $(SUBDIR) $(DATASETS_DIR) $(BASE_JSON) "$(MC_LIST)"
+
+queue $(NMAPS)
