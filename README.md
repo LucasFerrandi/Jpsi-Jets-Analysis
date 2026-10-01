@@ -1,4 +1,4 @@
-# Backup for J/psi-jets Analysis
+# J/psi-jets Analysis
 
 (created on April 11, 2025. Aliases aimed to my pc)
 
@@ -50,7 +50,7 @@ The usage of this repository generally demands ALICE's O2 analysis framework
 3. Compile my O2 tasks:
      - Copy `MyO2Tasks/` to `O2Physics/`
      - Include the line `add_subdirectory(MyO2Tasks)`  in `O2Physics/CMakeLists.txt`
-     - Run Ninja to compile O2 
+     - Run Ninja to compile O2
           1. Exit alienv
           2. `cdNinjaBuildDir`
           3. `ninjaRun` to compile everything needed (can take several hours)
@@ -134,6 +134,7 @@ Analysis done in `~/alice/Jpsi-Jets-Analysis/workDir/MC`
 ### Hipe4ML
 
 In this framework some efficiency scripts use Hipe4ML Python library. Instructions for its usage:
+
 1. Create a Python virtual environment inside ALIEnv (`alice/Hipe4MLenv`, for example)
 2. Install Hipe4ML in it. You can use my [Hipe4ML fork](https://github.com/LucasFerrandi/hipe4ml)
 3. Enter ALIEnv: `alice` & `source bashrc_alienv`
@@ -141,15 +142,18 @@ In this framework some efficiency scripts use Hipe4ML Python library. Instructio
 5. Open the script with `code` and select `Hipe4MLenv` Python kernel
 
 ### J/psi Reconstruction Efficiency
+
 Done by the matching between MC-truth-level and MC-reconstructed-level J/psis.
 Efficiency calculated in `Jpsi-Jets-Analysis/efficiencyAndML/efficienciesJpsi.ipynb`. Input to this are the analysisResults.root produced by DQEfficiency task
+
 - Open with `code` and select `Hipe4MLenv` Python kernel
 
 ### J/psi PID efficiency
+
 1. Electron PID-efficiency maps are needed as input
 2. Enter ALICE environment: run `alice`
 3. Then `cd workDir/PIDEfficiency`
-4. run `chmod +x runPIDEffConverterManyMapsAllDatasets26-02-25.sh`, then `./runPIDEffConverterManyMapsAllDatasets26-02-25.sh`. 
+4. run `chmod +x runPIDEffConverterManyMapsAllDatasets26-02-25.sh`, then `./runPIDEffConverterManyMapsAllDatasets26-02-25.sh`.
      - Input AODs and electron maps to be indicated in `configPIDEff.json`
      - Root files with `hWeightedJpsiEffPtEta` and `hMatchedJpsiPtEta` histograms produced and saved in `output` (for prompt and non-prompt)
 5. Final plots produced with `efficiencyAndML/PIDefficiencyJpsi.ipynb` and saved as pdf in `output`
