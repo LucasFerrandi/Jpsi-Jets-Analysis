@@ -1,35 +1,22 @@
-import os
-import sys
-import psutil
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-import xgboost as xgb
-import onnx
-import onnxruntime as ort
 import json
+import os
+from importlib import reload
 
+import matplotlib.pyplot as plt
+import numpy as np
+import onnx
+import pandas as pd
+import xgboost as xgb
+from hipe4ml import analysis_utils, plot_utils
 from hipe4ml.model_handler import ModelHandler
 from hipe4ml.tree_handler import TreeHandler
-from hipe4ml import plot_utils, analysis_utils
 from hipe4ml_converter.h4ml_converter import H4MLConverter
+
 # from hipe4ml.analysis_utils import train_test_generator, bdt_efficiency_array
 
 # from parquet_to_root import parquet_to_root # Apparently parquet_to_root is missing from the repo
-from sklearn.metrics import roc_curve
-
-from importlib import reload
 # Parameters for training
 
-## Default:
-# N_ESTIMATORS = (20, 1000)
-# MAX_DEPTH = (2, 6)
-# LEARNING_RATE = (0.01, 0.1)
-# N_JOBS = 10
-# TIMEOUT = 60
-# N_TRIALS = 100
-
-# pT and centrality bins and type for cut and JSON
 PT_BINS = [(0, 100)]  # pT bins
 # CENT_BINS = [(0, 100)]  # centrality bins #(-1, 100) for pp? Not used?
 CENT_Type = "kCentFT0C" # kCentFT0C, kCentFT0A, kCentFT0M
@@ -40,13 +27,12 @@ NONPROMPTMC_FILE = "/home/ferrandi/alice/Jpsi-Jets-Analysis/efficiencyAndML/prom
 
 # Output directory
 OUT_DIR = "output/MultiClassMoreStat/myVarsNoPIDOptimized/TEMP1AOD"
-FIG_DIR = "output/MultiClassMoreStat/myVarsNoPIDOptimized/TEMP1AOD/fig"
 DEFAULT_OUT_DIR = "output/singleModelDefaultDir"
 
 def runSingleModel(
     features=None,
     pt_bin=None,
-    model_name="default",
+    model_name="default_model",
     out_dir=None,
     data_file=DATA_FILE,
     promptmc_file=PROMPTMC_FILE,
@@ -63,13 +49,13 @@ def runSingleModel(
     save_root_as_parquet=False,
     plot_fewer_shap_feats=False,
     plotFigures=True,
-):
+    ):  
     
     """
     Train and evaluate one BDT feature set in one pT interval.
 
     ---
-    ``usePreviousModel``: If True, the programs verifies whether a already-trained .pkl model exists in out_dir. If so, it will be used and training will be skipped. If not, training will continue normally for that case.
+    ``use_previous_model``: If True, the programs verifies whether a already-trained .pkl model exists in out_dir. If so, it will be used and training will be skipped. If not, training will continue normally for that case.
     ``parquet_as_input``: If True, pass parquet files instead of root files
     ``save_root_as_parquet``: If true, receives root files as input and converts and saves them to parquet
     ``plot_fewer_shap_feats``: If True, SHAP will plot only a few variables. Useful when too many variables (SHAP does not plot too many variables)
@@ -86,42 +72,29 @@ def runSingleModel(
                 DEFAULT_OUT_DIR, str(model_name),
                 f"pt{selected_bin[0]}_{selected_bin[1]}",
             )
-    OUT_DIR = str(out_dir)
-    FIG_DIR = os.path.join(OUT_DIR, "fig")
-    DATA_FILE = data_file
-    PROMPTMC_FILE = promptmc_file
-    NONPROMPTMC_FILE = nonpromptmc_file
-    N_ESTIMATORS = n_estimators
-    MAX_DEPTH = max_depth
-    LEARNING_RATE = learning_rate
-    N_JOBS = n_jobs
-    TIMEOUT = timeout
-    N_TRIALS = n_trials
-    usePreviousModel = use_previous_model
-    parquetAsInput = parquet_as_input
-    saveRootAsParquet = save_root_as_parquet
-    plotFewerShapFeats = plot_fewer_shap_feats
-    
+    out_dir = str(out_dir)
+    fig_dir = os.path.join(out_dir, "fig")
+
     PT_BINS = [tuple(pt_bin)] if pt_bin is not None else [(0, 100)]
     CENT_BINS = [(0, 100)]
     pre_cut = '1.8 < fMass < 5.0 and -0.4 < fDcaXY1 < 0.4 and -0.4 < fDcaZ1 < 0.4 and -0.4 < fDcaXY2 < 0.4 and -0.4 < fDcaZ2 < 0.4'
-    tree_name = None if parquetAsInput else 'O2rtdielectronall'
+    tree_name = None if parquet_as_input else 'O2rtdielectronall'
     if len(PT_BINS) != 1:
         raise ValueError("runSingleModel processes exactly one pT bin per call")
     if PT_BINS[0][0] >= PT_BINS[0][1]:
         raise ValueError(f"Invalid pT bin: {PT_BINS[0]}")
     if features is not None and not features:
         raise ValueError(f"Feature set '{model_name}' cannot be empty")
-    os.makedirs(FIG_DIR, exist_ok=True)
-    os.makedirs(OUT_DIR, exist_ok=True) 
+    os.makedirs(fig_dir, exist_ok=True)
+    os.makedirs(out_dir, exist_ok=True) 
 
     pre_cut = '1.8 < fMass < 5.0 and -0.4 < fDcaXY1 < 0.4 and -0.4 < fDcaZ1 < 0.4 and -0.4 < fDcaXY2 < 0.4 and -0.4 < fDcaZ2 < 0.4'
 
-    if parquetAsInput:
+    if parquet_as_input:
         tree_name = None
-    promptH_origin = TreeHandler(PROMPTMC_FILE, tree_name, folder_name="DF*")
-    nonpromptH_origin = TreeHandler(NONPROMPTMC_FILE, tree_name, folder_name="DF*")
-    dataH_origin = TreeHandler(DATA_FILE, tree_name, folder_name="DF*")
+    promptH_origin = TreeHandler(promptmc_file, tree_name, folder_name="DF*")
+    nonpromptH_origin = TreeHandler(nonpromptmc_file, tree_name, folder_name="DF*")
+    dataH_origin = TreeHandler(data_file, tree_name, folder_name="DF*")
 
     # for i, (ptmin, ptmax) in enumerate(PT_BINS):
     ptmin, ptmax = PT_BINS[0]
@@ -157,7 +130,7 @@ def runSingleModel(
             "and the existing selection cuts."
         )
 
-    if not parquetAsInput and saveRootAsParquet:
+    if not parquet_as_input and save_root_as_parquet:
         promptH_origin.write_df_to_parquet_files("prompt1AOD", "../input/")
         nonpromptH_origin.write_df_to_parquet_files("nonPrompt1AOD", "../input/")
         dataH_origin.write_df_to_parquet_files("bkg1AOD", "../input/")
@@ -231,7 +204,7 @@ def runSingleModel(
 
         plot_utils.plot_distr([bkgH, promptH, nonpromptH], vars_subset, bins=50, labels=leg_labels, log=True, density=True, figsize=(12, 7), alpha=0.3, grid=True)
         plt.subplots_adjust(left=0.06, bottom=0.06, right=0.99, top=0.96, hspace=0.55, wspace=0.55)
-        plt.savefig(f'{FIG_DIR}/varsDistr_{tag}_part{i+1}.pdf')
+        plt.savefig(f'{fig_dir}/varsDistr_{tag}_part{i+1}.pdf')
         if plotFigures:
             plt.show()
         plt.close()
@@ -241,33 +214,33 @@ def runSingleModel(
     for leg in leg_labels:
         corr_leg_labels.append(leg+"-vars Correlations")
     corr_plots1 = plot_utils.plot_corr([bkgH, promptH, nonpromptH], features_for_train, corr_leg_labels)
-    corr_plots1[0].savefig(f'{FIG_DIR}/corr_bkg_{tag}.pdf', bbox_inches='tight')
-    corr_plots1[1].savefig(f'{FIG_DIR}/corr_prompt_{tag}.pdf', bbox_inches='tight')
-    corr_plots1[2].savefig(f'{FIG_DIR}/corr_nonprompt_{tag}.pdf', bbox_inches='tight')
+    corr_plots1[0].savefig(f'{fig_dir}/corr_bkg_{tag}.pdf', bbox_inches='tight')
+    corr_plots1[1].savefig(f'{fig_dir}/corr_prompt_{tag}.pdf', bbox_inches='tight')
+    corr_plots1[2].savefig(f'{fig_dir}/corr_nonprompt_{tag}.pdf', bbox_inches='tight')
 
     # Train model
     # model_clf = xgb.XGBClassifier()
 
     # model_hdl = ModelHandler(model_clf, features_for_train)
     # train_test_data = analysis_utils.train_test_generator([bkgH, promptH, nonpromptH], [0, 1, 2], test_size=0.2, random_state=random_state)
-    # hyper_pars_ranges = {'n_estimators': N_ESTIMATORS, 'max_depth': MAX_DEPTH, 'learning_rate': LEARNING_RATE}
-    # model_hdl.optimize_params_optuna(train_test_data, hyper_pars_ranges, cross_val_scoring='roc_auc_ovo', timeout=TIMEOUT, n_jobs=N_JOBS, n_trials=N_TRIALS, direction='maximize')
+    # hyper_pars_ranges = {'n_estimators': n_estimators, 'max_depth': max_depth, 'learning_rate': learning_rate}
+    # model_hdl.optimize_params_optuna(train_test_data, hyper_pars_ranges, cross_val_scoring='roc_auc_ovo', timeout=timeout, n_jobs=n_jobs, n_trials=n_trials, direction='maximize')
 
     train_test_data = analysis_utils.train_test_generator([bkgH, promptH, nonpromptH], [0, 1, 2], test_size=0.2, random_state=random_state)
 
-    modelPath = f"{OUT_DIR}/modelBDT_{tag}.pkl"
+    modelPath = f"{out_dir}/modelBDT_{tag}.pkl"
 
-    if usePreviousModel and os.path.isfile(modelPath):
+    if use_previous_model and os.path.isfile(modelPath):
         model_hdl = ModelHandler()
         model_hdl.load_model_handler(modelPath)
         print(f"Loaded previous model: {modelPath}")
     else:
-        if usePreviousModel:
+        if use_previous_model:
             print(f"Model {modelPath} not found! Continuing to training.")
         model_clf = xgb.XGBClassifier()
         model_hdl = ModelHandler(model_clf, features_for_train)
-        hyper_pars_ranges = {'n_estimators': N_ESTIMATORS, 'max_depth': MAX_DEPTH, 'learning_rate': LEARNING_RATE}
-        model_hdl.optimize_params_optuna(train_test_data, hyper_pars_ranges, cross_val_scoring='roc_auc_ovo', timeout=TIMEOUT, n_jobs=N_JOBS, n_trials=N_TRIALS, direction='maximize')
+        hyper_pars_ranges = {'n_estimators': n_estimators, 'max_depth': max_depth, 'learning_rate': learning_rate}
+        model_hdl.optimize_params_optuna(train_test_data, hyper_pars_ranges, cross_val_scoring='roc_auc_ovo', timeout=timeout, n_jobs=n_jobs, n_trials=n_trials, direction='maximize')
         model_hdl.train_test_model(train_test_data, multi_class_opt="ovo")
 
 
@@ -279,7 +252,7 @@ def runSingleModel(
 
     figLabels = ['bkg', 'prompt', 'nonprompt']
     for i, fig in enumerate(ml_out_fig):
-        fig.savefig(f'{FIG_DIR}/prediction_{figLabels[i]}_{tag}.pdf', bbox_inches='tight')
+        fig.savefig(f'{fig_dir}/prediction_{figLabels[i]}_{tag}.pdf', bbox_inches='tight')
     if plotFigures:
         plt.show()
     for fig in ml_out_fig:
@@ -329,7 +302,7 @@ def runSingleModel(
         reload(plot_utils)
         plot_utils.plot_bdt_efficiency_vs_var(pt_centers, prompt_eff, prompt_err, nonprompt_eff, nonprompt_err, nonpCut, bkgCut, var_name, fig, axes[i])
     plt.tight_layout()
-    fig.savefig(f'{FIG_DIR}/eff_vs_Pt_nonPcuts_{tag}.pdf', bbox_inches='tight')
+    fig.savefig(f'{fig_dir}/eff_vs_Pt_nonPcuts_{tag}.pdf', bbox_inches='tight')
     if plotFigures:
         plt.show()
     plt.close(fig)
@@ -391,11 +364,11 @@ def runSingleModel(
         bkg_efficiencies=(prompt_eff, nonprompt_eff, bkg_rejection),
     )
     for i, fig in enumerate(bdt_eff_figs[:-1]):
-        fig.savefig(f'{FIG_DIR}/BDT_Efficiencies_{figLabels[i]}_{tag}.pdf', bbox_inches='tight')
+        fig.savefig(f'{fig_dir}/BDT_Efficiencies_{figLabels[i]}_{tag}.pdf', bbox_inches='tight')
     if bdt_eff_figs:
-        bdt_eff_figs[-1].savefig(f'{FIG_DIR}/BDT_BkgRejection_{tag}.pdf', bbox_inches='tight')
+        bdt_eff_figs[-1].savefig(f'{fig_dir}/BDT_BkgRejection_{tag}.pdf', bbox_inches='tight')
 
-    comparison_path = os.path.join(OUT_DIR, f"comparison_{tag}.npz")
+    comparison_path = os.path.join(out_dir, f"comparison_{tag}.npz")
     np.savez_compressed(
         comparison_path,
         y_test=np.asarray(train_test_data[3]),
@@ -406,7 +379,7 @@ def runSingleModel(
         efficiency_cuts=efficiency_cuts,
         **efficiency_arrays,
     )
-    with open(os.path.join(OUT_DIR, f"comparison_{tag}.json"), "w") as comparison_file:
+    with open(os.path.join(out_dir, f"comparison_{tag}.json"), "w") as comparison_file:
         json.dump({"model": model_name, "features": features_for_train, "pt_bin": [ptmin, ptmax]}, comparison_file, indent=2)
 
     bkgRejecDic = {'inclusive':0.4} # todo: decide this value using expected significance from data. One value for each (z, pTjet)?
@@ -415,16 +388,16 @@ def runSingleModel(
     y_pred_test = model_hdl.predict(train_test_data[2], output_margin=False)
     roc_train_test_fig = plot_utils.plot_roc_train_test(train_test_data[3], y_pred_test,
                                                         train_test_data[1], y_pred_train, None, leg_labels, 'macro', multi_class_opt="ovr")
-    roc_train_test_fig.savefig(f'{FIG_DIR}/roc_train_test_{tag}.pdf')
+    roc_train_test_fig.savefig(f'{fig_dir}/roc_train_test_{tag}.pdf')
     plt.close(roc_train_test_fig)
 
     # learn_curve can take long!
     #  learn_curve_fig = plot_utils.plot_learning_curves(model_hdl, train_test_data, 4, figLabels)
-    # learn_curve_fig.savefig(f'{FIG_DIR}/learning_curves_{tag}.pdf')
+    # learn_curve_fig.savefig(f'{fig_dir}/learning_curves_{tag}.pdf')
 
     chosenFeatures = None # If None, all training vars will be plotted
 
-    if plotFewerShapFeats:
+    if plot_fewer_shap_feats:
         dcaVars = [var for var in features_for_train if ('dca' in var.lower() or 'length' in var.lower() or 'deviation' in var.lower()or 'lx' in var.lower() or 'KF' in var or 'tau' in var.lower() or 'cos' in var.lower() or var=="fChi2OverNDFKFGeoTop") and ('mass' not in var.lower() and 'xyz' not in var.lower())] 
         chosenFeatures=dcaVars
 
@@ -433,15 +406,15 @@ def runSingleModel(
     # plt.close(shap_figs[0])
     # plt.close(shap_figs[1])
     # plt.close(shap_figs[2])
-    shap_figs[3].savefig(f'{FIG_DIR}/shapSummary_{tag}.pdf', bbox_inches='tight')
+    shap_figs[3].savefig(f'{fig_dir}/shapSummary_{tag}.pdf', bbox_inches='tight')
     if plotFigures:
         plt.show()
     plt.close('all')
 
     # Save parquet, root and pkl
-    parquet_path = f'{OUT_DIR}/bdt_{tag}.parquet.gzip'
+    parquet_path = f'{out_dir}/bdt_{tag}.parquet.gzip'
     df = dataH.get_data_frame()
-    # parquet_to_root(parquet_path, f'{OUT_DIR}/bdt_{tag}.root', treename='parquettree', verbose=False) # Apparently parquet_to_root is missing from the repo
+    # parquet_to_root(parquet_path, f'{out_dir}/bdt_{tag}.root', treename='parquettree', verbose=False) # Apparently parquet_to_root is missing from the repo
     model_hdl.dump_model_handler(modelPath)
 
     df = dataH.get_data_frame()
@@ -458,7 +431,7 @@ def runSingleModel(
     score_ax.set_xlabel('BDT score')
     score_ax.set_ylabel('Counts')
     score_ax.legend()
-    score_fig.savefig(f'{FIG_DIR}/score_distributions_{tag}.pdf', bbox_inches='tight')
+    score_fig.savefig(f'{fig_dir}/score_distributions_{tag}.pdf', bbox_inches='tight')
     if plotFigures:
         plt.show()
     plt.close(score_fig)
@@ -496,7 +469,7 @@ def runSingleModel(
 
     # Export to ONNX
     features_onnx = [f.replace("f", "k", 1) if f.startswith("f") else f for f in features_for_train]
-    export_to_onnx(model_hdl, prefix=f"{OUT_DIR}/modelBDT_{tag}", feature_names=features_onnx, input_table=parquet_path)
+    export_to_onnx(model_hdl, prefix=f"{out_dir}/modelBDT_{tag}", feature_names=features_onnx, input_table=parquet_path)
 
     print("Training and evaluation completed. Start JSON export.")
 
@@ -532,7 +505,7 @@ def runSingleModel(
                 "AddMLCut-nonprompt": {"var": "kBdtNonprompt", "cut": cut_vals["nonprompt"], "exclude": False}
             }
 
-    json_output_path = os.path.join(OUT_DIR, "bdt_config_multiclass.json")
+    json_output_path = os.path.join(out_dir, "bdt_config_multiclass.json")
     with open(json_output_path, "w") as f_json:
         json.dump(json_dict, f_json, indent=2)
 
@@ -554,7 +527,7 @@ def runSingleModel(
         "model": model_name,
         "features": list(features_for_train),
         "pt_bin": [ptmin, ptmax],
-        "output_dir": OUT_DIR,
+        "output_dir": out_dir,
         "comparison_file": comparison_path,
         "model_handler": model_hdl,
     }
