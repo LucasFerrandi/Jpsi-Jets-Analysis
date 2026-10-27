@@ -717,15 +717,15 @@ def plot_th2_with_python(a, path, output_dir_name='analysis-p-i-d-efficiency;1')
 #     return ptBins
 
 
-def createGeomPtBins2(xMin=1.0, xMax=30.0, nBins=27, beta=0.0):
+def createGeomPtBins2(xMin=1.0, xMax=30.0, nBins=27, beta=0.0, round=False):
     """
     Hybrid linear/geometric binning.
 
     beta = 0 → linear spacing,
     beta = 1 → geometric spacing,
     beta > 1 → stronger geometric growth
+    round → values will be rounded to 2nd decimal 
     """
-    print("test")
     t = np.linspace(0, 1, nBins + 1)
 
     log_part = np.log(xMin) + t * np.log(xMax / xMin)
@@ -733,4 +733,6 @@ def createGeomPtBins2(xMin=1.0, xMax=30.0, nBins=27, beta=0.0):
 
     x = np.exp(beta * log_part + (1 - beta) * np.log(lin_part))
 
-    return np.round(x, 2)
+    if round:
+        x = np.round(x, 2)
+    return x
