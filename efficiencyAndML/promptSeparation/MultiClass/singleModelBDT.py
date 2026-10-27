@@ -20,12 +20,6 @@ from sklearn.metrics import roc_curve
 
 from importlib import reload
 # Parameters for training
-N_ESTIMATORS = (20, 1000)
-MAX_DEPTH = (2, 6)
-LEARNING_RATE = (0.01, 0.1)
-N_JOBS = 10
-TIMEOUT = 60
-N_TRIALS = 100
 
 ## Default:
 # N_ESTIMATORS = (20, 1000)
@@ -44,11 +38,6 @@ DATA_FILE = "/home/ferrandi/alice/Jpsi-Jets-Analysis/efficiencyAndML/promptSepar
 PROMPTMC_FILE = "/home/ferrandi/alice/Jpsi-Jets-Analysis/efficiencyAndML/promptSeparation/MultiClass/input/prompt1AOD.parquet.gzip"
 NONPROMPTMC_FILE = "/home/ferrandi/alice/Jpsi-Jets-Analysis/efficiencyAndML/promptSeparation/MultiClass/input/nonPrompt1AOD.parquet.gzip"
 
-parquetAsInput = True # If false, input should be .root
-usePreviousModel = False
-saveRootAsParquet = False
-plotFewerShapFeats = False
-
 # Output directory
 OUT_DIR = "output/MultiClassMoreStat/myVarsNoPIDOptimized/TEMP1AOD"
 FIG_DIR = "output/MultiClassMoreStat/myVarsNoPIDOptimized/TEMP1AOD/fig"
@@ -62,24 +51,32 @@ def runSingleModel(
     data_file=DATA_FILE,
     promptmc_file=PROMPTMC_FILE,
     nonpromptmc_file=NONPROMPTMC_FILE,
-    n_estimators=N_ESTIMATORS,
-    max_depth=MAX_DEPTH,
-    learning_rate=LEARNING_RATE,
-    n_jobs=N_JOBS,
-    timeout=TIMEOUT,
-    n_trials=N_TRIALS,
+    n_estimators=(20, 1000),
+    max_depth=(2, 6),
+    learning_rate=(0.01, 0.1),
+    n_jobs=10,
+    timeout=60,
+    n_trials=100,
     random_state=42,
     use_previous_model=False,
-    parquet_as_input=parquetAsInput,
-    save_root_as_parquet=saveRootAsParquet,
-    plot_fewer_shap_feats=plotFewerShapFeats,
+    parquet_as_input=True,
+    save_root_as_parquet=False,
+    plot_fewer_shap_feats=False,
     plotFigures=True,
 ):
-    """Train and evaluate one BDT feature set in one pT interval.
+    
+    """
+    Train and evaluate one BDT feature set in one pT interval.
 
+    ---
+    ``usePreviousModel``: If True, the programs verifies whether a already-trained .pkl model exists in out_dir. If so, it will be used and training will be skipped. If not, training will continue normally for that case.
+    ``parquet_as_input``: If True, pass parquet files instead of root files
+    ``save_root_as_parquet``: If true, receives root files as input and converts and saves them to parquet
+    ``plot_fewer_shap_feats``: If True, SHAP will plot only a few variables. Useful when too many variables (SHAP does not plot too many variables)
     ``plotFigures`` controls interactive display. All figures are still generated
     and saved when it is false. Pass a unique ``out_dir`` for each model/bin.
     """
+
     if out_dir is None:
         if features is None and pt_bin is None and model_name == "default":
             out_dir = DEFAULT_OUT_DIR
@@ -104,6 +101,7 @@ def runSingleModel(
     parquetAsInput = parquet_as_input
     saveRootAsParquet = save_root_as_parquet
     plotFewerShapFeats = plot_fewer_shap_feats
+    
     PT_BINS = [tuple(pt_bin)] if pt_bin is not None else [(0, 100)]
     CENT_BINS = [(0, 100)]
     pre_cut = '1.8 < fMass < 5.0 and -0.4 < fDcaXY1 < 0.4 and -0.4 < fDcaZ1 < 0.4 and -0.4 < fDcaXY2 < 0.4 and -0.4 < fDcaZ2 < 0.4'
