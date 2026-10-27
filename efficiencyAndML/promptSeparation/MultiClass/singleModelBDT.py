@@ -19,7 +19,6 @@ from hipe4ml_converter.h4ml_converter import H4MLConverter
 from sklearn.metrics import roc_curve
 
 from importlib import reload
-
 # Parameters for training
 N_ESTIMATORS = (20, 1000)
 MAX_DEPTH = (2, 6)
@@ -258,11 +257,15 @@ def runSingleModel(
 
     train_test_data = analysis_utils.train_test_generator([bkgH, promptH, nonpromptH], [0, 1, 2], test_size=0.2, random_state=random_state)
 
-    if usePreviousModel:
-        previousModel = f"{OUT_DIR}/modelBDT_{tag}.pkl"
+    modelPath = f"{OUT_DIR}/modelBDT_{tag}.pkl"
+
+    if usePreviousModel and os.path.isfile(modelPath):
         model_hdl = ModelHandler()
-        model_hdl.load_model_handler(previousModel)
+        model_hdl.load_model_handler(modelPath)
+        print(f"Loaded previous model: {modelPath}")
     else:
+        if usePreviousModel:
+            print(f"Model {modelPath} not found! Continuing to training.")
         model_clf = xgb.XGBClassifier()
         model_hdl = ModelHandler(model_clf, features_for_train)
         hyper_pars_ranges = {'n_estimators': N_ESTIMATORS, 'max_depth': MAX_DEPTH, 'learning_rate': LEARNING_RATE}
@@ -290,8 +293,9 @@ def runSingleModel(
     y_pred_test = model_hdl.predict(train_test_data[2], output_margin=False)
     y_pred_train = model_hdl.predict(train_test_data[0], output_margin=False)
 
-    pTmax = 10
+    # Evaluate the efficiency over this model's full configured pT interval.
     pT_dist = train_test_data[2]['fPt']
+    pTmax = min(ptmax, float(np.max(pT_dist)))
     var_name = r"$p_{\mathrm{T}}^{\mathrm{J}/\psi}$ (GeV/$c$)" # pT
     bkgCut = 0.8
     NpTpoints = 20
@@ -309,7 +313,6 @@ def runSingleModel(
     efficiency_arrays = {}
 
     for i, nonpCut in enumerate(efficiency_cuts):
-        print(nonpCut, i)
         pt_centers, prompt_eff, prompt_err, nonprompt_eff, nonprompt_err =  analysis_utils.bdt_efficiency_vs_var(
                 train_test_data[3],
                 y_pred_test,
@@ -409,9 +412,6 @@ def runSingleModel(
         json.dump({"model": model_name, "features": features_for_train, "pt_bin": [ptmin, ptmax]}, comparison_file, indent=2)
 
     bkgRejecDic = {'inclusive':0.4} # todo: decide this value using expected significance from data. One value for each (z, pTjet)?
-    # eff of p and np for each np cut in np.linspace(0, 0.95, 20)
-    for z, bkgRejec in bkgRejecDic.items():
-        print(z, bkgRejec)
 
     y_pred_train = model_hdl.predict(train_test_data[0], output_margin=False)
     y_pred_test = model_hdl.predict(train_test_data[2], output_margin=False)
@@ -420,7 +420,7 @@ def runSingleModel(
     roc_train_test_fig.savefig(f'{FIG_DIR}/roc_train_test_{tag}.pdf')
     plt.close(roc_train_test_fig)
 
-    # Can take long!
+    # learn_curve can take long!
     #  learn_curve_fig = plot_utils.plot_learning_curves(model_hdl, train_test_data, 4, figLabels)
     # learn_curve_fig.savefig(f'{FIG_DIR}/learning_curves_{tag}.pdf')
 
@@ -444,7 +444,7 @@ def runSingleModel(
     parquet_path = f'{OUT_DIR}/bdt_{tag}.parquet.gzip'
     df = dataH.get_data_frame()
     # parquet_to_root(parquet_path, f'{OUT_DIR}/bdt_{tag}.root', treename='parquettree', verbose=False) # Apparently parquet_to_root is missing from the repo
-    model_hdl.dump_model_handler(f'{OUT_DIR}/modelBDT_{tag}.pkl')
+    model_hdl.dump_model_handler(modelPath)
 
     df = dataH.get_data_frame()
     y_pred = model_hdl.model.predict_proba(df[features_for_train]) # Sums to 1 for each candidate!

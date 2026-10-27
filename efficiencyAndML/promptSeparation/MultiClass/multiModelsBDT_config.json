@@ -1,11 +1,15 @@
 {
-  "DATA_FILE": "/home/ferrandi/alice/Jpsi-Jets-Analysis/efficiencyAndML/promptSeparation/MultiClass/input/bkg1AOD.parquet.gzip",
-  "PROMPTMC_FILE": "/home/ferrandi/alice/Jpsi-Jets-Analysis/efficiencyAndML/promptSeparation/MultiClass/input/prompt1AOD.parquet.gzip",
-  "NONPROMPTMC_FILE": "/home/ferrandi/alice/Jpsi-Jets-Analysis/efficiencyAndML/promptSeparation/MultiClass/input/nonPrompt1AOD.parquet.gzip",
+  "DATA_FILE": "/home/ferrandi/alice/Jpsi-Jets-Analysis/efficiencyAndML/promptSeparation/MultiClass/input/bkgFewAODS.parquet.gzip",
+  "PROMPTMC_FILE": "/home/ferrandi/alice/Jpsi-Jets-Analysis/efficiencyAndML/promptSeparation/MultiClass/input/promptFewAODS.parquet.gzip",
+  "NONPROMPTMC_FILE": "/home/ferrandi/alice/Jpsi-Jets-Analysis/efficiencyAndML/promptSeparation/MultiClass/input/nonPromptFewAODS.parquet.gzip",
   "OUT_DIR": "output/multiModelsBDT",
   "PT_BINS": [
     [
       0,
+      5
+    ],
+    [
+      5,
       100
     ]
   ],
